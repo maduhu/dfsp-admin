@@ -1,0 +1,44 @@
+{
+  "implementation": "dfsp-admin",
+  "console": {
+    "port": 30020,
+    "server": {
+      "host": "0.0.0.0",
+      "port": 30020
+    }
+  },
+  "stdOut": {
+    "mode": "dev"
+  },
+  "log": {
+    "streams": [{
+      "level": "trace",
+      "stream": "../logRotateStream",
+      "streamConfig": {
+        "path": "ut5_%Y-%m-%d.log",
+        "symlink": "ut5.log",
+        "compress": true
+      }
+    }]
+  },
+  "httpserver": {
+    "packer": {
+      "hotReload": true,
+      "name": "webpack",
+      "assets": {
+        "quiet": true
+      },
+      "entry": {
+        "bundle": ["./browser/index.js"]
+      }
+    }
+  },
+  "masterBus": {
+    "logLevel": "debug",
+    "socket": "dfsp-admin"
+  },
+  "workerBus": {
+    "logLevel": "debug"
+  },
+  "debug": true
+}

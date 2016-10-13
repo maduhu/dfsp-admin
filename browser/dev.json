@@ -1,0 +1,21 @@
+{
+  "repl":false,
+  "console": false,
+  "debug": true,
+  "masterBus": {
+    "logLevel": "trace",
+    "socket": false
+  },
+  "workerBus": {
+    "logLevel": "trace"
+  },
+  "backend": {
+    "logLevel": "trace",
+    "uri": "/rpc",
+    "method": "post",
+    "parseResponse": false,
+    "raw":{
+      "json":true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "implementation": "dfsp-admin",
+  "repl": false,
+  "console": false,
+  "log": false,
+  "debug": true,
+  "workDir": "./tmp",
+  "masterBus": {
+    "logLevel": "error",
+    "socket": "dfsp-admin"
+  },
+  "workerBus": {
+    "logLevel": "error"
+  },
+  "performance": {
+    "id": "dfsp-admin",
+    "influx": {
+      "host": "influxdb",
+      "port": 4444
+    }
+  }
+}

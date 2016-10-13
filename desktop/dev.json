@@ -1,0 +1,21 @@
+{
+  "implementation" : "dfsp-admin",
+  "repl":false,
+  "console": {
+    "host": "127.0.0.1",
+    "port": 30020
+  },
+  "masterBus": {
+    "logLevel": "trace",
+    "socket": false
+  },
+  "workerBus": {
+    "logLevel": "trace"
+  },
+  "backend": {
+    "logLevel": "trace",
+    "uri": "/rpc",
+    "url": "http://127.0.0.1:8020",
+    "method": "post"
+  }
+}
