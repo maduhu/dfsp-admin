@@ -1,8 +1,7 @@
 module.exports = {
   ports: [
     require('../httpserver'),
-    require('../httpclient'),
-    require('../rpc')
+    require('../httpclient')
   ],
   modules: {
     utfront: require('ut-front')({main: '../browser', from: __dirname}),
