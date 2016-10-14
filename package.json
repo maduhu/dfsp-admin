@@ -36,6 +36,7 @@
     "ut-front": "~5.8.4",
     "ut-front-react": "~5.28.1",
     "ut-run":"~6.0.2",
+    "ut-rule": "^5.5.0",
     "react": "15.2.1",
     "react-dom": "15.2.1",
     "react-router": "2.5.2",

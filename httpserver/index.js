@@ -3,7 +3,7 @@ module.exports = {
   id: 'httpserver',
   createPort: require('ut-port-httpserver'),
   logLevel: 'trace',
-  imports: ['utfront', 'frontend', 'staticResources'],
+  imports: ['utfront', 'frontend', 'staticResources', 'ruleHTTP'],
   api: ['admin'],
   port: 8020,
   dist: path.resolve(__dirname, '../dist'),
