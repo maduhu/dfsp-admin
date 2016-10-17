@@ -6,7 +6,7 @@ import {
 import implReducers from './reducers'
 import UtRuleReducers from 'ut-rule/ui/react/reducers'
 import UtRuleRoutes from 'ut-rule/ui/react/routes'
-import { Route, Redirect } from 'react-router';
+import { Route, Redirect } from 'react-router'
 
 module.exports = {
   init: function (bus) {
@@ -24,7 +24,7 @@ module.exports = {
           {UtRuleRoutes}
         </Route>
       </Route>
-    );
+    )
     ReactDOM.render(
       <UtFront
         reducers={{...implReducers, ...UtRuleReducers}}
