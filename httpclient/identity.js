@@ -4,7 +4,7 @@ module.exports = {
   url: 'http://localhost:8012',
   namespace: ['identity'],
   method: 'post',
-  'check.request.send': function(msg, $meta) {
+  'check.request.send': function (msg, $meta) {
     msg.uri = '/rpc'
     return this.config.send(msg, $meta)
   }
