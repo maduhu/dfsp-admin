@@ -11,9 +11,9 @@ module.exports = {
     var check = function (key) {
       return !params || ~params.indexOf(key)
     }
-    if (check('rule')) {
+    if (check('channel')) {
       result = result.concat([{
-        type: 'rule',
+        type: 'channel',
         value: 1,
         display: 'USSD'
       }])
