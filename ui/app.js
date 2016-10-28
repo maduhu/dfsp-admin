@@ -5,13 +5,19 @@ import {
 } from 'ut-front/react'
 import initApp from 'ut-front-react/initApp'
 import MaterialUILayout from 'ut-front-react/components/MaterialUILayout'
-import {actionList} from 'ut-front-react/pages/Login/actions'
+import {
+  actionList
+} from 'ut-front-react/pages/Login/actions'
 import UtRuleReducers from 'ut-rule/ui/react/reducers'
-import {UtRuleRoutes} from 'ut-rule/ui/react'
+import {
+  UtRuleRoutes
+} from 'ut-rule/ui/react'
 import UTFrontReactReducers from 'ut-front-react/reducers'
 import tabRecuders from 'ut-front-react/containers/TabMenu/reducers'
-import { Route } from 'react-router'
-import Provider from './provider';
+import {
+  Route
+} from 'react-router'
+import Provider from './provider'
 
 module.exports = {
   init: function (bus) {
@@ -21,7 +27,7 @@ module.exports = {
   },
   load: function () {
     const routes = (
-        <Route>
+      <Route>
           {UtRuleRoutes()}
         </Route>
     )

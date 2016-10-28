@@ -7,7 +7,10 @@ module.exports = {
     require('../mocks')
   ],
   modules: {
-    utfront: require('ut-front')({main: '../browser', from: __dirname}),
+    utfront: require('ut-front')({
+      main: '../browser',
+      from: __dirname
+    }),
     frontend: require('ut-front-react'),
     staticResources: require('../ui/staticResources'),
     identity: {},
@@ -16,17 +19,17 @@ module.exports = {
   validations: {
     identity: {
       'check': {
-          description: 'identity check',
-          notes: ['identity check'],
-          tags: ['identity'],
-          params: joi.object({
-              username: joi.string(),
-              timezone: joi.string(),
-              password: joi.string()
-          }),
-          auth: false,
-          route: '/login',
-          result: joi.any()
+        description: 'identity check',
+        notes: ['identity check'],
+        tags: ['identity'],
+        params: joi.object({
+          username: joi.string(),
+          timezone: joi.string(),
+          password: joi.string()
+        }),
+        auth: false,
+        route: '/login',
+        result: joi.any()
       }
     }
   }
