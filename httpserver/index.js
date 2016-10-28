@@ -4,7 +4,7 @@ module.exports = {
   createPort: require('ut-port-httpserver'),
   logLevel: 'trace',
   imports: ['utfront', 'frontend', 'staticResources', 'ruleHTTP'],
-  api: ['admin'],
+  api: ['identity'],
   port: 8020,
   dist: path.resolve(__dirname, '../dist'),
   routes: {
@@ -12,7 +12,7 @@ module.exports = {
       method: '*',
       path: '/rpc/{method?}',
       config: {
-        auth: 'basic'
+        auth: false
       }
     }
   },
