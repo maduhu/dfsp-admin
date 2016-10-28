@@ -1,6 +1,6 @@
 {
   "implementation": "dfsp-admin",
-  "console": {
+  "###console": {
     "port": 30020,
     "server": {
       "host": "0.0.0.0",

@@ -1,10 +1,7 @@
 {
   "implementation" : "dfsp-admin",
   "repl":false,
-  "console": {
-    "host": "127.0.0.1",
-    "port": 30020
-  },
+  "console": false,
   "masterBus": {
     "logLevel": "trace",
     "socket": false
