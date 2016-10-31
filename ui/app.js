@@ -22,7 +22,9 @@ import Provider from './provider'
 module.exports = {
   init: function (bus) {
     this.bus = bus
-    document.getElementsByTagName('head')[0].innerHTML += '<link type="text/css" rel="stylesheet" href="/s/rule/style.css">'
+    document.getElementsByTagName('head')[0].innerHTML +=
+      '<link type="text/css" rel="stylesheet" href="/s/rule/style.css">' +
+      '<link type="text/css" rel="stylesheet" href="/s/dfsp_admin/style.css">'
     document.title = 'DFSP Admin'
   },
   load: function () {
