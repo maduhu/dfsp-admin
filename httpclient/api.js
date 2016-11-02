@@ -11,6 +11,13 @@ module.exports = {
     var check = function (key) {
       return !params || ~params.indexOf(key)
     }
+    if (check('currency')) {
+      result = result.concat([{
+        type: 'currency',
+        value: 'USD',
+        display: 'USD'
+      }])
+    }
     if (check('channel')) {
       result = result.concat([{
         type: 'channel',
