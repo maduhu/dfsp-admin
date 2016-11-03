@@ -3,7 +3,7 @@ module.exports = {
   createPort: require('ut-port-script'),
   namespace: ['core'],
   logLevel: 'trace',
-  'core.itemTranslattion.fetch': function (msg, $meta) {
+  'core.itemTranslation.fetch': function (msg, $meta) {
     return []
   }
 }
