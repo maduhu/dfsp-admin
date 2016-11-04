@@ -16,6 +16,10 @@ module.exports = {
         type: 'currency',
         value: 'USD',
         display: 'USD'
+      },{
+        type: 'currency',
+        value: 'TZS',
+        display: 'TZS'
       }])
     }
     if (check('channel')) {
@@ -44,6 +48,14 @@ module.exports = {
         type: 'city',
         value: 1,
         display: 'Seattle'
+      }, {
+        type: 'city',
+        value: 2,
+        display: 'Redmond'
+      }, {
+        type: 'city',
+        value: 3,
+        display: 'San Francisco'
       }])
     }
     if (check('organization')) {
