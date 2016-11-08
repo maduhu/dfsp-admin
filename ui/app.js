@@ -30,7 +30,7 @@ module.exports = {
   load: function () {
     const routes = (
       <Route>
-          {UtRuleRoutes()}
+          {UtRuleRoutes(this.bus.config['ut-rule'])}
         </Route>
     )
     ReactDOM.render(
