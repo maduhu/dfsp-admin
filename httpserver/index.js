@@ -7,6 +7,7 @@ module.exports = {
   api: ['identity'],
   port: 8020,
   dist: path.resolve(__dirname, '../dist'),
+  validationPassThrough: true,
   routes: {
     rpc: {
       method: '*',
