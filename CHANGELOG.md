@@ -1,3 +1,13 @@
+<a name="0.1.6"></a>
+## [0.1.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.1.5...v0.1.6) (2016-11-23)
+
+
+### Bug Fixes
+
+* bump react version and uncomment console port settings ([cda869b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/cda869b))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.1.4...v0.1.5) (2016-11-22)
 
