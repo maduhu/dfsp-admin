@@ -1,4 +1,5 @@
 var path = require('path')
+var pckgJson = require('../package.json')
 
 module.exports = {
   start: function () {
@@ -15,6 +16,16 @@ module.exports = {
           index: false,
           lookupCompressed: true
         }
+      }
+    },
+    {
+      method: 'GET',
+      path: '/version',
+      config: {
+        auth: false
+      },
+      handler: function(request, reply) {
+          reply(pckgJson.version)
       }
     }])
   }
