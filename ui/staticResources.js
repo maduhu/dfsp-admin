@@ -24,8 +24,8 @@ module.exports = {
       config: {
         auth: false
       },
-      handler: function(request, reply) {
-          reply(pckgJson.version)
+      handler: function (request, reply) {
+        reply(pckgJson.version)
       }
     }])
   }
