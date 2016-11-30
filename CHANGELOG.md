@@ -1,3 +1,19 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.1.7...v0.2.0) (2016-11-30)
+
+
+### Bug Fixes
+
+* fix linting ([5b170cc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5b170cc))
+* update dependencies ([58718e3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/58718e3))
+
+
+### Features
+
+* add version on /version ([4c0de76](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4c0de76))
+
+
+
 <a name="0.1.7"></a>
 ## [0.1.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.1.6...v0.1.7) (2016-11-28)
 
