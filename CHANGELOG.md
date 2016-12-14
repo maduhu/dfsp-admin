@@ -1,3 +1,20 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.2.1...v0.3.0) (2016-12-14)
+
+
+### Bug Fixes
+
+* add dependencies to html-webpack-plugin and postcss-assets ([eecb25a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/eecb25a))
+* add dependency to lodash.find ([75885fd](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/75885fd))
+* linting ([e34c0ae](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e34c0ae))
+
+
+### Features
+
+* update codebase according to latest versions of http server, ut-front, etc... ([4d90131](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4d90131))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.2.0...v0.2.1) (2016-11-30)
 
