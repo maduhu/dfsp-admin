@@ -1,4 +1,5 @@
 var joi = require('joi')
+var path = require('path')
 module.exports = {
   ports: [
     require('../httpserver'),
@@ -9,7 +10,8 @@ module.exports = {
   modules: {
     utfront: require('ut-front')({
       main: '../browser',
-      from: __dirname
+      from: __dirname,
+      configPath: path.resolve(__dirname, '../config')
     }),
     frontend: require('ut-front-react'),
     staticResources: require('../ui/staticResources'),
@@ -18,7 +20,7 @@ module.exports = {
   },
   validations: {
     identity: {
-      'check': {
+      check: {
         description: 'identity check',
         notes: ['identity check'],
         tags: ['identity'],

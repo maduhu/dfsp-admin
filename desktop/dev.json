@@ -2,6 +2,7 @@
   "implementation" : "dfsp-admin",
   "repl":false,
   "console": false,
+  "log": false,
   "masterBus": {
     "logLevel": "trace",
     "socket": false

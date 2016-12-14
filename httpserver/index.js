@@ -7,6 +7,7 @@ module.exports = {
   api: ['identity'],
   port: 8020,
   dist: path.resolve(__dirname, '../dist'),
+  entryPoint: path.join(__dirname, '..', 'browser', 'index.js'),
   validationPassThrough: true,
   routes: {
     rpc: {
@@ -15,12 +16,6 @@ module.exports = {
       config: {
         auth: false
       }
-    }
-  },
-  start: function (bus) {
-    if (this.config.packer && this.config.packer.entry && this.config.packer.entry.bundle) {
-      // set absolute path for entry bundle so that front-end could work the process has been started from another implementation.
-      this.config.packer.entry.bundle[0] = path.join(path.resolve(__dirname, '..'), this.config.packer.entry.bundle[0])
     }
   }
 }

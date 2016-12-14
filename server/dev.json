@@ -6,6 +6,10 @@
       "port": 30020
     }
   },
+  "checkPermission": true,
+  "defaultLanguage": "en",
+  "debug": true,
+  "repl_": false,
   "stdOut": {
     "mode": "dev"
   },
@@ -23,13 +27,8 @@
   "httpserver": {
     "packer": {
       "hotReload": true,
-      "name": "webpack",
-      "assets": {
-        "quiet": true
-      },
-      "entry": {
-        "bundle": ["./browser/index.js"]
-      }
+      "translate": "./public/messages.en.po",
+      "name": "webpack"
     }
   },
   "masterBus": {
