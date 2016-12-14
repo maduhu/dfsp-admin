@@ -49,6 +49,7 @@
     "ut-run": "~7.2.1"
   },
   "devDependencies": {
+    "lodash.find": "4.5.0",
     "bell-on-bundler-error-plugin": "1.0.8",
     "babel-plugin-add-module-exports": "0.2.1",
     "babel-core": "6.18.2",
