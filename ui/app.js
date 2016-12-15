@@ -15,9 +15,11 @@ import {
 import UTFrontReactReducers from 'ut-front-react/reducers'
 import tabRecuders from 'ut-front-react/containers/TabMenu/reducers'
 import {
-  Route
+  Route,
+  Redirect
 } from 'react-router'
 import Provider from './provider'
+import { getRoute } from 'ut-front/react/routerHelper';
 
 module.exports = {
   init: function (bus) {
@@ -30,6 +32,7 @@ module.exports = {
   load: function () {
     const routes = (
       <Route>
+          <Redirect from='/' to={getRoute('ut-rule:home')} />
           {UtRuleRoutes(this.bus.config['ut-rule'])}
         </Route>
     )
