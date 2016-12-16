@@ -1,3 +1,15 @@
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.3.1...v0.3.2) (2016-12-16)
+
+
+### Bug Fixes
+
+* add redirect to /rule ([74fd0ad](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/74fd0ad))
+* linting ([2cc1543](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/2cc1543))
+* update dependencies ([ee4714c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ee4714c))
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.3.0...v0.3.1) (2016-12-14)
 
