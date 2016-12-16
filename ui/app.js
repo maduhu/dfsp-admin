@@ -19,7 +19,7 @@ import {
   Redirect
 } from 'react-router'
 import Provider from './provider'
-import { getRoute } from 'ut-front/react/routerHelper';
+import { getRoute } from 'ut-front/react/routerHelper'
 
 module.exports = {
   init: function (bus) {
