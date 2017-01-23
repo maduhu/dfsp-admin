@@ -6,7 +6,9 @@ const httpserver = require('./httpserver/index.js')
 var wb = require('ut-front/webpack/ut-front.config')({
   entryPoint: [require.resolve(httpserver.entryPoint)],
   outputPath: path.resolve(__dirname, 'dist'),
-  configPath: path.resolve(__dirname, 'config')
+  cssImport: {
+    path: path.resolve(__dirname, 'config')
+  }
 }, false)
 wb.assetsConfig = {
   quiet: true

@@ -5,10 +5,9 @@ import {
 } from 'ut-front/react'
 import initApp from 'ut-front-react/initApp'
 import MaterialUILayout from 'ut-front-react/components/MaterialUILayout'
-import {
-  actionList
-} from 'ut-front-react/pages/Login/actions'
+import { LOGOUT } from 'ut-front-react/containers/LoginForm/actionTypes'
 import UtRuleReducers from 'ut-rule/ui/react/reducers'
+import favicon from 'ut-front-react/assets/images/favicon.ico'
 import {
   UtRuleRoutes
 } from 'ut-rule/ui/react'
@@ -26,7 +25,7 @@ module.exports = {
     this.bus = bus
     document.getElementsByTagName('head')[0].innerHTML +=
       '<link type="text/css" rel="stylesheet" href="/s/rule/style.css">' +
-      '<link type="text/css" rel="stylesheet" href="/s/dfsp_admin/style.css">'
+      `<link href="${favicon}" rel="icon" type="image/x-icon" />`
     document.title = 'DFSP Admin'
   },
   load: function () {
@@ -36,19 +35,25 @@ module.exports = {
           {UtRuleRoutes(this.bus.config['ut-rule'])}
         </Route>
     )
-    ReactDOM.render(
+    var render = (app) => ReactDOM.render(
       <Provider>
         <MaterialUILayout>
           <UtFront
             reducers={{...UTFrontReactReducers, ...UtRuleReducers, ...tabRecuders}}
             utBus={this.bus}
-            resetAction={actionList.LOGOUT}
+            resetAction={LOGOUT}
             environment={!this.bus.config || !this.bus.config.debug ? 'production' : ''}>
-              {initApp({routes: routes})}
+              {app}
           </UtFront>
         </MaterialUILayout>
       </Provider>,
       document.getElementById('utApp')
     )
+    render(initApp({routes: routes}))
+    if (module.hot) {
+      module.hot.accept('ut-front-react/initApp', () => {
+        render(require('ut-front-react/initApp').default({routes: routes}))
+      })
+    }
   }
 }

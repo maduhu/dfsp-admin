@@ -14,9 +14,8 @@ module.exports = {
       configPath: path.resolve(__dirname, '../config')
     }),
     frontend: require('ut-front-react'),
-    staticResources: require('../ui/staticResources'),
-    identity: {},
-    ruleHTTP: require('ut-rule/ui/react/http')
+    ruleHTTP: require('ut-rule/ui/react/http'),
+    identity: {}
   },
   validations: {
     identity: {
@@ -24,11 +23,7 @@ module.exports = {
         description: 'identity check',
         notes: ['identity check'],
         tags: ['identity'],
-        params: joi.object({
-          username: joi.string(),
-          timezone: joi.string(),
-          password: joi.string()
-        }),
+        params: joi.any(),
         auth: false,
         route: '/login',
         result: joi.any()
