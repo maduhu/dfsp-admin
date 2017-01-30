@@ -45,7 +45,7 @@
     "strict-uri-encode": "1.1.0",
     "ut-bus": "5.8.1",
     "ut-front": "6.4.4",
-    "ut-front-react": "8.1.25",
+    "ut-front-react": "^8.6.7",
     "ut-port-console": "6.2.2",
     "ut-port-httpserver": "8.2.6",
     "ut-port-jsonrpc": "5.5.9",
