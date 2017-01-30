@@ -7,6 +7,8 @@
     "changelog": "ut-changelog",
     "check": "ut-check",
     "circleci:build": "ut-circleci-build",
+    "circleci:cover": "ut-circleci-cover",
+    "circleci:tag": "ut-circleci-tag",
     "circleci:push": "ut-circleci-push",
     "circleci:test": "ut-circleci-test",
     "cover": "ut-cover",
@@ -93,7 +95,7 @@
     "tap-xunit": "1.4.0",
     "url-loader": "0.5.7",
     "ut-po-loader": "^5.5.3",
-    "ut-tools": "^5.10.8",
+    "ut-tools": "^5.13.5",
     "ut-translate-loader": "^5.5.3",
     "webpack": "2.1.0-beta.27"
   },
