@@ -5,24 +5,35 @@ import {
 } from 'react'
 import implementationStyle from './browser/style.css'
 import {
-  getLink
+  getLink, registerRoute
 } from 'ut-front/react/routerHelper'
-import {
-  mainRoute
-} from 'ut-rule/ui/react'
+// import {
+//   mainRoute
+// } from 'ut-rule/ui/react'
+
+registerRoute('dfsp-admin:dashboard').path('/')
 
 export default class Provider extends Component {
   getChildContext () {
     return {
       implementationStyle: implementationStyle,
-      mainUrl: getLink(mainRoute),
-      mainTabset: [{
-        routeName: 'ut-rule:home',
-        title: 'Rules',
-        props: {
-          activeClassName: 'active'
+      mainUrl: getLink('dfsp-admin:dashboard'),
+      mainTabset: [
+        {
+          routeName: 'dfsp-admin:dashboard',
+          title: 'Dashboard',
+          props: {
+            activeClassName: 'active'
+          }
+        },
+        {
+          routeName: 'ut-rule:home',
+          title: 'Rules',
+          props: {
+            activeClassName: 'active'
+          }
         }
-      }],
+      ],
       initialLoginFields: {
         title: 'Connect with password',
         inputs: {

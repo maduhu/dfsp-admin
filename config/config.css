@@ -1,3 +1,13 @@
 :root {
+    --ut-front-react-standardMainLogoWidth: 100px;
+}
 
+.headerLogo {
+  height: 60px !important;
+  width: 160px !important; 
+  background: inline('ui/administration/assets/images/logo.jpg') no-repeat center center !important;
+}
+
+.tabMenuItemContent {
+    padding: 14px 29px 12px 10px !important;
 }
