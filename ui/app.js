@@ -14,8 +14,7 @@ import {
 import UTFrontReactReducers from 'ut-front-react/reducers'
 import tabRecuders from 'ut-front-react/containers/TabMenu/reducers'
 import {
-  Route,
-  Redirect
+  Route
 } from 'react-router'
 import Provider from './provider'
 import { getRoute } from 'ut-front/react/routerHelper'
