@@ -53,7 +53,7 @@
     "ut-port-jsonrpc": "5.5.9",
     "ut-port-performance": "5.4.7",
     "ut-port-script": "5.4.7",
-    "ut-rule": "^5.8.1",
+    "ut-rule": "5.8.6",
     "ut-run": "7.2.3"
   },
   "devDependencies": {
