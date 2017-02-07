@@ -11,3 +11,7 @@
 .tabMenuItemContent {
     padding: 14px 29px 12px 10px !important;
 }
+
+.loginPageFooter {
+    background: inline('ui/administration/assets/images/logo.jpg') no-repeat center center !important;
+}
