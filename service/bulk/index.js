@@ -1,5 +1,6 @@
 var fs = require('fs')
 var path = require('path')
+// var csv = require('csv-parser')
 module.exports = {
   start: function () {
     this.registerRequestHandler && this.registerRequestHandler([
@@ -116,11 +117,11 @@ module.exports = {
                       statusId: 5
                     })
                     .then(() => {
-                      resolve(reply(err, 400))
+                      return resolve(reply(err, 400))
                     })
                     .catch((err) => {
                       this.log.error && this.log.error(err)
-                      resolve(reply(err, 400))
+                      return resolve(reply(err, 400))
                     })
                   }
                   return this.bus.importMethod('bulk.batch.edit')({
