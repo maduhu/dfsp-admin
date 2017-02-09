@@ -69,28 +69,34 @@ module.exports = {
             allow: 'multipart/form-data'
           },
           handler: (request, _reply) => {
-            var alreadyReplied = false
-            function reply (data, code) {
+            let alreadyReplied = false
+            function reply (data) {
               if (alreadyReplied) {
                 return data
               }
               alreadyReplied = true
-              return _reply(data instanceof Error ? data.message : data).code(code || 200)
+              var code = 200
+              var message = data
+              if (data instanceof Error) {
+                code = 400
+                message = data.errorPrint || data.message
+              }
+              return _reply(message).code(code)
             }
             var file = request.payload.file
             if (!file) {
-              return reply('missing file', 400)
+              return reply(new Error('missing file'))
             }
             var batchName = request.payload.name
             if (!batchName) {
-              return reply('missing batch name', 400)
+              return reply(new Error('missing batch name'))
             }
             var originalFileName = file.hapi.filename
             if (originalFileName.length > this.config.fileUpload.maxFileName) {
-              return reply('file name too long', 400)
+              return reply(new Error('file name too long'))
             }
             if (!~this.config.fileUpload.extensionsWhiteList.indexOf(originalFileName.split('.').pop())) {
-              return reply('file extention not allowed', 400)
+              return reply(new Error('file extention not allowed'))
             }
             var fileName = (new Date()).getTime() + '_' + originalFileName
             var filePath = path.join(this.bus.config.workDir, 'ut-port-httpserver', 'uploads', fileName)
@@ -100,54 +106,38 @@ module.exports = {
               originalFileName: originalFileName,
               actorId: request.payload.actorId
             })
-            .then((result) => {
+            .then((batch) => {
               return new Promise((resolve, reject) => {
-                var ws = fs.createWriteStream(filePath)
-                ws.on('error', (err) => {
-                  this.log.error && this.log.error(err)
-                  return this.bus.importMethod('bulk.batch.edit')({
-                    batchId: result.batchId,
-                    actorId: result.actorId,
+                var fail = (err) => {
+                  return alreadyReplied ? resolve() : this.bus.importMethod('bulk.batch.edit')({
+                    batchId: batch.batchId,
+                    actorId: batch.actorId,
                     statusId: 5
                   })
                   .then(() => {
-                    return resolve(reply(err, 400))
+                    this.log.error && this.log.error(err)
+                    return resolve(reply(err))
                   })
                   .catch((err) => {
                     this.log.error && this.log.error(err)
-                    return resolve(reply(err, 400))
+                    return resolve(reply(err))
                   })
+                }
+                var ws = fs.createWriteStream(filePath)
+                ws.on('error', (err) => {
+                  return fail(err)
                 })
                 file.pipe(ws)
                 file.on('end', (err) => {
-                  if (alreadyReplied) {
-                    return resolve()
-                  } else if (err) {
-                    this.log.error && this.log.error(err)
-                    return this.bus.importMethod('bulk.batch.edit')({
-                      batchId: result.batchId,
-                      actorId: result.actorId,
-                      statusId: 5
-                    })
-                    .then(() => {
-                      return resolve(reply(err, 400))
-                    })
-                    .catch((err) => {
-                      this.log.error && this.log.error(err)
-                      return resolve(reply(err, 400))
-                    })
+                  if (err) {
+                    return fail(err)
                   }
                   return this.bus.importMethod('bulk.batch.edit')({
-                    batchId: result.batchId,
-                    actorId: result.actorId,
+                    batchId: batch.batchId,
+                    actorId: batch.actorId,
                     statusId: 6
                   })
-                  .then((result) => {
-                    return resolve(reply(JSON.stringify({
-                      filename: fileName,
-                      headers: file.hapi.headers
-                    })))
-                  })
+                  .then(() => resolve(reply('')))
                   .then(() => {
                     var batchChunkSize = this.config.batchChunkSize || 1000
                     var records = [[]]
@@ -161,35 +151,32 @@ module.exports = {
                         }
                       })
                       .on('end', (data) => {
-                        var promise = Promise.resolve()
+                        var promise = Promise.resolve({insertedRows: 0})
                         records.forEach((chunk) => {
-                          promise = promise.then(() => this.bus.importMethod('bulk.payment.add')({
-                            payments: chunk,
-                            actorId: result.actorId
-                          }))
+                          promise = promise.then((data) => {
+                            return this.bus.importMethod('bulk.payment.add')({
+                              payments: chunk,
+                              actorId: batch.actorId
+                            })
+                            .then((result) => ({insertedRows: data.isnertedRows + result.insertedRows}))
+                          })
                         })
-                        return promise
-                        .then((result) => {
-                          return resolve(result)
-                        })
-                        .catch((err) => {
-                          return reject(err)
-                        })
+                        return promise.then((data) => {
+                          return resolve(data)
+                        }).catch(reject)
                       })
                       .on('error', function () {
-                        resolve()
+                        resolve('')
                       })
                   })
                   .catch((err) => {
                     this.log.error && this.log.error(err)
-                    return resolve(reply(err, 400))
+                    return resolve(reply(err))
                   })
                 })
               })
             })
-            .catch((err) => {
-              return reply(err, 400)
-            })
+            .catch((err) => reply(err))
           }
         }
       }
