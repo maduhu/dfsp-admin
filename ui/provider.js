@@ -32,6 +32,13 @@ export default class Provider extends Component {
           props: {
             activeClassName: 'active'
           }
+        },
+        {
+          routeName: 'ut-bulk:home',
+          title: 'Bulk Payment',
+          props: {
+            activeClassName: 'active'
+          }
         }
       ],
       initialLoginFields: {
