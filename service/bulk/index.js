@@ -1,6 +1,6 @@
 var fs = require('fs')
 var path = require('path')
-// var csv = require('csv-parser')
+var csv = require('csv-parser')
 module.exports = {
   start: function () {
     this.registerRequestHandler && this.registerRequestHandler([
@@ -105,11 +105,24 @@ module.exports = {
                 var ws = fs.createWriteStream(filePath)
                 ws.on('error', (err) => {
                   this.log.error && this.log.error(err)
-                  return reply(err, 400)
+                  return this.bus.importMethod('bulk.batch.edit')({
+                    batchId: result.batchId,
+                    actorId: result.actorId,
+                    statusId: 5
+                  })
+                  .then(() => {
+                    return resolve(reply(err, 400))
+                  })
+                  .catch((err) => {
+                    this.log.error && this.log.error(err)
+                    return resolve(reply(err, 400))
+                  })
                 })
                 file.pipe(ws)
                 file.on('end', (err) => {
-                  if (err) {
+                  if (alreadyReplied) {
+                    return resolve()
+                  } else if (err) {
                     this.log.error && this.log.error(err)
                     return this.bus.importMethod('bulk.batch.edit')({
                       batchId: result.batchId,
@@ -130,14 +143,46 @@ module.exports = {
                     statusId: 6
                   })
                   .then((result) => {
-                    resolve(reply(JSON.stringify({
+                    return resolve(reply(JSON.stringify({
                       filename: fileName,
                       headers: file.hapi.headers
                     })))
                   })
+                  .then(() => {
+                    var batchChunkSize = this.config.batchChunkSize || 1000
+                    var records = [[]]
+                    fs.createReadStream(filePath)
+                      .pipe(csv())
+                      .on('data', function (data) {
+                        if (records[records.length - 1].length < batchChunkSize) {
+                          records[records.length - 1].push(data)
+                        } else {
+                          records.push([data])
+                        }
+                      })
+                      .on('end', (data) => {
+                        var promise = Promise.resolve()
+                        records.forEach((chunk) => {
+                          promise = promise.then(() => this.bus.importMethod('bulk.payment.add')({
+                            payments: chunk,
+                            actorId: result.actorId
+                          }))
+                        })
+                        return promise
+                        .then((result) => {
+                          return resolve(result)
+                        })
+                        .catch((err) => {
+                          return reject(err)
+                        })
+                      })
+                      .on('error', function () {
+                        resolve()
+                      })
+                  })
                   .catch((err) => {
                     this.log.error && this.log.error(err)
-                    resolve(reply(err, 400))
+                    return resolve(reply(err, 400))
                   })
                 })
               })
