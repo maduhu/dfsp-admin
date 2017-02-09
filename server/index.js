@@ -1,5 +1,4 @@
 var joi = require('joi')
-var path = require('path')
 module.exports = {
   ports: [
     require('../httpserver'),
