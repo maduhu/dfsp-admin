@@ -1,4 +1,5 @@
 var fs = require('fs')
+var path = require('path')
 module.exports = {
   start: function () {
     this.registerRequestHandler && this.registerRequestHandler([
@@ -66,24 +67,32 @@ module.exports = {
             parse: true,
             allow: 'multipart/form-data'
           },
-          handler: (request, reply) => {
+          handler: (request, _reply) => {
+            var alreadyReplied = false
+            function reply (data, code) {
+              if (alreadyReplied) {
+                return data
+              }
+              alreadyReplied = true
+              return _reply(data instanceof Error ? data.message : data).code(code || 200)
+            }
             var file = request.payload.file
             if (!file) {
-              return reply('missing file').code(400)
+              return reply('missing file', 400)
             }
             var batchName = request.payload.name
             if (!batchName) {
-              return reply('missing batch name').code(400)
+              return reply('missing batch name', 400)
             }
             var originalFileName = file.hapi.filename
             if (originalFileName.length > this.config.fileUpload.maxFileName) {
-              return reply('file name too long').code(400)
+              return reply('file name too long', 400)
             }
             if (!~this.config.fileUpload.extensionsWhiteList.indexOf(originalFileName.split('.').pop())) {
-              return reply('file extention not allowed').code(400)
+              return reply('file extention not allowed', 400)
             }
             var fileName = (new Date()).getTime() + '_' + originalFileName
-            var path = this.bus.config.workDir + '/bulkPaymentBatches/' + fileName
+            var filePath = path.join(this.bus.config.workDir, 'ut-port-httpserver', 'uploads', fileName)
             return this.bus.importMethod('bulk.batch.add')({
               name: batchName,
               fileName: fileName,
@@ -92,10 +101,10 @@ module.exports = {
             })
             .then((result) => {
               return new Promise((resolve, reject) => {
-                var ws = fs.createWriteStream(path)
+                var ws = fs.createWriteStream(filePath)
                 ws.on('error', (err) => {
                   this.log.error && this.log.error(err)
-                  resolve(reply('').code(400))
+                  return reply(err, 400)
                 })
                 file.pipe(ws)
                 file.on('end', (err) => {
@@ -103,35 +112,37 @@ module.exports = {
                     this.log.error && this.log.error(err)
                     return this.bus.importMethod('bulk.batch.edit')({
                       batchId: result.batchId,
+                      actorId: result.actorId,
                       statusId: 5
                     })
                     .then(() => {
-                      resolve(reply(err).code(400))
+                      resolve(reply(err, 400))
                     })
                     .catch((err) => {
                       this.log.error && this.log.error(err)
-                      resolve(reply(err).code(400))
+                      resolve(reply(err, 400))
                     })
                   }
                   return this.bus.importMethod('bulk.batch.edit')({
                     batchId: result.batchId,
+                    actorId: result.actorId,
                     statusId: 6
                   })
                   .then((result) => {
-                    return resolve(reply(JSON.stringify({
+                    resolve(reply(JSON.stringify({
                       filename: fileName,
                       headers: file.hapi.headers
                     })))
                   })
                   .catch((err) => {
                     this.log.error && this.log.error(err)
-                    return resolve(reply(err).code(400))
+                    resolve(reply(err, 400))
                   })
                 })
               })
             })
             .catch((err) => {
-              return reply(err.message).code(400)
+              return reply(err, 400)
             })
           }
         }
