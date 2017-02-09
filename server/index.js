@@ -8,14 +8,15 @@ module.exports = {
     require('../mocks')
   ],
   modules: {
-    utfront: require('ut-front')({
-      main: '../browser',
-      from: __dirname,
-      configPath: path.resolve(__dirname, '../config')
-    }),
-    frontend: require('ut-front-react'),
+    // utfront: require('ut-front')({
+    //   main: '../browser',
+    //   from: __dirname,
+    //   configPath: path.resolve(__dirname, '../config')
+    // }),
+    // frontend: require('ut-front-react'),
     ruleHTTP: require('ut-rule/ui/react/http'),
-    identity: {}
+    identity: require('../service/identity'),
+    bulk: require('../service/bulk')
   },
   validations: {
     identity: {
