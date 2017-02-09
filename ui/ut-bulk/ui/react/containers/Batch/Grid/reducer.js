@@ -1,5 +1,5 @@
-import Immutable, {Map, List} from 'immutable'
-import * as actionTypes from './actionTypes'
+import {Map, List} from 'immutable'
+// import * as actionTypes from './actionTypes'
 
 const defaultState = Map({
   data: Map(),
@@ -12,7 +12,7 @@ const defaultState = Map({
   changeId: 0
 })
 
-const FINISHED = 'finished'
+// const FINISHED = 'finished'
 
 export const cardProductGrid = (state = defaultState, action) => {
   return state

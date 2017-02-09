@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+// import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {getLink} from 'ut-front/react/routerHelper'
 import { AddTab } from 'ut-front-react/containers/TabMenu'
@@ -13,11 +14,10 @@ import ByName from '../../containers/Batch/Filters/ByName'
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from './style.css'
 
-
 class BulkBatch extends Component {
-  constructor (props) {
-    super(props)
-  }
+  // constructor (props) {
+  //   super(props)
+  // }
   /**
    * Todo add Upload Functionality
    */
