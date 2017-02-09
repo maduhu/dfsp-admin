@@ -15,7 +15,8 @@ module.exports = {
   cssAssets: {loadPaths: [
     path.resolve(path.join(path.dirname(require.resolve('ut-front-react')), 'components', '**', 'images')),
     path.resolve(path.join(path.dirname(require.resolve('ut-front-react')), 'pages', '**', 'images')),
-    path.resolve(path.join(path.dirname(require.resolve('ut-front-react')), 'containers', '**', 'images'))
+    path.resolve(path.join(path.dirname(require.resolve('ut-front-react')), 'containers', '**', 'images')),
+    path.resolve(__dirname, '..', 'ui', 'administration', 'assets', 'images')
   ]},
   cookie: {
     ttl: 31536000000,
