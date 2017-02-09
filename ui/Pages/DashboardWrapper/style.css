@@ -1,0 +1,8 @@
+.headerLogo {
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--ut-front-react-standardMainLogoWidth);
+  height: 58px;
+  background: inline('logo.jpg') no-repeat center center;
+  cursor: pointer;
+}
