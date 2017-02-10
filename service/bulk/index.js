@@ -158,7 +158,7 @@ module.exports = {
                               payments: chunk,
                               actorId: batch.actorId
                             })
-                            .then((result) => ({insertedRows: data.isnertedRows + result.insertedRows}))
+                            .then((result) => ({insertedRows: data.insertedRows + result.insertedRows}))
                           })
                         })
                         return promise.then((data) => {
