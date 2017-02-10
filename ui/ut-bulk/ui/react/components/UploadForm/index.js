@@ -39,7 +39,7 @@ export default React.createClass({
     data.processData = false
     data.contentType = false
     var xhr = new window.XMLHttpRequest()
-    xhr.open('POST', '/batch', true)
+    xhr.open('POST', '/rpc/batch', true)
     // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
     xhr.onload = (e) => {
       if (xhr.status === 200) {
