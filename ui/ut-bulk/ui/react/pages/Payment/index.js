@@ -8,15 +8,15 @@ import classnames from 'classnames'
 import {ToolboxFilters, ToolboxButtons} from '../../containers/Batch/GridToolbox'
 import Header from 'ut-front-react/components/PageLayout/Header'
 
-import Grid from '../../containers/Batch/Grid'
-import ByName from '../../containers/Batch/Filters/ByName'
-import ByStatus from '../../containers/Batch/Filters/ByStatus'
-import ByDate from '../../containers/Batch/Filters/ByDate'
+import Grid from '../../containers/Payment/Grid'
+import ByCustom from '../../containers/Payment/Filters/ByCustom'
+import ByStatus from '../../containers/Payment/Filters/ByStatus'
+import ByDate from '../../containers/Payment/Filters/ByDate'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
 
-class BulkBatch extends Component {
+class BulkPayment extends Component {
   // constructor (props) {
   //   super(props)
   // }
@@ -26,26 +26,23 @@ class BulkBatch extends Component {
   render () {
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
-        <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Payments' />
+        <AddTab pathname={getLink('ut-bulk:record')} title='Bulk Payments' />
         <div>
-            <Header text='Bulk - Batches' buttons={[{text: 'Upload Batch'}]} />
+            <Header text='Bulk - Batches - Payments' buttons={[{text: 'Batch Ready'}, {text: 'Check Entire Batch'}]} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <ToolboxFilters>
           <div className={style.filterWrap}>
-            <ByName />
+            <ByCustom className={style.doubleField} />
             <ByStatus />
-            <ByDate className={style.doubleField} />
+            <ByDate className={style.datePaymentWrap} />
           </div>
         </ToolboxFilters>
         <ToolboxButtons>
             <div className={style.buttonWrap}>
-            <button className='button btn btn-primary'>View Batch Records</button>
-            <button className='button btn btn-primary'>Delete</button>
-            <button className='button btn btn-primary'>Disable</button>
-            <button className='button btn btn-primary'>Download</button>
-            <button className='button btn btn-primary'>Replace</button>
-            <button className='button btn btn-primary'>Check Batch</button>
+              <button className='button btn btn-primary'>Details</button>
+              <button className='button btn btn-primary'>Disable</button>
+              <button className='button btn btn-primary'>Check Records</button>
             </div>
         </ToolboxButtons>
         </div>
@@ -60,9 +57,9 @@ class BulkBatch extends Component {
   }
 };
 
-BulkBatch.propTypes = {}
+BulkPayment.propTypes = {}
 
-BulkBatch.contextTypes = {}
+BulkPayment.contextTypes = {}
 
 export default connect(
   (state, ownProps) => {
@@ -70,4 +67,4 @@ export default connect(
 
     }
   }, {}
-)(BulkBatch)
+)(BulkPayment)

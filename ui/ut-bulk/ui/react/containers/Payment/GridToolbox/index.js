@@ -5,7 +5,7 @@ import {toggle} from './actions'
 export const ToolboxFilters = connect(
   (state) => {
     return {
-      opened: state.bulkBatchToolbox.getIn(['filters', 'opened']),
+      opened: state.bulkPaymentToolbox.getIn(['filters', 'opened']),
       title: 'Filter By',
       isTitleLink: true
     }
@@ -17,7 +17,7 @@ export const ToolboxFilters = connect(
 export const ToolboxButtons = connect(
   (state) => {
     return {
-      opened: state.bulkBatchToolbox.getIn(['buttons', 'opened']),
+      opened: state.bulkPaymentToolbox.getIn(['buttons', 'opened']),
       title: 'Show Filters',
       isTitleLink: true
     }

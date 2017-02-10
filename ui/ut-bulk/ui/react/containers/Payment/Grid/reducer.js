@@ -14,6 +14,6 @@ const defaultState = Map({
 
 // const FINISHED = 'finished'
 
-export const bulkBatchGrid = (state = defaultState, action) => {
+export const bulkPaymentGrid = (state = defaultState, action) => {
   return state
 }

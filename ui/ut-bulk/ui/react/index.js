@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import { Route, IndexRoute } from 'react-router'
 import {Main} from './pages'
+import PaymentPage from './pages/Payment/index'
 import {getRoute} from 'ut-front/react/routerHelper'
 import registerRoutes from './registerRoutes'
 export const mainRoute = registerRoutes()
@@ -31,6 +32,9 @@ export const UtBulkRoutes = (config) => {
     <Route component={getLocalProvider(config)}>
         <Route path={getRoute('ut-bulk:home')}>
           <IndexRoute component={Main} />
+        </Route>
+        <Route path={getRoute('ut-bulk:record')}>
+          <IndexRoute component={PaymentPage} />
         </Route>
     </Route>
   )

@@ -4,7 +4,7 @@
 }
 
 .grid th {
-    padding: 1.2rem !important;
+    padding: 1.05rem !important;
 }
 
 .actionBarWrap {
@@ -41,9 +41,35 @@
 }
 
 .filterWrap {
+  display: flex;
   margin-top: 5px;
   text-align: right;
-  float: right;
-  max-width: 250px;
+  float: right
 }
 
+.filterWrap > div {
+  margin-right: 10px;
+  width: 240px;
+}
+
+
+.datePaymentWrap {
+  float: right;
+  display: flex;
+}
+
+.datePaymentWrap > div {
+  width: 240px;
+}
+
+.doubleField {
+  float: right;
+  display: flex;
+  width: 480px !important;
+  margin-left: 10 !important;
+  padding-left: 0 !important;
+}
+
+.doubleField > div {
+  width: 240px;
+}

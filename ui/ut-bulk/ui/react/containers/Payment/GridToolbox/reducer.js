@@ -7,7 +7,7 @@ const defaultState = Map({
   buttons: Map({opened: false})
 })
 
-export const bulkBatchToolbox = (state = defaultState, action) => {
+export const bulkPaymentToolbox = (state = defaultState, action) => {
   if (action.type === actionTypes.TOGGLE) {
     return state
         .updateIn(['filters', 'opened'], (v) => (!v))
