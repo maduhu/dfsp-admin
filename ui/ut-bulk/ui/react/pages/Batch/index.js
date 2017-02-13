@@ -1,5 +1,5 @@
 // import React, { Component, PropTypes } from 'react'
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {getLink} from 'ut-front/react/routerHelper'
 import { AddTab } from 'ut-front-react/containers/TabMenu'
@@ -77,7 +77,9 @@ BulkBatch.propTypes = {
 
 }
 
-BulkBatch.contextTypes = {}
+BulkBatch.contextTypes = {
+
+}
 
 export default connect(
   (state, ownProps) => {
