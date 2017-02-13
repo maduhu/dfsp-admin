@@ -1,0 +1,11 @@
+.uploadForm {
+    padding: 20px 0
+}
+
+.uploadForm .errorMessage {
+    color: red
+}
+
+.uploadForm .successMessage {
+    color: green
+}

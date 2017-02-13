@@ -16,19 +16,27 @@ import ByDate from '../../containers/Batch/Filters/ByDate'
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
 
+import UploadForm from '../../components/UploadForm'
+
 class BulkBatch extends Component {
-  // constructor (props) {
-  //   super(props)
-  // }
-  /**
-   * Todo add Upload Functionality
-   */
+  constructor (props) {
+    super(props)
+    this.toggleUploadPopup = this.toggleUploadPopup.bind(this)
+    this.state = {
+      uploadPopup: false
+    }
+  }
+  toggleUploadPopup () {
+    this.setState({
+      uploadPopup: !this.state.uploadPopup
+    })
+  }
   render () {
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
         <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Payments' />
         <div>
-            <Header text='Bulk - Batches' buttons={[{text: 'Upload Batch'}]} />
+            <Header text='Bulk Payments' buttons={[{text: 'Upload Batch', onClick: this.toggleUploadPopup}]} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <ToolboxFilters>
@@ -54,15 +62,24 @@ class BulkBatch extends Component {
               <Grid />
             </div>
         </div>
+        {this.state.uploadPopup &&
+          <UploadForm
+            onClose={this.toggleUploadPopup}
+          />
+        }
     </div>
 
     )
   }
 };
 
-BulkBatch.propTypes = {}
+BulkBatch.propTypes = {
 
-BulkBatch.contextTypes = {}
+}
+
+BulkBatch.contextTypes = {
+
+}
 
 export default connect(
   (state, ownProps) => {
