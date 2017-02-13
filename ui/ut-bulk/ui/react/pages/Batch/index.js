@@ -64,7 +64,6 @@ class BulkBatch extends Component {
         </div>
         {this.state.uploadPopup &&
           <UploadForm
-            actorId={this.props.login.person.actorId}
             onClose={this.toggleUploadPopup}
           />
         }
@@ -75,7 +74,7 @@ class BulkBatch extends Component {
 };
 
 BulkBatch.propTypes = {
-  login: PropTypes.object
+
 }
 
 BulkBatch.contextTypes = {}
@@ -83,7 +82,7 @@ BulkBatch.contextTypes = {}
 export default connect(
   (state, ownProps) => {
     return {
-      login: state.login.toJS().result
+
     }
   }, {}
 )(BulkBatch)

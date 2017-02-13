@@ -4,8 +4,6 @@ import Popup from 'ut-front-react/components/Popup'
 import style from './style.css'
 export default React.createClass({
   propTypes: {
-    actions: PropTypes.object,
-    actorId: PropTypes.number,
     onClose: PropTypes.func
   },
   defaultProps: {
@@ -35,7 +33,6 @@ export default React.createClass({
     var data = new window.FormData()
     data.append('file', file)
     data.append('name', name)
-    data.append('actorId', this.props.actorId)
     data.processData = false
     data.contentType = false
     var xhr = new window.XMLHttpRequest()
