@@ -62,7 +62,7 @@ module.exports = {
                   return alreadyReplied ? resolve() : dispatch('bulk.batch.edit', {
                     batchId: batch.batchId,
                     actorId: batch.actorId,
-                    statusId: 5
+                    batchStatusId: 5
                   })
                   .then(() => {
                     this.log.error && this.log.error(err)
@@ -85,7 +85,7 @@ module.exports = {
                   return dispatch('bulk.batch.edit', {
                     batchId: batch.batchId,
                     actorId: batch.actorId,
-                    statusId: 6
+                    batchStatusId: 3
                   })
                   .then(() => resolve(reply('')))
                   .then(() => {
@@ -106,7 +106,8 @@ module.exports = {
                           promise = promise.then((data) => {
                             return dispatch('bulk.payment.add', {
                               payments: chunk,
-                              actorId: batch.actorId
+                              actorId: batch.actorId,
+                              batchId: batch.batchId
                             })
                             .then((result) => ({insertedRows: data.insertedRows + result.insertedRows}))
                           })

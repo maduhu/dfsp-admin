@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import SearchBox from 'ut-front-react/components/SearchBox'
+import * as batchAction from '../../Grid/actions'
 
 export class ByName extends Component {
 
@@ -9,7 +11,13 @@ export class ByName extends Component {
     this.handleSearch = this.handleSearch.bind(this)
   }
 
-  handleSearch (text) {}
+  handleSearch (text) {
+    if (text !== '') {
+      this.props.batchActions.fetchBatches({name: text})
+    } else {
+      this.props.batchActions.fetchBatches()
+    }
+  }
 
   render () {
     return (
@@ -28,7 +36,8 @@ ByName.propTypes = {
   changeNameFilter: PropTypes.func,
   className: PropTypes.string,
   style: PropTypes.object,
-  text: PropTypes.string
+  text: PropTypes.string,
+  batchActions: PropTypes.object
 }
 
 export default connect(
@@ -36,7 +45,10 @@ export default connect(
     return {
       text: ''
     }
-  }, {
-
+  },
+  (dispatch) => {
+    return {
+      batchActions: bindActionCreators(batchAction, dispatch)
+    }
   }
 )(ByName)
