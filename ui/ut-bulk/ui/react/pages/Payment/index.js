@@ -33,9 +33,9 @@ class BulkPayment extends Component {
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <ToolboxFilters>
           <div className={style.filterWrap}>
-            <ByCustom className={style.doubleField} />
-            <ByStatus />
-            <ByDate className={style.datePaymentWrap} />
+            <ByCustom className={style.customInput} />
+            <ByStatus className={style.standardFilter} />
+            <ByDate className={style.standardFilter} />
           </div>
         </ToolboxFilters>
         <ToolboxButtons>

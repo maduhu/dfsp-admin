@@ -41,9 +41,9 @@ class BulkBatch extends Component {
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <ToolboxFilters>
           <div className={style.filterWrap}>
-            <ByName />
-            <ByStatus />
-            <ByDate className={style.doubleField} />
+            <ByName className={style.standardFilter} />
+            <ByStatus className={style.standardFilter} />
+            <ByDate className={style.doubleDateInput} />
           </div>
         </ToolboxFilters>
         <ToolboxButtons>
@@ -68,7 +68,6 @@ class BulkBatch extends Component {
           />
         }
     </div>
-
     )
   }
 };
