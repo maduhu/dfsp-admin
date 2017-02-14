@@ -17,7 +17,8 @@ export default React.createClass({
   getInitialState () {
     return {
       result: {},
-      fileName: ''
+      fileName: '',
+      batchName: ''
     }
   },
   onClose () {
@@ -26,7 +27,7 @@ export default React.createClass({
   onSubmit (e) {
     e.preventDefault()
     var file = this.refs.batch.files[0]
-    var name = this.refs.name.value
+    var name = this.state.batchName
     if (!name) {
       return this.setState({
         result: new Error('batch name not specified')
@@ -84,7 +85,7 @@ export default React.createClass({
     if (this.canUpload()) {
       return (
         <div className={style.fileInput}>
-          <Input ref='name' type='text' name='name' label='Batch Name' />
+          <Input value={this.state.batchName} type='text' name='name' label='Batch Name' onChange={(result) => { console.log(result); this.setState({batchName: result.value}) }} />
           <div className={style.infoInputWrapper}>
               <Input value={this.state.fileName} readonly label='Upload Batch' inputWrapClassName={style.inputWrapClassName} />
           </div>
