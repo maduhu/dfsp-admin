@@ -49,27 +49,25 @@
 
 .filterWrap > div {
   margin-right: 10px;
+}
+
+.standardFilter {
   width: 240px;
 }
 
-
-.datePaymentWrap {
-  float: right;
-  display: flex;
+.customInput {
+  width: 400px;
 }
 
-.datePaymentWrap > div {
-  width: 240px;
-}
-
-.doubleField {
+.doubleDateInput {
   float: right;
   display: flex;
-  width: 480px !important;
-  margin-left: 10 !important;
+  width: 460px !important;
   padding-left: 0 !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
 }
 
-.doubleField > div {
-  width: 240px;
+.doubleDateInput > div {
+  padding-right: 10px;
 }

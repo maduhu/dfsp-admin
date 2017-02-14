@@ -1,7 +1,12 @@
 // import React, { Component, PropTypes } from 'react'
 import React, { PropTypes } from 'react'
+
+import Input from 'ut-front-react/components/Input'
+import Text from 'ut-front-react/components/Text'
 import Popup from 'ut-front-react/components/Popup'
+
 import style from './style.css'
+
 export default React.createClass({
   propTypes: {
     onClose: PropTypes.func
@@ -11,7 +16,9 @@ export default React.createClass({
   },
   getInitialState () {
     return {
-      result: {}
+      result: {},
+      fileName: '',
+      batchName: ''
     }
   },
   onClose () {
@@ -20,7 +27,7 @@ export default React.createClass({
   onSubmit (e) {
     e.preventDefault()
     var file = this.refs.batch.files[0]
-    var name = this.refs.name.value
+    var name = this.state.batchName
     if (!name) {
       return this.setState({
         result: new Error('batch name not specified')
@@ -59,11 +66,11 @@ export default React.createClass({
       })
     } else {
       buttons.push({
-        label: 'cancel',
+        label: 'Cancel',
         onClick: this.onClose,
-        className: ['defaultBtn']
+        className: ['defaultBtn', style.closeButton]
       }, {
-        label: 'upload',
+        label: 'Upload',
         type: 'submit',
         onClick: this.onSubmit,
         className: ['defaultBtn']
@@ -77,9 +84,17 @@ export default React.createClass({
   getFormBody () {
     if (this.canUpload()) {
       return (
-        <div>
-          <input ref='name' type='text' name='name' /><br /><br /><br />
-          <input ref='batch' type='file' name='batch' accept='text/csv' /><br /><br /><br />
+        <div className={style.fileInput}>
+          <Input value={this.state.batchName} type='text' name='name' label='Batch Name' onChange={(result) => { this.setState({batchName: result.value}) }} />
+          <div className={style.infoInputWrapper}>
+              <Input value={this.state.fileName} readonly label='Upload Batch' inputWrapClassName={style.inputWrapClassName} />
+          </div>
+          <div className={style.buttonsWrapper}>
+            <div className={style.buttonsInnerWrapper}>
+              <label htmlFor='batch' className={style.browseBtn}>Browse...</label>
+              <input ref='batch' type='file' name='batch' id='batch' accept='text/csv' onChange={() => this.setState({fileName: this.refs.batch.files[0].name})} />
+            </div>
+          </div>
         </div>
       )
     }
@@ -97,7 +112,7 @@ export default React.createClass({
       <Popup
         hasOverlay
         isOpen
-        headerText='New Batch'
+        headerText='Upload New Batch'
         actionButtons={this.getActionButtons()}
         closePopup={this.onClose}
       >

@@ -1,15 +1,31 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import DatePicker from 'ut-front-react/components/DatePicker/Simple'
+import * as batchAction from '../../Grid/actions'
 
 export class ByDate extends Component {
 
   constructor (props) {
     super(props)
-    this.handleDateChange = this.handleDateChange.bind(this)
+    this.handleFromDateChange = this.handleFromDateChange.bind(this)
+    this.handleToDateChange = this.handleToDateChange.bind(this)
   }
 
-  handleDateChange (date) {}
+  handleFromDateChange (date) {
+    if (date.value !== '') {
+      this.props.batchActions.fetchBatches({fromDate: date.value})
+    } else {
+      this.props.batchActions.fetchBatches()
+    }
+  }
+  handleToDateChange (date) {
+    if (date.value !== '') {
+      this.props.batchActions.fetchBatches({toDate: date.value})
+    } else {
+      this.props.batchActions.fetchBatches()
+    }
+  }
 
   render () {
     let {startDate, endDate} = this.props
@@ -18,13 +34,13 @@ export class ByDate extends Component {
          <div>
           <DatePicker
             defaultValue={startDate}
-            onChange={this.handleDateChange}
+            onChange={this.handleFromDateChange}
           />
          </div>
           <div>
             <DatePicker
               defaultValue={endDate}
-              onChange={this.handleDateChange}
+              onChange={this.handleToDateChange}
             />
           </div>
       </div>
@@ -37,7 +53,8 @@ ByDate.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   startDate: PropTypes.object,
-  endDate: PropTypes.object
+  endDate: PropTypes.object,
+  batchActions: PropTypes.object
 }
 
 export default connect(
@@ -46,7 +63,10 @@ export default connect(
       startDate: state.bulkBatchFilterDate.get('startDate'),
       endDate: state.bulkBatchFilterDate.get('endDate')
     }
-  }, {
-
+  },
+  (dispatch) => {
+    return {
+      batchActions: bindActionCreators(batchAction, dispatch)
+    }
   }
 )(ByDate)
