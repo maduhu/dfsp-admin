@@ -90,7 +90,6 @@ module.exports = {
                     actorId: batch.actorId,
                     statusId: 6
                   })
-                  .then(() => resolve(reply('')))
                   .then(() => {
                     let batchChunkSize = this.config.batchChunkSize || 1000
                     let records = [[]]
@@ -115,16 +114,17 @@ module.exports = {
                           })
                         })
                         return promise.then((data) => {
-                          return resolve(data)
-                        }).catch(reject)
+                          return resolve(reply(data))
+                        }).catch(function (err) {
+                          return resolve(fail(err))
+                        })
                       })
-                      .on('error', function () {
-                        resolve('')
+                      .on('error', function (err) {
+                        return resolve(fail(err))
                       })
                   })
                   .catch((err) => {
-                    this.log.error && this.log.error(err)
-                    return resolve(reply(err))
+                    return resolve(fail(err))
                   })
                 })
               })
