@@ -4,6 +4,7 @@ import {bulkBatchFilterDate} from './containers/Batch/Filters/ByDate/reducer'
 import {bulkPaymentGrid} from './containers/Payment/Grid/reducer'
 import {bulkPaymentFilterDate} from './containers/Payment/Filters/ByDate/reducer'
 import {bulkPaymentFilterStatus} from './containers/Payment/Filters/ByStatus/reducer'
+import {bulkBatchGrid} from './containers/Batch/Grid/reducer'
 /**
  * Todo: don't forget to add reducers here
  */
@@ -13,5 +14,6 @@ export default {
   bulkBatchFilterDate,
   bulkPaymentGrid,
   bulkPaymentFilterDate,
-  bulkPaymentFilterStatus
+  bulkPaymentFilterStatus,
+  bulkBatchGrid
 }
