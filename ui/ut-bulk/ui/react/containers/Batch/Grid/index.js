@@ -1,8 +1,10 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
 import Text from 'ut-front-react/components/Text'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
+import * as actionCreators from './actions'
 
 class Grid extends Component {
   constructor (props) {
@@ -10,9 +12,15 @@ class Grid extends Component {
     this.handleTransformCellValue = this.handleTransformCellValue.bind(this)
   }
 
-  componentWillMount () {}
+  componentWillMount () {
+    this.fetchData()
+  }
 
   componentWillReceiveProps (nextProps) {}
+
+  fetchData () {
+    this.props.actions.fetchBatches()
+  }
 
   handleCellClick (row, field, value) {}
 
@@ -28,7 +36,7 @@ class Grid extends Component {
             handleOrder={() => {}}
             fields={this.props.gridFields}
             transformCellValue={this.handleTransformCellValue}
-            data={[]}
+            data={this.props.batches}
           />
     )
   }
@@ -37,7 +45,9 @@ class Grid extends Component {
 Grid.contextTypes = {}
 
 Grid.propTypes = {
-  gridFields: PropTypes.arrayOf(PropTypes.object)
+  gridFields: PropTypes.arrayOf(PropTypes.object),
+  batches: PropTypes.arrayOf(PropTypes.object),
+  actions: PropTypes.object
 }
 
 export default connect(
@@ -45,12 +55,17 @@ export default connect(
       return {
         gridFields: [
             {name: 'name', title: 'Batch Name'},
-            {name: 'number_of_records', title: 'Number of Records'},
+            {name: 'paymentsCount', title: 'Number of Records'},
             {name: 'createdAt', title: 'Uploaded On'},
-            {name: 'last_validation', title: 'Last Validation On'},
+            {name: 'lastValidation', title: 'Last Validation On'},
             {name: 'status', title: 'Status'}
-        ]
+        ],
+        batches: state.bulkBatchGrid.get('fetchBatches').toArray()
       }
     },
-    {}
+    (dispatch) => {
+      return {
+        actions: bindActionCreators(actionCreators, dispatch)
+      }
+    }
 )(Grid)

@@ -1,6 +1,9 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import Dropdown from 'ut-front-react/components/Input/Dropdown'
+import * as actionCreators from './actions'
+import * as batchAction from '../../Grid/actions'
 
 export class ByStatus extends Component {
 
@@ -9,7 +12,21 @@ export class ByStatus extends Component {
     this.handleSelect = this.handleSelect.bind(this)
   }
 
-  handleSelect (record) {}
+  componentWillMount () {
+    this.fetchData()
+  }
+
+  fetchData () {
+    this.props.actions.fetchBatchStatus()
+  }
+
+  handleSelect (record) {
+    if (record.value !== this.props.currentStatus) {
+      this.props.batchActions.fetchBatches({batchStatusId: record.value})
+    } else {
+      this.props.batchActions.fetchBatches()
+    }
+  }
 
   render () {
     return (
@@ -32,37 +49,23 @@ ByStatus.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   data: PropTypes.array,
-  status: PropTypes.object
+  status: PropTypes.object,
+  currentStatus: PropTypes.object,
+  actions: PropTypes.object,
+  batchActions: PropTypes.object
 }
 
 export default connect(
   (state, ownProps) => {
     return {
-      data: [
-        {
-          name: 'New',
-          key: 'new'
-        },
-        {
-          name: 'OK',
-          key: 'ok'
-        },
-        {
-          name: 'Failed',
-          key: 'failed'
-        },
-        {
-          name: 'Returned',
-          key: 'returned'
-        },
-        {
-          name: 'Uploading',
-          key: 'uploading'
-        }
-      ],
+      data: state.bulkBatchFilterStatus.get('batchStatus').toArray(),
       currentStatus: state.bulkBatchFilterStatus.get('isActive')
     }
-  }, {
-
+  },
+  (dispatch) => {
+    return {
+      actions: bindActionCreators(actionCreators, dispatch),
+      batchActions: bindActionCreators(batchAction, dispatch)
+    }
   }
 )(ByStatus)
