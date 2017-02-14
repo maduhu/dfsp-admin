@@ -85,7 +85,7 @@ export default React.createClass({
     if (this.canUpload()) {
       return (
         <div className={style.fileInput}>
-          <Input value={this.state.batchName} type='text' name='name' label='Batch Name' onChange={(result) => { console.log(result); this.setState({batchName: result.value}) }} />
+          <Input value={this.state.batchName} type='text' name='name' label='Batch Name' onChange={(result) => { this.setState({batchName: result.value}) }} />
           <div className={style.infoInputWrapper}>
               <Input value={this.state.fileName} readonly label='Upload Batch' inputWrapClassName={style.inputWrapClassName} />
           </div>
