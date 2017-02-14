@@ -2,28 +2,13 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import DatePicker from 'ut-front-react/components/DatePicker/Simple'
-import * as batchAction from '../../Grid/actions'
+import * as actions from './actions'
 
 export class ByDate extends Component {
 
-  constructor (props) {
-    super(props)
-    this.handleFromDateChange = this.handleFromDateChange.bind(this)
-    this.handleToDateChange = this.handleToDateChange.bind(this)
-  }
-
-  handleFromDateChange (date) {
-    if (date.value !== '') {
-      this.props.batchActions.fetchBatches({fromDate: date.value})
-    } else {
-      this.props.batchActions.fetchBatches()
-    }
-  }
-  handleToDateChange (date) {
-    if (date.value !== '') {
-      this.props.batchActions.fetchBatches({toDate: date.value})
-    } else {
-      this.props.batchActions.fetchBatches()
+  handleDateChange (field) {
+    return (date) => {
+      (date && date.value !== '') ? this.props.actions.changeFilterDate(field, date.value) : this.props.actions.changeFilterDate(field, null)
     }
   }
 
@@ -34,13 +19,13 @@ export class ByDate extends Component {
          <div>
           <DatePicker
             defaultValue={startDate}
-            onChange={this.handleFromDateChange}
+            onChange={this.handleDateChange('startDate')}
           />
          </div>
           <div>
             <DatePicker
               defaultValue={endDate}
-              onChange={this.handleToDateChange}
+              onChange={this.handleDateChange('endDate')}
             />
           </div>
       </div>
@@ -54,19 +39,19 @@ ByDate.propTypes = {
   style: PropTypes.object,
   startDate: PropTypes.object,
   endDate: PropTypes.object,
-  batchActions: PropTypes.object
+  actions: PropTypes.object
 }
 
 export default connect(
   (state, ownProps) => {
     return {
-      startDate: state.bulkBatchFilterDate.get('startDate'),
-      endDate: state.bulkBatchFilterDate.get('endDate')
+      startDate: state.bulkBatchFilterDate.get('startDate') ? new Date(state.bulkBatchFilterDate.get('startDate')) : new Date(),
+      endDate: state.bulkBatchFilterDate.get('endDate') ? new Date(state.bulkBatchFilterDate.get('endDate')) : new Date()
     }
   },
   (dispatch) => {
     return {
-      batchActions: bindActionCreators(batchAction, dispatch)
+      actions: bindActionCreators(actions, dispatch)
     }
   }
 )(ByDate)

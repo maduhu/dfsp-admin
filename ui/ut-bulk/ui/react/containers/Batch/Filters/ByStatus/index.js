@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import Dropdown from 'ut-front-react/components/Input/Dropdown'
 import * as actionCreators from './actions'
-import * as batchAction from '../../Grid/actions'
 
 export class ByStatus extends Component {
 
@@ -21,11 +20,7 @@ export class ByStatus extends Component {
   }
 
   handleSelect (record) {
-    if (record.value !== this.props.currentStatus) {
-      this.props.batchActions.fetchBatches({batchStatusId: record.value})
-    } else {
-      this.props.batchActions.fetchBatches()
-    }
+    (record.value !== this.props.currentStatus) ? this.props.actions.changeFilterStatus(record.value) : this.props.actions.changeFilterStatus(null)
   }
 
   render () {
@@ -51,8 +46,7 @@ ByStatus.propTypes = {
   data: PropTypes.array,
   status: PropTypes.object,
   currentStatus: PropTypes.object,
-  actions: PropTypes.object,
-  batchActions: PropTypes.object
+  actions: PropTypes.object
 }
 
 export default connect(
@@ -64,8 +58,7 @@ export default connect(
   },
   (dispatch) => {
     return {
-      actions: bindActionCreators(actionCreators, dispatch),
-      batchActions: bindActionCreators(batchAction, dispatch)
+      actions: bindActionCreators(actionCreators, dispatch)
     }
   }
 )(ByStatus)
