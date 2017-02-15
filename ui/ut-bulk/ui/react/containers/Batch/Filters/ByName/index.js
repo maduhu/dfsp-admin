@@ -12,7 +12,7 @@ export class ByName extends Component {
   }
 
   handleSearch (text) {
-    (text === '') ? this.props.actions.changeNameFilter(null) : this.props.actions.changeNameFilter(text)
+    this.props.actions.changeNameFilter(text)
   }
 
   render () {
@@ -39,7 +39,7 @@ ByName.propTypes = {
 export default connect(
   (state, ownProps) => {
     return {
-      text: ''
+      text: state.bulkBatchFilterName.get('batchName')
     }
   },
   (dispatch) => {

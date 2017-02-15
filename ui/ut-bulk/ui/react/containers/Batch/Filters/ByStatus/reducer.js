@@ -5,7 +5,7 @@ import * as actionTypes from './actionTypes'
 const defaultState = Map({
   statusId: null,
   changeId: 0,
-  batchStatus: List()
+  batchStatuses: List()
 })
 
 export const bulkBatchFilterStatus = (state = defaultState, action) => {
@@ -14,8 +14,8 @@ export const bulkBatchFilterStatus = (state = defaultState, action) => {
       return state
             .set('statusId', action.params)
             .update('changeId', (v) => ++v)
-    case actionTypes.FETCH_BATCHSTATUS:
-      return state.set('batchStatus', List(action.result))
+    case actionTypes.FETCH_BATCH_STATUSES:
+      return state.set('batchStatuses', List(action.result))
     // case clearFilterActions.CLEAR_FILTERS:
     //   return state.set('isActive', '__placeholder__')
   }

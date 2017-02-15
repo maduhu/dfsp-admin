@@ -1,8 +1,6 @@
-// import React, { Component, PropTypes } from 'react'
 import React, { PropTypes } from 'react'
 
 import Input from 'ut-front-react/components/Input'
-import Text from 'ut-front-react/components/Text'
 import Popup from 'ut-front-react/components/Popup'
 
 import style from './style.css'
@@ -30,7 +28,7 @@ export default React.createClass({
     var name = this.state.batchName
     if (!name) {
       return this.setState({
-        result: new Error('batch name not specified')
+        result: new Error('Batch Name not specified')
       })
     } else if (!file) {
       return this.setState({
@@ -48,7 +46,7 @@ export default React.createClass({
     xhr.onload = (e) => {
       if (xhr.status === 200) {
         this.setState({
-          result: {message: 'success'}
+          result: {message: 'Succesfully uploaded batch'}
         })
       } else {
         this.setState({result: new Error(xhr.response)})
@@ -66,13 +64,13 @@ export default React.createClass({
       })
     } else {
       buttons.push({
-        label: 'Cancel',
-        onClick: this.onClose,
-        className: ['defaultBtn', style.closeButton]
-      }, {
         label: 'Upload',
         type: 'submit',
         onClick: this.onSubmit,
+        className: ['defaultBtn']
+      }, {
+        label: 'Cancel',
+        onClick: this.onClose,
         className: ['defaultBtn']
       })
     }
@@ -112,8 +110,15 @@ export default React.createClass({
       <Popup
         hasOverlay
         isOpen
-        headerText='Upload New Batch'
-        actionButtons={this.getActionButtons()}
+        closeOnOverlayClick
+        header={{
+          text: 'Upload Batch Payment',
+          closePopup: this.onClose
+        }}
+        footer={{
+          className: style.footer,
+          actionButtons: this.getActionButtons()
+        }}
         closePopup={this.onClose}
       >
         <div className={style.uploadForm}>

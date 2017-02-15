@@ -12,11 +12,8 @@
     color: green;
 }
 
-.closeButton {
-  margin-left: 10px;
-}
-
 .fileInput {
+  margin: 0 auto;
   margin-top: 20px;
   width: 400px;
 }
@@ -35,6 +32,15 @@
 
 .inputWrapClassName {
   padding-left: 22px;
+  text-align: center;
+}
+
+.footer {
+  justify-content: flex-end;
+}
+
+.footer button {
+  margin-right: 10px;
 }
 
 .buttonsInnerWrapper {

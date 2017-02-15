@@ -34,9 +34,9 @@ class BulkBatch extends Component {
   render () {
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
-        <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Payments' />
+        <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Batches' />
         <div>
-            <Header text='Bulk Payments' buttons={[{text: 'Upload Batch', onClick: this.toggleUploadPopup}]} />
+            <Header text='Bulk Batches' buttons={[{text: 'Upload Batch', onClick: this.toggleUploadPopup}]} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <ToolboxFilters>

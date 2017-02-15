@@ -8,7 +8,7 @@ export class ByDate extends Component {
 
   handleDateChange (field) {
     return (date) => {
-      (date && date.value !== '') ? this.props.actions.changeFilterDate(field, date.value) : this.props.actions.changeFilterDate(field, null)
+      this.props.actions.changeFilterDate(field, date.value)
     }
   }
 
@@ -45,8 +45,8 @@ ByDate.propTypes = {
 export default connect(
   (state, ownProps) => {
     return {
-      startDate: state.bulkBatchFilterDate.get('startDate') ? new Date(state.bulkBatchFilterDate.get('startDate')) : new Date(),
-      endDate: state.bulkBatchFilterDate.get('endDate') ? new Date(state.bulkBatchFilterDate.get('endDate')) : new Date()
+      startDate: state.bulkBatchFilterDate.get('startDate') ? new Date(state.bulkBatchFilterDate.get('startDate')) : null,
+      endDate: state.bulkBatchFilterDate.get('endDate') ? new Date(state.bulkBatchFilterDate.get('endDate')) : null
     }
   },
   (dispatch) => {

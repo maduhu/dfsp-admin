@@ -2,7 +2,7 @@ import {Map} from 'immutable'
 import * as actionTypes from './actionTypes'
 
 const defaultState = Map({
-  batchName: null,
+  batchName: '',
   changeId: 0
 })
 
