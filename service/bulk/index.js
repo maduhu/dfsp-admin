@@ -114,9 +114,20 @@ module.exports = {
                             .then((result) => ({insertedRows: data.insertedRows + result.insertedRows}))
                           })
                         })
-                        return promise.then((data) => {
+                        return promise
+                        .then((data) => {
+                          if (request.payload.checkBatch) {
+                            return this.bus.importMethod('bulk.batch.check')({
+                              batchId: batch.batchId,
+                              actorId: batch.actorId
+                            })
+                            .then(function (result) {
+                              return resolve(reply(data))
+                            })
+                          }
                           return resolve(reply(data))
-                        }).catch(function (err) {
+                        })
+                        .catch(function (err) {
                           return resolve(fail(err))
                         })
                       })
