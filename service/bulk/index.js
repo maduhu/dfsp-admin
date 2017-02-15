@@ -1,6 +1,7 @@
 var fs = require('fs')
 var path = require('path')
 var csv = require('csv-parser')
+var batchStatus
 module.exports = {
   start: function () {
     this.registerRequestHandler && this.registerRequestHandler([
@@ -16,8 +17,19 @@ module.exports = {
           },
           handler: (request, _reply) => {
             let dispatch = (method, params) => {
-              return this.bus.importMethod('identity.check')(Object.assign({actionId: method}, request.auth.credentials))
-                .then(() => this.bus.importMethod(method)(params))
+              let promise = this.bus.importMethod('identity.check')(Object.assign({actionId: method}, request.auth.credentials))
+              if (!batchStatus) {
+                promise = promise
+                .then(() => this.bus.importMethod('bulk.batchStatus.fetch')({}))
+                .then((status) => {
+                  batchStatus = status.reduce(function (all, record) {
+                    all[record.name] = record.key
+                    return all
+                  }, {})
+                  return batchStatus
+                })
+              }
+              return promise.then(() => this.bus.importMethod(method)(params))
             }
             let alreadyReplied = false
             function reply (data) {
@@ -65,7 +77,7 @@ module.exports = {
                   return alreadyReplied ? resolve() : dispatch('bulk.batch.edit', {
                     batchId: batch.batchId,
                     actorId: batch.actorId,
-                    batchStatusId: 5
+                    batchStatusId: batchStatus.invalid
                   })
                   .then(() => {
                     this.log.error && this.log.error(err)
@@ -88,7 +100,7 @@ module.exports = {
                   return dispatch('bulk.batch.edit', {
                     batchId: batch.batchId,
                     actorId: batch.actorId,
-                    batchStatusId: 3
+                    batchStatusId: batchStatus.pending
                   })
                   .then(() => {
                     let batchChunkSize = this.config.batchChunkSize || 1000
