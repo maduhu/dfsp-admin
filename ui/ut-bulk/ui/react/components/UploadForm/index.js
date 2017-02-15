@@ -22,7 +22,7 @@ export default React.createClass({
     }
   },
   onClose () {
-    this.props.onClose()
+    this.props.onClose(!this.canUpload())
   },
   onSubmit (e) {
     e.preventDefault()
@@ -51,8 +51,9 @@ export default React.createClass({
     // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
     xhr.onload = (e) => {
       if (xhr.status === 200) {
+        var response = JSON.parse(xhr.response)
         this.setState({
-          result: {message: 'Succesfully uploaded batch'}
+          result: {message: 'Succesfully uploaded ' + response.insertedRows + ' entities'}
         })
       } else {
         this.setState({result: new Error(xhr.response)})

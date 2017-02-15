@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import {getLink} from 'ut-front/react/routerHelper'
 import { AddTab } from 'ut-front-react/containers/TabMenu'
 import classnames from 'classnames'
@@ -18,10 +19,13 @@ import style from '../style.css'
 
 import UploadForm from '../../components/UploadForm'
 
+import * as actionCreators from './actions'
+
 class BulkBatch extends Component {
   constructor (props) {
     super(props)
     this.toggleUploadPopup = this.toggleUploadPopup.bind(this)
+    this.closeUploadPopup = this.closeUploadPopup.bind(this)
     this.state = {
       uploadPopup: false
     }
@@ -30,6 +34,14 @@ class BulkBatch extends Component {
     this.setState({
       uploadPopup: !this.state.uploadPopup
     })
+  }
+  closeUploadPopup (refresh) {
+    this.setState({
+      uploadPopup: false
+    })
+    if (refresh) {
+      this.props.actions.fetchBatches()
+    }
   }
   render () {
     return (
@@ -65,7 +77,7 @@ class BulkBatch extends Component {
         </div>
         {this.state.uploadPopup &&
           <UploadForm
-            onClose={this.toggleUploadPopup}
+            onClose={this.closeUploadPopup}
           />
         }
     </div>
@@ -74,7 +86,8 @@ class BulkBatch extends Component {
 };
 
 BulkBatch.propTypes = {
-  showClearFilter: PropTypes.bool
+  showClearFilter: PropTypes.bool,
+  actions: PropTypes.object
 }
 
 BulkBatch.contextTypes = {
@@ -88,5 +101,10 @@ export default connect(
                       state.bulkBatchFilterStatus.get('changeId') +
                       state.bulkBatchFilterDate.get('changeId') > 0
     }
-  }, {}
+  },
+  (dispatch) => {
+    return {
+      actions: bindActionCreators(actionCreators, dispatch)
+    }
+  }
 )(BulkBatch)

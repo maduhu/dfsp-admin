@@ -9,6 +9,8 @@
 }
 
 .uploadForm .successMessage {
+    margin-top: 10px;
+    text-align: center;
     color: green;
 }
 
