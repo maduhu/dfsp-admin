@@ -1,5 +1,4 @@
-// import React, { Component, PropTypes } from 'react'
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux'
 import {getLink} from 'ut-front/react/routerHelper'
 import { AddTab } from 'ut-front-react/containers/TabMenu'
@@ -12,6 +11,7 @@ import Grid from '../../containers/Batch/Grid'
 import ByName from '../../containers/Batch/Filters/ByName'
 import ByStatus from '../../containers/Batch/Filters/ByStatus'
 import ByDate from '../../containers/Batch/Filters/ByDate'
+import ClearFilter from '../../containers/Batch/Filters/ClearFilter'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
@@ -34,9 +34,9 @@ class BulkBatch extends Component {
   render () {
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
-        <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Payments' />
+        <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Batches' />
         <div>
-            <Header text='Bulk Payments' buttons={[{text: 'Upload Batch', onClick: this.toggleUploadPopup}]} />
+            <Header text='Bulk Batches' buttons={[{text: 'Upload Batch', onClick: this.toggleUploadPopup}]} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <ToolboxFilters>
@@ -44,6 +44,7 @@ class BulkBatch extends Component {
             <ByName className={style.standardFilter} />
             <ByStatus className={style.standardFilter} />
             <ByDate className={style.doubleDateInput} />
+            <ClearFilter show={this.props.showClearFilter} />
           </div>
         </ToolboxFilters>
         <ToolboxButtons>
@@ -73,7 +74,7 @@ class BulkBatch extends Component {
 };
 
 BulkBatch.propTypes = {
-
+  showClearFilter: PropTypes.bool
 }
 
 BulkBatch.contextTypes = {
@@ -83,7 +84,9 @@ BulkBatch.contextTypes = {
 export default connect(
   (state, ownProps) => {
     return {
-
+      showClearFilter: state.bulkBatchFilterName.get('changeId') +
+                      state.bulkBatchFilterStatus.get('changeId') +
+                      state.bulkBatchFilterDate.get('changeId') > 0
     }
   }, {}
 )(BulkBatch)

@@ -1,8 +1,8 @@
 import {Map, List} from 'immutable'
-// import * as actionTypes from './actionTypes'
+import * as actionTypes from './actionTypes'
 
 const defaultState = Map({
-  data: Map(),
+  data: List(),
   checkedRow: List(),
   pagination: Map({
     pageSize: 25,
@@ -15,5 +15,11 @@ const defaultState = Map({
 // const FINISHED = 'finished'
 
 export const bulkPaymentGrid = (state = defaultState, action) => {
+  switch (action.type) {
+    case actionTypes.FETCH_BATCH_PAYMENTS:
+      return state.set('data', List(action.result))
+    default:
+      break
+  }
   return state
 }

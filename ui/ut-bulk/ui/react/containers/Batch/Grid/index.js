@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import {Link} from 'react-router'
 
 import Text from 'ut-front-react/components/Text'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
@@ -10,28 +11,42 @@ class Grid extends Component {
   constructor (props) {
     super(props)
     this.handleTransformCellValue = this.handleTransformCellValue.bind(this)
+    this.handleCellClick = this.handleCellClick.bind(this)
   }
 
   componentWillMount () {
-    this.fetchData()
+    this.props.actions.fetchBatches()
   }
 
-  componentWillReceiveProps (nextProps) {}
+  componentWillReceiveProps (nextProps) {
+    let {changeId} = this.props
+    if (nextProps.changeId !== changeId) {
+      let filterBy = nextProps.filterBy
+      this.removeNullPropertiesFromObject(filterBy)
+      this.props.actions.fetchBatches(filterBy)
+    }
+  }
 
-  fetchData () {
-    this.props.actions.fetchBatches()
+  removeNullPropertiesFromObject (obj) {
+    return Object.keys(obj).forEach((key) =>
+          (obj[key] === '' || obj[key] === '__placeholder__' || obj[key] === undefined || obj[key] === null || obj[key] === 0) && delete obj[key])
   }
 
   handleCellClick (row, field, value) {}
 
   handleOrder (result) {}
 
-  handleTransformCellValue (value, field, data, isHeader) { return value }
+  handleTransformCellValue (value, field, data, isHeader) {
+    if (field.name === 'name' && !isHeader) {
+      return (<Link to={'/bulk/batch/' + data.batchId}>{value}</Link>)
+    }
+    return value
+  }
 
   render () {
     return (
           <SimpleGrid
-            handleCellClick={() => {}}
+            handleCellClick={this.handleCellClick}
             emptyRowsMsg={<Text>No result</Text>}
             handleOrder={() => {}}
             fields={this.props.gridFields}
@@ -42,12 +57,15 @@ class Grid extends Component {
   }
 };
 
-Grid.contextTypes = {}
+Grid.contextTypes = {
+  router: PropTypes.object
+}
 
 Grid.propTypes = {
   gridFields: PropTypes.arrayOf(PropTypes.object),
   batches: PropTypes.arrayOf(PropTypes.object),
-  actions: PropTypes.object
+  actions: PropTypes.object,
+  changeId: PropTypes.number
 }
 
 export default connect(
@@ -60,7 +78,16 @@ export default connect(
             {name: 'lastValidation', title: 'Last Validation On'},
             {name: 'status', title: 'Status'}
         ],
-        batches: state.bulkBatchGrid.get('fetchBatches').toArray()
+        batches: state.bulkBatchGrid.get('fetchBatches').toArray(),
+        changeId: state.bulkBatchFilterName.get('changeId') +
+                  state.bulkBatchFilterStatus.get('changeId') +
+                  state.bulkBatchFilterDate.get('changeId'),
+        filterBy: {
+          name: state.bulkBatchFilterName.get('batchName'),
+          batchStatusId: state.bulkBatchFilterStatus.get('statusId'),
+          fromDate: state.bulkBatchFilterDate.get('startDate'),
+          toDate: state.bulkBatchFilterDate.get('endDate')
+        }
       }
     },
     (dispatch) => {

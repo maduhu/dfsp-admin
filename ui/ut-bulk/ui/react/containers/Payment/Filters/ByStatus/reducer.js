@@ -1,20 +1,25 @@
-import {Map} from 'immutable'
+import {Map, List} from 'immutable'
 import * as actionTypes from './actionTypes'
-// import {actionList as clearFilterActions} from '../Clear/actions'
+import * as clearFilterActions from '../ClearFilter/actionTypes'
 
 const defaultState = Map({
-  isActive: '__placeholder__',
-  changeId: 0
+  statusId: null,
+  changeId: 0,
+  paymentStatus: List()
 })
 
 export const bulkPaymentFilterStatus = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.CHANGE_FILTER_STATUS:
       return state
-            .set('isActive', action.params.newValue)
+            .set('statusId', action.params)
             .update('changeId', (v) => ++v)
-    // case clearFilterActions.CLEAR_FILTERS:
-    //   return state.set('isActive', '__placeholder__')
+    case actionTypes.FETCH_BATCH_PAYMENT_STATUS:
+      return state.set('paymentStatus', List(action.result))
+    case clearFilterActions.CLEAR_PAYMENT_FILTER:
+      return state
+            .set('statusId', null)
+            .set('changeId', 0)
   }
   return state
 }
