@@ -1,5 +1,5 @@
 // import React, { Component, PropTypes } from 'react'
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {getLink} from 'ut-front/react/routerHelper'
 import { AddTab } from 'ut-front-react/containers/TabMenu'
@@ -41,9 +41,9 @@ class BulkBatch extends Component {
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <ToolboxFilters>
           <div className={style.filterWrap}>
-            <ByName />
-            <ByStatus />
-            <ByDate className={style.doubleField} />
+            <ByName className={style.standardFilter} />
+            <ByStatus className={style.standardFilter} />
+            <ByDate className={style.doubleDateInput} />
           </div>
         </ToolboxFilters>
         <ToolboxButtons>
@@ -64,26 +64,26 @@ class BulkBatch extends Component {
         </div>
         {this.state.uploadPopup &&
           <UploadForm
-            actorId={this.props.login.person.actorId}
             onClose={this.toggleUploadPopup}
           />
         }
     </div>
-
     )
   }
 };
 
 BulkBatch.propTypes = {
-  login: PropTypes.object
+
 }
 
-BulkBatch.contextTypes = {}
+BulkBatch.contextTypes = {
+
+}
 
 export default connect(
   (state, ownProps) => {
     return {
-      login: state.login.toJS().result
+
     }
   }, {}
 )(BulkBatch)

@@ -33,6 +33,9 @@ module.exports = {
               }
               return _reply(message).code(code)
             }
+            if (!request.auth.credentials) {
+              return reply(new Error('missing credentials'))
+            }
             var file = request.payload.file
             if (!file) {
               return reply(new Error('missing file'))
@@ -54,11 +57,11 @@ module.exports = {
               name: batchName,
               fileName: fileName,
               originalFileName: originalFileName,
-              actorId: request.payload.actorId
+              actorId: request.auth.credentials.actorId
             })
             .then((batch) => {
               return new Promise((resolve, reject) => {
-                var fail = (err) => {
+                let fail = (err) => {
                   return alreadyReplied ? resolve() : dispatch('bulk.batch.edit', {
                     batchId: batch.batchId,
                     actorId: batch.actorId,
@@ -73,7 +76,7 @@ module.exports = {
                     return resolve(reply(err))
                   })
                 }
-                var ws = fs.createWriteStream(filePath)
+                let ws = fs.createWriteStream(filePath)
                 ws.on('error', (err) => {
                   return fail(err)
                 })
@@ -87,10 +90,9 @@ module.exports = {
                     actorId: batch.actorId,
                     batchStatusId: 3
                   })
-                  .then(() => resolve(reply('')))
                   .then(() => {
-                    var batchChunkSize = this.config.batchChunkSize || 1000
-                    var records = [[]]
+                    let batchChunkSize = this.config.batchChunkSize || 1000
+                    let records = [[]]
                     fs.createReadStream(filePath)
                       .pipe(csv())
                       .on('data', function (data) {
@@ -101,7 +103,7 @@ module.exports = {
                         }
                       })
                       .on('end', (data) => {
-                        var promise = Promise.resolve({insertedRows: 0})
+                        let promise = Promise.resolve({insertedRows: 0})
                         records.forEach((chunk) => {
                           promise = promise.then((data) => {
                             return dispatch('bulk.payment.add', {
@@ -113,16 +115,17 @@ module.exports = {
                           })
                         })
                         return promise.then((data) => {
-                          return resolve(data)
-                        }).catch(reject)
+                          return resolve(reply(data))
+                        }).catch(function (err) {
+                          return resolve(fail(err))
+                        })
                       })
-                      .on('error', function () {
-                        resolve('')
+                      .on('error', function (err) {
+                        return resolve(fail(err))
                       })
                   })
                   .catch((err) => {
-                    this.log.error && this.log.error(err)
-                    return resolve(reply(err))
+                    return resolve(fail(err))
                   })
                 })
               })
