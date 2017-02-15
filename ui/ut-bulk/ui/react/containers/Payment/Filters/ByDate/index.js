@@ -35,7 +35,7 @@ ByDate.propTypes = {
 export default connect(
   (state, ownProps) => {
     return {
-      selectedDate: state.bulkPaymentFilterDate.get('selectedDate')
+      selectedDate: state.bulkPaymentFilterDate.get('selectedDate') ? new Date(state.bulkPaymentFilterDate.get('selectedDate')) : new Date()
     }
   }, {
 
