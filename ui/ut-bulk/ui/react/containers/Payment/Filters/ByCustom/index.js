@@ -12,37 +12,44 @@ export class ByName extends Component {
 
   constructor (props) {
     super(props)
-    this.state = {
-      searchBy: 'name'
-    }
     this.handleSelect = this.handleSelect.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
+    this.getSearchBoxPlaceholder = this.getSearchBoxPlaceholder.bind(this)
   }
 
   handleSelect (record) {
-    this.setState({searchBy: record.value})
+    this.props.actions.changeFilterCustomField(record.value)
   }
 
   handleSearch (text) {
-    this.props.actions.changeFilterCustom(this.state.searchBy, text)
+    this.props.actions.changeFilterCustomValue(text)
+  }
+
+  getSearchBoxPlaceholder () {
+    let {data, field} = this.props
+    let obj = data.find((element) => {
+      return element.key === field
+    })
+    return 'By ' + obj.name
   }
 
   render () {
+    let {className, data, field, text} = this.props
     return (
-       <div className={this.props.className} style={this.props.style}>
+       <div className={className} style={this.props.style}>
         <div className={style.customSearchDropdown}>
           <Dropdown
-            canSelectPlaceholder
             keyProp='status'
             onSelect={this.handleSelect}
-            data={this.props.data}
+            data={data}
+            defaultSelected={field}
             placeholder={<Text>Search By</Text>}
           />
         </div>
         <div className={style.customSearchTextField}>
           <SearchBox
-            defaultValue={this.props.text}
-            placeholder='By Name'
+            defaultValue={text}
+            placeholder={this.getSearchBoxPlaceholder()}
             onSearch={this.handleSearch}
           />
         </div>
@@ -64,8 +71,8 @@ ByName.propTypes = {
 export default connect(
   (state, ownProps) => {
     return {
-      text: state.bulkPaymentFilterCustom.get('value') ? state.bulkPaymentFilterCustom.get('value') : '',
-      field: state.bulkPaymentFilterCustom.get('field') ? state.bulkPaymentFilterCustom.get('field') : 'name',
+      text: state.bulkPaymentFilterCustom.get('value'),
+      field: state.bulkPaymentFilterCustom.get('field'),
       data: [
         {
           name: 'Name',

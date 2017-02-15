@@ -16,7 +16,7 @@ export class ByStatus extends Component {
   }
 
   handleSelect (record) {
-    (record && record.value !== this.props.currentStatus) ? this.props.actions.changeFilterStatus(record.value) : this.props.actions.changeFilterStatus(null)
+    this.props.actions.changeFilterStatus(record.value)
   }
 
   render () {

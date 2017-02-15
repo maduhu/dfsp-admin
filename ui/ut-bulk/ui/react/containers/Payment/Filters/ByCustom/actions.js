@@ -1,6 +1,12 @@
 import * as actionTypes from './actionTypes'
 
-export const changeFilterCustom = (field, value) => ({
-  type: actionTypes.CHANGE_FILTER_CUSTOM,
-  params: {field, value}
+export const changeFilterCustomField = (value) => ({
+  type: actionTypes.CHANGE_FILTER_CUSTOM_FIELD,
+  params: {value}
 })
+
+export const changeFilterCustomValue = (value) => ({
+  type: actionTypes.CHANGE_FILTER_CUSTOM_VALUE,
+  params: {value}
+})
+
