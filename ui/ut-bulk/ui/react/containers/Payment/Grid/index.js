@@ -13,11 +13,7 @@ class Grid extends Component {
   }
 
   componentWillMount () {
-    let filterBy = {}
-    if (this.context.router.params && this.context.router.params.batchId) {
-      filterBy['batchId'] = this.context.router.params.batchId
-    }
-    this.props.actions.fetchBatchPayments(filterBy)
+    this.props.actions.fetchBatchPayments({batchId: this.context.router.params.batchId})
   }
 
   componentWillReceiveProps (nextProps) {
@@ -27,9 +23,7 @@ class Grid extends Component {
       if (filterBy.custom && filterBy.custom.field) {
         filterBy[filterBy.custom.field] = filterBy.custom.value
       }
-      if (this.context.router.params && this.context.router.params.batchId) {
-        filterBy['batchId'] = this.context.router.params.batchId
-      }
+      filterBy['batchId'] = this.context.router.params.batchId
       this.removeNullPropertiesFromObject(filterBy)
       this.props.actions.fetchBatchPayments(filterBy)
     }

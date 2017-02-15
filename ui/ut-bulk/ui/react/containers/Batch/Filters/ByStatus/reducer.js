@@ -1,6 +1,6 @@
 import {Map, List} from 'immutable'
 import * as actionTypes from './actionTypes'
-// import {actionList as clearFilterActions} from '../Clear/actions'
+import * as clearFilterActions from '../ClearFilter/actionTypes'
 
 const defaultState = Map({
   statusId: null,
@@ -16,8 +16,10 @@ export const bulkBatchFilterStatus = (state = defaultState, action) => {
             .update('changeId', (v) => ++v)
     case actionTypes.FETCH_BATCH_STATUSES:
       return state.set('batchStatuses', List(action.result))
-    // case clearFilterActions.CLEAR_FILTERS:
-    //   return state.set('isActive', '__placeholder__')
+    case clearFilterActions.CLEAR_BATCH_FILTER:
+      return state
+            .set('statusId', null)
+            .set('changeId', 0)
   }
   return state
 }

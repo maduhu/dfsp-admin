@@ -1,6 +1,6 @@
 import {Map} from 'immutable'
 import * as actionTypes from './actionTypes'
-// import {actionList as clearFilterActions} from '../Clear/actions'
+import * as clearFilterActions from '../ClearFilter/actionTypes'
 
 const defaultState = Map({
   field: 'name',
@@ -17,8 +17,8 @@ export const bulkPaymentFilterCustom = (state = defaultState, action) => {
       return state
             .set('value', action.params.value)
             .update('changeId', (v) => ++v)
-    // case clearFilterActions.CLEAR_FILTERS:
-    //   return state.set('isActive', '__placeholder__')
+    case clearFilterActions.CLEAR_PAYMENT_FILTER:
+      return defaultState
   }
   return state
 }

@@ -1,4 +1,5 @@
 import {bulkBatchToolbox} from './containers/Batch/GridToolbox/reducer'
+import {bulkPaymentToolbox} from './containers/Payment/GridToolbox/reducer'
 import {bulkBatchFilterStatus} from './containers/Batch/Filters/ByStatus/reducer'
 import {bulkBatchFilterDate} from './containers/Batch/Filters/ByDate/reducer'
 import {bulkBatchFilterName} from './containers/Batch/Filters/ByName/reducer'
@@ -12,6 +13,7 @@ import {bulkBatchGrid} from './containers/Batch/Grid/reducer'
  */
 export default {
   bulkBatchToolbox,
+  bulkPaymentToolbox,
   bulkBatchFilterStatus,
   bulkBatchFilterDate,
   bulkBatchFilterName,
