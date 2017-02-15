@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 
 import Input from 'ut-front-react/components/Input'
+import Checkbox from 'ut-front-react/components/Input/Checkbox'
 import Popup from 'ut-front-react/components/Popup'
 
 import style from './style.css'
@@ -16,7 +17,8 @@ export default React.createClass({
     return {
       result: {},
       fileName: '',
-      batchName: ''
+      batchName: '',
+      checkBatch: true
     }
   },
   onClose () {
@@ -26,6 +28,7 @@ export default React.createClass({
     e.preventDefault()
     var file = this.refs.batch.files[0]
     var name = this.state.batchName
+    var checkBatch = this.state.checkBatch
     if (!name) {
       return this.setState({
         result: new Error('Batch Name not specified')
@@ -38,6 +41,9 @@ export default React.createClass({
     var data = new window.FormData()
     data.append('file', file)
     data.append('name', name)
+    if (checkBatch) {
+      data.append('checkBatch', checkBatch)
+    }
     data.processData = false
     data.contentType = false
     var xhr = new window.XMLHttpRequest()
@@ -92,6 +98,9 @@ export default React.createClass({
               <label htmlFor='batch' className={style.browseBtn}>Browse...</label>
               <input ref='batch' type='file' name='batch' id='batch' accept='text/csv' onChange={() => this.setState({fileName: this.refs.batch.files[0].name})} />
             </div>
+          </div>
+          <div className={style.infoInputWrapper}>
+            <Checkbox label='Check batch after upload' checked={this.state.checkBatch} onClick={() => this.setState({checkBatch: !this.state.checkBatch})} />
           </div>
         </div>
       )
