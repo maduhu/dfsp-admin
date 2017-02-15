@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import {Link} from 'react-router'
 
 import Text from 'ut-front-react/components/Text'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
@@ -10,6 +11,7 @@ class Grid extends Component {
   constructor (props) {
     super(props)
     this.handleTransformCellValue = this.handleTransformCellValue.bind(this)
+    this.handleCellClick = this.handleCellClick.bind(this)
   }
 
   componentWillMount () {
@@ -34,12 +36,17 @@ class Grid extends Component {
 
   handleOrder (result) {}
 
-  handleTransformCellValue (value, field, data, isHeader) { return value }
+  handleTransformCellValue (value, field, data, isHeader) {
+    if (field.name === 'name' && !isHeader) {
+      return (<Link to={'/bulk/batch/' + data.batchId}>{value}</Link>)
+    }
+    return value
+  }
 
   render () {
     return (
           <SimpleGrid
-            handleCellClick={() => {}}
+            handleCellClick={this.handleCellClick}
             emptyRowsMsg={<Text>No result</Text>}
             handleOrder={() => {}}
             fields={this.props.gridFields}
@@ -50,7 +57,9 @@ class Grid extends Component {
   }
 };
 
-Grid.contextTypes = {}
+Grid.contextTypes = {
+  router: PropTypes.object
+}
 
 Grid.propTypes = {
   gridFields: PropTypes.arrayOf(PropTypes.object),

@@ -1,0 +1,1 @@
+export const CHANGE_FILTER_CUSTOM = Symbol('CHANGE_FILTER_CUSTOM')

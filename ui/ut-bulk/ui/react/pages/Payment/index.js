@@ -1,5 +1,5 @@
 // import React, { Component, PropTypes } from 'react'
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux'
 import {getLink} from 'ut-front/react/routerHelper'
 import { AddTab } from 'ut-front-react/containers/TabMenu'
@@ -26,7 +26,7 @@ class BulkPayment extends Component {
   render () {
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
-        <AddTab pathname={getLink('ut-bulk:record')} title='Bulk Payments' />
+        <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='Bulk Payments' />
         <div>
             <Header text='Bulk - Batches - Payments' buttons={[{text: 'Batch Ready'}, {text: 'Check Entire Batch'}]} />
         </div>
@@ -57,7 +57,9 @@ class BulkPayment extends Component {
   }
 };
 
-BulkPayment.propTypes = {}
+BulkPayment.propTypes = {
+  params: PropTypes.object.isRequired
+}
 
 BulkPayment.contextTypes = {}
 

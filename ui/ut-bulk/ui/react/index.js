@@ -33,9 +33,7 @@ export const UtBulkRoutes = (config) => {
         <Route path={getRoute('ut-bulk:home')}>
           <IndexRoute component={Main} />
         </Route>
-        <Route path={getRoute('ut-bulk:record')}>
-          <IndexRoute component={PaymentPage} />
-        </Route>
+        <Route path={getRoute('ut-bulk:record')} component={PaymentPage} />
     </Route>
   )
 }
