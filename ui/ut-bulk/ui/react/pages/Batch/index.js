@@ -26,6 +26,7 @@ class BulkBatch extends Component {
     super(props)
     this.toggleUploadPopup = this.toggleUploadPopup.bind(this)
     this.closeUploadPopup = this.closeUploadPopup.bind(this)
+    this.getHeaderButtons = this.getHeaderButtons.bind(this)
     this.state = {
       uploadPopup: false
     }
@@ -43,12 +44,24 @@ class BulkBatch extends Component {
       this.props.actions.fetchBatches()
     }
   }
+  getHeaderButtons () {
+    let buttons = []
+    this.context.checkPermission('bulk.batch.add') && buttons.push({text: 'Upload Batch', onClick: this.toggleUploadPopup})
+    return buttons
+  }
+  getToolboxButtons () {
+    let buttons = ['View Batch Records', 'Check Batch', 'Details']
+    this.context.checkPermission('bulk.batch.edit') && buttons.push('Download', 'Disable', 'Replace')
+    return buttons.map((buttonName) => {
+      return <button className='button btn btn-primary'>{buttonName}</button>
+    })
+  }
   render () {
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
         <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Batches' />
         <div>
-            <Header text='Bulk Batches' buttons={[{text: 'Upload Batch', onClick: this.toggleUploadPopup}]} />
+            <Header text='Bulk Batches' buttons={this.getHeaderButtons()} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <ToolboxFilters>
@@ -61,12 +74,7 @@ class BulkBatch extends Component {
         </ToolboxFilters>
         <ToolboxButtons>
             <div className={style.buttonWrap}>
-            <button className='button btn btn-primary'>View Batch Records</button>
-            <button className='button btn btn-primary'>Delete</button>
-            <button className='button btn btn-primary'>Disable</button>
-            <button className='button btn btn-primary'>Download</button>
-            <button className='button btn btn-primary'>Replace</button>
-            <button className='button btn btn-primary'>Check Batch</button>
+             {this.getToolboxButtons()}
             </div>
         </ToolboxButtons>
         </div>
@@ -91,7 +99,7 @@ BulkBatch.propTypes = {
 }
 
 BulkBatch.contextTypes = {
-
+  checkPermission: PropTypes.func
 }
 
 export default connect(
