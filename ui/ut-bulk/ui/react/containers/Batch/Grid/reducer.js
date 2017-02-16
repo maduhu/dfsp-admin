@@ -3,7 +3,7 @@ import * as actionTypes from './actionTypes'
 
 const defaultState = Map({
   data: Map(),
-  checkedRow: List(),
+  checkedRow: Map({}),
   pagination: Map({
     pageSize: 25,
     pageNumber: 1,
@@ -19,6 +19,8 @@ export const bulkBatchGrid = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_BATCHES:
       return state.set('fetchBatches', List(action.result))
+    case actionTypes.CHECK_ROW:
+      return action.params.row.name === state.getIn(['checkedRow', 'name']) ? state.set('checkedRow', Map({})) : state.set('checkedRow', Map(action.params.row))
     default:
       break
   }

@@ -3,7 +3,7 @@ import * as actionTypes from './actionTypes'
 import * as clearFilterActions from '../ClearFilter/actionTypes'
 
 const defaultState = Map({
-  statusId: null,
+  statusId: '__placeholder__',
   changeId: 0,
   batchStatuses: List()
 })

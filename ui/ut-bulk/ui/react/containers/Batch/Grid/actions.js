@@ -7,3 +7,10 @@ export function fetchBatches (params) {
     params: params || {}
   }
 }
+
+export function checkRow (row) {
+  return {
+    type: actionTypes.CHECK_ROW,
+    params: {row}
+  }
+}

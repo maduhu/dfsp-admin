@@ -52,7 +52,7 @@ class BulkBatch extends Component {
     let buttons = ['View Batch Records', 'Check Batch', 'Details']
     this.context.checkPermission('bulk.batch.edit') && buttons.push('Download', 'Disable', 'Replace')
     return buttons.map((buttonName) => {
-      return <button className='button btn btn-primary'>{buttonName}</button>
+      return <button className='button btn btn-primary' key={buttonName} >{buttonName}</button>
     })
   }
   render () {

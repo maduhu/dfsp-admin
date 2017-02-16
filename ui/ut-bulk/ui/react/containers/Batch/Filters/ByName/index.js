@@ -12,7 +12,7 @@ export class ByName extends Component {
   }
 
   handleSearch (text) {
-    this.props.actions.changeNameFilter(text)
+    (text !== this.props.text) && this.props.actions.changeNameFilter(text)
   }
 
   render () {

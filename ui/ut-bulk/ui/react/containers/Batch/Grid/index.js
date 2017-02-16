@@ -6,6 +6,7 @@ import {Link} from 'react-router'
 import Text from 'ut-front-react/components/Text'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
 import * as actionCreators from './actions'
+import {show as showToolbox} from '../GridToolbox/actions'
 
 class Grid extends Component {
   constructor (props) {
@@ -32,7 +33,11 @@ class Grid extends Component {
           (obj[key] === '' || obj[key] === '__placeholder__' || obj[key] === undefined || obj[key] === null || obj[key] === 0) && delete obj[key])
   }
 
-  handleCellClick (row, field, value) {}
+  handleCellClick (row, field, value) {
+    let {checkedRow, showToolbox, actions} = this.props
+    row.batchId === checkedRow.batchId ? showToolbox('filters') : this.props.showToolbox('button')
+    return actions.checkRow(row)
+  }
 
   handleOrder (result) {}
 
@@ -45,14 +50,15 @@ class Grid extends Component {
 
   render () {
     return (
-          <SimpleGrid
-            handleCellClick={this.handleCellClick}
-            emptyRowsMsg={<Text>No result</Text>}
-            handleOrder={() => {}}
-            fields={this.props.gridFields}
-            transformCellValue={this.handleTransformCellValue}
-            data={this.props.batches}
-          />
+        <SimpleGrid
+          handleCellClick={this.handleCellClick}
+          emptyRowsMsg={<Text>No result</Text>}
+          handleOrder={() => {}}
+          rowsChecked={[this.props.checkedRow]}
+          fields={this.props.gridFields}
+          transformCellValue={this.handleTransformCellValue}
+          data={this.props.batches}
+        />
     )
   }
 };
@@ -65,7 +71,10 @@ Grid.propTypes = {
   gridFields: PropTypes.arrayOf(PropTypes.object),
   batches: PropTypes.arrayOf(PropTypes.object),
   actions: PropTypes.object,
-  changeId: PropTypes.number
+  changeId: PropTypes.number,
+  checkedRow: PropTypes.arrayOf(PropTypes.object),
+  showToolbox: PropTypes.func,
+  toolboxFilter: PropTypes.bool
 }
 
 export default connect(
@@ -87,12 +96,15 @@ export default connect(
           batchStatusId: state.bulkBatchFilterStatus.get('statusId'),
           fromDate: state.bulkBatchFilterDate.get('startDate'),
           toDate: state.bulkBatchFilterDate.get('endDate')
-        }
+        },
+        checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
+        toolboxFilter: state.bulkBatchToolbox.getIn(['filters', 'opened'])
       }
     },
     (dispatch) => {
       return {
-        actions: bindActionCreators(actionCreators, dispatch)
+        actions: bindActionCreators(actionCreators, dispatch),
+        showToolbox: bindActionCreators(showToolbox, dispatch)
       }
     }
 )(Grid)
