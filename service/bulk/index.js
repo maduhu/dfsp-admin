@@ -131,7 +131,8 @@ module.exports = {
                           if (request.payload.checkBatch) {
                             return this.bus.importMethod('bulk.batch.check')({
                               batchId: batch.batchId,
-                              actorId: batch.actorId
+                              actorId: batch.actorId,
+                              async: true
                             })
                             .then(function (result) {
                               return resolve(reply(data))
