@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
 import {getLink} from 'ut-front/react/routerHelper'
 import { AddTab } from 'ut-front-react/containers/TabMenu'
 import classnames from 'classnames'
@@ -19,7 +18,7 @@ import style from '../style.css'
 
 import UploadForm from '../../components/UploadForm'
 
-import * as actionCreators from './actions'
+import {fetchBatches} from '../../containers/Batch/Grid/actions'
 
 class BulkBatch extends Component {
   constructor (props) {
@@ -40,7 +39,7 @@ class BulkBatch extends Component {
       uploadPopup: false
     })
     if (refresh) {
-      this.props.actions.fetchBatches()
+      this.props.fetchBatches()
     }
   }
   render () {
@@ -87,7 +86,7 @@ class BulkBatch extends Component {
 
 BulkBatch.propTypes = {
   showClearFilter: PropTypes.bool,
-  actions: PropTypes.object
+  fetchBatches: PropTypes.func
 }
 
 BulkBatch.contextTypes = {
@@ -102,9 +101,7 @@ export default connect(
                       state.bulkBatchFilterDate.get('changeId') > 0
     }
   },
-  (dispatch) => {
-    return {
-      actions: bindActionCreators(actionCreators, dispatch)
-    }
+  {
+    fetchBatches
   }
 )(BulkBatch)
