@@ -100,7 +100,7 @@ module.exports = {
                   return dispatch('bulk.batch.edit', {
                     batchId: batch.batchId,
                     actorId: batch.actorId,
-                    batchStatusId: batchStatus.pending
+                    batchStatusId: batchStatus.new
                   })
                   .then(() => {
                     let batchChunkSize = this.config.batchChunkSize || 1000
