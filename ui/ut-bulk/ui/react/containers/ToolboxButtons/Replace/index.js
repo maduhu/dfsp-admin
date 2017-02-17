@@ -46,7 +46,7 @@ export class Replace extends Component {
 }
 
 Replace.propTypes = {
-  fetchBatches: PropTypes.function,
+  fetchBatches: PropTypes.func,
   batch: PropTypes.object,
   style: PropTypes.object,
   className: PropTypes.string
