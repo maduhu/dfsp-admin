@@ -100,7 +100,7 @@ module.exports = {
                   return dispatch('bulk.batch.edit', {
                     batchId: batch.batchId,
                     actorId: batch.actorId,
-                    batchStatusId: batchStatus.pending
+                    batchStatusId: batchStatus.new
                   })
                   .then(() => {
                     let batchChunkSize = this.config.batchChunkSize || 1000
@@ -131,7 +131,8 @@ module.exports = {
                           if (request.payload.checkBatch) {
                             return this.bus.importMethod('bulk.batch.check')({
                               batchId: batch.batchId,
-                              actorId: batch.actorId
+                              actorId: batch.actorId,
+                              async: true
                             })
                             .then(function (result) {
                               return resolve(reply(data))

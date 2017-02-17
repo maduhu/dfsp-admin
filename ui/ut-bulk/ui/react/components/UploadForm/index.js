@@ -1,14 +1,19 @@
 import React, { PropTypes } from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
 import Input from 'ut-front-react/components/Input'
 import Checkbox from 'ut-front-react/components/Input/Checkbox'
 import Popup from 'ut-front-react/components/Popup'
 
+import * as actionCreators from './actions'
+
 import style from './style.css'
 
-export default React.createClass({
+let UploadForm = React.createClass({
   propTypes: {
-    onClose: PropTypes.func
+    onClose: PropTypes.func,
+    actions: PropTypes.object
   },
   defaultProps: {
     onClose: () => {}
@@ -50,6 +55,7 @@ export default React.createClass({
     xhr.open('POST', '/rpc/batch', true)
     // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
     xhr.onload = (e) => {
+      this.props.actions.hidePreload()
       if (xhr.status === 200) {
         var response = JSON.parse(xhr.response)
         this.setState({
@@ -60,6 +66,7 @@ export default React.createClass({
       }
     }
     xhr.send(data)
+    this.props.actions.showPreload()
   },
   getActionButtons () {
     let buttons = []
@@ -140,3 +147,14 @@ export default React.createClass({
   }
 })
 
+export default connect(
+  (state, ownProps) => {
+    return {
+    }
+  },
+  (dispatch) => {
+    return {
+      actions: bindActionCreators(actionCreators, dispatch)
+    }
+  }
+)(UploadForm)
