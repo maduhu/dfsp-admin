@@ -10,9 +10,6 @@ var wb = require('ut-front/webpack/ut-front.config')({
     path: path.resolve(__dirname, 'config')
   }
 }, false)
-wb.assetsConfig = {
-  quiet: true
-}
 webpack(wb, (err, stats) => {
   if (err) {
     throw err
