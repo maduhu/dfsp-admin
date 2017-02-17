@@ -11,18 +11,18 @@ export class CheckBatch extends Component {
   }
 
   handleClick () {
-    this.props.actions.checkBatch(this.props.batchId, this.props.actorId)
+    this.props.batchId ? this.props.actions.checkBatch(this.props.batchId, this.props.actorId) : this.props.actions.checkPayments(this.props.paymentIds, this.props.actorId)
   }
 
   render () {
     return (
       <button
         onClick={this.handleClick}
-        disabled={!this.props.batchId || !this.props.actorId}
+        disabled={!this.props.batchId && !this.props.paymentIds || !this.props.actorId}
         style={this.props.style}
         className={this.props.className}
         >
-          Check Batch
+          {this.props.buttonText || 'Check Batch'}
       </button>
     )
   }
@@ -31,9 +31,11 @@ export class CheckBatch extends Component {
 CheckBatch.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.number,
+  paymentIds: PropTypes.arrayOf(PropTypes.string),
   actorId: PropTypes.string,
   style: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
+  buttonText: PropTypes.string
 }
 
 CheckBatch.contextTypes = {

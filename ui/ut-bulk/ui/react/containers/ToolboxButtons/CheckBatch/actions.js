@@ -9,3 +9,13 @@ export const checkBatch = (batchId, actorId) => ({
     async: true
   }
 })
+
+export const checkPayments = (paymentIds, actorId) => ({
+  type: actionTypes.CHECK_PAYMENTS,
+  method: 'bulk.batch.check',
+  params: {
+    paymentIds: paymentIds,
+    actorId: actorId,
+    async: true
+  }
+})

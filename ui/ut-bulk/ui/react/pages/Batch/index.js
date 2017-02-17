@@ -15,7 +15,6 @@ import ClearFilter from '../../containers/Batch/Filters/ClearFilter'
 import CheckBatch from '../../containers/ToolboxButtons/CheckBatch'
 import ViewBatchRecords from '../../containers/ToolboxButtons/ViewBatchRecords'
 import Details from '../../containers/ToolboxButtons/Details'
-import Download from '../../containers/ToolboxButtons/Download'
 import Disable from '../../containers/ToolboxButtons/Disable'
 import Replace from '../../containers/ToolboxButtons/Replace'
 
@@ -63,7 +62,6 @@ class BulkBatch extends Component {
       <Details batchId={batchId} className={className} key='Details' />
     ]
     this.context.checkPermission('bulk.batch.edit') && buttons.push(
-      <Download batchId={batchId} className={className} key='Download' />,
       <Replace batch={this.props.checkedRow} className={className} key='Replace' />
     )
     this.context.checkPermission('bulk.batch.reject') && buttons.push(
