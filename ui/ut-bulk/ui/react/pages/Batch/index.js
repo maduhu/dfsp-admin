@@ -22,7 +22,7 @@ import Replace from '../../containers/ToolboxButtons/Replace'
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
 
-import UploadForm from '../../components/UploadForm'
+import UploadForm from '../../containers/UploadForm'
 
 import {fetchBatches} from '../../containers/Batch/Grid/actions'
 
