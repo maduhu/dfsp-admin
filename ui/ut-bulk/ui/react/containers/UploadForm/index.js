@@ -13,7 +13,8 @@ import style from './style.css'
 let UploadForm = React.createClass({
   propTypes: {
     onClose: PropTypes.func,
-    actions: PropTypes.object
+    actions: PropTypes.object,
+    batch: PropTypes.object
   },
   defaultProps: {
     onClose: () => {}
@@ -22,7 +23,7 @@ let UploadForm = React.createClass({
     return {
       result: {},
       fileName: '',
-      batchName: '',
+      batchName: this.props.batch ? this.props.batch.name : '',
       checkBatch: true
     }
   },
@@ -46,13 +47,16 @@ let UploadForm = React.createClass({
     var data = new window.FormData()
     data.append('file', file)
     data.append('name', name)
+    if (this.props.batch) {
+      data.append('batchId', this.props.batch.batchId)
+    }
     if (checkBatch) {
       data.append('checkBatch', checkBatch)
     }
     data.processData = false
     data.contentType = false
     var xhr = new window.XMLHttpRequest()
-    xhr.open('POST', '/rpc/batch', true)
+    xhr.open(this.props.batch ? 'PUT': 'POST', '/rpc/batch', true)
     // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
     xhr.onload = (e) => {
       this.props.actions.hidePreload()
