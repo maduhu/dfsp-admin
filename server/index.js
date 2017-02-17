@@ -15,7 +15,8 @@ module.exports = {
     }),
     frontend: require('ut-front-react'),
     ruleHTTP: require('ut-rule/ui/react/http'),
-    identity: {}
+    identity: require('../service/identity'),
+    bulk: require('../service/bulk')
   },
   validations: {
     identity: {
