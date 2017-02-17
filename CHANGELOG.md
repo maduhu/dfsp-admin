@@ -1,3 +1,13 @@
+<a name="0.4.2"></a>
+## [0.4.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.4.1...v0.4.2) (2017-02-17)
+
+
+### Bug Fixes
+
+* fix webpack ([e0c4b89](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e0c4b89))
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.4.0...v0.4.1) (2017-02-17)
 
