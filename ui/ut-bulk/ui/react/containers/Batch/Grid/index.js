@@ -72,7 +72,7 @@ Grid.propTypes = {
   batches: PropTypes.arrayOf(PropTypes.object),
   actions: PropTypes.object,
   changeId: PropTypes.number,
-  checkedRow: PropTypes.arrayOf(PropTypes.object),
+  checkedRow: PropTypes.object,
   showToolbox: PropTypes.func,
   toolboxFilter: PropTypes.bool
 }

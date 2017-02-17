@@ -20,7 +20,7 @@ export const bulkBatchGrid = (state = defaultState, action) => {
     case actionTypes.FETCH_BATCHES:
       return state.set('fetchBatches', List(action.result))
     case actionTypes.CHECK_ROW:
-      return action.params.row.name === state.getIn(['checkedRow', 'name']) ? state.set('checkedRow', Map({})) : state.set('checkedRow', Map(action.params.row))
+      return action.params.row.batchId === state.getIn(['checkedRow', 'batchId']) ? state.set('checkedRow', Map({})) : state.set('checkedRow', Map(action.params.row))
     default:
       break
   }

@@ -12,11 +12,17 @@ import ByName from '../../containers/Batch/Filters/ByName'
 import ByStatus from '../../containers/Batch/Filters/ByStatus'
 import ByDate from '../../containers/Batch/Filters/ByDate'
 import ClearFilter from '../../containers/Batch/Filters/ClearFilter'
+import CheckBatch from '../../containers/ToolboxButtons/CheckBatch'
+import ViewBatchRecords from '../../containers/ToolboxButtons/ViewBatchRecords'
+import Details from '../../containers/ToolboxButtons/Details'
+import Download from '../../containers/ToolboxButtons/Download'
+import Disable from '../../containers/ToolboxButtons/Disable'
+import Replace from '../../containers/ToolboxButtons/Replace'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
 
-import UploadForm from '../../components/UploadForm'
+import UploadForm from '../../containers/UploadForm'
 
 import {fetchBatches} from '../../containers/Batch/Grid/actions'
 
@@ -49,11 +55,21 @@ class BulkBatch extends Component {
     return buttons
   }
   getToolboxButtons () {
-    let buttons = ['View Batch Records', 'Check Batch', 'Details']
-    this.context.checkPermission('bulk.batch.edit') && buttons.push('Download', 'Disable', 'Replace')
-    return buttons.map((buttonName) => {
-      return <button className='button btn btn-primary' key={buttonName} >{buttonName}</button>
-    })
+    let className = 'button btn btn-primary'
+    let batchId = this.props.checkedRow.batchId
+    let buttons = [
+      <CheckBatch batchId={batchId} className={className} key='Check Batch' />,
+      <ViewBatchRecords batchId={batchId} className={className} key='View Batch Records' />,
+      <Details batchId={batchId} className={className} key='Details' />
+    ]
+    this.context.checkPermission('bulk.batch.edit') && buttons.push(
+      <Download batchId={batchId} className={className} key='Download' />,
+      <Replace batch={this.props.checkedRow} className={className} key='Replace' />
+    )
+    this.context.checkPermission('bulk.batch.reject') && buttons.push(
+      <Disable batchId={batchId} className={className} key='Disable' />
+    )
+    return buttons
   }
   render () {
     return (
@@ -94,7 +110,8 @@ class BulkBatch extends Component {
 
 BulkBatch.propTypes = {
   showClearFilter: PropTypes.bool,
-  fetchBatches: PropTypes.func
+  fetchBatches: PropTypes.func,
+  checkedRow: PropTypes.object
 }
 
 BulkBatch.contextTypes = {
@@ -106,7 +123,8 @@ export default connect(
     return {
       showClearFilter: state.bulkBatchFilterName.get('changeId') +
                       state.bulkBatchFilterStatus.get('changeId') +
-                      state.bulkBatchFilterDate.get('changeId') > 0
+                      state.bulkBatchFilterDate.get('changeId') > 0,
+      checkedRow: state.bulkBatchGrid.get('checkedRow').toJS()
     }
   },
   {
