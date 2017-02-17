@@ -1,3 +1,68 @@
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.3.4...v0.4.0) (2017-02-17)
+
+
+### Bug Fixes
+
+* actor must be checker to be able to perform batch.reject ([6e7e566](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/6e7e566))
+* add dependency to csv-parser ([d824ba0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/d824ba0))
+* change ut-front-react version to be working ([ecb438c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ecb438c))
+* check identity when adding/edditing batches ([899dfd1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/899dfd1))
+* circleci settings and npm commands ([d1a5ac1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/d1a5ac1))
+* cleanup ([9a66ec9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/9a66ec9))
+* csv parser basic usage ([e8cbfb1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e8cbfb1))
+* fetch batch status nomenclatures once in file-upload route ([8fa5ca4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8fa5ca4))
+* fileUpload beta functionality ([b54d693](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/b54d693))
+* filters and forms ([e86eed1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e86eed1))
+* lint ([0ee7e61](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0ee7e61))
+* lint ([5a7ec6e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5a7ec6e))
+* lint errors ([872a0eb](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/872a0eb))
+* lint errors ([bb7621d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/bb7621d))
+* linting ([308ac69](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/308ac69))
+* move upload form to containers ([ab7c526](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ab7c526))
+* payment filter ([9d30fa0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/9d30fa0))
+* prepare file upload ([9b5dfc2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/9b5dfc2))
+* prepare file upload functionality ([0a1318b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0a1318b))
+* prepare front end for file upload ([ce76006](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ce76006))
+* propType of property ([db6e195](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/db6e195))
+* refactor file upload ([9f3e327](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/9f3e327))
+* remove assetsConfig from webpack ([0a5ae60](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0a5ae60))
+* remove console.log ([b272806](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/b272806))
+* remove obsolete actions file ([be6c5c2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/be6c5c2))
+* remove unused variable ([c5f11b8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c5f11b8))
+* remove unused variable PropTypes ([edfe2ca](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/edfe2ca))
+* return response to bach upload form once all records have been inserted ([1f08600](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/1f08600))
+* set proper status on batch upload ([3b73b72](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/3b73b72))
+* update dependency to ut-rule ([d0b9542](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/d0b9542))
+* upload functionality ([73a3fe3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/73a3fe3))
+* upload, filters ([106c67a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/106c67a))
+* use unique key for check row comparison ([0b8d134](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0b8d134))
+
+
+### Features
+
+* add async:true to batch check ([07569e2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/07569e2))
+* add clear filters buttons on batch grid view and batch payment grid view ([8b59956](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8b59956))
+* add click ability to grid and show filters ([4233a42](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4233a42))
+* add immediate check batch feature upon uploading ([3bedc53](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/3bedc53))
+* add leveloneproject in dfsp-adming login ([bf25ef9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/bf25ef9))
+* add payment tab and create components inside  ([8c7521c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8c7521c))
+* add permissions to batch page ([5c8e5ce](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5c8e5ce))
+* batch payments view ([b147857](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/b147857))
+* bulk payments grid view ([88356fc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/88356fc))
+* filters on batch payments grid page in admin panel ([239d53f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/239d53f))
+* implement 'check batch' button ([33dd8bf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/33dd8bf))
+* implement batch file replace function ([fb43ad4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/fb43ad4))
+* move toolbox buttons to containers ([e90b925](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e90b925))
+* pass check batch property to backend handler ([9aacb3e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/9aacb3e))
+* reload batch grid on upload file ([e768f86](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e768f86))
+* show loading during file upload ([1bf15c5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/1bf15c5))
+* UIS-986 add leveloneproject logos, add dashboard and fix styles ([c1bf829](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c1bf829))
+* update dependencies/identity checks and integrate newer versions to ut-front and ut-front react ([5d746cf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5d746cf))
+* ut-bulk creation ([b696921](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/b696921))
+
+
+
 <a name="0.3.4"></a>
 ## [0.3.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.3.3...v0.3.4) (2016-12-20)
 
