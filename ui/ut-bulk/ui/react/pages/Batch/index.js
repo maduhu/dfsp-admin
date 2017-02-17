@@ -12,6 +12,12 @@ import ByName from '../../containers/Batch/Filters/ByName'
 import ByStatus from '../../containers/Batch/Filters/ByStatus'
 import ByDate from '../../containers/Batch/Filters/ByDate'
 import ClearFilter from '../../containers/Batch/Filters/ClearFilter'
+import CheckBatch from '../../containers/ToolboxButtons/CheckBatch'
+import ViewBatchRecords from '../../containers/ToolboxButtons/ViewBatchRecords'
+import Details from '../../containers/ToolboxButtons/Details'
+import Download from '../../containers/ToolboxButtons/Download'
+import Disable from '../../containers/ToolboxButtons/Disable'
+import Replace from '../../containers/ToolboxButtons/Replace'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
@@ -49,11 +55,17 @@ class BulkBatch extends Component {
     return buttons
   }
   getToolboxButtons () {
-    let buttons = ['View Batch Records', 'Check Batch', 'Details']
-    this.context.checkPermission('bulk.batch.edit') && buttons.push('Download', 'Disable', 'Replace')
-    return buttons.map((buttonName) => {
-      return <button className='button btn btn-primary' key={buttonName} >{buttonName}</button>
-    })
+    let buttons = [
+      <CheckBatch batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Check Batch'/>,
+      <ViewBatchRecords batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='View Batch Records'/>,
+      <Details batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Details'/>
+    ]
+    this.context.checkPermission('bulk.batch.edit') && buttons.push(
+      <Download batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Download'/>,
+      <Disable batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Disable'/>,
+      <Replace batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Replace'/>
+    )
+    return buttons
   }
   render () {
     return (
@@ -106,7 +118,8 @@ export default connect(
     return {
       showClearFilter: state.bulkBatchFilterName.get('changeId') +
                       state.bulkBatchFilterStatus.get('changeId') +
-                      state.bulkBatchFilterDate.get('changeId') > 0
+                      state.bulkBatchFilterDate.get('changeId') > 0,
+      checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
     }
   },
   {
