@@ -1,7 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import * as actions from './actions'
 import {fetchBatches} from '../../Batch/Grid/actions'
 
 import UploadForm from '../../UploadForm'
@@ -48,7 +46,7 @@ export class Replace extends Component {
 }
 
 Replace.propTypes = {
-  actions: PropTypes.object,
+  fetchBatches: PropTypes.function,
   batch: PropTypes.object,
   style: PropTypes.object,
   className: PropTypes.string

@@ -56,7 +56,7 @@ let UploadForm = React.createClass({
     data.processData = false
     data.contentType = false
     var xhr = new window.XMLHttpRequest()
-    xhr.open(this.props.batch ? 'PUT': 'POST', '/rpc/batch', true)
+    xhr.open(this.props.batch ? 'PUT' : 'POST', '/rpc/batch', true)
     // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
     xhr.onload = (e) => {
       this.props.actions.hidePreload()
