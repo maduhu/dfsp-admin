@@ -1,0 +1,35 @@
+{
+  "implementation": "dfsp-admin",
+  "console": {
+    "port": 30020,
+    "server": {
+      "port": 30020
+    }
+  },
+  "checkPermission": true,
+  "defaultLanguage": "en",
+  "debug": true,
+  "repl_": false,
+  "stdOut": {
+    "mode": "dev"
+  },
+  "log": {
+    "streams": [{
+      "level": "trace",
+      "stream": "../logRotateStream",
+      "streamConfig": {
+        "path": "ut5_%Y-%m-%d.log",
+        "symlink": "ut5.log",
+        "compress": true
+      }
+    }]
+  },
+  "masterBus": {
+    "logLevel": "debug",
+    "socket": "dfsp-admin"
+  },
+  "workerBus": {
+    "logLevel": "debug"
+  },
+  "debug": true
+}
