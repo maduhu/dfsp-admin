@@ -64,8 +64,10 @@ class BulkBatch extends Component {
     ]
     this.context.checkPermission('bulk.batch.edit') && buttons.push(
       <Download batchId={batchId} className={className} key='Download' />,
-      <Disable batchId={batchId} className={className} key='Disable' />,
       <Replace batchId={batchId} className={className} key='Replace' />
+    )
+    this.context.checkPermission('bulk.batch.reject') && buttons.push(
+      <Disable batchId={batchId} className={className} key='Disable' />
     )
     return buttons
   }
