@@ -1,6 +1,11 @@
 import * as actionTypes from './actionTypes'
 
-export const checkBatch = (batchId) => ({
+export const checkBatch = (batchId, actorId) => ({
   type: actionTypes.CHECK_BATCH,
-  params: {batchId}
+  method: 'bulk.batch.check',
+  params: {
+    batchId: batchId,
+    actorId: actorId,
+    async: true
+  }
 })

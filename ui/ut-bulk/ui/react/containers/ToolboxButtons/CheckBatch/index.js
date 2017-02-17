@@ -11,14 +11,14 @@ export class CheckBatch extends Component {
   }
 
   handleClick () {
-    // TODO
+    this.props.actions.checkBatch(this.props.batchId, this.props.actorId)
   }
 
   render () {
     return (
       <button
         onClick={this.handleClick}
-        disabled={!this.props.batchId}
+        disabled={!this.props.batchId || !this.props.actorId}
         style={this.props.style}
         className={this.props.className}
         >
@@ -31,6 +31,7 @@ export class CheckBatch extends Component {
 CheckBatch.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.number,
+  actorId: PropTypes.string,
   style: PropTypes.object,
   className: PropTypes.string
 }
@@ -42,6 +43,7 @@ CheckBatch.contextTypes = {
 export default connect(
   (state, ownProps) => {
     return {
+      actorId: state.login.getIn(['result', 'identity.check', 'actorId'])
     }
   },
   (dispatch) => {

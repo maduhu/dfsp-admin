@@ -55,15 +55,17 @@ class BulkBatch extends Component {
     return buttons
   }
   getToolboxButtons () {
+    let className = 'button btn btn-primary'
+    let batchId = this.props.checkedRow.batchId
     let buttons = [
-      <CheckBatch batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Check Batch' />,
-      <ViewBatchRecords batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='View Batch Records' />,
-      <Details batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Details' />
+      <CheckBatch batchId={batchId} className={className} key='Check Batch' />,
+      <ViewBatchRecords batchId={batchId} className={className} key='View Batch Records' />,
+      <Details batchId={batchId} className={className} key='Details' />
     ]
     this.context.checkPermission('bulk.batch.edit') && buttons.push(
-      <Download batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Download' />,
-      <Disable batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Disable' />,
-      <Replace batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Replace' />
+      <Download batchId={batchId} className={className} key='Download' />,
+      <Disable batchId={batchId} className={className} key='Disable' />,
+      <Replace batchId={batchId} className={className} key='Replace' />
     )
     return buttons
   }
