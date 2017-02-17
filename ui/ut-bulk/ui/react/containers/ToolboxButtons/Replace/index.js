@@ -28,7 +28,6 @@ export class Replace extends Component {
   }
 }
 
-
 Replace.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.number,

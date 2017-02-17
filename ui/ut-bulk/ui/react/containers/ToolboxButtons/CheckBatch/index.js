@@ -28,7 +28,6 @@ export class CheckBatch extends Component {
   }
 }
 
-
 CheckBatch.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.number,

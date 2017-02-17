@@ -1,7 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import * as actions from './actions'
 
 export class ViewBatchRecords extends Component {
 
@@ -28,9 +26,7 @@ export class ViewBatchRecords extends Component {
   }
 }
 
-
 ViewBatchRecords.propTypes = {
-  actions: PropTypes.object,
   batchId: PropTypes.number,
   style: PropTypes.object,
   className: PropTypes.string
@@ -44,10 +40,5 @@ export default connect(
   (state, ownProps) => {
     return {
     }
-  },
-  (dispatch) => {
-    return {
-      actions: bindActionCreators(actions, dispatch)
-    }
-  }
+  }, { }
 )(ViewBatchRecords)

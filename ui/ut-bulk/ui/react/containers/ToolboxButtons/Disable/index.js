@@ -28,7 +28,6 @@ export class Disable extends Component {
   }
 }
 
-
 Disable.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.number,

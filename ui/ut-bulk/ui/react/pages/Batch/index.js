@@ -56,14 +56,14 @@ class BulkBatch extends Component {
   }
   getToolboxButtons () {
     let buttons = [
-      <CheckBatch batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Check Batch'/>,
-      <ViewBatchRecords batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='View Batch Records'/>,
-      <Details batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Details'/>
+      <CheckBatch batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Check Batch' />,
+      <ViewBatchRecords batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='View Batch Records' />,
+      <Details batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Details' />
     ]
     this.context.checkPermission('bulk.batch.edit') && buttons.push(
-      <Download batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Download'/>,
-      <Disable batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Disable'/>,
-      <Replace batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Replace'/>
+      <Download batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Download' />,
+      <Disable batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Disable' />,
+      <Replace batchId={this.props.checkedRow.batchId} className='button btn btn-primary' key='Replace' />
     )
     return buttons
   }
@@ -106,7 +106,8 @@ class BulkBatch extends Component {
 
 BulkBatch.propTypes = {
   showClearFilter: PropTypes.bool,
-  fetchBatches: PropTypes.func
+  fetchBatches: PropTypes.func,
+  checkedRow: PropTypes.object
 }
 
 BulkBatch.contextTypes = {
@@ -119,7 +120,7 @@ export default connect(
       showClearFilter: state.bulkBatchFilterName.get('changeId') +
                       state.bulkBatchFilterStatus.get('changeId') +
                       state.bulkBatchFilterDate.get('changeId') > 0,
-      checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
+      checkedRow: state.bulkBatchGrid.get('checkedRow').toJS()
     }
   },
   {

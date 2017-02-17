@@ -28,7 +28,6 @@ export class Details extends Component {
   }
 }
 
-
 Details.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.number,

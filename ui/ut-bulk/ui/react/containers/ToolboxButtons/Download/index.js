@@ -28,7 +28,6 @@ export class Download extends Component {
   }
 }
 
-
 Download.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.number,
