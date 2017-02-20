@@ -5,17 +5,12 @@ import {getLink} from 'ut-front/react/routerHelper'
 import { AddTab } from 'ut-front-react/containers/TabMenu'
 import classnames from 'classnames'
 
-import {ToolboxFilters, ToolboxButtons} from '../../containers/Payment/GridToolbox'
+import GridToolbox from '../../containers/Payment/GridToolbox'
 import Header from 'ut-front-react/components/PageLayout/Header'
 
 import Grid from '../../containers/Payment/Grid'
-import ByCustom from '../../containers/Payment/Filters/ByCustom'
-import ByStatus from '../../containers/Payment/Filters/ByStatus'
-import ByDate from '../../containers/Payment/Filters/ByDate'
-import ClearFilter from '../../containers/Payment/Filters/ClearFilter'
-import CheckBatch from '../../containers/ToolboxButtons/CheckBatch'
 
-import {checkBatch} from '../../containers/ToolboxButtons/CheckBatch/actions'
+import {checkBatch} from '../../containers/Batch/GridToolbox/actions'
 import {fetchBatchPayments} from '../../containers/Payment/Grid/actions'
 
 import mainStyle from 'ut-front-react/assets/index.css'
@@ -28,8 +23,12 @@ class BulkPayment extends Component {
   }
 
   handleCheckBatch () {
-    this.props.checkBatch(this.props.params.batchId, this.props.actorId)
-    this.props.fetchBatchPayments({batchId: this.props.params.batchId})
+    return new Promise((resolve, reject) => {
+      this.props.checkBatch(this.props.params.batchId, this.props.actorId)
+      return resolve()
+    }).then(() => {
+      this.props.fetchBatchPayments({batchId: this.props.params.batchId})
+    })
   }
   render () {
     return (
@@ -42,21 +41,7 @@ class BulkPayment extends Component {
             ]} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
-        <ToolboxFilters>
-          <div className={style.filterWrap}>
-            <ByCustom className={style.customInput} />
-            <ByStatus className={style.standardFilter} />
-            <ByDate className={style.standardFilter} />
-            <ClearFilter show={this.props.showClearFilter} />
-          </div>
-        </ToolboxFilters>
-        <ToolboxButtons>
-            <div className={style.buttonWrap}>
-              <button className='button btn btn-primary'>Details</button>
-              <button className='button btn btn-primary'>Disable</button>
-              <CheckBatch paymentIds={this.props.selectedPayments} className='button btn btn-primary' buttonText='Check Records' key='Check Records' />
-            </div>
-        </ToolboxButtons>
+        <GridToolbox batchId={this.props.params.batchId} />
         </div>
         <div className={classnames(mainStyle.tableWrap, style.tableWrap)}>
             <div className={style.grid}>
@@ -75,7 +60,7 @@ BulkPayment.propTypes = {
   actorId: PropTypes.string,
   checkBatch: PropTypes.func,
   fetchBatchPayments: PropTypes.func,
-  selectedPayments: PropTypes.arrayOf(PropTypes.object)
+  selectedPayments: PropTypes.arrayOf(PropTypes.string)
 }
 
 BulkPayment.contextTypes = {}
