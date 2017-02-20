@@ -9,12 +9,8 @@ export const disable = (payments, actorId) => ({
   params: {payments, actorId}
 })
 
-export const checkPayments = (paymentIds, actorId) => ({
+export const checkPayments = (payments, batchId, actorId) => ({
   type: actionTypes.CHECK_PAYMENTS,
   method: 'bulk.batch.check',
-  params: {
-    paymentId: paymentIds,
-    actorId: actorId,
-    async: true
-  }
+  params: {payments, batchId, actorId, async: true}
 })
