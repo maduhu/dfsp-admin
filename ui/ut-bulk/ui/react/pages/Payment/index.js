@@ -35,15 +35,19 @@ class BulkPayment extends Component {
       this.props.fetchBatchPayments({batchId: this.props.params.batchId})
     })
   }
+  getHeaderButtons () {
+    let buttons = []
+    this.context.checkPermission('bulk.batch.ready') && buttons.push({text: 'Batch Ready', onClick: this.handleBatchReady})
+    buttons.push({text: 'Check Entire Batch', onClick: this.handleCheckBatch})
+
+    return buttons
+  }
   render () {
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
         <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='Bulk Payments' />
         <div>
-            <Header text='Bulk - Batches - Payments' buttons={[
-              {text: 'Batch Ready', onClick: this.handleBatchReady},
-              {text: 'Check Entire Batch', onClick: this.handleCheckBatch}
-            ]} />
+            <Header text='Bulk - Batches - Payments' buttons={this.getHeaderButtons()} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <GridToolbox batchId={this.props.params.batchId} />
@@ -64,11 +68,14 @@ BulkPayment.propTypes = {
   showClearFilter: PropTypes.bool,
   actorId: PropTypes.string,
   checkBatch: PropTypes.func,
+  readyBatch: PropTypes.func,
   fetchBatchPayments: PropTypes.func,
   selectedPayments: PropTypes.arrayOf(PropTypes.string)
 }
 
-BulkPayment.contextTypes = {}
+BulkPayment.contextTypes = {
+  checkPermission: PropTypes.func
+}
 
 export default connect(
   (state, ownProps) => {
