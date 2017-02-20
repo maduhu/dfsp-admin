@@ -67,7 +67,7 @@ class BulkBatch extends Component {
     </div>
     )
   }
-};
+}
 
 BulkBatch.propTypes = {
   showClearFilter: PropTypes.bool,

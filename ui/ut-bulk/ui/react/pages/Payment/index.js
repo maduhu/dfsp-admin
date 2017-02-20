@@ -61,7 +61,7 @@ class BulkPayment extends Component {
 
     )
   }
-};
+}
 
 BulkPayment.propTypes = {
   params: PropTypes.object.isRequired,
