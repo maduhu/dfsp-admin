@@ -22,3 +22,9 @@ export const rejectBatch = (batchId, actorId, statusId) => ({
     batchStatusId: statusId
   }
 })
+
+export const readyBatch = (batchId, actorId) => ({
+  type: actionTypes.READY_BATCH,
+  method: 'bulk.batch.ready',
+  params: {batchId, actorId}
+})

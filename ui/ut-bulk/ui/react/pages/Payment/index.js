@@ -10,7 +10,7 @@ import Header from 'ut-front-react/components/PageLayout/Header'
 
 import Grid from '../../containers/Payment/Grid'
 
-import {checkBatch} from '../../containers/Batch/GridToolbox/actions'
+import {checkBatch, readyBatch} from '../../containers/Batch/GridToolbox/actions'
 import {fetchBatchPayments} from '../../containers/Payment/Grid/actions'
 
 import mainStyle from 'ut-front-react/assets/index.css'
@@ -19,7 +19,12 @@ import style from '../style.css'
 class BulkPayment extends Component {
   constructor (props) {
     super(props)
+    this.handleBatchReady = this.handleBatchReady.bind(this)
     this.handleCheckBatch = this.handleCheckBatch.bind(this)
+  }
+
+  handleBatchReady () {
+    this.props.readyBatch(this.props.params.batchId, this.props.actorId)
   }
 
   handleCheckBatch () {
@@ -36,7 +41,7 @@ class BulkPayment extends Component {
         <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='Bulk Payments' />
         <div>
             <Header text='Bulk - Batches - Payments' buttons={[
-              {text: 'Batch Ready'},
+              {text: 'Batch Ready', onClick: this.handleBatchReady},
               {text: 'Check Entire Batch', onClick: this.handleCheckBatch}
             ]} />
         </div>
@@ -77,6 +82,7 @@ export default connect(
   },
   {
     checkBatch,
+    readyBatch,
     fetchBatchPayments
   }
 )(BulkPayment)
