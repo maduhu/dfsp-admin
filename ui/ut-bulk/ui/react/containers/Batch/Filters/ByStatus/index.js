@@ -43,7 +43,7 @@ ByStatus.propTypes = {
   style: PropTypes.object,
   data: PropTypes.array,
   status: PropTypes.object,
-  currentStatusId: PropTypes.string,
+  currentStatusId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   actions: PropTypes.object
 }
 

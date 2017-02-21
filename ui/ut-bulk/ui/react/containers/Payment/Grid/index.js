@@ -5,11 +5,19 @@ import {bindActionCreators} from 'redux'
 import Text from 'ut-front-react/components/Text'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
 import * as actionCreators from './actions'
+import {show as showToolbox} from '../GridToolbox/actions'
 
 class Grid extends Component {
   constructor (props) {
     super(props)
     this.handleTransformCellValue = this.handleTransformCellValue.bind(this)
+    this.handleCheckboxSelect = this.handleCheckboxSelect.bind(this)
+    this.handleHeaderCheckboxSelect = this.handleHeaderCheckboxSelect.bind(this)
+    this.handleCellClick = this.handleCellClick.bind(this)
+    this.handleToolbarUpdate = this.handleToolbarUpdate.bind(this)
+    this.state = {
+      selectedRows: {}
+    }
   }
 
   componentWillMount () {
@@ -34,22 +42,55 @@ class Grid extends Component {
           (obj[key] === '' || obj[key] === '__placeholder__' || obj[key] === undefined || obj[key] === null || obj[key] === 0) && delete obj[key])
   }
 
-  handleCellClick (row, field, value) {}
+  handleToolbarUpdate () {
+    this.props.checkedRows.length > 0 ? this.props.showToolbox('button') : this.props.showToolbox('filters')
+  }
+
+  handleCellClick (row, field, value) {
+    return new Promise((resolve, reject) => {
+      this.props.actions.selectRow(row)
+      return resolve()
+    }).then(() => {
+      this.handleToolbarUpdate()
+    })
+  }
 
   handleOrder (result) {}
 
   handleTransformCellValue (value, field, data, isHeader) { return value }
 
+  handleCheckboxSelect (isSelected, data) {
+    return new Promise((resolve, reject) => {
+      isSelected ? this.props.actions.uncheckRow(data) : this.props.actions.checkRow(data)
+      return resolve(!isSelected)
+    }).then((isSelected) => {
+      this.handleToolbarUpdate()
+      return isSelected
+    })
+  }
+
+  handleHeaderCheckboxSelect (isSelected) {
+    return new Promise((resolve, reject) => {
+      this.props.actions.checkAll(this.props.data)
+      return resolve()
+    }).then(() => {
+      this.handleToolbarUpdate()
+    })
+  }
+
   render () {
     return (
         <SimpleGrid
           multiSelect
-          handleCellClick={() => {}}
+          handleCellClick={this.handleCellClick}
           emptyRowsMsg={<Text>No result</Text>}
           handleOrder={() => {}}
+          handleCheckboxSelect={this.handleCheckboxSelect}
+          handleHeaderCheckboxSelect={this.handleHeaderCheckboxSelect}
           fields={this.props.gridFields}
           transformCellValue={this.handleTransformCellValue}
           data={this.props.data}
+          rowsChecked={this.props.checkedRows}
         />
     )
   }
@@ -64,7 +105,9 @@ Grid.propTypes = {
   actions: PropTypes.object,
   data: PropTypes.arrayOf(PropTypes.object),
   changeId: PropTypes.number,
-  params: PropTypes.object
+  params: PropTypes.object,
+  showToolbox: PropTypes.func,
+  checkedRows: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default connect(
@@ -88,12 +131,14 @@ export default connect(
           paymentStatusId: state.bulkPaymentFilterStatus.get('statusId'),
           date: state.bulkPaymentFilterDate.get('selectedDate'),
           custom: {field: state.bulkPaymentFilterCustom.get('field'), value: state.bulkPaymentFilterCustom.get('value')}
-        }
+        },
+        checkedRows: state.bulkPaymentGrid.get('checkedRows').toList().toArray()
       }
     },
     (dispatch) => {
       return {
-        actions: bindActionCreators(actionCreators, dispatch)
+        actions: bindActionCreators(actionCreators, dispatch),
+        showToolbox: bindActionCreators(showToolbox, dispatch)
       }
     }
 )(Grid)
