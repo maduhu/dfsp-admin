@@ -28,3 +28,9 @@ export const readyBatch = (batchId, actorId) => ({
   method: 'bulk.batch.ready',
   params: {batchId, actorId}
 })
+
+export const getBatchDetail = (batchId) => ({
+  type: actionTypes.GET_BATCH_DETAIL,
+  method: 'bulk.batch.get',
+  params: {batchId}
+})

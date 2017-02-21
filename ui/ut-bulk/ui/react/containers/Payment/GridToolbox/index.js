@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux'
 import SimpleGridToolbox from 'ut-front-react/components/SimpleGridToolbox'
 import * as actionCreators from './actions'
 import {fetchBatchPayments} from '../Grid/actions'
+import {setDatailItem} from '../Popups/Details/actions'
 
 import ByCustom from '../Filters/ByCustom'
 import ByStatus from '../Filters/ByStatus'
@@ -18,6 +19,7 @@ class GridToolbox extends Component {
     super(props)
     this.handleDisable = this.handleDisable.bind(this)
     this.handleCheckRecords = this.handleCheckRecords.bind(this)
+    this.handleDetailClick = this.handleDetailClick.bind(this)
   }
 
   handleDisable () {
@@ -35,6 +37,11 @@ class GridToolbox extends Component {
       .then(() => this.props.fetchBatchPayments({batchId: this.props.batchId}))
   }
 
+  handleDetailClick () {
+    debugger
+    this.props.setDatailItem(this.props.selectedPayments[0]);
+  }
+
   render () {
     let disableButton = !this.props.selectedPayments.length || !this.props.actorId
     return (
@@ -49,7 +56,7 @@ class GridToolbox extends Component {
           </SimpleGridToolbox>
           <SimpleGridToolbox opened={this.props.buttonsOpened} title='Show Filters' isTitleLink toggle={this.props.actions.toggle}>
             <div className={style.buttonWrap}>
-              <button onClick={() => ({})} disabled={disableButton} className='button btn btn-primary'>Details</button>
+              <button onClick={this.handleDetailClick} disabled={disableButton} className='button btn btn-primary'>Details</button>
               <button onClick={this.handleDisable} disabled={disableButton} className='button btn btn-primary'>
                 Disable
               </button>
@@ -74,7 +81,8 @@ GridToolbox.propTypes = {
   actorId: PropTypes.string,
   batchId: PropTypes.string,
   selectedPayments: PropTypes.arrayOf(PropTypes.object),
-  paymentStatuses: PropTypes.object
+  paymentStatuses: PropTypes.object,
+  setDatailItem: PropTypes.func
 }
 
 export default connect(
@@ -93,7 +101,8 @@ export default connect(
     (dispatch) => {
       return {
         actions: bindActionCreators(actionCreators, dispatch),
-        fetchBatchPayments: bindActionCreators(fetchBatchPayments, dispatch)
+        fetchBatchPayments: bindActionCreators(fetchBatchPayments, dispatch),
+        setDatailItem: bindActionCreators(setDatailItem, dispatch)
       }
     }
 )(GridToolbox)

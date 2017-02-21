@@ -8,6 +8,7 @@ import GridToolbox from '../../containers/Batch/GridToolbox'
 import Header from 'ut-front-react/components/PageLayout/Header'
 
 import Grid from '../../containers/Batch/Grid'
+import DetailEdit from '../../containers/Batch/Popups/Details'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
@@ -64,6 +65,8 @@ class BulkBatch extends Component {
             onClose={this.toggleUploadPopup}
           />
         }
+
+        <DetailEdit />
     </div>
     )
   }

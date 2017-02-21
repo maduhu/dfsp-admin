@@ -8,6 +8,7 @@ import {bulkPaymentFilterDate} from './containers/Payment/Filters/ByDate/reducer
 import {bulkPaymentFilterStatus} from './containers/Payment/Filters/ByStatus/reducer'
 import {bulkPaymentFilterCustom} from './containers/Payment/Filters/ByCustom/reducer'
 import {bulkBatchGrid} from './containers/Batch/Grid/reducer'
+import {bulkBatchDetailEditPopup} from './containers/Batch/Popups/Details/reducer'
 /**
  * Todo: don't forget to add reducers here
  */
@@ -21,5 +22,6 @@ export default {
   bulkPaymentFilterDate,
   bulkPaymentFilterStatus,
   bulkPaymentFilterCustom,
-  bulkBatchGrid
+  bulkBatchGrid,
+  bulkBatchDetailEditPopup
 }
