@@ -1,3 +1,20 @@
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.6.0...v0.7.0) (2017-02-21)
+
+
+### Bug Fixes
+
+* call batch.edit and refresh grid after save ([65b72cd](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/65b72cd))
+* set checkPayments to accept only 1 argument ([32414ce](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/32414ce))
+
+
+### Features
+
+* add detail edit for batch ([726969a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/726969a))
+* bulk payment edit detail  ([cbe4da8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/cbe4da8))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.5.3...v0.6.0) (2017-02-21)
 
