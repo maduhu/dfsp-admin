@@ -9,11 +9,14 @@ import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
 import * as actionCreators from './actions'
 import {show as showToolbox} from '../GridToolbox/actions'
 
+import style from './style.css'
+
 class Grid extends Component {
   constructor (props) {
     super(props)
     this.handleTransformCellValue = this.handleTransformCellValue.bind(this)
     this.handleCellClick = this.handleCellClick.bind(this)
+    this.handleReload = this.handleReload.bind(this)
   }
 
   componentWillMount () {
@@ -51,16 +54,35 @@ class Grid extends Component {
     return value
   }
 
+  handleReload () {
+    let filterBy = this.props.filterBy
+    this.removeNullPropertiesFromObject(filterBy)
+    this.props.actions.fetchBatches(filterBy)
+  }
+
   render () {
     return (
         <SimpleGrid
           handleCellClick={this.handleCellClick}
           emptyRowsMsg={<Text>No result</Text>}
-          handleOrder={() => {}}
+          handleOrder={this.handleOrder}
           rowsChecked={[this.props.checkedRow]}
-          fields={this.props.gridFields}
+          fields={[
+            {name: 'name', title: 'Batch Name'},
+            {name: 'paymentsCount', title: 'Number of Records'},
+            {name: 'createdAt', title: 'Uploaded On'},
+            {name: 'lastValidation', title: 'Last Validation On'},
+            {name: 'status', title: 'Status'},
+            {
+              name: 'refresh',
+              title: <svg onClick={this.handleReload} viewBox='0 0 24 24' style={{display: 'inline-block', color: 'rgba(0, 0, 0, 0.870588)', fill: 'currentcolor', height: '24px', width: '24px', userSelect: 'none', transition: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'}}>
+                      <path d='M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z' />
+                    </svg>
+            }
+          ]}
           transformCellValue={this.handleTransformCellValue}
           data={this.props.batches}
+          externalStyle={style}
         />
     )
   }
@@ -77,19 +99,13 @@ Grid.propTypes = {
   changeId: PropTypes.number,
   checkedRow: PropTypes.object,
   showToolbox: PropTypes.func,
-  toolboxFilter: PropTypes.bool
+  toolboxFilter: PropTypes.bool,
+  filterBy: PropTypes.object
 }
 
 export default connect(
     (state) => {
       return {
-        gridFields: [
-            {name: 'name', title: 'Batch Name'},
-            {name: 'paymentsCount', title: 'Number of Records'},
-            {name: 'createdAt', title: 'Uploaded On'},
-            {name: 'lastValidation', title: 'Last Validation On'},
-            {name: 'status', title: 'Status'}
-        ],
         batches: state.bulkBatchGrid.get('fetchBatches').toArray(),
         changeId: state.bulkBatchFilterName.get('changeId') +
                   state.bulkBatchFilterStatus.get('changeId') +

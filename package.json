@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
-    "immutable": "3.8.1",
     "csv-parser": "1.11.0",
+    "immutable": "3.8.1",
     "inert": "4.0.4",
     "joi": "10.0.6",
     "pm2": "1.1.3",

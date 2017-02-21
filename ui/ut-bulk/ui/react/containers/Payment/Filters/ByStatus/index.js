@@ -41,7 +41,7 @@ ByStatus.propTypes = {
   style: PropTypes.object,
   data: PropTypes.array,
   actions: PropTypes.object,
-  currentStatus: PropTypes.number
+  currentStatus: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
 export default connect(
