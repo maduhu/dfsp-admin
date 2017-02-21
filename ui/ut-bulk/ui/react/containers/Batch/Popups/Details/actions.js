@@ -28,7 +28,7 @@ export function saveEditItem (object) {
   }
   return {
     type: actionTypes.SAVE_EDIT_ITEM,
-    method: 'bulk.payment.edit',
+    method: 'bulk.batch.edit',
     params: newObject
   }
 }

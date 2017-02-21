@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as actions from './actions'
+import {fetchBatches} from '../../Grid/actions'
 
 import Input from 'ut-front-react/components/Input'
 import Popup from 'ut-front-react/components/Popup'
@@ -19,8 +20,8 @@ export class BatchDetailPopup extends Component {
   }
 
   onSubmit () {
-    let {item, actions} = this.props
-    actions.saveEditItem(item)
+    let {item, actions, fetchBatches} = this.props
+    actions.saveEditItem(item).then(() => fetchBatches())
   }
 
   getActionButtons () {
@@ -113,7 +114,8 @@ export default connect(
   },
   (dispatch) => {
     return {
-      actions: bindActionCreators(actions, dispatch)
+      actions: bindActionCreators(actions, dispatch),
+      fetchBatches: bindActionCreators(fetchBatches, dispatch)
     }
   }
 )(BatchDetailPopup)
