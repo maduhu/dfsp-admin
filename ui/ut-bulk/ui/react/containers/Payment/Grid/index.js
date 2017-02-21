@@ -57,7 +57,12 @@ class Grid extends Component {
 
   handleOrder (result) {}
 
-  handleTransformCellValue (value, field, data, isHeader) { return value }
+  handleTransformCellValue (value, field, data, isHeader) {
+    if (field.name === 'dob' && !isHeader && value) {
+      return this.context.dateFormat(value)
+    }
+    return value
+  }
 
   handleCheckboxSelect (isSelected, data) {
     return new Promise((resolve, reject) => {
@@ -97,7 +102,8 @@ class Grid extends Component {
 };
 
 Grid.contextTypes = {
-  router: PropTypes.object
+  router: PropTypes.object,
+  dateFormat: PropTypes.func
 }
 
 Grid.propTypes = {

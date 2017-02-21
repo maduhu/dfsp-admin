@@ -36,12 +36,8 @@ class GridToolbox extends Component {
 
   handleDisable () {
     let statusRejected = this.props.batchStatuses.filter((el) => el.name === 'rejected').first().key
-    return new Promise((resolve, reject) => {
-      this.props.actions.rejectBatch(this.props.batchId, this.props.actorId, statusRejected)
-      return resolve()
-    }).then(() => {
-      this.props.fetchBatches()
-    })
+    return this.props.actions.rejectBatch(this.props.batchId, this.props.actorId, statusRejected)
+      .then(() => this.props.fetchBatches())
   }
 
   toggleReplacePopup (refresh) {

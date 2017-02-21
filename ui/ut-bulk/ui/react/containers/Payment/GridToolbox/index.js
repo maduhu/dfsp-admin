@@ -26,21 +26,13 @@ class GridToolbox extends Component {
       el.paymentStatusId = statusDisabled
       return el
     })
-    return new Promise((resolve, reject) => {
-      this.props.actions.disable(payments, this.props.actorId)
-      return resolve()
-    }).then(() => {
-      this.props.fetchBatchPayments({batchId: this.props.batchId})
-    })
+    return this.props.actions.disable(payments, this.props.actorId)
+      .then(() => this.props.fetchBatchPayments({batchId: this.props.batchId}))
   }
 
   handleCheckRecords () {
-    return new Promise((resolve, reject) => {
-      this.props.actions.checkPayments(this.props.selectedPayments.map((el) => parseInt(el.paymentId)), this.props.batchId, this.props.actorId)
-      return resolve()
-    }).then(() => {
-      this.props.fetchBatchPayments({batchId: this.props.batchId})
-    })
+    return this.props.actions.checkPayments(this.props.selectedPayments.map((el) => parseInt(el.paymentId)), this.props.batchId, this.props.actorId)
+      .then(() => this.props.fetchBatchPayments({batchId: this.props.batchId}))
   }
 
   render () {
