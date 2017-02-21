@@ -44,8 +44,7 @@ class Grid extends Component {
   handleTransformCellValue (value, field, data, isHeader) {
     if (field.name === 'name' && !isHeader) {
       return (<Link to={'/bulk/batch/' + data.batchId}>{value}</Link>)
-    }
-    else if ((field.name === 'createdAt' || field.name === 'lastValidation') && !isHeader && value) {
+    } else if ((field.name === 'createdAt' || field.name === 'lastValidation') && !isHeader && value) {
       return this.context.dateFormat(value)
     }
     return value
