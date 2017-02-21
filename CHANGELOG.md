@@ -1,3 +1,18 @@
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.5.3...v0.6.0) (2017-02-21)
+
+
+### Bug Fixes
+
+* remove material-ui dependeancy and use svg as reload icon ([4af9060](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4af9060))
+
+
+### Features
+
+* add refresh button on payment and batch grids ([13371b9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/13371b9))
+
+
+
 <a name="0.5.3"></a>
 ## [0.5.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.5.2...v0.5.3) (2017-02-21)
 
