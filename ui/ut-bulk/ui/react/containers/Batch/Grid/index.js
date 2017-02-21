@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux'
 import {Link} from 'react-router'
 
 import Text from 'ut-front-react/components/Text'
+import DateFormatter from 'ut-front-react/containers/DateFormatter'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
 import * as actionCreators from './actions'
 import {show as showToolbox} from '../GridToolbox/actions'
@@ -45,7 +46,7 @@ class Grid extends Component {
     if (field.name === 'name' && !isHeader) {
       return (<Link to={'/bulk/batch/' + data.batchId}>{value}</Link>)
     } else if ((field.name === 'createdAt' || field.name === 'lastValidation') && !isHeader && value) {
-      return this.context.dateFormat(value)
+      return (<DateFormatter>{value}</DateFormatter>)
     }
     return value
   }
@@ -66,8 +67,7 @@ class Grid extends Component {
 };
 
 Grid.contextTypes = {
-  router: PropTypes.object,
-  dateFormat: PropTypes.func
+  router: PropTypes.object
 }
 
 Grid.propTypes = {
