@@ -1,3 +1,13 @@
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.5.0...v0.5.1) (2017-02-21)
+
+
+### Bug Fixes
+
+* comment out batch replace functionality ([97e1e73](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/97e1e73))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.4.2...v0.5.0) (2017-02-21)
 
