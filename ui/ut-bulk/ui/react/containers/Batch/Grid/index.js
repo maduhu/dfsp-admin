@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {Link} from 'react-router'
 
-import ReloadIcon from 'material-ui/svg-icons/action/autorenew'
 import Text from 'ut-front-react/components/Text'
 import DateFormatter from 'ut-front-react/containers/DateFormatter'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
@@ -76,9 +75,9 @@ class Grid extends Component {
             {name: 'status', title: 'Status'},
             {
               name: 'refresh',
-              title: <div>
-                      <ReloadIcon onClick={this.handleReload} />
-                    </div>
+              title: <svg onClick={this.handleReload} viewBox='0 0 24 24' style={{display: 'inline-block', color: 'rgba(0, 0, 0, 0.870588)', fill: 'currentcolor', height: '24px', width: '24px', userSelect: 'none', transition: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'}}>
+                      <path d='M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z' />
+                    </svg>
             }
           ]}
           transformCellValue={this.handleTransformCellValue}
