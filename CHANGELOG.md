@@ -1,3 +1,23 @@
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.4.2...v0.5.0) (2017-02-21)
+
+
+### Bug Fixes
+
+* check single(or multiple) payments in payment grid ([c53044a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c53044a))
+* move toolbox buttons and actions to toolbox container and remove button components ([b1e0102](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/b1e0102))
+* permisions for batch.ready button ([e81e395](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e81e395))
+* remove semi-colon ([d96e009](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/d96e009))
+
+
+### Features
+
+* add batch ready button implementation ([c411a20](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c411a20))
+* check batch button on batch payment grid view ([4b3453a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4b3453a))
+* multi select in payments grid ([5838552](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5838552))
+
+
+
 <a name="0.4.2"></a>
 ## [0.4.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.4.1...v0.4.2) (2017-02-17)
 
