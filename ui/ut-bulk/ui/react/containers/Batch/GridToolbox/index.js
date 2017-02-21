@@ -67,11 +67,11 @@ class GridToolbox extends Component {
         Details
       </button>
     ]
-    this.context.checkPermission('bulk.batch.edit') && buttons.push(
+    /*this.context.checkPermission('bulk.batch.edit') && buttons.push(
       <button onClick={this.toggleReplacePopup} disabled={!this.props.batchId} className={className} key='replace'>
         Replace
       </button>
-    )
+    )*/
     this.context.checkPermission('bulk.batch.reject') && buttons.push(
       <button onClick={this.handleDisable} disabled={!this.props.batchId || !this.props.actorId} className={className} key='disable'>
         Disable
