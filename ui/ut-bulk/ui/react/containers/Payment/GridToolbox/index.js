@@ -31,8 +31,19 @@ class GridToolbox extends Component {
   }
 
   handleCheckRecords () {
-    return this.props.actions.checkPayments(this.props.selectedPayments.map((el) => parseInt(el.paymentId)), this.props.batchId, this.props.actorId)
-      .then(() => this.props.fetchBatchPayments({batchId: this.props.batchId}))
+    let async = this.props.selectedPayments.length > 10
+    return this.props.actions.checkPayments({
+      payments: this.props.selectedPayments.map((el) => parseInt(el.paymentId)),
+      batchId: this.props.batchId,
+      actorId: this.props.actorId,
+      async: async
+    }).then(() => {
+      if (async) {
+        //
+      } else {
+        this.props.fetchBatchPayments({batchId: this.props.batchId})
+      }
+    })
   }
 
   render () {
