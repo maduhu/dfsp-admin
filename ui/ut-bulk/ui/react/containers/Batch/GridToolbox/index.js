@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux'
 import SimpleGridToolbox from 'ut-front-react/components/SimpleGridToolbox'
 import * as actionCreators from './actions'
 import {fetchBatches} from '../Grid/actions'
-import {setDatailItem} from '../Popups/Details/actions';
+import {setDatailItem} from '../Popups/Details/actions'
 
 import UploadForm from '../../UploadForm'
 import ByName from '../Filters/ByName'
@@ -30,7 +30,7 @@ class GridToolbox extends Component {
 
   handleDetailClick () {
     this.props.actions.getBatchDetail(this.props.checkedRow.batchId).then(({result}) => {
-      this.props.setDatailItem(result)
+      this.props.setDatailItem(result, this.props.actorId)
     })
   }
 

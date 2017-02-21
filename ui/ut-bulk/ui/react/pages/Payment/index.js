@@ -9,6 +9,7 @@ import GridToolbox from '../../containers/Payment/GridToolbox'
 import Header from 'ut-front-react/components/PageLayout/Header'
 
 import Grid from '../../containers/Payment/Grid'
+import EditDetail from '../../containers/Payment/Popups/Details'
 
 import {checkBatch, readyBatch} from '../../containers/Batch/GridToolbox/actions'
 import {fetchBatchPayments} from '../../containers/Payment/Grid/actions'
@@ -57,6 +58,7 @@ class BulkPayment extends Component {
               <Grid />
             </div>
         </div>
+        <EditDetail />
     </div>
 
     )

@@ -20,10 +20,13 @@ export function removeDetailItem () {
   }
 }
 
-export function saveEditItem (object) {
+export function saveEditItem (object, actorId) {
   return {
     type: actionTypes.SAVE_EDIT_ITEM,
     method: 'bulk.payment.edit',
-    params: object
+    params: {
+      actorId: actorId,
+      payments: JSON.stringify([object])
+    }
   }
 }

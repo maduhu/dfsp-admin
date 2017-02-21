@@ -65,7 +65,7 @@ export class BatchDetailPopup extends Component {
                <Input value={item.info} label='Comment:' readonly inputWrapClassName={style.inputWrapClassName} placeholder='No comment yet' />
             </div>
             <hr />
-             {/*<div className={style.row}>
+             {/* <div className={style.row}>
               <span className={style.label}>Filename:</span>
               <Input value={item.originalFileName} readonly inputWrapClassName={style.inputWrapClassName} />
               <label htmlFor='batch' className={style.replaceBtn}>Replace</label>
@@ -75,7 +75,7 @@ export class BatchDetailPopup extends Component {
               <div className={style.buttonsInnerWrapper}>
                 <input className={style.inputDisplay} ref='batch' type='file' name='batch' id='batch' accept='text/csv' onChange={() => this.props.actions.changeDetailValue('originalFileName', this.refs.batch.files[0].name)} />
               </div>
-            </div>*/}
+            </div> */}
             <div className={style.row}>
                <Input value={item.name} label='*Batch Name:' inputWrapClassName={style.inputWrapClassName} onChange={({value}) => this.props.actions.changeDetailValue('name', value)} />
             </div>

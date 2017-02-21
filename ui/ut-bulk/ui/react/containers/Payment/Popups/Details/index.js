@@ -12,6 +12,7 @@ export class PaymentDetailPopup extends Component {
     super(props)
     this.onClose = this.onClose.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.handleFieldChange = this.handleFieldChange.bind(this)
   }
 
   onClose () {
@@ -19,8 +20,14 @@ export class PaymentDetailPopup extends Component {
   }
 
   onSubmit () {
-    let {item, actions} = this.props
-    actions.saveEditItem(item)
+    let {item, actions, actorId} = this.props
+    actions.saveEditItem(item, actorId)
+  }
+
+  handleFieldChange (field) {
+    return ({value}) => (
+      this.props.actions.changeDetailValue(field, value)
+    )
   }
 
   getActionButtons () {
@@ -65,40 +72,26 @@ export class PaymentDetailPopup extends Component {
                <Input value={item.info} label='Comment:' readonly inputWrapClassName={style.inputWrapClassName} placeholder='No comment yet' />
             </div>
             <hr />
-             {/*<div className={style.row}>
-              <span className={style.label}>Filename:</span>
-              <Input value={item.originalFileName} readonly inputWrapClassName={style.inputWrapClassName} />
-              <label htmlFor='batch' className={style.replaceBtn}>Replace</label>
-              <label className={style.downloadBtn}>Download</label>
-            </div>
-            <div className={style.buttonsWrapper}>
-              <div className={style.buttonsInnerWrapper}>
-                <input className={style.inputDisplay} ref='batch' type='file' name='batch' id='batch' accept='text/csv' onChange={() => this.props.actions.changeDetailValue('originalFileName', this.refs.batch.files[0].name)} />
-              </div>
-            </div>*/}
             <div className={style.row}>
-               <Input value={item.name} label='Batch Name:' inputWrapClassName={style.inputWrapClassName} onChange={({value}) => this.props.actions.changeDetailValue('name', value)} />
+              <Input value={item.sequenceNumber} label='Sequence Number:' onChange={this.handleFieldChange('sequenceNumber')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.paymentsCount} label='Sequence Number:' readonly inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.userNumber} label='User Number:' onChange={this.handleFieldChange('userNumber')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.paymentsCount} label='User Number:' readonly inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.firstName} label='First Name:' onChange={this.handleFieldChange('firstName')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.paymentsCount} label='First Name:' readonly inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.lastName} label='Last Name:' onChange={this.handleFieldChange('lastName')} inputWrapClassName={style.inputWrapClassName} />
+            </div>
+            {/* <div className={style.row}>
+              <Input value={item.dob} label='Date of Birth:' inputWrapClassName={style.inputWrapClassName} />
+            </div> */}
+            <div className={style.row}>
+              <Input value={item.nationalId} label='National ID:' onChange={this.handleFieldChange('nationalId')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.paymentsCount} label='Last Name:' readonly inputWrapClassName={style.inputWrapClassName} />
-            </div>
-            <div className={style.row}>
-              <Input value={item.paymentsCount} label='Date of Birth:' readonly inputWrapClassName={style.inputWrapClassName} />
-            </div>
-            <div className={style.row}>
-              <Input value={item.paymentsCount} label='National ID:' readonly inputWrapClassName={style.inputWrapClassName} />
-            </div>
-            <div className={style.row}>
-              <Input value={item.paymentsCount} label='Amount:' readonly inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.amount} label='Amount:' onChange={this.handleFieldChange('amount')} inputWrapClassName={style.inputWrapClassName} />
             </div>
           </div>
       </Popup>
@@ -112,7 +105,8 @@ PaymentDetailPopup.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   isOpen: PropTypes.bool,
-  item: PropTypes.object
+  item: PropTypes.object,
+  actorId: PropTypes.string
 }
 
 PaymentDetailPopup.contextTypes = {
@@ -122,8 +116,9 @@ PaymentDetailPopup.contextTypes = {
 export default connect(
   (state, ownProps) => {
     return {
-      item: state.bulkBatchDetailEditPopup.get('item').toJS(),
-      isOpen: !!state.bulkBatchDetailEditPopup.getIn(['item', 'batchId'])
+      actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
+      item: state.bulkPaymentDetailEditPopup.get('item').toJS(),
+      isOpen: !!state.bulkPaymentDetailEditPopup.getIn(['item', 'batchId'])
     }
   },
   (dispatch) => {

@@ -38,8 +38,7 @@ class GridToolbox extends Component {
   }
 
   handleDetailClick () {
-    debugger
-    this.props.setDatailItem(this.props.selectedPayments[0]);
+    this.props.setDatailItem(this.props.selectedPayments[0])
   }
 
   render () {

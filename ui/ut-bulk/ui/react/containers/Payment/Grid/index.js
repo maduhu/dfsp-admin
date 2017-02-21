@@ -149,7 +149,8 @@ export default connect(
         data: state.bulkPaymentGrid.get('data').toArray(),
         changeId: state.bulkPaymentFilterStatus.get('changeId') +
                   state.bulkPaymentFilterDate.get('changeId') +
-                  state.bulkPaymentFilterCustom.get('changeId'),
+                  state.bulkPaymentFilterCustom.get('changeId') +
+                  state.bulkPaymentDetailEditPopup.get('changeId'),
         filterBy: {
           paymentStatusId: state.bulkPaymentFilterStatus.get('statusId'),
           date: state.bulkPaymentFilterDate.get('selectedDate'),

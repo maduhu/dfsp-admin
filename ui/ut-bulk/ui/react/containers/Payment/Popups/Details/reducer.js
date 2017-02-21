@@ -2,12 +2,13 @@ import {Map} from 'immutable'
 import * as actionTypes from './actionTypes'
 
 const defaultState = Map({
-  item: Map({})
+  item: Map({}),
+  changeId: 0
 })
 
 // const FINISHED = 'finished'
 
-export const bulkBatchDetailEditPopup = (state = defaultState, action) => {
+export const bulkPaymentDetailEditPopup = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.SET_DETAIL_ITEM:
       return state.set('item', Map(action.params.item))
@@ -16,7 +17,7 @@ export const bulkBatchDetailEditPopup = (state = defaultState, action) => {
     case actionTypes.REMOVE_DETAIL_ITEM:
       return state.set('item', defaultState.get('item'))
     case actionTypes.SAVE_EDIT_ITEM:
-      return state.set('item', defaultState.get('item'))
+      return state.set('item', defaultState.get('item')).update('changeId', v => ++v)
     default:
       break
   }
