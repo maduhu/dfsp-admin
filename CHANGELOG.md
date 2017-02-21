@@ -1,3 +1,15 @@
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.5.1...v0.5.2) (2017-02-21)
+
+
+### Bug Fixes
+
+* fetch grid on promise resolve after action; format dates ([5659987](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5659987))
+* fetch grid on promise resolve after action; format dates ([15df271](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/15df271))
+* lint ([4b26e52](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4b26e52))
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.5.0...v0.5.1) (2017-02-21)
 
