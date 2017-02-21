@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux'
 import SimpleGridToolbox from 'ut-front-react/components/SimpleGridToolbox'
 import * as actionCreators from './actions'
 import {fetchBatches} from '../Grid/actions'
+import {setDatailItem} from '../Popups/Details/actions'
 
 import UploadForm from '../../UploadForm'
 import ByName from '../Filters/ByName'
@@ -21,9 +22,16 @@ class GridToolbox extends Component {
     this.handleViewBatchRecords = this.handleViewBatchRecords.bind(this)
     this.handleCheckBatch = this.handleCheckBatch.bind(this)
     this.toggleReplacePopup = this.toggleReplacePopup.bind(this)
+    this.handleDetailClick = this.handleDetailClick.bind(this)
     this.state = {
       replacePopup: false
     }
+  }
+
+  handleDetailClick () {
+    this.props.actions.getBatchDetail(this.props.checkedRow.batchId).then(({result}) => {
+      this.props.setDatailItem(result, this.props.actorId)
+    })
   }
 
   handleCheckBatch () {
@@ -59,7 +67,7 @@ class GridToolbox extends Component {
       <button onClick={this.handleViewBatchRecords} disabled={!batchId} className={className} key='view batch records'>
         View Batch Records
       </button>,
-      <button onClick={() => ({})} disabled={!batchId} className={className} key='details'>
+      <button onClick={this.handleDetailClick} disabled={!batchId} className={className} key='details'>
         Details
       </button>
     ]
@@ -117,7 +125,8 @@ GridToolbox.propTypes = {
   actorId: PropTypes.string,
   batchStatuses: PropTypes.object,
   checkedRow: PropTypes.object,
-  batchId: PropTypes.number
+  batchId: PropTypes.number,
+  setDatailItem: PropTypes.func
 }
 
 export default connect(
@@ -136,7 +145,8 @@ export default connect(
     (dispatch) => {
       return {
         actions: bindActionCreators(actionCreators, dispatch),
-        fetchBatches: bindActionCreators(fetchBatches, dispatch)
+        fetchBatches: bindActionCreators(fetchBatches, dispatch),
+        setDatailItem: bindActionCreators(setDatailItem, dispatch)
       }
     }
 )(GridToolbox)

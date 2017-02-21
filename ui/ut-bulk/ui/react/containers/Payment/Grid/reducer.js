@@ -17,7 +17,7 @@ const defaultState = Map({
 export const bulkPaymentGrid = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_BATCH_PAYMENTS:
-      return state.set('data', List(action.result))
+      return state.set('data', List(action.result)).set('checkedRows', defaultState.get('checkedRows'))
     case actionTypes.PAYMENT_ROW_ADD_CHECK:
       return state.update('checkedRows', (value) => value.setIn([action.params.row.paymentId], action.params.row))
     case actionTypes.PAYMENT_ROW_REMOVE_CHECK:
