@@ -3,17 +3,21 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {Link} from 'react-router'
 
+import ReloadIcon from 'material-ui/svg-icons/action/autorenew'
 import Text from 'ut-front-react/components/Text'
 import DateFormatter from 'ut-front-react/containers/DateFormatter'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
 import * as actionCreators from './actions'
 import {show as showToolbox} from '../GridToolbox/actions'
 
+import style from './style.css'
+
 class Grid extends Component {
   constructor (props) {
     super(props)
     this.handleTransformCellValue = this.handleTransformCellValue.bind(this)
     this.handleCellClick = this.handleCellClick.bind(this)
+    this.handleReload = this.handleReload.bind(this)
   }
 
   componentWillMount () {
@@ -51,16 +55,35 @@ class Grid extends Component {
     return value
   }
 
+  handleReload () {
+    let filterBy = this.props.filterBy
+    this.removeNullPropertiesFromObject(filterBy)
+    this.props.actions.fetchBatches(filterBy)
+  }
+
   render () {
     return (
         <SimpleGrid
           handleCellClick={this.handleCellClick}
           emptyRowsMsg={<Text>No result</Text>}
-          handleOrder={() => {}}
+          handleOrder={this.handleOrder}
           rowsChecked={[this.props.checkedRow]}
-          fields={this.props.gridFields}
+          fields={[
+            {name: 'name', title: 'Batch Name'},
+            {name: 'paymentsCount', title: 'Number of Records'},
+            {name: 'createdAt', title: 'Uploaded On'},
+            {name: 'lastValidation', title: 'Last Validation On'},
+            {name: 'status', title: 'Status'},
+            {
+              name: 'refresh',
+              title: <div>
+                      <ReloadIcon onClick={this.handleReload} />
+                    </div>
+            }
+          ]}
           transformCellValue={this.handleTransformCellValue}
           data={this.props.batches}
+          externalStyle={style}
         />
     )
   }
@@ -77,19 +100,13 @@ Grid.propTypes = {
   changeId: PropTypes.number,
   checkedRow: PropTypes.object,
   showToolbox: PropTypes.func,
-  toolboxFilter: PropTypes.bool
+  toolboxFilter: PropTypes.bool,
+  filterBy: PropTypes.object
 }
 
 export default connect(
     (state) => {
       return {
-        gridFields: [
-            {name: 'name', title: 'Batch Name'},
-            {name: 'paymentsCount', title: 'Number of Records'},
-            {name: 'createdAt', title: 'Uploaded On'},
-            {name: 'lastValidation', title: 'Last Validation On'},
-            {name: 'status', title: 'Status'}
-        ],
         batches: state.bulkBatchGrid.get('fetchBatches').toArray(),
         changeId: state.bulkBatchFilterName.get('changeId') +
                   state.bulkBatchFilterStatus.get('changeId') +

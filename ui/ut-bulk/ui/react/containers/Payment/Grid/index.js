@@ -2,11 +2,14 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
+import ReloadIcon from 'material-ui/svg-icons/action/autorenew'
 import Text from 'ut-front-react/components/Text'
 import DateFormatter from 'ut-front-react/containers/DateFormatter'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
 import * as actionCreators from './actions'
 import {show as showToolbox} from '../GridToolbox/actions'
+
+import style from './style.css'
 
 class Grid extends Component {
   constructor (props) {
@@ -16,6 +19,7 @@ class Grid extends Component {
     this.handleHeaderCheckboxSelect = this.handleHeaderCheckboxSelect.bind(this)
     this.handleCellClick = this.handleCellClick.bind(this)
     this.handleToolbarUpdate = this.handleToolbarUpdate.bind(this)
+    this.handleReload = this.handleReload.bind(this)
     this.state = {
       selectedRows: {}
     }
@@ -84,6 +88,13 @@ class Grid extends Component {
     })
   }
 
+  handleReload () {
+    let filterBy = this.props.filterBy
+    filterBy['batchId'] = this.context.router.params.batchId
+    this.removeNullPropertiesFromObject(filterBy)
+    this.props.actions.fetchBatchPayments(filterBy)
+  }
+
   render () {
     return (
         <SimpleGrid
@@ -93,10 +104,26 @@ class Grid extends Component {
           handleOrder={() => {}}
           handleCheckboxSelect={this.handleCheckboxSelect}
           handleHeaderCheckboxSelect={this.handleHeaderCheckboxSelect}
-          fields={this.props.gridFields}
+          fields={[
+            {name: 'sequenceNumber', title: 'Sequence Number'},
+            {name: 'userNumber', title: 'User Number'},
+            {name: 'firstName', title: 'First Name'},
+            {name: 'lastName', title: 'Last Name'},
+            {name: 'dob', title: 'Date of Birth'},
+            {name: 'nationalId', title: 'National ID'},
+            {name: 'amount', title: 'Amount'},
+            {name: 'status', title: 'Status'},
+            {
+              name: 'refresh',
+              title: <div>
+                      <ReloadIcon onClick={this.handleReload} />
+                    </div>
+            }
+          ]}
           transformCellValue={this.handleTransformCellValue}
           data={this.props.data}
           rowsChecked={this.props.checkedRows}
+          externalStyle={style}
         />
     )
   }
@@ -113,22 +140,13 @@ Grid.propTypes = {
   changeId: PropTypes.number,
   params: PropTypes.object,
   showToolbox: PropTypes.func,
-  checkedRows: PropTypes.arrayOf(PropTypes.object)
+  checkedRows: PropTypes.arrayOf(PropTypes.object),
+  filterBy: PropTypes.object
 }
 
 export default connect(
     (state) => {
       return {
-        gridFields: [
-            {name: 'sequenceNumber', title: 'Sequence Number'},
-            {name: 'userNumber', title: 'User Number'},
-            {name: 'firstName', title: 'First Name'},
-            {name: 'lastName', title: 'Last Name'},
-            {name: 'dob', title: 'Date of Birth'},
-            {name: 'nationalId', title: 'National ID'},
-            {name: 'amount', title: 'Amount'},
-            {name: 'status', title: 'Status'}
-        ],
         data: state.bulkPaymentGrid.get('data').toArray(),
         changeId: state.bulkPaymentFilterStatus.get('changeId') +
                   state.bulkPaymentFilterDate.get('changeId') +
