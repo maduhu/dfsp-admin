@@ -1,3 +1,13 @@
+<a name="0.7.3"></a>
+## [0.7.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.7.2...v0.7.3) (2017-02-22)
+
+
+### Bug Fixes
+
+* add styles ([15804bf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/15804bf))
+
+
+
 <a name="0.7.2"></a>
 ## [0.7.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.7.1...v0.7.2) (2017-02-22)
 
