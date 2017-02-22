@@ -35,7 +35,7 @@ export default class Provider extends Component {
         },
         {
           routeName: 'ut-bulk:home',
-          title: 'Bulk Payment',
+          title: 'Bulk Payments',
           props: {
             activeClassName: 'active'
           }
