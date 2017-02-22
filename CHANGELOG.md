@@ -1,3 +1,13 @@
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.7.0...v0.7.1) (2017-02-22)
+
+
+### Bug Fixes
+
+* show dates with time ([3e5aaad](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/3e5aaad))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.6.0...v0.7.0) (2017-02-21)
 
