@@ -1,3 +1,13 @@
+<a name="0.7.2"></a>
+## [0.7.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.7.1...v0.7.2) (2017-02-22)
+
+
+### Bug Fixes
+
+* fix bulk payments title ([dd83167](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/dd83167))
+
+
+
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.7.0...v0.7.1) (2017-02-22)
 
