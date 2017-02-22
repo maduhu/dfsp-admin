@@ -22,6 +22,7 @@ export class ByDate extends Component {
           <DatePicker
             defaultValue={this.props.selectedDate}
             onChange={this.handleDateChange}
+            hintText='Date of Birth'
           />
          </div>
       </div>

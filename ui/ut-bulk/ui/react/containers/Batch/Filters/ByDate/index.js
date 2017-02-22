@@ -20,12 +20,14 @@ export class ByDate extends Component {
           <DatePicker
             defaultValue={startDate}
             onChange={this.handleDateChange('startDate')}
+            hintText='From'
           />
          </div>
           <div>
             <DatePicker
               defaultValue={endDate}
               onChange={this.handleDateChange('endDate')}
+              hintText='To'
             />
           </div>
       </div>
