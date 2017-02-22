@@ -49,7 +49,7 @@ class Grid extends Component {
     if (field.name === 'name' && !isHeader) {
       return (<Link to={'/bulk/batch/' + data.batchId}>{value}</Link>)
     } else if ((field.name === 'createdAt' || field.name === 'lastValidation') && !isHeader && value) {
-      return (<DateFormatter>{value}</DateFormatter>)
+      return (<DateFormatter format='MM/DD/YYYY HH:MM:SS'>{value}</DateFormatter>)
     }
     return value
   }
