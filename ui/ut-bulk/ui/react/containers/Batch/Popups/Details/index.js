@@ -94,6 +94,7 @@ export class BatchDetailPopup extends Component {
 
 BatchDetailPopup.propTypes = {
   actions: PropTypes.object,
+  fetchBatches: PropTypes.func,
   batchId: PropTypes.number,
   style: PropTypes.object,
   className: PropTypes.string,
