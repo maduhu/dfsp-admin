@@ -10,9 +10,11 @@ import Header from 'ut-front-react/components/PageLayout/Header'
 
 import Grid from '../../containers/Payment/Grid'
 import EditDetail from '../../containers/Payment/Popups/Details'
+import PayBatch from '../../containers/Batch/Popups/Pay'
 
 import {checkBatch, readyBatch} from '../../containers/Batch/GridToolbox/actions'
 import {fetchBatchPayments} from '../../containers/Payment/Grid/actions'
+import {openPayPopup} from '../../containers/Batch/Popups/Pay/actions'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
@@ -22,10 +24,15 @@ class BulkPayment extends Component {
     super(props)
     this.handleBatchReady = this.handleBatchReady.bind(this)
     this.handleCheckBatch = this.handleCheckBatch.bind(this)
+    this.togglePayPopup = this.togglePayPopup.bind(this)
   }
 
   handleBatchReady () {
     this.props.readyBatch(this.props.params.batchId, this.props.actorId)
+  }
+
+  togglePayPopup () {
+    this.props.openPayPopup(this.props.params.batchId)
   }
 
   handleCheckBatch () {
@@ -39,6 +46,7 @@ class BulkPayment extends Component {
   getHeaderButtons () {
     let buttons = []
     this.context.checkPermission('bulk.batch.ready') && buttons.push({text: 'Batch Ready', onClick: this.handleBatchReady})
+    this.context.checkPermission('bulk.batch.pay') && buttons.push({text: 'Pay batch', onClick: this.togglePayPopup})
     buttons.push({text: 'Check Entire Batch', onClick: this.handleCheckBatch})
 
     return buttons
@@ -59,8 +67,8 @@ class BulkPayment extends Component {
             </div>
         </div>
         <EditDetail />
+        <PayBatch />
     </div>
-
     )
   }
 }
@@ -72,6 +80,7 @@ BulkPayment.propTypes = {
   checkBatch: PropTypes.func,
   readyBatch: PropTypes.func,
   fetchBatchPayments: PropTypes.func,
+  openPayPopup: PropTypes.func,
   selectedPayments: PropTypes.arrayOf(PropTypes.string)
 }
 
@@ -92,6 +101,7 @@ export default connect(
   {
     checkBatch,
     readyBatch,
-    fetchBatchPayments
+    fetchBatchPayments,
+    openPayPopup
   }
 )(BulkPayment)

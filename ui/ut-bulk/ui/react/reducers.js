@@ -10,6 +10,7 @@ import {bulkPaymentFilterCustom} from './containers/Payment/Filters/ByCustom/red
 import {bulkBatchGrid} from './containers/Batch/Grid/reducer'
 import {bulkBatchDetailEditPopup} from './containers/Batch/Popups/Details/reducer'
 import {bulkPaymentDetailEditPopup} from './containers/Payment/Popups/Details/reducer'
+import {bulkBatchPayPopup} from './containers/Batch/Popups/Pay/reducer'
 /**
  * Todo: don't forget to add reducers here
  */
@@ -25,5 +26,6 @@ export default {
   bulkPaymentFilterCustom,
   bulkBatchGrid,
   bulkBatchDetailEditPopup,
-  bulkPaymentDetailEditPopup
+  bulkPaymentDetailEditPopup,
+  bulkBatchPayPopup
 }
