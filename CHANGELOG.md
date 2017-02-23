@@ -1,3 +1,21 @@
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.7.3...v0.8.0) (2017-02-23)
+
+
+### Bug Fixes
+
+* add date of birth field to the payment details popup ([e15d288](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e15d288))
+* custom filter styling ([0cc188a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0cc188a))
+* format date in batch details ([a7d6293](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/a7d6293))
+* remove seconds from the dateFormat ([7bea1ff](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7bea1ff))
+
+
+### Features
+
+* add hints to date pickers ([76bbaef](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/76bbaef))
+
+
+
 <a name="0.7.3"></a>
 ## [0.7.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.7.2...v0.7.3) (2017-02-22)
 
