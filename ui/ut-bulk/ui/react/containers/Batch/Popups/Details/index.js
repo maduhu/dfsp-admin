@@ -84,7 +84,7 @@ export class BatchDetailPopup extends Component {
               <Input value={item.paymentsCount} label='Number of records:' readonly inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.updatedAt} label='Updated On:' readonly inputWrapClassName={style.inputWrapClassName} />
+              <Input value={this.context.dateFormat(item.updatedAt, 'MM/DD/YYYY HH:MM')} label='Updated On:' readonly inputWrapClassName={style.inputWrapClassName} />
             </div>
           </div>
       </Popup>
@@ -94,6 +94,7 @@ export class BatchDetailPopup extends Component {
 
 BatchDetailPopup.propTypes = {
   actions: PropTypes.object,
+  fetchBatches: PropTypes.func,
   batchId: PropTypes.number,
   style: PropTypes.object,
   className: PropTypes.string,
@@ -102,7 +103,8 @@ BatchDetailPopup.propTypes = {
 }
 
 BatchDetailPopup.contextTypes = {
-  router: PropTypes.object
+  router: PropTypes.object,
+  dateFormat: PropTypes.func
 }
 
 export default connect(

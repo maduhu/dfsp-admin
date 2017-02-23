@@ -88,24 +88,24 @@ class GridToolbox extends Component {
     return (
       <span>
         <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink toggle={this.props.actions.toggle}>
-            <div className={style.filterWrap}>
-              <ByName className={style.standardFilter} />
-              <ByStatus className={style.standardFilter} />
-              <ByDate className={style.doubleDateInput} />
-              <ClearFilter show={this.props.showClearFilter} />
-            </div>
-          </SimpleGridToolbox>
-          <SimpleGridToolbox opened={this.props.buttonsOpened} title='Show Filters' isTitleLink toggle={this.props.actions.toggle}>
-            <div className={style.buttonWrap}>
-              {this.getToolboxButtons()}
-            </div>
-          </SimpleGridToolbox>
-          {this.state.replacePopup &&
-            <UploadForm
-              onClose={this.toggleReplacePopup}
-              batch={this.props.checkedRow}
-            />
-          }
+          <div className={style.filterWrap}>
+            <ByName className={style.standardFilter} />
+            <ByStatus className={style.standardFilter} />
+            <ByDate className={style.doubleDateInput} />
+            <ClearFilter show={this.props.showClearFilter} />
+          </div>
+        </SimpleGridToolbox>
+        <SimpleGridToolbox opened={this.props.buttonsOpened} title='Show Filters' isTitleLink toggle={this.props.actions.toggle}>
+          <div className={style.buttonWrap}>
+            {this.getToolboxButtons()}
+          </div>
+        </SimpleGridToolbox>
+        {this.state.replacePopup &&
+          <UploadForm
+            onClose={this.toggleReplacePopup}
+            batch={this.props.checkedRow}
+          />
+        }
       </span>
     )
   }

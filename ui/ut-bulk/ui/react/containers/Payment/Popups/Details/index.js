@@ -5,6 +5,7 @@ import * as actions from './actions'
 
 import Input from 'ut-front-react/components/Input'
 import Popup from 'ut-front-react/components/Popup'
+import DatePicker from 'ut-front-react/components/DatePicker/Simple'
 import style from './style.css'
 
 export class PaymentDetailPopup extends Component {
@@ -84,9 +85,12 @@ export class PaymentDetailPopup extends Component {
             <div className={style.row}>
               <Input value={item.lastName} label='Last Name:' onChange={this.handleFieldChange('lastName')} inputWrapClassName={style.inputWrapClassName} />
             </div>
-            {/* <div className={style.row}>
-              <Input value={item.dob} label='Date of Birth:' inputWrapClassName={style.inputWrapClassName} />
-            </div> */}
+            <div className={style.row}>
+              <div className={style.label}>Date of Birth:</div>
+              <div className={style.dateInputWrapper}>
+                <DatePicker defaultValue={new Date(item.dob)} onChange={this.handleFieldChange('dob')} />
+              </div>
+            </div>
             <div className={style.row}>
               <Input value={item.nationalId} label='National ID:' onChange={this.handleFieldChange('nationalId')} inputWrapClassName={style.inputWrapClassName} />
             </div>

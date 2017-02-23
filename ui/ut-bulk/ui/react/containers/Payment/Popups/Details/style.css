@@ -79,19 +79,22 @@
     display: none;
 }
 
-.infoInputWrapper {
-    margin-top: 10px;
-    width: 328px;
+.dateInputWrapper {
+    width: 480px;
     display: inline-block;
     vertical-align: top;
+}
+
+.dateInputWrapper input {
+    color: #595959 !important;
 }
 
 .label {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding-right: 90px;
   color: #595959;
+  min-width: 150px;
 }
 
 .inputDisplay {
