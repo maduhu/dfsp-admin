@@ -3,7 +3,7 @@ module.exports = {
   createPort: require('ut-port-jsonrpc'),
   url: global.window && global.window.location.origin,
   uri: '/rpc',
-  namespace: ['identity', 'rule', 'core', 'bulk'],
+  namespace: ['identity', 'rule', 'core', 'bulk', 'ledger'],
   'identity.check.request.send': function (msg, $meta) {
     if (!msg.uri) {
       msg.uri = '/rpc/' + $meta.method
