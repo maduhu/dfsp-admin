@@ -1,3 +1,13 @@
+<a name="0.9.1"></a>
+## [0.9.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.0...v0.9.1) (2017-02-24)
+
+
+### Bug Fixes
+
+* set actorId as a property to all requests sent from dfsp-admin's http client ([84882ec](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/84882ec))
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.8.0...v0.9.0) (2017-02-24)
 
