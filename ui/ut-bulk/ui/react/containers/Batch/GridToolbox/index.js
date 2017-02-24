@@ -18,7 +18,6 @@ import style from './style.css'
 class GridToolbox extends Component {
   constructor (props) {
     super(props)
-    this.handleDisable = this.handleDisable.bind(this)
     this.handleViewBatchRecords = this.handleViewBatchRecords.bind(this)
     this.handleCheckBatch = this.handleCheckBatch.bind(this)
     this.toggleReplacePopup = this.toggleReplacePopup.bind(this)
@@ -42,12 +41,6 @@ class GridToolbox extends Component {
     this.context.router.push('/bulk/batch/' + this.props.batchId)
   }
 
-  handleDisable () {
-    let statusRejected = this.props.batchStatuses.filter((el) => el.name === 'rejected').first().key
-    return this.props.actions.rejectBatch(this.props.batchId, this.props.actorId, statusRejected)
-      .then(() => this.props.fetchBatches())
-  }
-
   toggleReplacePopup (refresh) {
     this.setState({
       replacePopup: !this.state.replacePopup
@@ -61,14 +54,14 @@ class GridToolbox extends Component {
     let className = 'button btn btn-primary'
     let batchId = this.props.checkedRow.batchId
     let buttons = [
-      <button onClick={this.handleCheckBatch} disabled={!this.props.batchId || !this.props.actorId} className={className} key='check batch'>
-        Check Batch
-      </button>,
       <button onClick={this.handleViewBatchRecords} disabled={!batchId} className={className} key='view batch records'>
         View Batch Records
       </button>,
       <button onClick={this.handleDetailClick} disabled={!batchId} className={className} key='details'>
         Details
+      </button>,
+      <button onClick={this.handleCheckBatch} disabled={!this.props.batchId || !this.props.actorId} className={className} key='check batch'>
+        Check Batch
       </button>
     ]
     /* this.context.checkPermission('bulk.batch.edit') && buttons.push(
@@ -76,11 +69,6 @@ class GridToolbox extends Component {
         Replace
       </button>
     ) */
-    this.context.checkPermission('bulk.batch.reject') && buttons.push(
-      <button onClick={this.handleDisable} disabled={!this.props.batchId || !this.props.actorId} className={className} key='disable'>
-        Disable
-      </button>
-    )
     return buttons
   }
 
