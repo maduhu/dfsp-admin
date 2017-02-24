@@ -4,6 +4,20 @@ module.exports = {
   url: 'http://localhost:8010',
   namespace: ['rule', 'bulk', 'ledger'],
   method: 'post',
+  send: function (msg, $meta) {
+    if ($meta.auth && $meta.auth.actorId) {
+      msg.actorId = $meta.auth.actorId
+    }
+    return {
+      uri: '/rpc/' + $meta.method,
+      payload: {
+        id: 1,
+        jsonrpc: '2.0',
+        method: $meta.method,
+        params: msg
+      }
+    }
+  },
   'rule.item.fetch': function (msg, $meta) {
     $meta.mtid = 'response'
     return {
