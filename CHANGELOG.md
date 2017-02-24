@@ -1,3 +1,14 @@
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.8.0...v0.9.0) (2017-02-24)
+
+
+### Features
+
+* call proper process method and fetch accounts from backend for batch pay action ([fa208df](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/fa208df))
+* pay batch dialog ([b709ed5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/b709ed5))
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.7.3...v0.8.0) (2017-02-23)
 
