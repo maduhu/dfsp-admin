@@ -2,7 +2,7 @@ module.exports = {
   id: 'api',
   createPort: require('ut-port-jsonrpc'),
   url: 'http://localhost:8010',
-  namespace: ['rule', 'bulk'],
+  namespace: ['rule', 'bulk', 'ledger'],
   method: 'post',
   'rule.item.fetch': function (msg, $meta) {
     $meta.mtid = 'response'

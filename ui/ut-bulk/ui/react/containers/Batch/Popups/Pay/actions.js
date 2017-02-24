@@ -1,5 +1,13 @@
 import * as actionTypes from './actionTypes'
 
+export function fetchAccounts (actorId) {
+  return {
+    type: actionTypes.FETCH_PAY_ACCOUNTS,
+    method: 'ledger.account.fetch',
+    params: {actorId}
+  }
+}
+
 export function openPayPopup (batchId) {
   return {
     type: actionTypes.OPEN_PAY_BATCH_POPUP,
@@ -17,7 +25,7 @@ export function closePayPopup () {
 export function pay (batchId, expirationDate, account) {
   return {
     type: actionTypes.PAY_BATCH,
-    method: 'bulk.batch.pay',
+    method: 'bulk.batch.process',
     params: {batchId, expirationDate, account}
   }
 }

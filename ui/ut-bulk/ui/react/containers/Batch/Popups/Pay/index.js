@@ -17,6 +17,10 @@ export class PayBatchPopup extends Component {
     this.handlePayAccountChange = this.handlePayAccountChange.bind(this)
   }
 
+  componentWillMount () {
+    this.props.actions.fetchAccounts(this.props.actorId)
+  }
+
   onClose () {
     this.props.actions.closePayPopup()
   }
@@ -96,12 +100,13 @@ export class PayBatchPopup extends Component {
 
 PayBatchPopup.propTypes = {
   actions: PropTypes.object,
+  actorId: PropTypes.string,
   batchId: PropTypes.string,
   style: PropTypes.object,
   className: PropTypes.string,
   isOpen: PropTypes.bool,
   accounts: PropTypes.arrayOf(PropTypes.object),
-  selectedAccount: PropTypes.number,
+  selectedAccount: PropTypes.string,
   expirationDate: PropTypes.object
 }
 
@@ -112,6 +117,7 @@ PayBatchPopup.contextTypes = {
 export default connect(
   (state, ownProps) => {
     return {
+      actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
       batchId: state.bulkBatchPayPopup.get('batchId'),
       isOpen: !!state.bulkBatchPayPopup.get('batchId'),
       accounts: state.bulkBatchPayPopup.get('accounts').toJS(),
