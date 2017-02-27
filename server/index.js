@@ -14,8 +14,8 @@ module.exports = {
       configPath: path.resolve(__dirname, '../config')
     }),
     frontend: require('ut-front-react'),
-    ruleHTTP: require('ut-rule/ui/react/http'),
     identity: require('../service/identity'),
+    bulkHTTP: require('../ui/http'),
     bulk: require('../service/bulk')
   },
   validations: {
