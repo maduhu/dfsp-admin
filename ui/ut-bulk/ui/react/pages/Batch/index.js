@@ -48,9 +48,9 @@ class BulkBatch extends Component {
   render () {
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
-        <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Batches' />
+        <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Payments' />
         <div>
-            <Header text='Bulk Batches' buttons={this.getHeaderButtons()} />
+            <Header text='Bulk Payments - Batch' buttons={this.getHeaderButtons()} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <GridToolbox batchId={this.props.checkedRow.batchId} />

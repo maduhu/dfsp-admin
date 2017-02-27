@@ -554,7 +554,7 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
-    background: #F2F2F2;
+    background: #FFFFFF;
     font-size: 14px;
     line-height: 14px;
     font-family: 'OpenSans', Arial, Helvetica, sans-serif;
@@ -619,7 +619,7 @@ a.nav-goBack {
 
 /* 7. Forms */
 input:focus {
-    border: 1px solid #E3006B;
+    border: 1px solid #595959;
     outline: none;
 }
 
