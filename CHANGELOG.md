@@ -1,3 +1,15 @@
+<a name="0.9.2"></a>
+## [0.9.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.1...v0.9.2) (2017-02-27)
+
+
+### Bug Fixes
+
+* copy styles from ut-user to dfsp-admin implementation and use them insead of ut-rule's ones ([ea2e266](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ea2e266))
+* css and titles ([a771721](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/a771721))
+* rename static resources in admin ([5d5a01d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5d5a01d))
+
+
+
 <a name="0.9.1"></a>
 ## [0.9.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.0...v0.9.1) (2017-02-24)
 
