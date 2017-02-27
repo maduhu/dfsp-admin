@@ -1,12 +1,16 @@
 .disableForm {
     width: 500px;
-    padding: 20px 0;
     margin: 0 auto;
 }
 
 .commentTextArea {
     padding: 5px 160px;
     margin: 0 auto;
+}
+
+.warning {
+    padding: 5px 0px;
+    margin-top: -20px;
 }
 
 .footer {

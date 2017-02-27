@@ -11,7 +11,8 @@ import {bulkBatchGrid} from './containers/Batch/Grid/reducer'
 import {bulkBatchDetailEditPopup} from './containers/Batch/Popups/Details/reducer'
 import {bulkPaymentDetailEditPopup} from './containers/Payment/Popups/Details/reducer'
 import {bulkBatchPayPopup} from './containers/Batch/Popups/Pay/reducer'
-import {bulkBatchDisablePopup} from './containers/Payment/Popups/DisableBatch/reducer'
+import {bulkBatchDisablePopup} from './containers/Batch/Popups/DisableBatch/reducer'
+import {bulkBatchRejectPopup} from './containers/Batch/Popups/RejectBatch/reducer'
 
 /**
  * Todo: don't forget to add reducers here
@@ -30,5 +31,6 @@ export default {
   bulkBatchDetailEditPopup,
   bulkPaymentDetailEditPopup,
   bulkBatchPayPopup,
-  bulkBatchDisablePopup
+  bulkBatchDisablePopup,
+  bulkBatchRejectPopup
 }
