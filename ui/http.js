@@ -4,7 +4,7 @@ module.exports = {
   start: function () {
     this && this.registerRequestHandler && this.registerRequestHandler([{
       method: 'GET',
-      path: '/s/bulk/{file*}',
+      path: '/s/admin/{file*}',
       config: {
         auth: false
       },

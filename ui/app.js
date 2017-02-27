@@ -27,7 +27,7 @@ module.exports = {
   init: function (bus) {
     this.bus = bus
     document.getElementsByTagName('head')[0].innerHTML +=
-      '<link type="text/css" rel="stylesheet" href="/s/bulk/style.css">' +
+      '<link type="text/css" rel="stylesheet" href="/s/admin/style.css">' +
       `<link href="${logo}" rel="icon" type="image/x-icon" />`
     document.title = 'DFSP Admin'
   },

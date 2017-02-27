@@ -15,7 +15,7 @@ module.exports = {
     }),
     frontend: require('ut-front-react'),
     identity: require('../service/identity'),
-    bulkHTTP: require('../ui/http'),
+    adminHTTP: require('../ui/http'),
     bulk: require('../service/bulk')
   },
   validations: {
