@@ -13,17 +13,6 @@ export const checkBatch = (batchId, actorId) => ({
   }
 })
 
-export const rejectBatch = (batchId, actorId, statusId, comment) => ({
-  type: actionTypes.REJECT_BATCH,
-  method: 'bulk.batch.edit',
-  params: {
-    batchId: batchId,
-    actorId: actorId,
-    batchStatusId: statusId,
-    batchInfo: comment
-  }
-})
-
 export const readyBatch = (batchId, actorId) => ({
   type: actionTypes.READY_BATCH,
   method: 'bulk.batch.ready',

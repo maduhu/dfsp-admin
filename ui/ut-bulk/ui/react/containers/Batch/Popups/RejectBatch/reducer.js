@@ -14,7 +14,7 @@ export const bulkBatchRejectPopup = (state = defaultState, action) => {
     case actionTypes.OPEN_REJECT_BATCH_POPUP:
       return state.set('batchId', action.params.batchId)
     case actionTypes.CLOSE_REJECT_BATCH_POPUP:
-      return defaultState
+      return state.set('batchId', null).set('comment', null)
     case actionTypes.ADD_COMMENT_REJECT:
       return state.set('comment', action.params.comment)
     case actionTypes.LOAD_BATCH_STATUSES_REJECT:

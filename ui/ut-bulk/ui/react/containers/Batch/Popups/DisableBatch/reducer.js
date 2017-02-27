@@ -14,7 +14,7 @@ export const bulkBatchDisablePopup = (state = defaultState, action) => {
     case actionTypes.OPEN_DISABLE_BATCH_POPUP:
       return state.set('batchId', action.params.batchId)
     case actionTypes.CLOSE_DISABLE_BATCH_POPUP:
-      return defaultState
+      return state.set('batchId', null).set('comment', null)
     case actionTypes.ADD_COMMENT:
       return state.set('comment', action.params.comment)
     case actionTypes.LOAD_BATCH_STATUSES:
