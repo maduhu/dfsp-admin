@@ -14,7 +14,7 @@ import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
 
 import UploadForm from '../../containers/UploadForm'
-
+import DeleteBatch from '../../containers/Batch/Popups/DeleteBatch'
 import {fetchBatches} from '../../containers/Batch/Grid/actions'
 
 class BulkBatch extends Component {
@@ -65,7 +65,7 @@ class BulkBatch extends Component {
             onClose={this.toggleUploadPopup}
           />
         }
-
+        <DeleteBatch />
         <DetailEdit />
     </div>
     )

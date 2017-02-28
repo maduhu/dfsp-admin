@@ -6,23 +6,24 @@ import SimpleGridToolbox from 'ut-front-react/components/SimpleGridToolbox'
 import * as actionCreators from './actions'
 import {fetchBatches} from '../Grid/actions'
 import {setDatailItem} from '../Popups/Details/actions'
+import {openDeletePopup} from '../Popups/DeleteBatch/actions'
 
 import UploadForm from '../../UploadForm'
 import ByName from '../Filters/ByName'
 import ByStatus from '../Filters/ByStatus'
 import ByDate from '../Filters/ByDate'
 import ClearFilter from '../Filters/ClearFilter'
-
 import style from './style.css'
 
 class GridToolbox extends Component {
   constructor (props) {
     super(props)
-    this.handleDisable = this.handleDisable.bind(this)
     this.handleViewBatchRecords = this.handleViewBatchRecords.bind(this)
     this.handleCheckBatch = this.handleCheckBatch.bind(this)
     this.toggleReplacePopup = this.toggleReplacePopup.bind(this)
     this.handleDetailClick = this.handleDetailClick.bind(this)
+    this.handleDeleteBatch = this.handleDeleteBatch.bind(this)
+    this.toggleDeleteBatchPopup = this.toggleDeleteBatchPopup.bind(this)
     this.state = {
       replacePopup: false
     }
@@ -42,10 +43,8 @@ class GridToolbox extends Component {
     this.context.router.push('/bulk/batch/' + this.props.batchId)
   }
 
-  handleDisable () {
-    let statusRejected = this.props.batchStatuses.filter((el) => el.name === 'rejected').first().key
-    return this.props.actions.rejectBatch(this.props.batchId, this.props.actorId, statusRejected)
-      .then(() => this.props.fetchBatches())
+  handleDeleteBatch () {
+    this.props.openDeletePopup(this.props.checkedRow.batchId)
   }
 
   toggleReplacePopup (refresh) {
@@ -57,30 +56,35 @@ class GridToolbox extends Component {
     }
   }
 
+  toggleDeleteBatchPopup () {
+    this.props.openDeletePopup(this.props.checkedRow.batchId)
+  }
+
   getToolboxButtons () {
     let className = 'button btn btn-primary'
     let batchId = this.props.checkedRow.batchId
     let buttons = [
-      <button onClick={this.handleCheckBatch} disabled={!this.props.batchId || !this.props.actorId} className={className} key='check batch'>
-        Check Batch
-      </button>,
       <button onClick={this.handleViewBatchRecords} disabled={!batchId} className={className} key='view batch records'>
         View Batch Records
       </button>,
       <button onClick={this.handleDetailClick} disabled={!batchId} className={className} key='details'>
         Details
+      </button>,
+      <button onClick={this.handleCheckBatch} disabled={!this.props.batchId || !this.props.actorId} className={className} key='check batch'>
+        Check Batch
       </button>
     ]
+
+    this.context.checkPermission('bulk.batch.delete') && buttons.push(
+      <button onClick={this.toggleDeleteBatchPopup} disabled={!this.props.batchId || !this.props.actorId} className={className} key='delete'>
+        Delete
+      </button>
+    )
     /* this.context.checkPermission('bulk.batch.edit') && buttons.push(
       <button onClick={this.toggleReplacePopup} disabled={!this.props.batchId} className={className} key='replace'>
         Replace
       </button>
     ) */
-    this.context.checkPermission('bulk.batch.reject') && buttons.push(
-      <button onClick={this.handleDisable} disabled={!this.props.batchId || !this.props.actorId} className={className} key='disable'>
-        Disable
-      </button>
-    )
     return buttons
   }
 
@@ -126,7 +130,8 @@ GridToolbox.propTypes = {
   batchStatuses: PropTypes.object,
   checkedRow: PropTypes.object,
   batchId: PropTypes.number,
-  setDatailItem: PropTypes.func
+  setDatailItem: PropTypes.func,
+  openDeletePopup: PropTypes.func
 }
 
 export default connect(
@@ -146,7 +151,8 @@ export default connect(
       return {
         actions: bindActionCreators(actionCreators, dispatch),
         fetchBatches: bindActionCreators(fetchBatches, dispatch),
-        setDatailItem: bindActionCreators(setDatailItem, dispatch)
+        setDatailItem: bindActionCreators(setDatailItem, dispatch),
+        openDeletePopup: bindActionCreators(openDeletePopup, dispatch)
       }
     }
 )(GridToolbox)

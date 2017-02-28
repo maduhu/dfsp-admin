@@ -109,7 +109,8 @@ export default connect(
         batches: state.bulkBatchGrid.get('fetchBatches').toArray(),
         changeId: state.bulkBatchFilterName.get('changeId') +
                   state.bulkBatchFilterStatus.get('changeId') +
-                  state.bulkBatchFilterDate.get('changeId'),
+                  state.bulkBatchFilterDate.get('changeId') +
+                  state.bulkBatchDeletePopup.get('changeId'),
         filterBy: {
           name: state.bulkBatchFilterName.get('batchName'),
           batchStatusId: state.bulkBatchFilterStatus.get('statusId'),
