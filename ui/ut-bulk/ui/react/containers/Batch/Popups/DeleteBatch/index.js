@@ -7,7 +7,7 @@ import Popup from 'ut-front-react/components/Popup'
 import TextArea from 'ut-front-react/components/Input/TextArea'
 import style from './style.css'
 
-export class DisableBatchPopup extends Component {
+export class DeleteBatchPopup extends Component {
   constructor (props) {
     super(props)
     this.onClose = this.onClose.bind(this)
@@ -20,13 +20,13 @@ export class DisableBatchPopup extends Component {
   }
 
   onClose () {
-    this.props.actions.closeDisablePopup()
+    this.props.actions.closeDeletePopup()
   }
 
   onSubmit () {
     let {batchId, actorId, comment} = this.props
-    let statusDisabled = this.props.batchStatuses.filter((el) => el.name === 'disabled').first().key
-    this.props.actions.disableBatch(batchId, actorId, statusDisabled, comment).then(() => this.props.actions.closeDisablePopup())
+    let statusDeleted = this.props.batchStatuses.filter((el) => el.name === 'deleted').first().key
+    this.props.actions.deleteBatch(batchId, actorId, statusDeleted, comment).then(() => this.props.actions.closeDeletePopup())
   }
 
   handleAddComment (comment) {
@@ -36,7 +36,7 @@ export class DisableBatchPopup extends Component {
   getActionButtons () {
     let buttons = []
     buttons.push({
-      label: 'Disable',
+      label: 'Delete',
       type: 'submit',
       onClick: this.onSubmit,
       className: ['defaultBtn']
@@ -56,7 +56,7 @@ export class DisableBatchPopup extends Component {
         isOpen={this.props.isOpen}
         closeOnOverlayClick
         header={{
-          text: 'Disable Batch',
+          text: 'Delete Batch',
           closePopup: this.onClose
         }}
         footer={{
@@ -65,8 +65,8 @@ export class DisableBatchPopup extends Component {
         }}
         closePopup={this.onClose}
         >
-        <div className={style.disableForm}>
-          <div className={style.warning}>If you disable the batch - it can not be restored.</div>
+        <div className={style.deleteForm}>
+          <div className={style.warning}>If you delete the batch - it can not be restored.</div>
           <div className={style.reason}>
             <TextArea label='Enter reason:' className={style.commentTextArea} name='comment' value={this.props.comment}
               onChange={this.handleAddComment} />
@@ -77,7 +77,7 @@ export class DisableBatchPopup extends Component {
   }
 }
 
-DisableBatchPopup.propTypes = {
+DeleteBatchPopup.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.number,
   style: PropTypes.object,
@@ -88,7 +88,7 @@ DisableBatchPopup.propTypes = {
   batchStatuses: PropTypes.object
 }
 
-DisableBatchPopup.contextTypes = {
+DeleteBatchPopup.contextTypes = {
   router: PropTypes.object
 }
 
@@ -96,10 +96,10 @@ export default connect(
   (state, ownProps) => {
     return {
       actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
-      isOpen: !!state.bulkBatchDisablePopup.get('batchId'),
-      comment: state.bulkBatchDisablePopup.get('comment'),
-      batchStatuses: state.bulkBatchDisablePopup.get('batchStatuses'),
-      batchId: state.bulkBatchDisablePopup.get('batchId')
+      isOpen: !!state.bulkBatchDeletePopup.get('batchId'),
+      comment: state.bulkBatchDeletePopup.get('comment'),
+      batchStatuses: state.bulkBatchDeletePopup.get('batchStatuses'),
+      batchId: state.bulkBatchDeletePopup.get('batchId')
     }
   },
   (dispatch) => {
@@ -107,4 +107,4 @@ export default connect(
       actions: bindActionCreators(actions, dispatch)
     }
   }
-)(DisableBatchPopup)
+)(DeleteBatchPopup)

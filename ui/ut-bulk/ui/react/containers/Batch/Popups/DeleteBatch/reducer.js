@@ -8,17 +8,17 @@ const defaultState = Map({
   changeId: 0
 })
 
-export const bulkBatchDisablePopup = (state = defaultState, action) => {
+export const bulkBatchDeletePopup = (state = defaultState, action) => {
   switch (action.type) {
-    case actionTypes.DISABLE_BATCH:
+    case actionTypes.DELETE_BATCH:
       return state.set('batchId', action.params.batchId).update('changeId', (value) => ++value)
-    case actionTypes.OPEN_DISABLE_BATCH_POPUP:
+    case actionTypes.OPEN_DELETE_BATCH_POPUP:
       return state.set('batchId', action.params.batchId)
-    case actionTypes.CLOSE_DISABLE_BATCH_POPUP:
+    case actionTypes.CLOSE_DELETE_BATCH_POPUP:
       return state.set('batchId', null).set('comment', null)
     case actionTypes.ADD_COMMENT:
       return state.set('comment', action.params.comment)
-    case actionTypes.LOAD_BATCH_STATUSES:
+    case actionTypes.LOAD_BATCH_STATUSES_DELETE:
       return state.set('batchStatuses', List(action.result))
     default:
       break

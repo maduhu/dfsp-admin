@@ -13,6 +13,7 @@ import {bulkPaymentDetailEditPopup} from './containers/Payment/Popups/Details/re
 import {bulkBatchPayPopup} from './containers/Batch/Popups/Pay/reducer'
 import {bulkBatchDisablePopup} from './containers/Batch/Popups/DisableBatch/reducer'
 import {bulkBatchRejectPopup} from './containers/Batch/Popups/RejectBatch/reducer'
+import {bulkBatchDeletePopup} from './containers/Batch/Popups/DeleteBatch/reducer'
 
 /**
  * Todo: don't forget to add reducers here
@@ -32,5 +33,6 @@ export default {
   bulkPaymentDetailEditPopup,
   bulkBatchPayPopup,
   bulkBatchDisablePopup,
-  bulkBatchRejectPopup
+  bulkBatchRejectPopup,
+  bulkBatchDeletePopup
 }

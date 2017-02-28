@@ -10,14 +10,12 @@ import Header from 'ut-front-react/components/PageLayout/Header'
 import Grid from '../../containers/Payment/Grid'
 import EditDetail from '../../containers/Payment/Popups/Details'
 
-import DisableBatch from '../../containers/Batch/Popups/DisableBatch'
 import RejectBatch from '../../containers/Batch/Popups/RejectBatch'
 import PayBatch from '../../containers/Batch/Popups/Pay'
 
 import {readyBatch} from '../../containers/Batch/GridToolbox/actions'
 import {fetchBatchPayments} from '../../containers/Payment/Grid/actions'
 import {openPayPopup} from '../../containers/Batch/Popups/Pay/actions'
-import {openDisablePopup} from '../../containers/Batch/Popups/DisableBatch/actions'
 import {openRejectBatchPopup} from '../../containers/Batch/Popups/RejectBatch/actions'
 
 import mainStyle from 'ut-front-react/assets/index.css'
@@ -27,10 +25,8 @@ class BulkPayment extends Component {
   constructor (props) {
     super(props)
     this.handleBatchReady = this.handleBatchReady.bind(this)
-    this.handleDisableBatch = this.handleDisableBatch.bind(this)
     this.handleRejectBatch = this.handleRejectBatch.bind(this)
     this.togglePayPopup = this.togglePayPopup.bind(this)
-    this.toggleDisableBatchPopup = this.toggleDisableBatchPopup.bind(this)
     this.toggleRejectBatchPopup = this.toggleRejectBatchPopup.bind(this)
   }
 
@@ -42,21 +38,8 @@ class BulkPayment extends Component {
     this.props.openPayPopup(this.props.params.batchId)
   }
 
-  toggleDisableBatchPopup () {
-    this.props.openDisablePopup(this.props.params.batchId)
-  }
-
   toggleRejectBatchPopup () {
     this.props.openRejectBatchPopup(this.props.params.batchId)
-  }
-
-  handleDisableBatch () {
-    return new Promise((resolve, reject) => {
-      this.props.openDisablePopup(this.props.params.batchId)
-      return resolve()
-    }).then(() => {
-      this.props.fetchBatchPayments({batchId: this.props.params.batchId})
-    })
   }
 
   handleRejectBatch () {
@@ -73,7 +56,6 @@ class BulkPayment extends Component {
     this.context.checkPermission('bulk.batch.ready') && buttons.push({text: 'Batch Ready', onClick: this.handleBatchReady})
     this.context.checkPermission('bulk.batch.pay') && buttons.push({text: 'Pay batch', onClick: this.togglePayPopup})
     this.context.checkPermission('bulk.batch.reject') && buttons.push({text: 'Reject Batch', onClick: this.toggleRejectBatchPopup})
-    this.context.checkPermission('bulk.batch.disable') && buttons.push({text: 'Disable Batch', onClick: this.toggleDisableBatchPopup})
 
     return buttons
   }
@@ -95,7 +77,6 @@ class BulkPayment extends Component {
         <EditDetail />
         <PayBatch />
         <RejectBatch />
-        <DisableBatch />
     </div>
     )
   }
@@ -105,7 +86,6 @@ BulkPayment.propTypes = {
   params: PropTypes.object.isRequired,
   showClearFilter: PropTypes.bool,
   actorId: PropTypes.string,
-  openDisablePopup: PropTypes.func,
   openRejectBatchPopup: PropTypes.func,
   readyBatch: PropTypes.func,
   fetchBatchPayments: PropTypes.func,
@@ -128,7 +108,6 @@ export default connect(
     }
   },
   {
-    openDisablePopup,
     openRejectBatchPopup,
     readyBatch,
     fetchBatchPayments,
