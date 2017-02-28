@@ -1,3 +1,16 @@
+<a name="0.9.3"></a>
+## [0.9.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.2...v0.9.3) (2017-02-28)
+
+
+### Bug Fixes
+
+* add delete batch pop-up for maker ([d88cd9d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/d88cd9d))
+* add Disable Batch and Reject Batch buttons ([0c65b35](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0c65b35))
+* add Disable batch popup ([6881a92](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/6881a92))
+* remove unused function ([20566b6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/20566b6))
+
+
+
 <a name="0.9.2"></a>
 ## [0.9.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.1...v0.9.2) (2017-02-27)
 
