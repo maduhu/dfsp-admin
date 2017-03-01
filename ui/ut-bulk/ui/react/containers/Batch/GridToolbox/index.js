@@ -89,9 +89,10 @@ class GridToolbox extends Component {
   }
 
   render () {
+    let toggle = this.props.isTitleLink ? this.props.actions.toggle : ''
     return (
       <span>
-        <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink toggle={this.props.actions.toggle}>
+        <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink={this.props.isTitleLink} toggle={toggle}>
           <div className={style.filterWrap}>
             <ByName className={style.standardFilter} />
             <ByStatus className={style.standardFilter} />
@@ -130,8 +131,9 @@ GridToolbox.propTypes = {
   batchStatuses: PropTypes.object,
   checkedRow: PropTypes.object,
   batchId: PropTypes.number,
-  setDatailItem: PropTypes.func,
   openDeletePopup: PropTypes.func
+  setDatailItem: PropTypes.func,
+  isTitleLink: PropTypes.bool
 }
 
 export default connect(
@@ -144,7 +146,8 @@ export default connect(
                       state.bulkBatchFilterDate.get('changeId') > 0,
         actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
         batchStatuses: state.bulkBatchFilterStatus.get('batchStatuses'),
-        checkedRow: state.bulkBatchGrid.get('checkedRow').toJS()
+        checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
+        isTitleLink: state.bulkBatchGrid.get('checkedRow').toJS().size > 0
       }
     },
     (dispatch) => {

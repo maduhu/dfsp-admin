@@ -679,3 +679,7 @@ h4 {
 .bold {
     font-weight: bold;
 }
+
+.popupContent {
+  padding: 0;
+}

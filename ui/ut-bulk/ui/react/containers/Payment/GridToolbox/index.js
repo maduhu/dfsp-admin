@@ -53,10 +53,11 @@ class GridToolbox extends Component {
   }
 
   render () {
+    let toggle = this.props.isTitleLink ? this.props.actions.toggle : null
     let disableButton = !this.props.selectedPayments.length || !this.props.actorId
     return (
       <span>
-        <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink toggle={this.props.actions.toggle}>
+        <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink={this.props.isTitleLink} toggle={toggle}>
             <div className={style.filterWrap}>
               <ByCustom className={style.customInput} />
               <ByStatus className={style.standardFilter} />
@@ -66,8 +67,8 @@ class GridToolbox extends Component {
           </SimpleGridToolbox>
           <SimpleGridToolbox opened={this.props.buttonsOpened} title='Show Filters' isTitleLink toggle={this.props.actions.toggle}>
             <div className={style.buttonWrap}>
-              <button onClick={this.handleDetailClick} disabled={disableButton} className='button btn btn-primary'>Details</button>
-              <button onClick={this.handleDisable} disabled={disableButton} className='button btn btn-primary'>
+              <button onClick={this.handleDetailClick} disabled={!this.props.canViewDetails} className='button btn btn-primary'>Details</button>
+              <button onClick={this.handleDisable} disabled={!this.props.canViewDetails} className='button btn btn-primary'>
                 Disable
               </button>
               <button onClick={this.handleCheckRecords} disabled={disableButton} className='button btn btn-primary'>
@@ -92,7 +93,9 @@ GridToolbox.propTypes = {
   batchId: PropTypes.string,
   selectedPayments: PropTypes.arrayOf(PropTypes.object),
   paymentStatuses: PropTypes.object,
-  setDatailItem: PropTypes.func
+  setDatailItem: PropTypes.func,
+  isTitleLink: PropTypes.bool,
+  canViewDetails: PropTypes.bool
 }
 
 export default connect(
@@ -105,7 +108,9 @@ export default connect(
                       state.bulkPaymentFilterCustom.get('changeId') > 0,
         actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
         selectedPayments: state.bulkPaymentGrid.get('checkedRows').toArray(),
-        paymentStatuses: state.bulkPaymentFilterStatus.get('paymentStatus')
+        paymentStatuses: state.bulkPaymentFilterStatus.get('paymentStatus'),
+        isTitleLink: state.bulkPaymentGrid.get('checkedRows').size > 0,
+        canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1
       }
     },
     (dispatch) => {
