@@ -41,7 +41,7 @@ class Grid extends Component {
 
   removeNullPropertiesFromObject (obj) {
     return Object.keys(obj).forEach((key) =>
-          (obj[key] === '' || obj[key] === '__placeholder__' || obj[key] === undefined || obj[key] === null || obj[key] === 0 || (obj[key].length && obj[key][0] === '__placeholder__')) && delete obj[key])
+          (obj[key] === '' || obj[key] === '__placeholder__' || obj[key] === undefined || obj[key] === null || obj[key] === 0 || obj[key].length === 0 || (obj[key].length && obj[key][0] === '__placeholder__')) && delete obj[key])
   }
 
   handleToolbarUpdate () {
