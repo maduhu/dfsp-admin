@@ -148,7 +148,7 @@ export default connect(
         actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
         batchStatuses: state.bulkBatchFilterStatus.get('batchStatuses'),
         checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
-        isTitleLink: state.bulkBatchGrid.get('checkedRow').toJS().size > 0,
+        isTitleLink: state.bulkBatchGrid.get('checkedRow').size > 0,
         canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1,
         canDeleteStatuses: ['new', 'rejected', 'invalid', 'disabled']
       }
