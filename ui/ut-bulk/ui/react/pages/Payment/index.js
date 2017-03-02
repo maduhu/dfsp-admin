@@ -60,7 +60,6 @@ class BulkPayment extends Component {
     return buttons
   }
   render () {
-    console.log(this.props.canPayBatch)
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
         <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='Batch Record Details' />
