@@ -17,6 +17,7 @@ import {readyBatch} from '../../containers/Batch/GridToolbox/actions'
 import {fetchBatchPayments} from '../../containers/Payment/Grid/actions'
 import {openPayPopup} from '../../containers/Batch/Popups/Pay/actions'
 import {openRejectBatchPopup} from '../../containers/Batch/Popups/RejectBatch/actions'
+import {fetchBatches} from '../../containers/Batch/Grid/actions'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
@@ -54,8 +55,8 @@ class BulkPayment extends Component {
   getHeaderButtons () {
     let buttons = []
     this.context.checkPermission('bulk.batch.ready') && buttons.push({text: 'Batch Ready', onClick: this.handleBatchReady})
-    this.context.checkPermission('bulk.batch.pay') && buttons.push({text: 'Pay batch', onClick: this.togglePayPopup})
-    this.context.checkPermission('bulk.batch.reject') && buttons.push({text: 'Reject Batch', onClick: this.toggleRejectBatchPopup})
+    this.context.checkPermission('bulk.batch.pay') && buttons.push({text: 'Pay batch', onClick: this.togglePayPopup, disabled: !this.props.canPayBatch})
+    this.context.checkPermission('bulk.batch.reject') && buttons.push({text: 'Reject Batch', onClick: this.toggleRejectBatchPopup, disabled: !this.props.canPayBatch})
 
     return buttons
   }
@@ -71,7 +72,7 @@ class BulkPayment extends Component {
         </div>
         <div className={classnames(mainStyle.tableWrap, style.tableWrap)}>
             <div className={style.grid}>
-              <Grid />
+              <Grid batchId={this.props.params.batchId} />
             </div>
         </div>
         <EditDetail />
@@ -90,7 +91,8 @@ BulkPayment.propTypes = {
   readyBatch: PropTypes.func,
   fetchBatchPayments: PropTypes.func,
   openPayPopup: PropTypes.func,
-  selectedPayments: PropTypes.arrayOf(PropTypes.string)
+  selectedPayments: PropTypes.arrayOf(PropTypes.string),
+  fetchBatches: PropTypes.func
 }
 
 BulkPayment.contextTypes = {
@@ -99,18 +101,21 @@ BulkPayment.contextTypes = {
 
 export default connect(
   (state, ownProps) => {
+    console.log(state.bulkPaymentGrid.getIn(['batch', 'status']) + "aaaa")
     return {
       showClearFilter: state.bulkPaymentFilterStatus.get('changeId') +
                       state.bulkPaymentFilterDate.get('changeId') +
                       state.bulkPaymentFilterCustom.get('changeId') > 0,
       actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
-      selectedPayments: state.bulkPaymentGrid.get('checkedRows').keySeq().toArray()
+      selectedPayments: state.bulkPaymentGrid.get('checkedRows').keySeq().toArray(),
+      canPayBatch: ['ready'].includes(state.bulkPaymentGrid.getIn(['batch', 'status']))
     }
   },
   {
     openRejectBatchPopup,
     readyBatch,
     fetchBatchPayments,
-    openPayPopup
+    openPayPopup,
+    fetchBatches
   }
 )(BulkPayment)

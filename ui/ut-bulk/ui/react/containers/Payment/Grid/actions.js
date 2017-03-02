@@ -35,3 +35,10 @@ export function checkAll (rows) {
     params: {rows} || {}
   }
 }
+
+export function setSelectedBatch (batch) {
+  return {
+    type: actionTypes.SET_SELECTED_BATCH,
+    params: {batch}
+  }
+}

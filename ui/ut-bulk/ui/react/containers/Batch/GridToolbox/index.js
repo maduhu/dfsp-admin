@@ -76,7 +76,7 @@ class GridToolbox extends Component {
     ]
 
     this.context.checkPermission('bulk.batch.delete') && buttons.push(
-      <button onClick={this.toggleDeleteBatchPopup} disabled={!this.props.batchId || !this.props.actorId} className={className} key='delete'>
+      <button onClick={this.toggleDeleteBatchPopup} disabled={!this.props.batchId || !this.props.actorId || !this.props.canDeleteStatuses.includes(this.props.checkedRow.status)} className={className} key='delete'>
         Delete
       </button>
     )
@@ -131,9 +131,10 @@ GridToolbox.propTypes = {
   batchStatuses: PropTypes.object,
   checkedRow: PropTypes.object,
   batchId: PropTypes.number,
-  openDeletePopup: PropTypes.func
+  openDeletePopup: PropTypes.func,
   setDatailItem: PropTypes.func,
-  isTitleLink: PropTypes.bool
+  isTitleLink: PropTypes.bool,
+  canDeleteStatuses: PropTypes.array
 }
 
 export default connect(
@@ -147,7 +148,9 @@ export default connect(
         actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
         batchStatuses: state.bulkBatchFilterStatus.get('batchStatuses'),
         checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
-        isTitleLink: state.bulkBatchGrid.get('checkedRow').toJS().size > 0
+        isTitleLink: state.bulkBatchGrid.get('checkedRow').toJS().size > 0,
+        canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1,
+        canDeleteStatuses: ['new', 'rejected', 'invalid', 'disabled']
       }
     },
     (dispatch) => {

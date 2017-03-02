@@ -7,6 +7,7 @@ import DateFormatter from 'ut-front-react/containers/DateFormatter'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
 import * as actionCreators from './actions'
 import {show as showToolbox} from '../GridToolbox/actions'
+import {getBatch} from '../../Batch/Grid/actions'
 
 import style from './style.css'
 
@@ -19,13 +20,14 @@ class Grid extends Component {
     this.handleCellClick = this.handleCellClick.bind(this)
     this.handleToolbarUpdate = this.handleToolbarUpdate.bind(this)
     this.handleReload = this.handleReload.bind(this)
-    this.state = {
-      selectedRows: {}
-    }
   }
 
   componentWillMount () {
     this.props.actions.fetchBatchPayments({batchId: this.context.router.params.batchId})
+    console.log({batchId: this.context.router.params.batchId})
+    this.props.getBatch({batchId: 2}).then((result) => {
+      console.log(result)
+    })
   }
 
   componentWillReceiveProps (nextProps) {
@@ -133,6 +135,7 @@ Grid.contextTypes = {
 }
 
 Grid.propTypes = {
+  batchId: PropTypes.string,
   gridFields: PropTypes.arrayOf(PropTypes.object),
   actions: PropTypes.object,
   data: PropTypes.arrayOf(PropTypes.object),
@@ -140,7 +143,8 @@ Grid.propTypes = {
   params: PropTypes.object,
   showToolbox: PropTypes.func,
   checkedRows: PropTypes.arrayOf(PropTypes.object),
-  filterBy: PropTypes.object
+  filterBy: PropTypes.object,
+  getBatch: PropTypes.func
 }
 
 export default connect(
@@ -162,7 +166,8 @@ export default connect(
     (dispatch) => {
       return {
         actions: bindActionCreators(actionCreators, dispatch),
-        showToolbox: bindActionCreators(showToolbox, dispatch)
+        showToolbox: bindActionCreators(showToolbox, dispatch),
+        getBatch: bindActionCreators(getBatch, dispatch)
       }
     }
 )(Grid)
