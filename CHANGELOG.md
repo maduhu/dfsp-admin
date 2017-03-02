@@ -1,3 +1,23 @@
+<a name="0.9.5"></a>
+## [0.9.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.4...v0.9.5) (2017-03-02)
+
+
+### Bug Fixes
+
+* version bump ([effd0e2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/effd0e2))
+
+
+
+<a name="0.9.4"></a>
+## [0.9.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.3...v0.9.4) (2017-03-01)
+
+
+### Bug Fixes
+
+* remove margings ([6ca3807](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/6ca3807))
+
+
+
 <a name="0.9.3"></a>
 ## [0.9.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.2...v0.9.3) (2017-02-28)
 
