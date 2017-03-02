@@ -1,3 +1,13 @@
+<a name="0.10.1"></a>
+## [0.10.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.0...v0.10.1) (2017-03-02)
+
+
+### Bug Fixes
+
+* filter issue when no status is selected ([8fde558](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8fde558))
+
+
+
 <a name="0.10.0"></a>
 # [0.10.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.5...v0.10.0) (2017-03-02)
 
