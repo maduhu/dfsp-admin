@@ -54,8 +54,8 @@ class BulkPayment extends Component {
   getHeaderButtons () {
     let buttons = []
     this.context.checkPermission('bulk.batch.ready') && buttons.push({text: 'Batch Ready', onClick: this.handleBatchReady})
-    this.context.checkPermission('bulk.batch.pay') && buttons.push({text: 'Pay batch', onClick: this.togglePayPopup, disabled: !this.props.canPayBatch})
-    this.context.checkPermission('bulk.batch.reject') && buttons.push({text: 'Reject Batch', onClick: this.toggleRejectBatchPopup, disabled: !this.props.canPayBatch})
+    this.context.checkPermission('bulk.batch.pay') && buttons.push({text: 'Pay batch', onClick: this.togglePayPopup, disabled: !this.props.canPayRejectBatch})
+    this.context.checkPermission('bulk.batch.reject') && buttons.push({text: 'Reject Batch', onClick: this.toggleRejectBatchPopup, disabled: !this.props.canPayRejectBatch})
 
     return buttons
   }
@@ -105,7 +105,7 @@ export default connect(
                       state.bulkPaymentFilterCustom.get('changeId') > 0,
       actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
       selectedPayments: state.bulkPaymentGrid.get('checkedRows').keySeq().toArray(),
-      canPayBatch: ['ready'].includes(state.bulkPaymentGrid.getIn(['batch', 'status']))
+      canPayRejectBatch: ['ready'].includes(state.bulkPaymentGrid.getIn(['batch', 'status']))
     }
   },
   {

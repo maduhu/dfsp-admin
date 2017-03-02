@@ -68,7 +68,7 @@ class GridToolbox extends Component {
           <SimpleGridToolbox opened={this.props.buttonsOpened} title='Show Filters' isTitleLink toggle={this.props.actions.toggle}>
             <div className={style.buttonWrap}>
               <button onClick={this.handleDetailClick} disabled={!this.props.canViewDetails} className='button btn btn-primary'>Details</button>
-              <button onClick={this.handleDisable} disabled={!this.props.canViewDetails} className='button btn btn-primary'>
+              <button onClick={this.handleDisable} className='button btn btn-primary'>
                 Disable
               </button>
               <button onClick={this.handleCheckRecords} disabled={disableButton} className='button btn btn-primary'>

@@ -20,10 +20,11 @@ export class ByStatus extends Component {
   }
 
   capitalize (obj) {
-    var letters = obj.name.split('')
+    var copy = Object.assign({}, obj)
+    var letters = copy.name.split('')
     letters[0] = letters[0].toUpperCase()
-    obj.name = letters.join('')
-    return obj
+    copy.name = letters.join('')
+    return copy
   }
 
   render () {
