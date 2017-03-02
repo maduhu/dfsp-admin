@@ -63,7 +63,7 @@ let UploadForm = React.createClass({
       if (xhr.status === 200) {
         var response = JSON.parse(xhr.response)
         this.setState({
-          result: {message: 'Succesfully uploaded ' + response.insertedRows + ' entities'}
+          result: {message: 'Successfully uploaded ' + response.insertedRows + ' entities'}
         })
       } else {
         this.setState({result: new Error(xhr.response)})

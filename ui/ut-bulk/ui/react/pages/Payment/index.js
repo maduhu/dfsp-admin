@@ -60,11 +60,13 @@ class BulkPayment extends Component {
     return buttons
   }
   render () {
+    let title = 'Bulk Payments - Batch Record Details' +
+      (this.props.batch.name ? ` - ${this.props.batch.name} - ${this.props.batch.status}` : '')
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
         <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='Batch Record Details' />
         <div>
-            <Header text='Bulk Payments - Batch Record Details' buttons={this.getHeaderButtons()} />
+            <Header text={title} buttons={this.getHeaderButtons()} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <GridToolbox batchId={this.props.params.batchId} />
@@ -90,7 +92,9 @@ BulkPayment.propTypes = {
   readyBatch: PropTypes.func,
   fetchBatchPayments: PropTypes.func,
   openPayPopup: PropTypes.func,
-  selectedPayments: PropTypes.arrayOf(PropTypes.string)
+  selectedPayments: PropTypes.arrayOf(PropTypes.string),
+  batch: PropTypes.object,
+  canPayRejectBatch: PropTypes.bool
 }
 
 BulkPayment.contextTypes = {
@@ -105,7 +109,8 @@ export default connect(
                       state.bulkPaymentFilterCustom.get('changeId') > 0,
       actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
       selectedPayments: state.bulkPaymentGrid.get('checkedRows').keySeq().toArray(),
-      canPayRejectBatch: ['ready'].includes(state.bulkPaymentGrid.getIn(['batch', 'status']))
+      canPayRejectBatch: ['ready'].includes(state.bulkPaymentGrid.getIn(['batch', 'status'])),
+      batch: state.bulkPaymentGrid.get('batch').toJS()
     }
   },
   {
