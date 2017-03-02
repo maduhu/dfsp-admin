@@ -8,14 +8,6 @@ export function fetchBatches (params) {
   }
 }
 
-export function getBatch (params) {
-  return {
-    type: actionTypes.GET_BATCH,
-    method: 'bulk.batch.get',
-    params: params || {}
-  }
-}
-
 export function checkRow (row) {
   return {
     type: actionTypes.CHECK_ROW,

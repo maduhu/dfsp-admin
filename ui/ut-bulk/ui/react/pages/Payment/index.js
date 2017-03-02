@@ -17,7 +17,6 @@ import {readyBatch} from '../../containers/Batch/GridToolbox/actions'
 import {fetchBatchPayments} from '../../containers/Payment/Grid/actions'
 import {openPayPopup} from '../../containers/Batch/Popups/Pay/actions'
 import {openRejectBatchPopup} from '../../containers/Batch/Popups/RejectBatch/actions'
-import {fetchBatches} from '../../containers/Batch/Grid/actions'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
@@ -61,6 +60,7 @@ class BulkPayment extends Component {
     return buttons
   }
   render () {
+    console.log(this.props.canPayBatch)
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
         <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='Batch Record Details' />
@@ -91,8 +91,7 @@ BulkPayment.propTypes = {
   readyBatch: PropTypes.func,
   fetchBatchPayments: PropTypes.func,
   openPayPopup: PropTypes.func,
-  selectedPayments: PropTypes.arrayOf(PropTypes.string),
-  fetchBatches: PropTypes.func
+  selectedPayments: PropTypes.arrayOf(PropTypes.string)
 }
 
 BulkPayment.contextTypes = {
@@ -101,7 +100,6 @@ BulkPayment.contextTypes = {
 
 export default connect(
   (state, ownProps) => {
-    console.log(state.bulkPaymentGrid.getIn(['batch', 'status']) + "aaaa")
     return {
       showClearFilter: state.bulkPaymentFilterStatus.get('changeId') +
                       state.bulkPaymentFilterDate.get('changeId') +
@@ -115,7 +113,6 @@ export default connect(
     openRejectBatchPopup,
     readyBatch,
     fetchBatchPayments,
-    openPayPopup,
-    fetchBatches
+    openPayPopup
   }
 )(BulkPayment)

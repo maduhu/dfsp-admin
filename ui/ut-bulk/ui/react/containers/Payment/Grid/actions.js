@@ -8,6 +8,14 @@ export function fetchBatchPayments (params) {
   }
 }
 
+export function getBatch (params) {
+  return {
+    type: actionTypes.GET_BATCH,
+    method: 'bulk.batch.get',
+    params: params || {}
+  }
+}
+
 export function checkRow (row) {
   return {
     type: actionTypes.PAYMENT_ROW_ADD_CHECK,
@@ -33,12 +41,5 @@ export function checkAll (rows) {
   return {
     type: actionTypes.PAYMENT_CHECK_ALL,
     params: {rows} || {}
-  }
-}
-
-export function setSelectedBatch (batch) {
-  return {
-    type: actionTypes.SET_SELECTED_BATCH,
-    params: {batch}
   }
 }

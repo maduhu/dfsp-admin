@@ -89,7 +89,7 @@ class GridToolbox extends Component {
   }
 
   render () {
-    let toggle = this.props.isTitleLink ? this.props.actions.toggle : ''
+    let toggle = this.props.isTitleLink ? this.props.actions.toggle : null
     return (
       <span>
         <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink={this.props.isTitleLink} toggle={toggle}>

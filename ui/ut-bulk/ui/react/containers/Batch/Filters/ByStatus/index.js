@@ -21,6 +21,13 @@ export class ByStatus extends Component {
     (record.value !== this.props.currentStatusId) && this.props.actions.changeFilterStatus(record.value)
   }
 
+  capitalize (obj) {
+    var letters = obj.name.split('')
+    letters[0] = letters[0].toUpperCase()
+    obj.name = letters.join('')
+    return obj
+  }
+
   render () {
     return (
        <div style={this.props.style} className={this.props.className}>
@@ -30,7 +37,7 @@ export class ByStatus extends Component {
             defaultSelected={this.props.currentStatusId}
             keyProp='status'
             onSelect={this.handleSelect}
-            data={this.props.data}
+            data={this.props.data.map(this.capitalize)}
           />
       </div>
     )

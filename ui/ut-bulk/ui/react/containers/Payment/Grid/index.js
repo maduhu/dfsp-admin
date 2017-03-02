@@ -7,7 +7,6 @@ import DateFormatter from 'ut-front-react/containers/DateFormatter'
 import {SimpleGrid} from 'ut-front-react/components/SimpleGrid'
 import * as actionCreators from './actions'
 import {show as showToolbox} from '../GridToolbox/actions'
-import {getBatch} from '../../Batch/Grid/actions'
 
 import style from './style.css'
 
@@ -24,10 +23,7 @@ class Grid extends Component {
 
   componentWillMount () {
     this.props.actions.fetchBatchPayments({batchId: this.context.router.params.batchId})
-    console.log({batchId: this.context.router.params.batchId})
-    this.props.getBatch({batchId: 2}).then((result) => {
-      console.log(result)
-    })
+    this.props.actions.getBatch({batchId: this.context.router.params.batchId})
   }
 
   componentWillReceiveProps (nextProps) {
@@ -45,7 +41,7 @@ class Grid extends Component {
 
   removeNullPropertiesFromObject (obj) {
     return Object.keys(obj).forEach((key) =>
-          (obj[key] === '' || obj[key] === '__placeholder__' || obj[key] === undefined || obj[key] === null || obj[key] === 0) && delete obj[key])
+          (obj[key] === '' || obj[key] === '__placeholder__' || obj[key] === undefined || obj[key] === null || obj[key] === 0 || (obj[key].length && obj[key][0] === '__placeholder__')) && delete obj[key])
   }
 
   handleToolbarUpdate () {
@@ -143,8 +139,7 @@ Grid.propTypes = {
   params: PropTypes.object,
   showToolbox: PropTypes.func,
   checkedRows: PropTypes.arrayOf(PropTypes.object),
-  filterBy: PropTypes.object,
-  getBatch: PropTypes.func
+  filterBy: PropTypes.object
 }
 
 export default connect(
@@ -160,14 +155,14 @@ export default connect(
           date: state.bulkPaymentFilterDate.get('selectedDate'),
           custom: {field: state.bulkPaymentFilterCustom.get('field'), value: state.bulkPaymentFilterCustom.get('value')}
         },
-        checkedRows: state.bulkPaymentGrid.get('checkedRows').toList().toArray()
+        checkedRows: state.bulkPaymentGrid.get('checkedRows').toList().toArray(),
+        batch: state.bulkPaymentGrid.get('batch')
       }
     },
     (dispatch) => {
       return {
         actions: bindActionCreators(actionCreators, dispatch),
-        showToolbox: bindActionCreators(showToolbox, dispatch),
-        getBatch: bindActionCreators(getBatch, dispatch)
+        showToolbox: bindActionCreators(showToolbox, dispatch)
       }
     }
 )(Grid)
