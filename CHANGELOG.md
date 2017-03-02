@@ -1,3 +1,23 @@
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.5...v0.10.0) (2017-03-02)
+
+
+### Bug Fixes
+
+* disable multiple payments ([3a82322](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/3a82322))
+* grid toolbox toggle ([7dabb6a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7dabb6a))
+* merge ([e4e3838](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e4e3838))
+* remove debug statement ([6b26a7c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/6b26a7c))
+
+
+### Features
+
+* add batch name and status in payment grid title ([4a176fc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4a176fc))
+* disable button by status or role permission ([a3a3746](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/a3a3746))
+* get batch on payment page; capitalize statuses in filter ([bdf8e6f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/bdf8e6f))
+
+
+
 <a name="0.9.5"></a>
 ## [0.9.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.9.4...v0.9.5) (2017-03-02)
 
