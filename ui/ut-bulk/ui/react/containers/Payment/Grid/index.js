@@ -19,13 +19,11 @@ class Grid extends Component {
     this.handleCellClick = this.handleCellClick.bind(this)
     this.handleToolbarUpdate = this.handleToolbarUpdate.bind(this)
     this.handleReload = this.handleReload.bind(this)
-    this.state = {
-      selectedRows: {}
-    }
   }
 
   componentWillMount () {
     this.props.actions.fetchBatchPayments({batchId: this.context.router.params.batchId})
+    this.props.actions.getBatch({batchId: this.context.router.params.batchId})
   }
 
   componentWillReceiveProps (nextProps) {
@@ -43,7 +41,7 @@ class Grid extends Component {
 
   removeNullPropertiesFromObject (obj) {
     return Object.keys(obj).forEach((key) =>
-          (obj[key] === '' || obj[key] === '__placeholder__' || obj[key] === undefined || obj[key] === null || obj[key] === 0) && delete obj[key])
+          (obj[key] === '' || obj[key] === '__placeholder__' || obj[key] === undefined || obj[key] === null || obj[key] === 0 || (obj[key].length && obj[key][0] === '__placeholder__')) && delete obj[key])
   }
 
   handleToolbarUpdate () {
@@ -133,6 +131,7 @@ Grid.contextTypes = {
 }
 
 Grid.propTypes = {
+  batchId: PropTypes.string,
   gridFields: PropTypes.arrayOf(PropTypes.object),
   actions: PropTypes.object,
   data: PropTypes.arrayOf(PropTypes.object),
@@ -156,7 +155,8 @@ export default connect(
           date: state.bulkPaymentFilterDate.get('selectedDate'),
           custom: {field: state.bulkPaymentFilterCustom.get('field'), value: state.bulkPaymentFilterCustom.get('value')}
         },
-        checkedRows: state.bulkPaymentGrid.get('checkedRows').toList().toArray()
+        checkedRows: state.bulkPaymentGrid.get('checkedRows').toList().toArray(),
+        batch: state.bulkPaymentGrid.get('batch')
       }
     },
     (dispatch) => {

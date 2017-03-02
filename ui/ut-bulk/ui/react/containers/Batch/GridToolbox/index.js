@@ -76,7 +76,7 @@ class GridToolbox extends Component {
     ]
 
     this.context.checkPermission('bulk.batch.delete') && buttons.push(
-      <button onClick={this.toggleDeleteBatchPopup} disabled={!this.props.batchId || !this.props.actorId} className={className} key='delete'>
+      <button onClick={this.toggleDeleteBatchPopup} disabled={!this.props.batchId || !this.props.actorId || !this.props.canDeleteStatuses.includes(this.props.checkedRow.status)} className={className} key='delete'>
         Delete
       </button>
     )
@@ -89,9 +89,10 @@ class GridToolbox extends Component {
   }
 
   render () {
+    let toggle = this.props.isTitleLink ? this.props.actions.toggle : null
     return (
       <span>
-        <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink toggle={this.props.actions.toggle}>
+        <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink={this.props.isTitleLink} toggle={toggle}>
           <div className={style.filterWrap}>
             <ByName className={style.standardFilter} />
             <ByStatus className={style.standardFilter} />
@@ -130,8 +131,10 @@ GridToolbox.propTypes = {
   batchStatuses: PropTypes.object,
   checkedRow: PropTypes.object,
   batchId: PropTypes.number,
+  openDeletePopup: PropTypes.func,
   setDatailItem: PropTypes.func,
-  openDeletePopup: PropTypes.func
+  isTitleLink: PropTypes.bool,
+  canDeleteStatuses: PropTypes.array
 }
 
 export default connect(
@@ -144,7 +147,10 @@ export default connect(
                       state.bulkBatchFilterDate.get('changeId') > 0,
         actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
         batchStatuses: state.bulkBatchFilterStatus.get('batchStatuses'),
-        checkedRow: state.bulkBatchGrid.get('checkedRow').toJS()
+        checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
+        isTitleLink: state.bulkBatchGrid.get('checkedRow').size > 0,
+        canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1,
+        canDeleteStatuses: ['new', 'rejected', 'invalid', 'disabled']
       }
     },
     (dispatch) => {

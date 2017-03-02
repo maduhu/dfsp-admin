@@ -3,7 +3,7 @@ import * as actionTypes from './actionTypes'
 import * as clearFilterActions from '../ClearFilter/actionTypes'
 
 const defaultState = Map({
-  statusId: null,
+  statusId: [],
   changeId: 0,
   paymentStatus: List()
 })
@@ -18,8 +18,8 @@ export const bulkPaymentFilterStatus = (state = defaultState, action) => {
       return state.set('paymentStatus', List(action.result))
     case clearFilterActions.CLEAR_PAYMENT_FILTER:
       return state
-            .set('statusId', null)
-            .set('changeId', 0)
+            .set('statusId', defaultState.get('statusId'))
+            .set('changeId', defaultState.get('changeId'))
   }
   return state
 }

@@ -16,7 +16,15 @@ export class ByStatus extends Component {
   }
 
   handleSelect (record) {
-    this.props.actions.changeFilterStatus(record.value)
+    this.props.actions.changeFilterStatus([record.value])
+  }
+
+  capitalize (obj) {
+    var copy = Object.assign({}, obj)
+    var letters = copy.name.split('')
+    letters[0] = letters[0].toUpperCase()
+    copy.name = letters.join('')
+    return copy
   }
 
   render () {
@@ -28,7 +36,7 @@ export class ByStatus extends Component {
             defaultSelected={this.props.currentStatus}
             keyProp='status'
             onSelect={this.handleSelect}
-            data={this.props.data}
+            data={this.props.data.map(this.capitalize)}
           />
       </div>
     )
@@ -48,7 +56,7 @@ export default connect(
   (state, ownProps) => {
     return {
       data: state.bulkPaymentFilterStatus.get('paymentStatus').toArray(),
-      currentStatus: state.bulkPaymentFilterStatus.get('statusId')
+      currentStatus: state.bulkPaymentFilterStatus.get('statusId') ? state.bulkPaymentFilterStatus.get('statusId')[0] : null
     }
   },
   (dispatch) => {
