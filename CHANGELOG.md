@@ -1,3 +1,13 @@
+<a name="0.10.2"></a>
+## [0.10.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.1...v0.10.2) (2017-03-06)
+
+
+### Bug Fixes
+
+* refresh batch status in title on batch ready, reject or pay ([9712e84](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/9712e84))
+
+
+
 <a name="0.10.1"></a>
 ## [0.10.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.0...v0.10.1) (2017-03-02)
 
