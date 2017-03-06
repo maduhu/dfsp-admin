@@ -33,7 +33,7 @@ class BulkBatch extends Component {
       uploadPopup: !this.state.uploadPopup
     })
     if (refresh === true) {
-      this.props.fetchBatches()
+      this.props.fetchBatches({actorId: this.props.actorId})
     }
   }
   openUploadFile () {
@@ -75,7 +75,8 @@ class BulkBatch extends Component {
 BulkBatch.propTypes = {
   showClearFilter: PropTypes.bool,
   fetchBatches: PropTypes.func,
-  checkedRow: PropTypes.object
+  checkedRow: PropTypes.object,
+  actorId: PropTypes.string
 }
 
 BulkBatch.contextTypes = {
@@ -85,7 +86,8 @@ BulkBatch.contextTypes = {
 export default connect(
   (state, ownProps) => {
     return {
-      checkedRow: state.bulkBatchGrid.get('checkedRow').toJS()
+      checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
+      actorId: state.login.getIn(['result', 'identity.check', 'actorId'])
     }
   },
   {

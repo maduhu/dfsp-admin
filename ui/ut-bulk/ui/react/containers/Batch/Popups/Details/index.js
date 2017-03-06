@@ -21,7 +21,7 @@ export class BatchDetailPopup extends Component {
 
   onSubmit () {
     let {item, actions, fetchBatches} = this.props
-    actions.saveEditItem(item).then(() => fetchBatches())
+    actions.saveEditItem(item).then(() => fetchBatches({actorId: this.props.actorId}))
   }
 
   getActionButtons () {
@@ -99,7 +99,8 @@ BatchDetailPopup.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   isOpen: PropTypes.bool,
-  item: PropTypes.object
+  item: PropTypes.object,
+  actorId: PropTypes.string
 }
 
 BatchDetailPopup.contextTypes = {
@@ -111,7 +112,8 @@ export default connect(
   (state, ownProps) => {
     return {
       item: state.bulkBatchDetailEditPopup.get('item').toJS(),
-      isOpen: !!state.bulkBatchDetailEditPopup.getIn(['item', 'batchId'])
+      isOpen: !!state.bulkBatchDetailEditPopup.getIn(['item', 'batchId']),
+      actorId: state.login.getIn(['result', 'identity.check', 'actorId'])
     }
   },
   (dispatch) => {
