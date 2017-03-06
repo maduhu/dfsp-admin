@@ -70,7 +70,7 @@ class GridToolbox extends Component {
       <button onClick={this.handleDetailClick} disabled={!batchId} className={className} key='details'>
         Details
       </button>,
-      <button onClick={this.handleCheckBatch} disabled={!this.props.batchId || !this.props.actorId || !this.props.canDeleteStatuses.includes(this.props.checkedRow.status)} className={className} key='check batch'>
+      <button onClick={this.handleCheckBatch} disabled={!this.props.batchId || !this.props.actorId || !this.props.canCheckStatuses.includes(this.props.checkedRow.status)} className={className} key='check batch'>
         Check Batch
       </button>
     ]
@@ -151,7 +151,7 @@ export default connect(
         isTitleLink: state.bulkBatchGrid.get('checkedRow').size > 0,
         canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1,
         canDeleteStatuses: ['new', 'rejected', 'invalid', 'disabled'],
-        canCheckStatuses: ['new', 'rejected']
+        canCheckStatuses: ['new', 'ready', 'rejected']
       }
     },
     (dispatch) => {
