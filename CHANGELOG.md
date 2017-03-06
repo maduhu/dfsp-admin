@@ -1,3 +1,13 @@
+<a name="0.10.5"></a>
+## [0.10.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.4...v0.10.5) (2017-03-06)
+
+
+### Bug Fixes
+
+* permissions for bulk payment menu ([0d28cf4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0d28cf4))
+
+
+
 <a name="0.10.4"></a>
 ## [0.10.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.3...v0.10.4) (2017-03-06)
 
