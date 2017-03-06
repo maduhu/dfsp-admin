@@ -1,3 +1,13 @@
+<a name="0.10.4"></a>
+## [0.10.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.3...v0.10.4) (2017-03-06)
+
+
+### Bug Fixes
+
+* show batch menu only to makers and checkers ([bf068ed](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/bf068ed))
+
+
+
 <a name="0.10.3"></a>
 ## [0.10.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.2...v0.10.3) (2017-03-06)
 
