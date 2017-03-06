@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as actions from './actions'
+import {getBatch} from '../../../Payment/Grid/actions'
 
 import Popup from 'ut-front-react/components/Popup'
 import DatePicker from 'ut-front-react/components/DatePicker/Simple'
@@ -27,7 +28,9 @@ export class PayBatchPopup extends Component {
 
   onSubmit () {
     let {batchId, expirationDate, selectedAccount, actions} = this.props
-    actions.pay(batchId, expirationDate, selectedAccount).then(() => actions.closePayPopup())
+    actions.pay(batchId, expirationDate, selectedAccount)
+      .then(() => actions.closePayPopup())
+      .then(() => this.props.getBatch({batchId}))
   }
 
   handleExpirationDateChange (date) {
@@ -127,7 +130,8 @@ export default connect(
   },
   (dispatch) => {
     return {
-      actions: bindActionCreators(actions, dispatch)
+      actions: bindActionCreators(actions, dispatch),
+      getBatch: bindActionCreators(getBatch, dispatch)
     }
   }
 )(PayBatchPopup)

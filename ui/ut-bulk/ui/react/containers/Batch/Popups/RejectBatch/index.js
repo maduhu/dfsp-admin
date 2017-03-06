@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from './actions'
+import {getBatch} from '../../../Payment/Grid/actions'
 
 import Popup from 'ut-front-react/components/Popup'
 import TextArea from 'ut-front-react/components/Input/TextArea'
@@ -26,7 +27,9 @@ export class RejectBatchPopup extends Component {
   onSubmit () {
     let {batchId, actorId, comment} = this.props
     let statusRejected = this.props.batchStatuses.filter((el) => el.name === 'rejected').first().key
-    this.props.actions.rejectBatch(batchId, actorId, statusRejected, comment).then(() => this.props.actions.closeRejectBatchPopup())
+    this.props.actions.rejectBatch(batchId, actorId, statusRejected, comment)
+      .then(() => this.props.actions.closeRejectBatchPopup())
+      .then(() => this.props.getBatch({batchId}))
   }
 
   handleAddComment (comment) {
@@ -104,7 +107,8 @@ export default connect(
   },
   (dispatch) => {
     return {
-      actions: bindActionCreators(actions, dispatch)
+      actions: bindActionCreators(actions, dispatch),
+      getBatch: bindActionCreators(getBatch, dispatch)
     }
   }
 )(RejectBatchPopup)
