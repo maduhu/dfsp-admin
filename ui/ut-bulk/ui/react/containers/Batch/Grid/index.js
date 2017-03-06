@@ -20,7 +20,7 @@ class Grid extends Component {
   }
 
   componentWillMount () {
-    this.props.actions.fetchBatches()
+    this.props.actions.fetchBatches({actorId: this.props.filterBy.actorId})
   }
 
   componentWillReceiveProps (nextProps) {
@@ -115,7 +115,8 @@ export default connect(
           name: state.bulkBatchFilterName.get('batchName'),
           batchStatusId: state.bulkBatchFilterStatus.get('statusId'),
           fromDate: state.bulkBatchFilterDate.get('startDate'),
-          toDate: state.bulkBatchFilterDate.get('endDate')
+          toDate: state.bulkBatchFilterDate.get('endDate'),
+          actorId: state.login.getIn(['result', 'identity.check', 'actorId'])
         },
         checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
         toolboxFilter: state.bulkBatchToolbox.getIn(['filters', 'opened'])

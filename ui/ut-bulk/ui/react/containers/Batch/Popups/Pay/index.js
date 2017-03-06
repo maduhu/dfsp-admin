@@ -110,7 +110,8 @@ PayBatchPopup.propTypes = {
   isOpen: PropTypes.bool,
   accounts: PropTypes.arrayOf(PropTypes.object),
   selectedAccount: PropTypes.string,
-  expirationDate: PropTypes.object
+  expirationDate: PropTypes.object,
+  getBatch: PropTypes.func
 }
 
 PayBatchPopup.contextTypes = {
