@@ -52,7 +52,7 @@ class GridToolbox extends Component {
       replacePopup: !this.state.replacePopup
     })
     if (refresh === true) {
-      this.props.fetchBatches()
+      this.props.fetchBatches({actorId: this.props.actorId})
     }
   }
 

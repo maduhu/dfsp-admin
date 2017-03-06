@@ -88,7 +88,8 @@ RejectBatchPopup.propTypes = {
   isOpen: PropTypes.bool,
   actorId: PropTypes.string,
   comment: PropTypes.string,
-  batchStatuses: PropTypes.object
+  batchStatuses: PropTypes.object,
+  getBatch: PropTypes.func
 }
 
 RejectBatchPopup.contextTypes = {
