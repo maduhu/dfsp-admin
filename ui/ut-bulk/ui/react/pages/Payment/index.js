@@ -14,7 +14,7 @@ import RejectBatch from '../../containers/Batch/Popups/RejectBatch'
 import PayBatch from '../../containers/Batch/Popups/Pay'
 
 import {readyBatch} from '../../containers/Batch/GridToolbox/actions'
-import {fetchBatchPayments} from '../../containers/Payment/Grid/actions'
+import {fetchBatchPayments, getBatch} from '../../containers/Payment/Grid/actions'
 import {openPayPopup} from '../../containers/Batch/Popups/Pay/actions'
 import {openRejectBatchPopup} from '../../containers/Batch/Popups/RejectBatch/actions'
 
@@ -25,13 +25,13 @@ class BulkPayment extends Component {
   constructor (props) {
     super(props)
     this.handleBatchReady = this.handleBatchReady.bind(this)
-    this.handleRejectBatch = this.handleRejectBatch.bind(this)
     this.togglePayPopup = this.togglePayPopup.bind(this)
     this.toggleRejectBatchPopup = this.toggleRejectBatchPopup.bind(this)
   }
 
   handleBatchReady () {
     this.props.readyBatch(this.props.params.batchId, this.props.actorId)
+      .then(() => this.props.getBatch({batchId: this.props.params.batchId}))
   }
 
   togglePayPopup () {
@@ -40,15 +40,6 @@ class BulkPayment extends Component {
 
   toggleRejectBatchPopup () {
     this.props.openRejectBatchPopup(this.props.params.batchId)
-  }
-
-  handleRejectBatch () {
-    return new Promise((resolve, reject) => {
-      this.props.openRejectBatchPopup(this.props.params.batchId)
-      return resolve()
-    }).then(() => {
-      this.props.fetchBatchPayments({batchId: this.props.params.batchId})
-    })
   }
 
   getHeaderButtons () {
@@ -91,6 +82,7 @@ BulkPayment.propTypes = {
   openRejectBatchPopup: PropTypes.func,
   readyBatch: PropTypes.func,
   fetchBatchPayments: PropTypes.func,
+  getBatch: PropTypes.func,
   openPayPopup: PropTypes.func,
   selectedPayments: PropTypes.arrayOf(PropTypes.string),
   batch: PropTypes.object,
@@ -117,6 +109,7 @@ export default connect(
     openRejectBatchPopup,
     readyBatch,
     fetchBatchPayments,
+    getBatch,
     openPayPopup
   }
 )(BulkPayment)
