@@ -44,7 +44,7 @@ class BulkPayment extends Component {
 
   getHeaderButtons () {
     let buttons = []
-    this.context.checkPermission('bulk.batch.ready') && buttons.push({text: 'Batch Ready', onClick: this.handleBatchReady})
+    this.context.checkPermission('bulk.batch.ready') && buttons.push({text: 'Batch Ready', onClick: this.handleBatchReady, disabled: !this.props.canBatchReady})
     this.context.checkPermission('bulk.batch.pay') && buttons.push({text: 'Pay batch', onClick: this.togglePayPopup, disabled: !this.props.canPayRejectBatch})
     this.context.checkPermission('bulk.batch.reject') && buttons.push({text: 'Reject Batch', onClick: this.toggleRejectBatchPopup, disabled: !this.props.canPayRejectBatch})
 
@@ -86,7 +86,8 @@ BulkPayment.propTypes = {
   openPayPopup: PropTypes.func,
   selectedPayments: PropTypes.arrayOf(PropTypes.string),
   batch: PropTypes.object,
-  canPayRejectBatch: PropTypes.bool
+  canPayRejectBatch: PropTypes.bool,
+  canBatchReady: PropTypes.bool
 }
 
 BulkPayment.contextTypes = {
@@ -102,6 +103,7 @@ export default connect(
       actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
       selectedPayments: state.bulkPaymentGrid.get('checkedRows').keySeq().toArray(),
       canPayRejectBatch: ['ready'].includes(state.bulkPaymentGrid.getIn(['batch', 'status'])),
+      canBatchReady: ['new', 'rejected'].includes(state.bulkPaymentGrid.getIn(['batch', 'status'])),
       batch: state.bulkPaymentGrid.get('batch').toJS()
     }
   },
