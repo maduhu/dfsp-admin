@@ -36,7 +36,7 @@ export default class Provider extends Component {
         {
           routeName: 'ut-bulk:home',
           title: 'Bulk Payments',
-          permission: ['bulk.batch.fetch'],
+          permission: ['bulk.batch.check'],
           props: {
             activeClassName: 'active'
           }
