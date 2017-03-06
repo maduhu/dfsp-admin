@@ -1,3 +1,15 @@
+<a name="0.10.6"></a>
+## [0.10.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.5...v0.10.6) (2017-03-06)
+
+
+### Bug Fixes
+
+* disable button based on batch/payment status ([aed5077](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/aed5077))
+* typo ([828f6e7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/828f6e7))
+* typo in check statuses ([8e3ee07](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8e3ee07))
+
+
+
 <a name="0.10.5"></a>
 ## [0.10.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.4...v0.10.5) (2017-03-06)
 
