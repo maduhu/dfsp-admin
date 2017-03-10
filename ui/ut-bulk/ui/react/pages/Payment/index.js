@@ -2,10 +2,12 @@ import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux'
 import {getLink} from 'ut-front/react/routerHelper'
 import { AddTab } from 'ut-front-react/containers/TabMenu'
+import {updateTabTitle} from 'ut-front-react/containers/TabMenu/actions'
 import classnames from 'classnames'
 
 import GridToolbox from '../../containers/Payment/GridToolbox'
 import Header from 'ut-front-react/components/PageLayout/Header'
+import InnerHeader from '../../components/Header/'
 
 import Grid from '../../containers/Payment/Grid'
 import EditDetail from '../../containers/Payment/Popups/Details'
@@ -29,9 +31,17 @@ class BulkPayment extends Component {
     this.toggleRejectBatchPopup = this.toggleRejectBatchPopup.bind(this)
   }
 
+  componentWillReceiveProps (props) {
+    if (props.batch.name) {
+      this.props.updateTabTitle(getLink('ut-bulk:record', {batchId: this.props.params.batchId}), 'Batch ' + props.batch.name)
+    }
+  }
+
   handleBatchReady () {
     this.props.readyBatch(this.props.params.batchId, this.props.actorId)
-      .then(() => this.props.getBatch({batchId: this.props.params.batchId}))
+      .then(() => this.props.getBatch({batchId: this.props.params.batchId}).then((result) => {
+        console.log(result)
+      }))
   }
 
   togglePayPopup () {
@@ -51,13 +61,11 @@ class BulkPayment extends Component {
     return buttons
   }
   render () {
-    let title = 'Bulk Payments - Batch Record Details' +
-      (this.props.batch.name ? ` - ${this.props.batch.name} - ${this.props.batch.status}` : '')
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
-        <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='Batch Record Details' />
+        <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='' />
         <div>
-            <Header text={title} buttons={this.getHeaderButtons()} />
+            <Header text={<InnerHeader batchName={this.props.batch.name} batchStatus={this.props.batch.status} />} buttons={this.getHeaderButtons()} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
         <GridToolbox batchId={this.props.params.batchId} />
@@ -87,7 +95,8 @@ BulkPayment.propTypes = {
   selectedPayments: PropTypes.arrayOf(PropTypes.string),
   batch: PropTypes.object,
   canPayRejectBatch: PropTypes.bool,
-  canBatchReady: PropTypes.bool
+  canBatchReady: PropTypes.bool,
+  updateTabTitle: PropTypes.func
 }
 
 BulkPayment.contextTypes = {
@@ -112,6 +121,7 @@ export default connect(
     readyBatch,
     fetchBatchPayments,
     getBatch,
-    openPayPopup
+    openPayPopup,
+    updateTabTitle
   }
 )(BulkPayment)
