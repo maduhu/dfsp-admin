@@ -39,9 +39,7 @@ class BulkPayment extends Component {
 
   handleBatchReady () {
     this.props.readyBatch(this.props.params.batchId, this.props.actorId)
-      .then(() => this.props.getBatch({batchId: this.props.params.batchId}).then((result) => {
-        console.log(result)
-      }))
+      .then(() => this.props.getBatch({batchId: this.props.params.batchId}))
   }
 
   togglePayPopup () {
