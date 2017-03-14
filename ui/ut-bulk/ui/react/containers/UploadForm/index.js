@@ -76,7 +76,7 @@ let UploadForm = React.createClass({
     let buttons = []
     if (!this.canUpload()) {
       buttons.push({
-        label: 'close',
+        label: 'Close',
         onClick: this.onClose,
         className: ['defaultBtn']
       })
