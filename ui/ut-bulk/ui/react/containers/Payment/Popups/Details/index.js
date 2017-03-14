@@ -77,7 +77,7 @@ export class PaymentDetailPopup extends Component {
               <Input value={item.sequenceNumber} label='Sequence Number:' onChange={this.handleFieldChange('sequenceNumber')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.userNumber} label='User Number:' onChange={this.handleFieldChange('userNumber')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.identifier} label='Identifier:' onChange={this.handleFieldChange('identifier')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
               <Input value={item.firstName} label='First Name:' onChange={this.handleFieldChange('firstName')} inputWrapClassName={style.inputWrapClassName} />
