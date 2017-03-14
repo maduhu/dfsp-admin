@@ -37,6 +37,7 @@ class GridToolbox extends Component {
 
   handleCheckBatch () {
     this.props.actions.checkBatch(this.props.batchId, this.props.actorId)
+      .then(() => this.props.fetchBatches({actorId: this.props.actorId}))
   }
 
   handleViewBatchRecords () {
