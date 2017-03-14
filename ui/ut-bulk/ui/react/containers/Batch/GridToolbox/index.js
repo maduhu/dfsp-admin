@@ -128,13 +128,13 @@ GridToolbox.propTypes = {
   buttonsOpened: PropTypes.bool,
   showClearFilter: PropTypes.bool,
   actorId: PropTypes.string,
-  batchStatuses: PropTypes.object,
   checkedRow: PropTypes.object,
   batchId: PropTypes.number,
   openDeletePopup: PropTypes.func,
   setDatailItem: PropTypes.func,
   isTitleLink: PropTypes.bool,
-  canDeleteStatuses: PropTypes.array
+  canDeleteStatuses: PropTypes.array,
+  canCheckStatuses: PropTypes.array
 }
 
 export default connect(
@@ -146,7 +146,6 @@ export default connect(
                       state.bulkBatchFilterStatus.get('changeId') +
                       state.bulkBatchFilterDate.get('changeId') > 0,
         actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
-        batchStatuses: state.bulkBatchFilterStatus.get('batchStatuses'),
         checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
         isTitleLink: state.bulkBatchGrid.get('checkedRow').size > 0,
         canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1,

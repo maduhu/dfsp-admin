@@ -5,7 +5,6 @@ import DatePicker from 'ut-front-react/components/DatePicker/Simple'
 import * as actions from './actions'
 
 export class ByDate extends Component {
-
   handleDateChange (field) {
     return (date) => {
       this.props.actions.changeFilterDate(field, date.value)
@@ -36,7 +35,6 @@ export class ByDate extends Component {
 }
 
 ByDate.propTypes = {
-  changeNameFilter: PropTypes.func,
   className: PropTypes.string,
   style: PropTypes.object,
   startDate: PropTypes.object,

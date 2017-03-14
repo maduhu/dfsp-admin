@@ -131,12 +131,9 @@ Grid.contextTypes = {
 }
 
 Grid.propTypes = {
-  batchId: PropTypes.string,
-  gridFields: PropTypes.arrayOf(PropTypes.object),
   actions: PropTypes.object,
   data: PropTypes.arrayOf(PropTypes.object),
   changeId: PropTypes.number,
-  params: PropTypes.object,
   showToolbox: PropTypes.func,
   checkedRows: PropTypes.arrayOf(PropTypes.object),
   filterBy: PropTypes.object

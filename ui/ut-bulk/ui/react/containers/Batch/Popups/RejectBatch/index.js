@@ -83,8 +83,6 @@ export class RejectBatchPopup extends Component {
 RejectBatchPopup.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.string,
-  style: PropTypes.object,
-  className: PropTypes.string,
   isOpen: PropTypes.bool,
   actorId: PropTypes.string,
   comment: PropTypes.string,

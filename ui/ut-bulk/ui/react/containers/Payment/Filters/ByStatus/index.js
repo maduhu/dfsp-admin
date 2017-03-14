@@ -5,7 +5,6 @@ import Dropdown from 'ut-front-react/components/Input/Dropdown'
 import * as actionCreators from './actions'
 
 export class ByStatus extends Component {
-
   constructor (props) {
     super(props)
     this.handleSelect = this.handleSelect.bind(this)
@@ -44,7 +43,6 @@ export class ByStatus extends Component {
 }
 
 ByStatus.propTypes = {
-  changeNameFilter: PropTypes.func,
   className: PropTypes.string,
   style: PropTypes.object,
   data: PropTypes.array,

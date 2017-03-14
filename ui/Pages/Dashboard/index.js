@@ -20,14 +20,12 @@ export class Dashboard extends Component {
 };
 
 Dashboard.propTypes = {
-  tabName: PropTypes.any,
   pageText: PropTypes.any,
   externalStyle: PropTypes.object,
   children: PropTypes.object
 }
 
 Dashboard.defaultProps = {
-  tabName: 'tabName for dashboard not set',
   pageText: 'pageText for dashboard not set'
 }
 

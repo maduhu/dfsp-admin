@@ -5,7 +5,6 @@ import {bindActionCreators} from 'redux'
 import * as actionCreators from './actions'
 
 export class ByDate extends Component {
-
   constructor (props) {
     super(props)
     this.handleDateChange = this.handleDateChange.bind(this)
@@ -31,7 +30,6 @@ export class ByDate extends Component {
 }
 
 ByDate.propTypes = {
-  changeNameFilter: PropTypes.func,
   className: PropTypes.string,
   style: PropTypes.object,
   selectedDate: PropTypes.object,

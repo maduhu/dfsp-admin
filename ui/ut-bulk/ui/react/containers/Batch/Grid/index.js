@@ -93,13 +93,11 @@ Grid.contextTypes = {
 }
 
 Grid.propTypes = {
-  gridFields: PropTypes.arrayOf(PropTypes.object),
   batches: PropTypes.arrayOf(PropTypes.object),
   actions: PropTypes.object,
   changeId: PropTypes.number,
   checkedRow: PropTypes.object,
   showToolbox: PropTypes.func,
-  toolboxFilter: PropTypes.bool,
   filterBy: PropTypes.object
 }
 
@@ -118,8 +116,7 @@ export default connect(
           toDate: state.bulkBatchFilterDate.get('endDate'),
           actorId: state.login.getIn(['result', 'identity.check', 'actorId'])
         },
-        checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
-        toolboxFilter: state.bulkBatchToolbox.getIn(['filters', 'opened'])
+        checkedRow: state.bulkBatchGrid.get('checkedRow').toJS()
       }
     },
     (dispatch) => {

@@ -6,7 +6,6 @@ import classnames from 'classnames'
 import style from './style.css'
 
 export class ByStatus extends Component {
-
   render () {
     if (!this.props.show) {
       return null
