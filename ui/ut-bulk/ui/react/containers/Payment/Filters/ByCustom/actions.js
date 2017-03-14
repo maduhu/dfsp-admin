@@ -9,4 +9,3 @@ export const changeFilterCustomValue = (value) => ({
   type: actionTypes.CHANGE_FILTER_CUSTOM_VALUE,
   params: {value}
 })
-

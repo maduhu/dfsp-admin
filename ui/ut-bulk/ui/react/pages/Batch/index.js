@@ -73,7 +73,6 @@ class BulkBatch extends Component {
 }
 
 BulkBatch.propTypes = {
-  showClearFilter: PropTypes.bool,
   fetchBatches: PropTypes.func,
   checkedRow: PropTypes.object,
   actorId: PropTypes.string

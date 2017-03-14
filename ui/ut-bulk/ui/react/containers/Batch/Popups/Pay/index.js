@@ -105,8 +105,6 @@ PayBatchPopup.propTypes = {
   actions: PropTypes.object,
   actorId: PropTypes.string,
   batchId: PropTypes.string,
-  style: PropTypes.object,
-  className: PropTypes.string,
   isOpen: PropTypes.bool,
   accounts: PropTypes.arrayOf(PropTypes.object),
   selectedAccount: PropTypes.string,

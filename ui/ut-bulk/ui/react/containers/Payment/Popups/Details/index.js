@@ -105,9 +105,6 @@ export class PaymentDetailPopup extends Component {
 
 PaymentDetailPopup.propTypes = {
   actions: PropTypes.object,
-  batchId: PropTypes.number,
-  style: PropTypes.object,
-  className: PropTypes.string,
   isOpen: PropTypes.bool,
   item: PropTypes.object,
   actorId: PropTypes.string

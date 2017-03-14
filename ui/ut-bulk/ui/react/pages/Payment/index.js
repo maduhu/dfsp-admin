@@ -14,7 +14,7 @@ import RejectBatch from '../../containers/Batch/Popups/RejectBatch'
 import PayBatch from '../../containers/Batch/Popups/Pay'
 
 import {readyBatch} from '../../containers/Batch/GridToolbox/actions'
-import {fetchBatchPayments, getBatch} from '../../containers/Payment/Grid/actions'
+import {getBatch} from '../../containers/Payment/Grid/actions'
 import {openPayPopup} from '../../containers/Batch/Popups/Pay/actions'
 import {openRejectBatchPopup} from '../../containers/Batch/Popups/RejectBatch/actions'
 
@@ -77,14 +77,11 @@ class BulkPayment extends Component {
 
 BulkPayment.propTypes = {
   params: PropTypes.object.isRequired,
-  showClearFilter: PropTypes.bool,
   actorId: PropTypes.string,
   openRejectBatchPopup: PropTypes.func,
   readyBatch: PropTypes.func,
-  fetchBatchPayments: PropTypes.func,
   getBatch: PropTypes.func,
   openPayPopup: PropTypes.func,
-  selectedPayments: PropTypes.arrayOf(PropTypes.string),
   batch: PropTypes.object,
   canPayRejectBatch: PropTypes.bool,
   canBatchReady: PropTypes.bool
@@ -97,11 +94,7 @@ BulkPayment.contextTypes = {
 export default connect(
   (state, ownProps) => {
     return {
-      showClearFilter: state.bulkPaymentFilterStatus.get('changeId') +
-                      state.bulkPaymentFilterDate.get('changeId') +
-                      state.bulkPaymentFilterCustom.get('changeId') > 0,
       actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
-      selectedPayments: state.bulkPaymentGrid.get('checkedRows').keySeq().toArray(),
       canPayRejectBatch: ['ready'].includes(state.bulkPaymentGrid.getIn(['batch', 'status'])),
       canBatchReady: ['new', 'rejected'].includes(state.bulkPaymentGrid.getIn(['batch', 'status'])),
       batch: state.bulkPaymentGrid.get('batch').toJS()
@@ -110,7 +103,6 @@ export default connect(
   {
     openRejectBatchPopup,
     readyBatch,
-    fetchBatchPayments,
     getBatch,
     openPayPopup
   }
