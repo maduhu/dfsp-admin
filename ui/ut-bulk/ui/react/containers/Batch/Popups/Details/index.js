@@ -78,7 +78,7 @@ export class BatchDetailPopup extends Component {
               </div>
             </div> */}
             <div className={style.row}>
-               <Input value={item.name} label='*Batch Name:' inputWrapClassName={style.inputWrapClassName} onChange={({value}) => this.props.actions.changeDetailValue('name', value)} />
+               <Input value={item.name} label='*Batch Name:' readonly={!this.props.canEdit} inputWrapClassName={style.inputWrapClassName} onChange={({value}) => this.props.actions.changeDetailValue('name', value)} />
             </div>
             <div className={style.row}>
               <Input value={item.paymentsCount} label='Number of records:' readonly inputWrapClassName={style.inputWrapClassName} />
@@ -100,7 +100,8 @@ BatchDetailPopup.propTypes = {
   className: PropTypes.string,
   isOpen: PropTypes.bool,
   item: PropTypes.object,
-  actorId: PropTypes.string
+  actorId: PropTypes.string,
+  canEdit: PropTypes.bool
 }
 
 BatchDetailPopup.contextTypes = {
@@ -113,7 +114,8 @@ export default connect(
     return {
       item: state.bulkBatchDetailEditPopup.get('item').toJS(),
       isOpen: !!state.bulkBatchDetailEditPopup.getIn(['item', 'batchId']),
-      actorId: state.login.getIn(['result', 'identity.check', 'actorId'])
+      actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
+      canEdit: ['new', 'rejected'].includes(state.bulkBatchDetailEditPopup.getIn(['item', 'status']))
     }
   },
   (dispatch) => {

@@ -66,14 +66,14 @@ class BulkPayment extends Component {
             <Header text={<InnerHeader batchName={this.props.batch.name} batchStatus={this.props.batch.status} />} buttons={this.getHeaderButtons()} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
-        <GridToolbox batchId={this.props.params.batchId} />
+          <GridToolbox batchId={this.props.params.batchId} checkPermission={this.context.checkPermission} />
         </div>
         <div className={classnames(mainStyle.tableWrap, style.tableWrap)}>
             <div className={style.grid}>
               <Grid batchId={this.props.params.batchId} />
             </div>
         </div>
-        <EditDetail />
+        <EditDetail checkPermission={this.context.checkPermission} />
         <PayBatch />
         <RejectBatch />
     </div>
@@ -94,7 +94,8 @@ BulkPayment.propTypes = {
   batch: PropTypes.object,
   canPayRejectBatch: PropTypes.bool,
   canBatchReady: PropTypes.bool,
-  updateTabTitle: PropTypes.func
+  updateTabTitle: PropTypes.func,
+  canEditPayment: PropTypes.bool
 }
 
 BulkPayment.contextTypes = {

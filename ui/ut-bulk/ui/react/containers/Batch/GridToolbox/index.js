@@ -152,7 +152,7 @@ export default connect(
         isTitleLink: state.bulkBatchGrid.get('checkedRow').size > 0,
         canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1,
         canDeleteStatuses: ['new', 'rejected', 'invalid', 'disabled'],
-        canCheckStatuses: ['new', 'ready', 'rejected']
+        canCheckStatuses: ['new', 'rejected']
       }
     },
     (dispatch) => {

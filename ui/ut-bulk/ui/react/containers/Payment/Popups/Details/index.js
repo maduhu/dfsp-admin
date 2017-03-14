@@ -74,28 +74,28 @@ export class PaymentDetailPopup extends Component {
             </div>
             <hr />
             <div className={style.row}>
-              <Input value={item.sequenceNumber} label='Sequence Number:' onChange={this.handleFieldChange('sequenceNumber')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.sequenceNumber} readonly={!this.props.canEditPayment} label='Sequence Number:' onChange={this.handleFieldChange('sequenceNumber')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.userNumber} label='User Number:' onChange={this.handleFieldChange('userNumber')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.userNumber} readonly={!this.props.canEditPayment} label='User Number:' onChange={this.handleFieldChange('userNumber')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.firstName} label='First Name:' onChange={this.handleFieldChange('firstName')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.firstName} readonly={!this.props.canEditPayment} label='First Name:' onChange={this.handleFieldChange('firstName')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.lastName} label='Last Name:' onChange={this.handleFieldChange('lastName')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.lastName} readonly={!this.props.canEditPayment} label='Last Name:' onChange={this.handleFieldChange('lastName')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
               <div className={style.label}>Date of Birth:</div>
               <div className={style.dateInputWrapper}>
-                <DatePicker defaultValue={new Date(item.dob)} onChange={this.handleFieldChange('dob')} />
+                <DatePicker defaultValue={new Date(item.dob)} onChange={this.handleFieldChange('dob')} disabled={!this.props.canEditPayment} />
               </div>
             </div>
             <div className={style.row}>
-              <Input value={item.nationalId} label='National ID:' onChange={this.handleFieldChange('nationalId')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.nationalId} readonly={!this.props.canEditPayment} label='National ID:' onChange={this.handleFieldChange('nationalId')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.amount} label='Amount:' onChange={this.handleFieldChange('amount')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.amount} readonly={!this.props.canEditPayment} label='Amount:' onChange={this.handleFieldChange('amount')} inputWrapClassName={style.inputWrapClassName} />
             </div>
           </div>
       </Popup>
@@ -110,7 +110,8 @@ PaymentDetailPopup.propTypes = {
   className: PropTypes.string,
   isOpen: PropTypes.bool,
   item: PropTypes.object,
-  actorId: PropTypes.string
+  actorId: PropTypes.string,
+  canEditPayment: PropTypes.bool
 }
 
 PaymentDetailPopup.contextTypes = {
@@ -122,7 +123,9 @@ export default connect(
     return {
       actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
       item: state.bulkPaymentDetailEditPopup.get('item').toJS(),
-      isOpen: !!state.bulkPaymentDetailEditPopup.getIn(['item', 'batchId'])
+      isOpen: !!state.bulkPaymentDetailEditPopup.getIn(['item', 'batchId']),
+      canEditPayment: ['new', 'rejected'].includes(state.bulkPaymentGrid.getIn(['batch', 'status'])) &&
+                        ownProps.checkPermission('bulk.batch.add')
     }
   },
   (dispatch) => {
