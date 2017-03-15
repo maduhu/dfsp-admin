@@ -1,3 +1,13 @@
+<a name="0.11.2"></a>
+## [0.11.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.1...v0.11.2) (2017-03-15)
+
+
+### Bug Fixes
+
+* react warning for nesting h1 in h1 ([6114de7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/6114de7))
+
+
+
 <a name="0.11.1"></a>
 ## [0.11.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.0...v0.11.1) (2017-03-15)
 
