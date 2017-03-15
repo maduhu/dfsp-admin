@@ -103,7 +103,7 @@ class Grid extends Component {
           handleHeaderCheckboxSelect={this.handleHeaderCheckboxSelect}
           fields={[
             {name: 'sequenceNumber', title: 'Sequence Number'},
-            {name: 'userNumber', title: 'User Number'},
+            {name: 'identifier', title: 'Identifier'},
             {name: 'firstName', title: 'First Name'},
             {name: 'lastName', title: 'Last Name'},
             {name: 'dob', title: 'Date of Birth'},
