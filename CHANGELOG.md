@@ -1,3 +1,23 @@
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.8...v0.11.0) (2017-03-15)
+
+
+### Bug Fixes
+
+* call ledger.account.get on demand ([7aa4159](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7aa4159))
+* console.log  ([7370780](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7370780))
+* lint ([bd4a6e2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/bd4a6e2))
+* typo ([5db2fd7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5db2fd7))
+
+
+### Features
+
+* add status at the header ([e04f352](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e04f352))
+* permission on buttons ([3e1aa49](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/3e1aa49))
+* Permission on screens ([203cac0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/203cac0))
+
+
+
 <a name="0.10.8"></a>
 ## [0.10.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.7...v0.10.8) (2017-03-15)
 
