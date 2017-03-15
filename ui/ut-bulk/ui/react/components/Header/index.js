@@ -6,10 +6,10 @@ export class InnerHeader extends Component {
 
   render () {
     return (
-     <h1>
+     <span>
        {this.props.batchName} -
        <span className={style.status}>{this.props.batchStatus}</span>
-     </h1>
+     </span>
     )
   }
 }
