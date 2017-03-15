@@ -33,12 +33,15 @@ export class PaymentDetailPopup extends Component {
 
   getActionButtons () {
     let buttons = []
+    if (this.props.canEditPayment) {
+      buttons.push({
+        label: 'Save',
+        type: 'submit',
+        onClick: this.onSubmit,
+        className: ['defaultBtn']
+      })
+    }
     buttons.push({
-      label: 'Save',
-      type: 'submit',
-      onClick: this.onSubmit,
-      className: ['defaultBtn']
-    }, {
       label: 'Cancel',
       onClick: this.onClose,
       className: ['defaultBtn']
