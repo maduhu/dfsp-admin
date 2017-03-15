@@ -1,3 +1,14 @@
+<a name="0.10.7"></a>
+## [0.10.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.6...v0.10.7) (2017-03-14)
+
+
+### Bug Fixes
+
+* lint ([8adbb51](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8adbb51))
+* reload grid after check batch action ([be40fcc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/be40fcc))
+
+
+
 <a name="0.10.6"></a>
 ## [0.10.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.5...v0.10.6) (2017-03-06)
 

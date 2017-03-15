@@ -41,4 +41,3 @@ export function loadBatchStatuses (params) {
     params: params || {}
   }
 }
-

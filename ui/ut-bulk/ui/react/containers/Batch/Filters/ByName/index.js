@@ -5,7 +5,6 @@ import SearchBox from 'ut-front-react/components/SearchBox'
 import * as actions from './actions'
 
 export class ByName extends Component {
-
   constructor (props) {
     super(props)
     this.handleSearch = this.handleSearch.bind(this)

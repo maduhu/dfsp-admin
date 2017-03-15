@@ -9,7 +9,6 @@ import Text from 'ut-front-react/components/Text'
 import style from './style.css'
 
 export class ByName extends Component {
-
   constructor (props) {
     super(props)
     this.handleSelect = this.handleSelect.bind(this)
@@ -59,7 +58,6 @@ export class ByName extends Component {
 }
 
 ByName.propTypes = {
-  changeNameFilter: PropTypes.func,
   className: PropTypes.string,
   style: PropTypes.object,
   text: PropTypes.string,

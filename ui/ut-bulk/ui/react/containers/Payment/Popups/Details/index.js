@@ -77,7 +77,7 @@ export class PaymentDetailPopup extends Component {
               <Input value={item.sequenceNumber} readonly={!this.props.canEditPayment} label='Sequence Number:' onChange={this.handleFieldChange('sequenceNumber')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.userNumber} readonly={!this.props.canEditPayment} label='User Number:' onChange={this.handleFieldChange('userNumber')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.identifier} label='Identifier:' onChange={this.handleFieldChange('identifier')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
               <Input value={item.firstName} readonly={!this.props.canEditPayment} label='First Name:' onChange={this.handleFieldChange('firstName')} inputWrapClassName={style.inputWrapClassName} />
@@ -105,9 +105,6 @@ export class PaymentDetailPopup extends Component {
 
 PaymentDetailPopup.propTypes = {
   actions: PropTypes.object,
-  batchId: PropTypes.number,
-  style: PropTypes.object,
-  className: PropTypes.string,
   isOpen: PropTypes.bool,
   item: PropTypes.object,
   actorId: PropTypes.string,

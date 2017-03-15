@@ -103,7 +103,7 @@ class Grid extends Component {
           handleHeaderCheckboxSelect={this.handleHeaderCheckboxSelect}
           fields={[
             {name: 'sequenceNumber', title: 'Sequence Number'},
-            {name: 'userNumber', title: 'User Number'},
+            {name: 'identifier', title: 'Identifier'},
             {name: 'firstName', title: 'First Name'},
             {name: 'lastName', title: 'Last Name'},
             {name: 'dob', title: 'Date of Birth'},
@@ -131,12 +131,9 @@ Grid.contextTypes = {
 }
 
 Grid.propTypes = {
-  batchId: PropTypes.string,
-  gridFields: PropTypes.arrayOf(PropTypes.object),
   actions: PropTypes.object,
   data: PropTypes.arrayOf(PropTypes.object),
   changeId: PropTypes.number,
-  params: PropTypes.object,
   showToolbox: PropTypes.func,
   checkedRows: PropTypes.arrayOf(PropTypes.object),
   filterBy: PropTypes.object

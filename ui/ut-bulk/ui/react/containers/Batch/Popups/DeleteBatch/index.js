@@ -80,8 +80,6 @@ export class DeleteBatchPopup extends Component {
 DeleteBatchPopup.propTypes = {
   actions: PropTypes.object,
   batchId: PropTypes.number,
-  style: PropTypes.object,
-  className: PropTypes.string,
   isOpen: PropTypes.bool,
   actorId: PropTypes.string,
   comment: PropTypes.string,
