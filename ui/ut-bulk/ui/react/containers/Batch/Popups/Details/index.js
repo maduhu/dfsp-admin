@@ -26,12 +26,15 @@ export class BatchDetailPopup extends Component {
 
   getActionButtons () {
     let buttons = []
+    if (this.props.canEdit) {
+      buttons.push({
+        label: 'Save',
+        type: 'submit',
+        onClick: this.onSubmit,
+        className: ['defaultBtn']
+      })
+    }
     buttons.push({
-      label: 'Save',
-      type: 'submit',
-      onClick: this.onSubmit,
-      className: ['defaultBtn']
-    }, {
       label: 'Cancel',
       onClick: this.onClose,
       className: ['defaultBtn']
@@ -111,8 +114,7 @@ export default connect(
     return {
       item: state.bulkBatchDetailEditPopup.get('item').toJS(),
       isOpen: !!state.bulkBatchDetailEditPopup.getIn(['item', 'batchId']),
-      actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
-      canEdit: ['new', 'rejected'].includes(state.bulkBatchDetailEditPopup.getIn(['item', 'status']))
+      actorId: state.login.getIn(['result', 'identity.check', 'actorId'])
     }
   },
   (dispatch) => {

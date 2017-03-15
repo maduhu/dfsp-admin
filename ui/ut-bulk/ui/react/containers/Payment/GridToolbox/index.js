@@ -57,8 +57,12 @@ class GridToolbox extends Component {
   }
 
   render () {
+    let canCheck = (['new', 'rejected'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.add')) ||
+                   (['ready'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.pay'))
+    let canDisable = ['new', 'rejected'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.add')
     let toggle = this.props.isTitleLink ? this.props.actions.toggle : null
     let disableButton = !this.props.selectedPayments.length || !this.props.actorId
+    console.log(this.props.batchStatus, this.context.checkPermission('bulk.batch.pay'))
     return (
       <span>
         <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink={this.props.isTitleLink} toggle={toggle}>
@@ -72,10 +76,10 @@ class GridToolbox extends Component {
           <SimpleGridToolbox opened={this.props.buttonsOpened} title='Show Filters' isTitleLink toggle={this.props.actions.toggle}>
             <div className={style.buttonWrap}>
               <button onClick={this.handleDetailClick} disabled={!this.props.canViewDetails} className='button btn btn-primary'>Details</button>
-              <button onClick={this.handleDisable} className='button btn btn-primary' disabled={!this.props.canCheck}>
+              <button onClick={this.handleDisable} className='button btn btn-primary' disabled={!canDisable}>
                 Disable
               </button>
-              <button onClick={this.handleCheckRecords} disabled={disableButton || !this.props.canCheck} className='button btn btn-primary'>
+              <button onClick={this.handleCheckRecords} disabled={disableButton || !canCheck} className='button btn btn-primary'>
                 Check Records
               </button>
             </div>
@@ -83,6 +87,10 @@ class GridToolbox extends Component {
       </span>
     )
   }
+}
+
+GridToolbox.contextTypes = {
+  checkPermission: PropTypes.func.isRequired
 }
 
 GridToolbox.propTypes = {
@@ -100,7 +108,8 @@ GridToolbox.propTypes = {
   canViewDetails: PropTypes.bool,
   canCheck: PropTypes.bool,
   checkPermission: PropTypes.func,
-  canEditPayment: PropTypes.bool
+  canEditPayment: PropTypes.bool,
+  batchStatus: PropTypes.string
 }
 
 export default connect(
@@ -117,7 +126,7 @@ export default connect(
         paymentStatuses: state.bulkPaymentFilterStatus.get('paymentStatus'),
         isTitleLink: state.bulkPaymentGrid.get('checkedRows').size > 0,
         canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1,
-        canCheck: ['new', 'rejected'].includes(state.bulkPaymentGrid.getIn(['batch', 'status']))
+        batchStatus: state.bulkPaymentGrid.getIn(['batch', 'status'])
       }
     },
     (dispatch) => {

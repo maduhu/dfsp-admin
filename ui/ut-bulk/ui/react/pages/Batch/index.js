@@ -18,8 +18,8 @@ import DeleteBatch from '../../containers/Batch/Popups/DeleteBatch'
 import {fetchBatches} from '../../containers/Batch/Grid/actions'
 
 class BulkBatch extends Component {
-  constructor (props) {
-    super(props)
+  constructor (props, context) {
+    super(props, context)
     this.toggleUploadPopup = this.toggleUploadPopup.bind(this)
     this.openUploadFile = this.openUploadFile.bind(this)
     this.getHeaderButtons = this.getHeaderButtons.bind(this)
@@ -46,6 +46,7 @@ class BulkBatch extends Component {
   }
 
   render () {
+    let canEdit = this.props.canEditByStatus && this.context.checkPermission('bulk.batch.add')
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
         <AddTab pathname={getLink('ut-bulk:home')} title='Bulk Payments' />
@@ -53,7 +54,7 @@ class BulkBatch extends Component {
             <Header text='Bulk Payments - Batch' buttons={this.getHeaderButtons()} />
         </div>
         <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
-        <GridToolbox batchId={this.props.checkedRow.batchId} />
+          <GridToolbox batchId={this.props.checkedRow.batchId} />
         </div>
         <div className={classnames(mainStyle.tableWrap, style.tableWrap)}>
             <div className={style.grid}>
@@ -66,7 +67,7 @@ class BulkBatch extends Component {
           />
         }
         <DeleteBatch />
-        <DetailEdit />
+        <DetailEdit canEdit={canEdit} />
     </div>
     )
   }
@@ -75,18 +76,20 @@ class BulkBatch extends Component {
 BulkBatch.propTypes = {
   fetchBatches: PropTypes.func,
   checkedRow: PropTypes.object,
-  actorId: PropTypes.string
+  actorId: PropTypes.string,
+  canEditByStatus: PropTypes.bool
 }
 
 BulkBatch.contextTypes = {
-  checkPermission: PropTypes.func
+  checkPermission: PropTypes.func.isRequired
 }
 
 export default connect(
   (state, ownProps) => {
     return {
       checkedRow: state.bulkBatchGrid.get('checkedRow').toJS(),
-      actorId: state.login.getIn(['result', 'identity.check', 'actorId'])
+      actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
+      canEditByStatus: ['new', 'rejected'].includes(state.bulkBatchDetailEditPopup.getIn(['item', 'status']))
     }
   },
   {
