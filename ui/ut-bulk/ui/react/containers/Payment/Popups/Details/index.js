@@ -33,12 +33,15 @@ export class PaymentDetailPopup extends Component {
 
   getActionButtons () {
     let buttons = []
+    if (this.props.canEditPayment) {
+      buttons.push({
+        label: 'Save',
+        type: 'submit',
+        onClick: this.onSubmit,
+        className: ['defaultBtn']
+      })
+    }
     buttons.push({
-      label: 'Save',
-      type: 'submit',
-      onClick: this.onSubmit,
-      className: ['defaultBtn']
-    }, {
       label: 'Cancel',
       onClick: this.onClose,
       className: ['defaultBtn']
@@ -77,7 +80,7 @@ export class PaymentDetailPopup extends Component {
               <Input value={item.sequenceNumber} readonly={!this.props.canEditPayment} label='Sequence Number:' onChange={this.handleFieldChange('sequenceNumber')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.identifier} label='Identifier:' onChange={this.handleFieldChange('identifier')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.identifier} readonly={!this.props.canEditPayment} label='Identifier:' onChange={this.handleFieldChange('identifier')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
               <Input value={item.firstName} readonly={!this.props.canEditPayment} label='First Name:' onChange={this.handleFieldChange('firstName')} inputWrapClassName={style.inputWrapClassName} />
