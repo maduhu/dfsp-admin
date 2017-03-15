@@ -1,3 +1,14 @@
+<a name="0.11.1"></a>
+## [0.11.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.0...v0.11.1) (2017-03-15)
+
+
+### Bug Fixes
+
+* make identifier readonly; fix datepicker disabled color ([d5bb085](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/d5bb085))
+* remove save button on payment details if payment cannot be modified ([c2aff99](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c2aff99))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.8...v0.11.0) (2017-03-15)
 
