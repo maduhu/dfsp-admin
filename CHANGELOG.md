@@ -1,3 +1,13 @@
+<a name="0.10.8"></a>
+## [0.10.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.7...v0.10.8) (2017-03-15)
+
+
+### Bug Fixes
+
+* add identifiers ([4666353](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4666353))
+
+
+
 <a name="0.10.7"></a>
 ## [0.10.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.10.6...v0.10.7) (2017-03-14)
 
