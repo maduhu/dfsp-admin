@@ -22,10 +22,6 @@ class GridToolbox extends Component {
     this.handleDetailClick = this.handleDetailClick.bind(this)
   }
 
-  componentWillReveiveProps (props) {
-    console.log(props.checkPermission)
-  }
-
   handleDisable () {
     let statusDisabled = this.props.paymentStatuses.filter((el) => el.name === 'disabled').first().key
     let payments = this.props.selectedPayments.map((el) => {
@@ -62,7 +58,6 @@ class GridToolbox extends Component {
     let canDisable = ['new', 'rejected'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.add')
     let toggle = this.props.isTitleLink ? this.props.actions.toggle : null
     let disableButton = !this.props.selectedPayments.length || !this.props.actorId
-    console.log(this.props.batchStatus, this.context.checkPermission('bulk.batch.pay'))
     return (
       <span>
         <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink={this.props.isTitleLink} toggle={toggle}>
