@@ -53,6 +53,9 @@ class GridToolbox extends Component {
   }
 
   render () {
+    let canCheck = (['new', 'rejected'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.add')) ||
+                   (['ready'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.pay'))
+    let canDisable = ['new', 'rejected'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.add')
     let toggle = this.props.isTitleLink ? this.props.actions.toggle : null
     let disableButton = !this.props.selectedPayments.length || !this.props.actorId
     return (
@@ -68,10 +71,10 @@ class GridToolbox extends Component {
           <SimpleGridToolbox opened={this.props.buttonsOpened} title='Show Filters' isTitleLink toggle={this.props.actions.toggle}>
             <div className={style.buttonWrap}>
               <button onClick={this.handleDetailClick} disabled={!this.props.canViewDetails} className='button btn btn-primary'>Details</button>
-              <button onClick={this.handleDisable} className='button btn btn-primary' disabled={!this.props.canCheck}>
+              <button onClick={this.handleDisable} className='button btn btn-primary' disabled={!canDisable}>
                 Disable
               </button>
-              <button onClick={this.handleCheckRecords} disabled={disableButton || !this.props.canCheck} className='button btn btn-primary'>
+              <button onClick={this.handleCheckRecords} disabled={disableButton || !canCheck} className='button btn btn-primary'>
                 Check Records
               </button>
             </div>
@@ -81,7 +84,9 @@ class GridToolbox extends Component {
   }
 }
 
-GridToolbox.contextTypes = {}
+GridToolbox.contextTypes = {
+  checkPermission: PropTypes.func.isRequired
+}
 
 GridToolbox.propTypes = {
   actions: PropTypes.object,
@@ -96,23 +101,27 @@ GridToolbox.propTypes = {
   setDatailItem: PropTypes.func,
   isTitleLink: PropTypes.bool,
   canViewDetails: PropTypes.bool,
-  canCheck: PropTypes.bool
+  canCheck: PropTypes.bool,
+  checkPermission: PropTypes.func,
+  canEditPayment: PropTypes.bool,
+  batchStatus: PropTypes.string
 }
 
 export default connect(
-    (state) => {
+    (state, ownProps) => {
       return {
+        checkedRows: state.bulkPaymentGrid.get('checkedRows').toArray(),
         filtersOpened: state.bulkPaymentToolbox.getIn(['filters', 'opened']),
         buttonsOpened: state.bulkPaymentToolbox.getIn(['buttons', 'opened']),
         showClearFilter: state.bulkPaymentFilterStatus.get('changeId') +
-                      state.bulkPaymentFilterDate.get('changeId') +
-                      state.bulkPaymentFilterCustom.get('changeId') > 0,
+                         state.bulkPaymentFilterDate.get('changeId') +
+                         state.bulkPaymentFilterCustom.get('changeId') > 0,
         actorId: state.login.getIn(['result', 'identity.check', 'actorId']),
         selectedPayments: state.bulkPaymentGrid.get('checkedRows').toArray(),
         paymentStatuses: state.bulkPaymentFilterStatus.get('paymentStatus'),
         isTitleLink: state.bulkPaymentGrid.get('checkedRows').size > 0,
         canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1,
-        canCheck: ['new', 'ready', 'rejected'].includes(state.bulkPaymentGrid.getIn(['batch', 'status']))
+        batchStatus: state.bulkPaymentGrid.getIn(['batch', 'status'])
       }
     },
     (dispatch) => {

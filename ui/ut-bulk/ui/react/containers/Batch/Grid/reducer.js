@@ -1,5 +1,6 @@
 import {Map, List} from 'immutable'
 import * as actionTypes from './actionTypes'
+import {TOGGLE_PRELOAD} from '../../UploadForm/actionTypes'
 
 const defaultState = Map({
   data: Map(),
@@ -23,6 +24,8 @@ export const bulkBatchGrid = (state = defaultState, action) => {
         .set('checkedRow', defaultState.get('checkedRow'))
     case actionTypes.CHECK_ROW:
       return action.params.row.batchId === state.getIn(['checkedRow', 'batchId']) ? state.set('checkedRow', Map({})) : state.set('checkedRow', Map(action.params.row))
+    case TOGGLE_PRELOAD:
+      return state.set('checkedRow', Map({}))
     default:
       break
   }

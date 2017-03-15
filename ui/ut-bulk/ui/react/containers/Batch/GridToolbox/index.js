@@ -118,8 +118,8 @@ class GridToolbox extends Component {
 }
 
 GridToolbox.contextTypes = {
-  checkPermission: PropTypes.func,
-  router: PropTypes.object
+  router: PropTypes.object,
+  checkPermission: PropTypes.func
 }
 
 GridToolbox.propTypes = {
@@ -135,11 +135,12 @@ GridToolbox.propTypes = {
   setDatailItem: PropTypes.func,
   isTitleLink: PropTypes.bool,
   canDeleteStatuses: PropTypes.array,
-  canCheckStatuses: PropTypes.array
+  canCheckStatuses: PropTypes.array,
+  canEdit: PropTypes.bool
 }
 
 export default connect(
-    (state) => {
+    (state, ownProps) => {
       return {
         filtersOpened: state.bulkBatchToolbox.getIn(['filters', 'opened']),
         buttonsOpened: state.bulkBatchToolbox.getIn(['buttons', 'opened']),
@@ -151,7 +152,7 @@ export default connect(
         isTitleLink: state.bulkBatchGrid.get('checkedRow').size > 0,
         canViewDetails: state.bulkPaymentGrid.get('checkedRows').size === 1,
         canDeleteStatuses: ['new', 'rejected', 'invalid', 'disabled'],
-        canCheckStatuses: ['new', 'ready', 'rejected']
+        canCheckStatuses: ['new', 'rejected']
       }
     },
     (dispatch) => {

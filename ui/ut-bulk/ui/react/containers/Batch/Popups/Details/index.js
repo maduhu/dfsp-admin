@@ -26,12 +26,15 @@ export class BatchDetailPopup extends Component {
 
   getActionButtons () {
     let buttons = []
+    if (this.props.canEdit) {
+      buttons.push({
+        label: 'Save',
+        type: 'submit',
+        onClick: this.onSubmit,
+        className: ['defaultBtn']
+      })
+    }
     buttons.push({
-      label: 'Save',
-      type: 'submit',
-      onClick: this.onSubmit,
-      className: ['defaultBtn']
-    }, {
       label: 'Cancel',
       onClick: this.onClose,
       className: ['defaultBtn']
@@ -78,7 +81,7 @@ export class BatchDetailPopup extends Component {
               </div>
             </div> */}
             <div className={style.row}>
-               <Input value={item.name} label='*Batch Name:' inputWrapClassName={style.inputWrapClassName} onChange={({value}) => this.props.actions.changeDetailValue('name', value)} />
+               <Input value={item.name} label='*Batch Name:' readonly={!this.props.canEdit} inputWrapClassName={style.inputWrapClassName} onChange={({value}) => this.props.actions.changeDetailValue('name', value)} />
             </div>
             <div className={style.row}>
               <Input value={item.paymentsCount} label='Number of records:' readonly inputWrapClassName={style.inputWrapClassName} />
@@ -97,7 +100,8 @@ BatchDetailPopup.propTypes = {
   fetchBatches: PropTypes.func,
   isOpen: PropTypes.bool,
   item: PropTypes.object,
-  actorId: PropTypes.string
+  actorId: PropTypes.string,
+  canEdit: PropTypes.bool
 }
 
 BatchDetailPopup.contextTypes = {

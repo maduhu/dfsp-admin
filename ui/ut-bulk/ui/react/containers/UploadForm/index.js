@@ -6,6 +6,7 @@ import Input from 'ut-front-react/components/Input'
 import Checkbox from 'ut-front-react/components/Input/Checkbox'
 import Popup from 'ut-front-react/components/Popup'
 
+import {show} from '../Batch/GridToolbox/actions'
 import * as actionCreators from './actions'
 
 import style from './style.css'
@@ -14,7 +15,8 @@ let UploadForm = React.createClass({
   propTypes: {
     onClose: PropTypes.func,
     actions: PropTypes.object,
-    batch: PropTypes.object
+    batch: PropTypes.object,
+    show: PropTypes.func
   },
   defaultProps: {
     onClose: () => {}
@@ -71,12 +73,13 @@ let UploadForm = React.createClass({
     }
     xhr.send(data)
     this.props.actions.showPreload()
+    this.props.show('filters')
   },
   getActionButtons () {
     let buttons = []
     if (!this.canUpload()) {
       buttons.push({
-        label: 'close',
+        label: 'Close',
         onClick: this.onClose,
         className: ['defaultBtn']
       })
@@ -158,7 +161,8 @@ export default connect(
   },
   (dispatch) => {
     return {
-      actions: bindActionCreators(actionCreators, dispatch)
+      actions: bindActionCreators(actionCreators, dispatch),
+      show: bindActionCreators(show, dispatch)
     }
   }
 )(UploadForm)
