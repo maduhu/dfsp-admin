@@ -80,7 +80,7 @@ export class PaymentDetailPopup extends Component {
               <Input value={item.sequenceNumber} readonly={!this.props.canEditPayment} label='Sequence Number:' onChange={this.handleFieldChange('sequenceNumber')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={item.identifier} label='Identifier:' onChange={this.handleFieldChange('identifier')} inputWrapClassName={style.inputWrapClassName} />
+              <Input value={item.identifier} readonly={!this.props.canEditPayment} label='Identifier:' onChange={this.handleFieldChange('identifier')} inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
               <Input value={item.firstName} readonly={!this.props.canEditPayment} label='First Name:' onChange={this.handleFieldChange('firstName')} inputWrapClassName={style.inputWrapClassName} />
