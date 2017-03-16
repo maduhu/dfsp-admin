@@ -19,7 +19,7 @@ export class PayBatchPopup extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    nextProps.isOpen && this.props.actions.fetchAccounts(this.props.actorId)
+    !this.props.isOpen && nextProps.isOpen && this.props.actions.fetchAccounts(this.props.actorId)
   }
 
   onClose () {
