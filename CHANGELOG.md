@@ -1,3 +1,13 @@
+<a name="0.11.3"></a>
+## [0.11.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.2...v0.11.3) (2017-03-16)
+
+
+### Bug Fixes
+
+* prevent infinite calling to ledger.account.fetch ([1898164](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/1898164))
+
+
+
 <a name="0.11.2"></a>
 ## [0.11.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.1...v0.11.2) (2017-03-15)
 
