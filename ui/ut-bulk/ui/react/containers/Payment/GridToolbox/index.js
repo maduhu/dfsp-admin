@@ -47,7 +47,7 @@ class GridToolbox extends Component {
       }
     })
   }
-
+;
   handleDetailClick () {
     this.props.setDatailItem(this.props.selectedPayments[0])
   }
@@ -55,7 +55,11 @@ class GridToolbox extends Component {
   render () {
     let canCheck = (['new', 'rejected'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.add')) ||
                    (['ready'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.pay'))
-    let canDisable = ['new', 'rejected'].includes(this.props.batchStatus) && this.context.checkPermission('bulk.batch.add')
+    let canDisable = ['new', 'rejected'].includes(this.props.batchStatus) &&
+                     this.props.checkedRows.find((element) => {
+                       return element.status === 'disabled'
+                     }) === undefined &&
+                     this.context.checkPermission('bulk.batch.add')
     let toggle = this.props.isTitleLink ? this.props.actions.toggle : null
     let disableButton = !this.props.selectedPayments.length || !this.props.actorId
     return (
@@ -89,6 +93,7 @@ GridToolbox.contextTypes = {
 }
 
 GridToolbox.propTypes = {
+  checkedRows: PropTypes.array,
   actions: PropTypes.object,
   fetchBatchPayments: PropTypes.func,
   filtersOpened: PropTypes.bool,
