@@ -1,3 +1,18 @@
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.3...v0.12.0) (2017-03-28)
+
+
+### Bug Fixes
+
+* GridToolbox disable button change ([8ddfd13](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8ddfd13))
+
+
+### Features
+
+* add Karma + Enzyme + Tape fron-end structure for testing ([90ba02d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/90ba02d))
+
+
+
 <a name="0.11.3"></a>
 ## [0.11.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.2...v0.11.3) (2017-03-16)
 
