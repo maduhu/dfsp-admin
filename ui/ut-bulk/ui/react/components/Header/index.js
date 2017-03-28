@@ -1,9 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import style from './style.css'
 
-
 export class InnerHeader extends Component {
-
   render () {
     return (
      <span>

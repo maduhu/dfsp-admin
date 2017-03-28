@@ -135,8 +135,7 @@ GridToolbox.propTypes = {
   setDatailItem: PropTypes.func,
   isTitleLink: PropTypes.bool,
   canDeleteStatuses: PropTypes.array,
-  canCheckStatuses: PropTypes.array,
-  canEdit: PropTypes.bool
+  canCheckStatuses: PropTypes.array
 }
 
 export default connect(

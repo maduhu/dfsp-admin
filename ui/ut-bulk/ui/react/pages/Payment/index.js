@@ -91,8 +91,7 @@ BulkPayment.propTypes = {
   batch: PropTypes.object,
   canPayRejectBatch: PropTypes.bool,
   canBatchReady: PropTypes.bool,
-  updateTabTitle: PropTypes.func,
-  canEditPayment: PropTypes.bool
+  updateTabTitle: PropTypes.func
 }
 
 BulkPayment.contextTypes = {

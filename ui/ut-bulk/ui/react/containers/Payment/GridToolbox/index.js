@@ -106,9 +106,6 @@ GridToolbox.propTypes = {
   setDatailItem: PropTypes.func,
   isTitleLink: PropTypes.bool,
   canViewDetails: PropTypes.bool,
-  canCheck: PropTypes.bool,
-  checkPermission: PropTypes.func,
-  canEditPayment: PropTypes.bool,
   batchStatus: PropTypes.string
 }
 
