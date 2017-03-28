@@ -1,4 +1,4 @@
 {
-  "presets": ["react", "es2015", "stage-1"],
-  "plugins": ["transform-react-remove-prop-types", "rewire"]
+  "presets": ["react", "es2015", "stage-0"],
+  "plugins": ["syntax-jsx", "transform-react-jsx"]
 }
