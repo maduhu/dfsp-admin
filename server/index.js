@@ -4,7 +4,6 @@ module.exports = {
   ports: [
     require('../httpserver'),
     require('../httpclient/api'),
-    require('../httpclient/identity'),
     require('../mocks')
   ],
   modules: {
