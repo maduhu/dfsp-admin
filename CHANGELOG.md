@@ -1,3 +1,15 @@
+<a name="0.11.4"></a>
+## [0.11.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.0...v0.11.4) (2017-04-03)
+
+
+### Bug Fixes
+
+* lint ([f664414](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/f664414))
+* package.json and .babelrc ([c03ad29](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c03ad29))
+* webpack not building because of karma ([20201c6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/20201c6))
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.3...v0.12.0) (2017-03-28)
 
