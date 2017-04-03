@@ -39,21 +39,39 @@ module.exports = function (config) {
     webpack: {
       devtool: 'inline-source-map',
       module: {
-        loaders: [{
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        },
-        {
-          test: /\.json$/,
-          loader: 'json-loader'
-        },
-        {
-          test: /\.css$/,
-          loaders: ['style-loader', 'css-loader?modules=true', 'postcss-loader']
-        }],
-        preLoaders: [
-          { test: /\.js|jsx$/, include: path.resolve('./ui/ut-bulk/ui/react/components'), loaders: ['isparta-loader'] }
+        rules: [
+          {
+            test: /\.js|jsx$/,
+            include: path.resolve('./ui/ut-bulk/ui/react/components'),
+            enforce: 'pre',
+            use: [
+              {loader: 'isparta-loader'}
+            ]
+          },
+          {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            use: [
+              {loader: 'babel-loader'}
+            ]
+          },
+          {
+            test: /\.json$/,
+            use: [{loader: 'json-loader'}]
+          },
+          {
+            test: /\.css$/,
+            use: [
+              {loader: 'style-loader'},
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true
+                }
+              },
+              {loader: 'postcss-loader'}
+            ]
+          }
         ]
       },
         // hot fix about Cannot resolve module 'fs' error
@@ -61,7 +79,7 @@ module.exports = function (config) {
         fs: 'empty'
       },
       resolve: {
-        extensions: ['', '.js', '.json']
+        extensions: ['.js', '.json']
       },
       // Specify dependencies that shouldn’t be resolved by webpack,
       // but should become dependencies of the resulting bundle.
@@ -73,9 +91,6 @@ module.exports = function (config) {
         'react/addons': true
       },
         // Fixes the 'two copy of React' problem
-      alias: {
-        'react': path.join(__dirname, 'node_modules', 'react')
-      },
         // Custom constants in code
       plugins: [
         new webpack.DefinePlugin({
