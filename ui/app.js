@@ -18,6 +18,7 @@ import {
   Route
 } from 'react-router'
 import Provider from './provider'
+import ConfigProvider from './configProvider'
 import { getRoute } from 'ut-front/react/routerHelper'
 import Dashboard from './Pages/DashboardWrapper'
 import {AppContainer} from 'react-hot-loader'
@@ -33,7 +34,7 @@ module.exports = {
   },
   load: function () {
     const routes = (
-      <Route>
+      <Route component={ConfigProvider(this.bus.config['ut-rule'])}>
         <Route path={getRoute('dfsp-admin:dashboard')} component={Dashboard} />
         {UtRuleRoutes(this.bus.config['ut-rule'])}
         {UtBulkRoutes()}

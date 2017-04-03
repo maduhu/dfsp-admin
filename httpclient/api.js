@@ -2,7 +2,7 @@ module.exports = {
   id: 'api',
   createPort: require('ut-port-jsonrpc'),
   url: 'http://localhost:8010',
-  namespace: ['rule', 'bulk', 'ledger'],
+  namespace: ['identity', 'rule', 'bulk', 'ledger'],
   method: 'post',
   send: function (msg, $meta) {
     if ($meta.auth && $meta.auth.actorId) {
@@ -22,6 +22,7 @@ module.exports = {
     $meta.mtid = 'response'
     return {
       payload: {
+        id: 1,
         result: {
           items: [
             // currency
@@ -81,11 +82,46 @@ module.exports = {
               value: 1,
               display: 'Agent'
             },
+            {
+              type: 'role',
+              value: 2,
+              display: 'Merchant'
+            },
+            {
+              type: 'role',
+              value: 3,
+              display: 'Customer'
+            },
+            {
+              type: 'role',
+              value: 1,
+              display: 'Agent'
+            },
             // operation
             {
               type: 'operation',
               value: 1,
               display: 'P2P Transfer'
+            },
+            {
+              type: 'operation',
+              value: 2,
+              display: 'Invoce'
+            },
+            {
+              type: 'operation',
+              value: 4,
+              display: 'Bulk Payment'
+            },
+            {
+              type: 'operation',
+              value: 5,
+              display: 'Cash In'
+            },
+            {
+              type: 'operation',
+              value: 6,
+              display: 'Cash Out'
             },
             // supervisor
             {

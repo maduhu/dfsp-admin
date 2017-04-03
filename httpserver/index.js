@@ -30,15 +30,5 @@ module.exports = {
     maxFileName: 100,
     payloadMaxBytes: 5242880, // 5 MB. Default is 1048576 (1MB)
     extensionsWhiteList: ['csv']
-  },
-  _routes: {
-    rpc: {
-      method: '*',
-      path: '/rpc/{method?}',
-      config: {
-        tags: ['rpc'],
-        auth: false
-      }
-    }
   }
 }
