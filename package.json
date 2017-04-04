@@ -59,7 +59,7 @@
     "ut-port-http": "6.4.1",
     "ut-port-performance": "5.4.7",
     "ut-port-script": "5.4.7",
-    "ut-rule": "5.8.7",
+    "ut-rule": "5.8.8",
     "ut-run": "7.2.3"
   },
   "devDependencies": {
