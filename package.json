@@ -56,6 +56,7 @@
     "ut-port-console": "6.2.2",
     "ut-port-httpserver": "8.7.1",
     "ut-port-jsonrpc": "5.6.0",
+    "ut-port-http": "6.4.1",
     "ut-port-performance": "5.4.7",
     "ut-port-script": "5.4.7",
     "ut-rule": "5.8.7",
