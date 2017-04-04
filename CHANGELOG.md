@@ -1,3 +1,13 @@
+<a name="0.11.6"></a>
+## [0.11.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.5...v0.11.6) (2017-04-04)
+
+
+### Bug Fixes
+
+* fetch operation and role from backend ([c40387a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c40387a))
+
+
+
 <a name="0.11.5"></a>
 ## [0.11.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.4...v0.11.5) (2017-04-04)
 
