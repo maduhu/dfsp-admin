@@ -1,3 +1,17 @@
+<a name="0.11.5"></a>
+## [0.11.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.4...v0.11.5) (2017-04-04)
+
+
+### Bug Fixes
+
+* add rule cofiguration to show only some fields ([258bcaa](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/258bcaa))
+* add ut-port-http dependancy ([1303bd6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/1303bd6))
+* lint ([6e22ffd](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/6e22ffd))
+* move identity.check call through the dfsp-api ([798ff11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/798ff11))
+* update dependency ([7b396f8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7b396f8))
+
+
+
 <a name="0.11.4"></a>
 ## [0.11.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.0...v0.11.4) (2017-04-03)
 
