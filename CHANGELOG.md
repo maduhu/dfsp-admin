@@ -1,3 +1,13 @@
+<a name="0.11.7"></a>
+## [0.11.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.6...v0.11.7) (2017-04-06)
+
+
+### Bug Fixes
+
+* remove rule.item.fetch to dfsp-api in order to be reused ([02ab2ae](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/02ab2ae))
+
+
+
 <a name="0.11.6"></a>
 ## [0.11.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.5...v0.11.6) (2017-04-04)
 
