@@ -49,18 +49,18 @@
     "redux": "3.6.0",
     "stream-browserify": "2.0.1",
     "strict-uri-encode": "1.1.0",
-    "ut-bus": "5.8.1",
-    "ut-error": "5.3.16",
-    "ut-front": "6.4.4",
-    "ut-front-react": "^8.13.3",
-    "ut-port-console": "6.2.2",
+    "ut-bus": "^5.9.0",
+    "ut-error": "5.4.2",
+    "ut-front": "6.4.8",
+    "ut-front-react": "^8.19.13",
+    "ut-port-console": "6.2.5",
     "ut-port-httpserver": "8.7.1",
-    "ut-port-jsonrpc": "5.6.0",
+    "ut-port-jsonrpc": "5.6.4",
     "ut-port-http": "6.4.1",
     "ut-port-performance": "5.4.7",
-    "ut-port-script": "5.4.7",
-    "ut-rule": "5.8.8",
-    "ut-run": "7.2.3"
+    "ut-port-script": "5.5.1",
+    "ut-rule": "5.8.10",
+    "ut-run": "8.1.0"
   },
   "devDependencies": {
     "babel-core": "6.21.0",
@@ -105,7 +105,7 @@
     "postcss-clean": "1.0.2",
     "postcss-cssnext": "2.9.0",
     "postcss-import": "9.0.0",
-    "postcss-loader": "1.2.0",
+    "postcss-loader": "1.2.1",
     "postcss-merge-rules": "2.0.11",
     "react-addons-test-utils": "^15.4.2",
     "react-hot-loader": "3.0.0-beta.6",
@@ -119,7 +119,7 @@
     "ut-po-loader": "^5.5.3",
     "ut-tools": "^5.13.5",
     "ut-translate-loader": "^5.5.3",
-    "webpack": "^2.3.2"
+    "webpack": "2.1.0-beta.27"
   },
   "repository": {
     "type": "git",
