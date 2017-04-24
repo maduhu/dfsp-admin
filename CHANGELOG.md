@@ -1,3 +1,13 @@
+<a name="0.11.9"></a>
+## [0.11.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.8...v0.11.9) (2017-04-24)
+
+
+### Bug Fixes
+
+* add shrinwrap and update dependencies ([2873766](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/2873766))
+
+
+
 <a name="0.11.8"></a>
 ## [0.11.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.7...v0.11.8) (2017-04-20)
 
