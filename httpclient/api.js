@@ -8,6 +8,9 @@ module.exports = {
     if ($meta.auth && $meta.auth.actorId) {
       msg.actorId = $meta.auth.actorId
     }
+    if ($meta.method === 'bulk.account.fetch') {
+      $meta.method = 'ledger.account.fetch'
+    }
     return {
       uri: '/rpc/' + $meta.method,
       payload: {

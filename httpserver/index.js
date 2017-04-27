@@ -4,7 +4,7 @@ module.exports = {
   createPort: require('ut-port-httpserver'),
   logLevel: 'trace',
   imports: ['utfront', 'frontend', 'adminHTTP', 'bulk.start'],
-  api: ['identity'],
+  api: ['identity', 'bulk', 'core'],
   port: 8020,
   dist: path.resolve(__dirname, '../dist'),
   entryPoint: path.join(__dirname, '..', 'browser', 'index.js'),

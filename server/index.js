@@ -15,7 +15,8 @@ module.exports = {
     frontend: require('ut-front-react'),
     identity: require('../service/identity'),
     adminHTTP: require('../ui/http'),
-    bulk: require('../service/bulk')
+    bulk: require('../service/bulk'),
+    core: {}
   },
   validations: {
     identity: {
@@ -27,7 +28,18 @@ module.exports = {
         auth: false,
         route: '/login',
         result: joi.any()
+      },
+      closeSession: {
+        params: joi.any(),
+        result: joi.any()
       }
-    }
+    },
+    core: {
+      'translation.fetch': {
+        params: joi.any(),
+        result: joi.any()
+      }
+    },
+    bulk: require('ut-transfer/modules/bulk/validations')
   }
 }
