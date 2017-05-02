@@ -1,3 +1,13 @@
+<a name="0.12.1"></a>
+## [0.12.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.9...v0.12.1) (2017-05-02)
+
+
+### Bug Fixes
+
+* version ([59877e4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/59877e4))
+
+
+
 <a name="0.11.9"></a>
 ## [0.11.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.8...v0.11.9) (2017-04-24)
 
