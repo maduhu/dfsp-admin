@@ -1,3 +1,13 @@
+<a name="0.12.2"></a>
+## [0.12.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.1...v0.12.2) (2017-05-02)
+
+
+### Bug Fixes
+
+* styling of the header of the grid ([474e508](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/474e508))
+
+
+
 <a name="0.12.1"></a>
 ## [0.12.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.11.9...v0.12.1) (2017-05-02)
 
