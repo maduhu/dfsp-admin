@@ -68,7 +68,7 @@
             "title": "Fee"
           },
           "commission": {
-            "visible": false,
+            "visible": true,
             "title": "Commission"
           },
           "limit": {
@@ -233,7 +233,7 @@
           "title": "Fee"
         },
         "commission": {
-          "visible": false,
+          "visible": true,
           "title": "Commission"
         },
         "summary": {
