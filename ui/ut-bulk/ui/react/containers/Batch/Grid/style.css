@@ -4,3 +4,9 @@ th:last-child {
 th:last-child > div {
   float: right;
 }
+.gridHeadingInner {
+    display: inline;
+}
+.girdOrderHeadingStyle {
+    padding-right: 0px;
+}
