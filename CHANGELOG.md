@@ -1,3 +1,13 @@
+<a name="0.12.3"></a>
+## [0.12.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.2...v0.12.3) (2017-05-02)
+
+
+### Bug Fixes
+
+* display commissions ([08feb31](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/08feb31))
+
+
+
 <a name="0.12.2"></a>
 ## [0.12.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.1...v0.12.2) (2017-05-02)
 
