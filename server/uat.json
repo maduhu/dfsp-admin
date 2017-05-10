@@ -11,6 +11,7 @@
   "debug": true,
   "repl_": false,
   "stdOut": {
+    "useColor": false,
     "mode": "dev"
   },
   "log": {
