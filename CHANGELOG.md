@@ -1,3 +1,13 @@
+<a name="0.12.4"></a>
+## [0.12.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.3...v0.12.4) (2017-05-10)
+
+
+### Bug Fixes
+
+* remove colors from stdout by default ([b3c570a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/b3c570a))
+
+
+
 <a name="0.12.3"></a>
 ## [0.12.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.2...v0.12.3) (2017-05-02)
 
