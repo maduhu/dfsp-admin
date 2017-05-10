@@ -1,3 +1,13 @@
+<a name="0.12.5"></a>
+## [0.12.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.4...v0.12.5) (2017-05-10)
+
+
+### Bug Fixes
+
+* change logmode to long ([f76c658](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/f76c658))
+
+
+
 <a name="0.12.4"></a>
 ## [0.12.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.3...v0.12.4) (2017-05-10)
 
