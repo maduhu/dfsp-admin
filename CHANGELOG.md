@@ -1,3 +1,13 @@
+<a name="0.12.6"></a>
+## [0.12.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.5...v0.12.6) (2017-05-15)
+
+
+### Bug Fixes
+
+* elk ([94c99aa](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/94c99aa))
+
+
+
 <a name="0.12.5"></a>
 ## [0.12.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.4...v0.12.5) (2017-05-10)
 
