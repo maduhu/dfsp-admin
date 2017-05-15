@@ -60,7 +60,8 @@
     "ut-port-performance": "5.4.7",
     "ut-port-script": "5.5.1",
     "ut-rule": "5.8.10",
-    "ut-run": "8.1.0"
+    "ut-run": "8.1.0",
+    "ut-log-dfsp": "^5.0.1"
   },
   "devDependencies": {
     "babel-core": "6.21.0",
