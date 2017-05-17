@@ -1,3 +1,13 @@
+<a name="0.12.7"></a>
+## [0.12.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.6...v0.12.7) (2017-05-17)
+
+
+### Bug Fixes
+
+* payments grid header styling issue ([7f18424](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7f18424))
+
+
+
 <a name="0.12.6"></a>
 ## [0.12.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.5...v0.12.6) (2017-05-15)
 
