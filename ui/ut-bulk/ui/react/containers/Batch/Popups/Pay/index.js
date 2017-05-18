@@ -18,6 +18,10 @@ export class PayBatchPopup extends Component {
     this.handlePayAccountChange = this.handlePayAccountChange.bind(this)
   }
 
+  componentWillMount () {
+    this.props.actions.getBatchTotalAmount(1)
+  }
+
   componentWillReceiveProps (nextProps) {
     !this.props.isOpen && nextProps.isOpen && this.props.actions.fetchAccounts(this.props.actorId)
   }
@@ -95,6 +99,9 @@ export class PayBatchPopup extends Component {
                 <DatePicker onChange={this.handleExpirationDateChange} defaultValue={this.props.expirationDate} />
               </div>
             </div>
+            <div className={style.row}>
+               Total amount to pay: ${this.props.totalAmount}
+            </div>
           </div>
       </Popup>
     )
@@ -105,6 +112,7 @@ PayBatchPopup.propTypes = {
   actions: PropTypes.object,
   actorId: PropTypes.string,
   batchId: PropTypes.string,
+  totalAmount: PropTypes.number,
   isOpen: PropTypes.bool,
   accounts: PropTypes.arrayOf(PropTypes.object),
   selectedAccount: PropTypes.string,
@@ -124,7 +132,8 @@ export default connect(
       isOpen: !!state.bulkBatchPayPopup.get('batchId'),
       accounts: state.bulkBatchPayPopup.get('accounts').toJS(),
       selectedAccount: state.bulkBatchPayPopup.get('selectedAccount'),
-      expirationDate: state.bulkBatchPayPopup.get('expirationDate') ? new Date(state.bulkBatchPayPopup.get('expirationDate')) : null
+      expirationDate: state.bulkBatchPayPopup.get('expirationDate') ? new Date(state.bulkBatchPayPopup.get('expirationDate')) : null,
+      totalAmount: state.bulkBatchPayPopup.get('totalAmount')
     }
   },
   (dispatch) => {
