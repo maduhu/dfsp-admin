@@ -1,3 +1,13 @@
+<a name="0.13.1"></a>
+## [0.13.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.13.0...v0.13.1) (2017-05-19)
+
+
+### Bug Fixes
+
+* circle.yml ([06bd139](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/06bd139))
+
+
+
 <a name="0.13.0"></a>
 # [0.13.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.7...v0.13.0) (2017-05-19)
 
