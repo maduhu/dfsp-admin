@@ -1,3 +1,18 @@
+<a name="0.13.0"></a>
+# [0.13.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.7...v0.13.0) (2017-05-19)
+
+
+### Bug Fixes
+
+* add total amount of the batch in Pay popup ([1417ff9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/1417ff9))
+
+
+### Features
+
+* UIS-2652 add total amount in the pay popup ([5b71b68](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5b71b68))
+
+
+
 <a name="0.12.7"></a>
 ## [0.12.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.12.6...v0.12.7) (2017-05-17)
 
