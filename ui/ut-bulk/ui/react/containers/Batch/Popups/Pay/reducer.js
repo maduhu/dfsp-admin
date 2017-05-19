@@ -12,6 +12,11 @@ export const bulkBatchPayPopup = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.OPEN_PAY_BATCH_POPUP:
       return state.set('batchId', action.params.batchId)
+    case actionTypes.GET_BATCH_TOTAL_AMOUNT:
+      if (action.result) {
+        return state.set('totalAmount', action.result.totalAmount)
+      }
+      break
     case actionTypes.CLOSE_PAY_BATCH_POPUP:
       return state.set('batchId', defaultState.get('batchId'))
     case actionTypes.CHANGE_EXPIRATION_DATE:

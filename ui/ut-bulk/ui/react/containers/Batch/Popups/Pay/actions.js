@@ -43,3 +43,11 @@ export function changePayAccount (account) {
     params: {account}
   }
 }
+
+export function getBatchTotalAmount (batchId) {
+  return {
+    type: actionTypes.GET_BATCH_TOTAL_AMOUNT,
+    method: 'bulk.batch.getTotalAmount',
+    params: {batchId}
+  }
+}
