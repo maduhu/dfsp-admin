@@ -5,7 +5,7 @@ import { AddTab } from 'ut-front-react/containers/TabMenu'
 import {updateTabTitle} from 'ut-front-react/containers/TabMenu/actions'
 import classnames from 'classnames'
 
-import Page from 'ut-front-react/components/PageLayout/Page.js';
+import Page from 'ut-front-react/components/PageLayout/Page.js'
 import GridToolbox from '../../containers/Payment/GridToolbox'
 import Header from 'ut-front-react/components/PageLayout/Header'
 import InnerHeader from '../../components/Header/'
@@ -21,8 +21,8 @@ import {getBatch} from '../../containers/Payment/Grid/actions'
 import {openPayPopup} from '../../containers/Batch/Popups/Pay/actions'
 import {openRejectBatchPopup} from '../../containers/Batch/Popups/RejectBatch/actions'
 
-import Pagination from '../../containers/Payment/Pagination';
-import { Vertical } from 'ut-front-react/components/Layout';
+import Pagination from '../../containers/Payment/Pagination'
+import { Vertical } from 'ut-front-react/components/Layout'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
@@ -66,7 +66,6 @@ class BulkPayment extends Component {
     return (
     <Page className={mainStyle.contentTableWrap}>
         <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='' />
-        
         <Vertical fixedComponent={
           <div>
             <div>
@@ -76,7 +75,6 @@ class BulkPayment extends Component {
               <GridToolbox batchId={this.props.params.batchId} checkPermission={this.context.checkPermission} />
             </div>
           </div>
-          
           }
         >
           <div className={classnames(mainStyle.tableWrap, style.tableWrap)}>
@@ -88,7 +86,6 @@ class BulkPayment extends Component {
               </div>
           </div>
         </Vertical>
-        
         <EditDetail checkPermission={this.context.checkPermission} />
         <PayBatch />
         <RejectBatch />

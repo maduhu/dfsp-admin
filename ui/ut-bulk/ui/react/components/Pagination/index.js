@@ -1,17 +1,17 @@
-import React, { Component, PropTypes } from 'react';
-import AdvancedPagination from 'ut-front-react/components/AdvancedPagination';
-import style from './style.css';
+import React, { Component, PropTypes } from 'react'
+import AdvancedPagination from 'ut-front-react/components/AdvancedPagination'
+import style from './style.css'
 
 class Pagination extends Component {
-    render() {
-        let { pagination, onUpdate } = this.props;
+  render () {
+    let { pagination, onUpdate } = this.props
 
-        return (
-            <div id={style.paginationWrap}>
-                <AdvancedPagination pagination={pagination} onUpdate={onUpdate} />
-            </div>
-        );
-    }
+    return (
+      <div id={style.paginationWrap}>
+          <AdvancedPagination pagination={pagination} onUpdate={onUpdate} />
+      </div>
+    )
+  }
 }
 
 Pagination.propTypes = {
@@ -21,12 +21,12 @@ Pagination.propTypes = {
      * recordsTotal
      * pagesTotal - not required (it can be calculated based on the rest information)
     */
-    pagination: PropTypes.object.isRequired, // immutable object
-    onUpdate: PropTypes.func
-};
+  pagination: PropTypes.object.isRequired, // immutable object
+  onUpdate: PropTypes.func
+}
 
 Pagination.defaultProps = {
-    onUpdate: () => {}
-};
+  onUpdate: () => {}
+}
 
-export default Pagination;
+export default Pagination
