@@ -24,6 +24,13 @@
   margin-right: 10px;
 }
 
+.amount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
 .row {
   margin-top: 10px;
   display: flex;
@@ -50,3 +57,23 @@
   color: #595959;
   min-width: 150px;
 }
+
+.whiteButton {
+  color: #444444;
+  border-color: #cccccc;
+  background-color: #ffffff;
+}
+
+.whiteButton:hover {
+  color: #000000;
+  border-color: #999999;
+  background-color: #ffffff;
+}
+
+.whiteButton:active {
+  color: #000000;
+  border-color: #999999;
+  background-color: #fafafa;
+}
+
+

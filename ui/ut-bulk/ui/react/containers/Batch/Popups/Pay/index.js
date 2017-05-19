@@ -51,11 +51,11 @@ export class PayBatchPopup extends Component {
       label: 'Pay',
       type: 'submit',
       onClick: this.onSubmit,
-      className: ['defaultBtn']
+      className: ['defaultBtn', style.whiteButton]
     }, {
       label: 'Cancel',
       onClick: this.onClose,
-      className: ['defaultBtn']
+      className: ['defaultBtn', style.whiteButton]
     })
     return buttons
   }
@@ -77,6 +77,9 @@ export class PayBatchPopup extends Component {
           }}
           closePopup={this.onClose}
         >
+          <div className={style.amount}>
+              Total amount to pay: ${this.props.totalAmount}
+          </div>
           <div className={style.payForm}>
             <div className={style.row}>
                Please fill the necessary informaiton
@@ -99,9 +102,6 @@ export class PayBatchPopup extends Component {
                 <DatePicker onChange={this.handleExpirationDateChange} defaultValue={this.props.expirationDate} />
               </div>
             </div>
-            <div className={style.row}>
-               Total amount to pay: ${this.props.totalAmount}
-            </div>
           </div>
       </Popup>
     )
@@ -112,7 +112,7 @@ PayBatchPopup.propTypes = {
   actions: PropTypes.object,
   actorId: PropTypes.string,
   batchId: PropTypes.string,
-  totalAmount: PropTypes.number,
+  totalAmount: PropTypes.string,
   isOpen: PropTypes.bool,
   accounts: PropTypes.arrayOf(PropTypes.object),
   selectedAccount: PropTypes.string,
