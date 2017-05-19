@@ -5,6 +5,7 @@ import { AddTab } from 'ut-front-react/containers/TabMenu'
 import {updateTabTitle} from 'ut-front-react/containers/TabMenu/actions'
 import classnames from 'classnames'
 
+import Page from 'ut-front-react/components/PageLayout/Page.js';
 import GridToolbox from '../../containers/Payment/GridToolbox'
 import Header from 'ut-front-react/components/PageLayout/Header'
 import InnerHeader from '../../components/Header/'
@@ -19,6 +20,9 @@ import {readyBatch} from '../../containers/Batch/GridToolbox/actions'
 import {getBatch} from '../../containers/Payment/Grid/actions'
 import {openPayPopup} from '../../containers/Batch/Popups/Pay/actions'
 import {openRejectBatchPopup} from '../../containers/Batch/Popups/RejectBatch/actions'
+
+import Pagination from '../../containers/Payment/Pagination';
+import { Vertical } from 'ut-front-react/components/Layout';
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
@@ -60,23 +64,35 @@ class BulkPayment extends Component {
   }
   render () {
     return (
-    <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
+    <Page className={mainStyle.contentTableWrap}>
         <AddTab pathname={getLink('ut-bulk:record', {batchId: this.props.params.batchId})} title='' />
-        <div>
-            <Header text={<InnerHeader batchName={this.props.batch.name} batchStatus={this.props.batch.status} />} buttons={this.getHeaderButtons()} />
-        </div>
-        <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
-          <GridToolbox batchId={this.props.params.batchId} checkPermission={this.context.checkPermission} />
-        </div>
-        <div className={classnames(mainStyle.tableWrap, style.tableWrap)}>
-            <div className={style.grid}>
-              <Grid batchId={this.props.params.batchId} />
+        
+        <Vertical fixedComponent={
+          <div>
+            <div>
+              <Header text={<InnerHeader batchName={this.props.batch.name} batchStatus={this.props.batch.status} />} buttons={this.getHeaderButtons()} />
             </div>
-        </div>
+            <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
+              <GridToolbox batchId={this.props.params.batchId} checkPermission={this.context.checkPermission} />
+            </div>
+          </div>
+          
+          }
+        >
+          <div className={classnames(mainStyle.tableWrap, style.tableWrap)}>
+              <div className={style.grid}>
+                <Grid batchId={this.props.params.batchId} />
+              </div>
+              <div className={style.paginationWrapper}>
+                <Pagination />
+              </div>
+          </div>
+        </Vertical>
+        
         <EditDetail checkPermission={this.context.checkPermission} />
         <PayBatch />
         <RejectBatch />
-    </div>
+    </Page>
     )
   }
 }
