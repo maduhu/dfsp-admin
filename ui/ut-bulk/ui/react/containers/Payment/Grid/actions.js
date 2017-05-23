@@ -8,6 +8,13 @@ export function fetchBatchPayments (params) {
   }
 }
 
+export function updatePagination (params) {
+  return {
+    type: actionTypes.PAYMENT_UPDATE_PAGINATION,
+    method: 'bulk.payment.fetch',
+    params: params.toJS() || {}
+  }
+}
 export function getBatch (params) {
   return {
     type: actionTypes.GET_BATCH,

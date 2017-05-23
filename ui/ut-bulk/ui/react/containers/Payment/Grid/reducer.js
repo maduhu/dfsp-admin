@@ -18,7 +18,13 @@ const defaultState = Map({
 export const bulkPaymentGrid = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_BATCH_PAYMENTS:
-      return state.set('data', List(action.result)).set('checkedRows', defaultState.get('checkedRows'))
+      if (action.methodRequestState === 'finished') {
+        return state
+          .set('data', List(action.result.data))
+          .set('checkedRows', defaultState.get('checkedRows'))
+          .set('pagination', Map(action.result.pagination))
+      }
+      return state
     case actionTypes.GET_BATCH:
       return state.set('batch', Map(action.result))
     case actionTypes.PAYMENT_ROW_ADD_CHECK:
@@ -37,6 +43,14 @@ export const bulkPaymentGrid = (state = defaultState, action) => {
       } else {
         return state.set('checkedRows', new Map(action.params.rows.map((el) => ([el.paymentId, el]))))
       }
+    case actionTypes.PAYMENT_UPDATE_PAGINATION:
+      if (action.methodRequestState === 'finished') {
+        return state
+          .set('data', List(action.result.data))
+          .set('checkedRows', defaultState.get('checkedRows'))
+          .set('pagination', Map(action.result.pagination))
+      }
+      return state
     default:
       break
   }
