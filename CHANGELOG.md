@@ -1,3 +1,18 @@
+<a name="0.14.0"></a>
+# [0.14.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.13.1...v0.14.0) (2017-05-23)
+
+
+### Bug Fixes
+
+* UIS-2652 style and lint problems ([1a3a7bf](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/1a3a7bf))
+
+
+### Features
+
+* UIS-2652 add pagination to the payments page ([dba71f9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/dba71f9))
+
+
+
 <a name="0.13.1"></a>
 ## [0.13.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.13.0...v0.13.1) (2017-05-19)
 
