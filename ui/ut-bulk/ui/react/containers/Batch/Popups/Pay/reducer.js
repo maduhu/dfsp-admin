@@ -5,6 +5,7 @@ const defaultState = Map({
   batchId: null,
   accounts: List(),
   expirationDate: null,
+  startDate: null,
   selectedAccount: null
 })
 
@@ -21,6 +22,8 @@ export const bulkBatchPayPopup = (state = defaultState, action) => {
       return state.set('batchId', defaultState.get('batchId'))
     case actionTypes.CHANGE_EXPIRATION_DATE:
       return state.set('expirationDate', action.params.expirationDate)
+    case actionTypes.CHANGE_START_DATE:
+      return state.set('startDate', action.params.startDate)
     case actionTypes.CHANGE_PAY_ACCOUNT:
       return state.set('selectedAccount', action.params.account)
     case actionTypes.FETCH_PAY_ACCOUNTS:

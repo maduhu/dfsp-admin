@@ -37,6 +37,13 @@ export function changeExpirationDate (expirationDate) {
   }
 }
 
+export function changeStartDate (startDate) {
+  return {
+    type: actionTypes.CHANGE_START_DATE,
+    params: {startDate}
+  }
+}
+
 export function changePayAccount (account) {
   return {
     type: actionTypes.CHANGE_PAY_ACCOUNT,
