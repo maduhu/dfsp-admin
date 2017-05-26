@@ -1,3 +1,14 @@
+<a name="0.15.0"></a>
+# [0.15.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.14.0...v0.15.0) (2017-05-26)
+
+
+### Features
+
+* UIS-2652 add batch start date where needed ([7a0b0e9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7a0b0e9))
+* UIS-2652 add new properties to the batch detail popup ([209afaa](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/209afaa))
+
+
+
 <a name="0.14.0"></a>
 # [0.14.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.13.1...v0.14.0) (2017-05-23)
 
