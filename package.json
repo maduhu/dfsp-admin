@@ -118,7 +118,7 @@
     "tap-xunit": "1.4.0",
     "url-loader": "0.5.7",
     "ut-po-loader": "^5.5.3",
-    "ut-tools": "^5.13.5",
+    "ut-tools": "^5.17.14",
     "ut-translate-loader": "^5.5.3",
     "webpack": "2.1.0-beta.27"
   },
