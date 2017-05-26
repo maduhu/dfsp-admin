@@ -1,3 +1,14 @@
+<a name="0.15.1"></a>
+## [0.15.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.0...v0.15.1) (2017-05-26)
+
+
+### Bug Fixes
+
+* pipeline ([aed70ac](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/aed70ac))
+* remove shrinkwrap and add it to the circleci pipeline ([cbeee2b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/cbeee2b))
+
+
+
 <a name="0.15.0"></a>
 # [0.15.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.14.0...v0.15.0) (2017-05-26)
 
