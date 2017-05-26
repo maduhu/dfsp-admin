@@ -14,6 +14,7 @@ export class PayBatchPopup extends Component {
     super(props)
     this.onClose = this.onClose.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.handleStartDateChange = this.handleStartDateChange.bind(this)
     this.handleExpirationDateChange = this.handleExpirationDateChange.bind(this)
     this.handlePayAccountChange = this.handlePayAccountChange.bind(this)
   }
@@ -31,14 +32,18 @@ export class PayBatchPopup extends Component {
   }
 
   onSubmit () {
-    let {batchId, expirationDate, selectedAccount, actions} = this.props
-    actions.pay(batchId, expirationDate, selectedAccount)
+    let {batchId, expirationDate, startDate, selectedAccount, actions} = this.props
+    actions.pay(batchId, expirationDate, startDate, selectedAccount)
       .then(() => actions.closePayPopup())
       .then(() => this.props.getBatch({batchId}))
   }
 
   handleExpirationDateChange (date) {
     this.props.actions.changeExpirationDate(date.value)
+  }
+
+  handleStartDateChange (date) {
+    this.props.actions.changeStartDate(date.value)
   }
 
   handlePayAccountChange (record) {
@@ -97,9 +102,15 @@ export class PayBatchPopup extends Component {
               </div>
             </div>
             <div className={style.row}>
+              <div className={style.label}>Start Date:</div>
+              <div className={style.inputWrapper}>
+                <DatePicker onChange={this.handleStartDateChange} defaultValue={this.props.startDate} />
+              </div>
+            </div>
+            <div className={style.row}>
               <div className={style.label}>Finish Date:</div>
               <div className={style.inputWrapper}>
-                <DatePicker onChange={this.handleExpirationDateChange} defaultValue={this.props.expirationDate} />
+                <DatePicker onChange={this.handleExpirationDateChange} defaultValue={this.props.expirationDate} minDate={new Date(this.props.startDate)} />
               </div>
             </div>
           </div>
@@ -117,6 +128,7 @@ PayBatchPopup.propTypes = {
   accounts: PropTypes.arrayOf(PropTypes.object),
   selectedAccount: PropTypes.string,
   expirationDate: PropTypes.object,
+  startDate: PropTypes.object,
   getBatch: PropTypes.func
 }
 
@@ -133,6 +145,7 @@ export default connect(
       accounts: state.bulkBatchPayPopup.get('accounts').toJS(),
       selectedAccount: state.bulkBatchPayPopup.get('selectedAccount'),
       expirationDate: state.bulkBatchPayPopup.get('expirationDate') ? new Date(state.bulkBatchPayPopup.get('expirationDate')) : null,
+      startDate: state.bulkBatchPayPopup.get('startDate') ? new Date(state.bulkBatchPayPopup.get('startDate')) : null,
       totalAmount: state.bulkBatchPayPopup.get('totalAmount')
     }
   },
