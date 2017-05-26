@@ -1,3 +1,13 @@
+<a name="0.15.2"></a>
+## [0.15.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.1...v0.15.2) (2017-05-26)
+
+
+### Bug Fixes
+
+* add some dependencies as devDependencies ([16afaa0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/16afaa0))
+
+
+
 <a name="0.15.1"></a>
 ## [0.15.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.0...v0.15.1) (2017-05-26)
 
