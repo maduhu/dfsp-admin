@@ -87,7 +87,10 @@ export class BatchDetailPopup extends Component {
               <Input value={item.paymentsCount} label='Number of records:' readonly inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
-              <Input value={this.context.dateFormat(item.updatedAt, 'MM/DD/YYYY HH:MM')} label='Start Time:' readonly inputWrapClassName={style.inputWrapClassName} />
+              <Input value={this.context.dateFormat(item.startDate, 'MM/DD/YYYY HH:MM')} label='Start Time:' readonly inputWrapClassName={style.inputWrapClassName} />
+            </div>
+            <div className={style.row}>
+              <Input value={this.context.dateFormat(item.expirationDate, 'MM/DD/YYYY HH:MM')} label='End Time:' readonly inputWrapClassName={style.inputWrapClassName} />
             </div>
             <div className={style.row}>
               <Input value={this.context.dateFormat(item.updatedAt, 'MM/DD/YYYY HH:MM')} label='Updated On:' readonly inputWrapClassName={style.inputWrapClassName} />
