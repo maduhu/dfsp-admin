@@ -1,3 +1,13 @@
+<a name="0.15.5"></a>
+## [0.15.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.4...v0.15.5) (2017-05-30)
+
+
+### Bug Fixes
+
+* bug in bulk.batch.process ([02c8a81](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/02c8a81))
+
+
+
 <a name="0.15.4"></a>
 ## [0.15.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.3...v0.15.4) (2017-05-30)
 
