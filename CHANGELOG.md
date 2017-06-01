@@ -1,3 +1,13 @@
+<a name="0.15.6"></a>
+## [0.15.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.5...v0.15.6) (2017-06-01)
+
+
+### Bug Fixes
+
+* account property name ([10c7ea8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/10c7ea8))
+
+
+
 <a name="0.15.5"></a>
 ## [0.15.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.4...v0.15.5) (2017-05-30)
 
