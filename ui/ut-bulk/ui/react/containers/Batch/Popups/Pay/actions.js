@@ -22,11 +22,11 @@ export function closePayPopup () {
   }
 }
 
-export function pay (batchId, expirationDate, startDate, selectedAccount) {
+export function pay (batchId, expirationDate, startDate, account) {
   return {
     type: actionTypes.PAY_BATCH,
     method: 'bulk.batch.process',
-    params: {batchId, expirationDate, startDate, selectedAccount}
+    params: {batchId, expirationDate, startDate, account}
   }
 }
 
