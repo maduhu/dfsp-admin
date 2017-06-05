@@ -1,3 +1,13 @@
+<a name="0.15.7"></a>
+## [0.15.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.6...v0.15.7) (2017-06-05)
+
+
+### Bug Fixes
+
+* calculate total amount acording to the batchId ([7c972d5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7c972d5))
+
+
+
 <a name="0.15.6"></a>
 ## [0.15.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.5...v0.15.6) (2017-06-01)
 
