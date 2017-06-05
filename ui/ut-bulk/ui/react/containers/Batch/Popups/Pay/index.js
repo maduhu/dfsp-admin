@@ -19,12 +19,9 @@ export class PayBatchPopup extends Component {
     this.handlePayAccountChange = this.handlePayAccountChange.bind(this)
   }
 
-  componentWillMount () {
-    this.props.actions.getBatchTotalAmount(1)
-  }
-
   componentWillReceiveProps (nextProps) {
     !this.props.isOpen && nextProps.isOpen && this.props.actions.fetchAccounts(this.props.actorId)
+    !this.props.isOpen && nextProps.isOpen && this.props.actions.getBatchTotalAmount(nextProps.batchId)
   }
 
   onClose () {

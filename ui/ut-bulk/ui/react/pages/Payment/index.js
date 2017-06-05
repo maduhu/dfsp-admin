@@ -82,7 +82,7 @@ class BulkPayment extends Component {
                 <Grid batchId={this.props.params.batchId} />
               </div>
               <div className={style.paginationWrapper}>
-                <Pagination />
+                <Pagination params={this.props.params} />
               </div>
           </div>
         </Vertical>

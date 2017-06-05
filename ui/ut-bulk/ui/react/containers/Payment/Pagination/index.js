@@ -7,7 +7,7 @@ class BulkPaymentPagination extends Component {
   render () {
     return (
       <div>
-        <Pagination pagination={this.props.pagination} onUpdate={this.props.update} />
+        <Pagination pagination={this.props.pagination.concat(this.props.params)} onUpdate={this.props.update} />
       </div>
     )
   }
@@ -15,7 +15,8 @@ class BulkPaymentPagination extends Component {
 
 BulkPaymentPagination.propTypes = {
   pagination: PropTypes.object,
-  update: PropTypes.func
+  update: PropTypes.func,
+  params: PropTypes.object
 }
 
 export default connect(
