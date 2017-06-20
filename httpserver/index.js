@@ -6,11 +6,6 @@ module.exports = {
   imports: ['utfront', 'frontend', 'adminHTTP', 'bulk.start'],
   api: ['identity'],
   port: 8020,
-  allowXFF: true,
-  disableXsrf: {
-    http: true,
-    ws: true
-  },
   dist: path.resolve(__dirname, '../dist'),
   entryPoint: path.join(__dirname, '..', 'browser', 'index.js'),
   validationPassThrough: true,
