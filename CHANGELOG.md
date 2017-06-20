@@ -1,3 +1,13 @@
+<a name="0.15.9"></a>
+## [0.15.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.8...v0.15.9) (2017-06-20)
+
+
+### Bug Fixes
+
+* update ut-bus and ut-port-httpserver ([0ac13d5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0ac13d5))
+
+
+
 <a name="0.15.8"></a>
 ## [0.15.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.7...v0.15.8) (2017-06-12)
 
