@@ -1,3 +1,8 @@
+<a name="0.15.10"></a>
+## [0.15.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.9...v0.15.10) (2017-06-20)
+
+
+
 <a name="0.15.9"></a>
 ## [0.15.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.8...v0.15.9) (2017-06-20)
 
