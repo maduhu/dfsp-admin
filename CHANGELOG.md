@@ -1,3 +1,13 @@
+<a name="0.15.11"></a>
+## [0.15.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.10...v0.15.11) (2017-06-28)
+
+
+### Bug Fixes
+
+* fix batch grid pagination ([5c3016b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5c3016b))
+
+
+
 <a name="0.15.10"></a>
 ## [0.15.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.9...v0.15.10) (2017-06-20)
 
