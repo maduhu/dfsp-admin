@@ -9,6 +9,10 @@ module.exports = {
   dist: path.resolve(__dirname, '../dist'),
   entryPoint: path.join(__dirname, '..', 'browser', 'index.js'),
   validationPassThrough: true,
+  allowXFF: true,
+  disableXsrf: {
+    http: true
+  },
   cssImport: {
     path: [path.resolve(__dirname, '../config')]
   },
