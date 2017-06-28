@@ -42,7 +42,7 @@
     "pm2": "1.1.3",
     "stream-browserify": "2.0.1",
     "strict-uri-encode": "1.1.0",
-    "ut-bus": ">=5.12.0-perf.2 <5.12.0",
+    "ut-bus": "^5.12.1",
     "ut-error": "5.4.2",
     "ut-front": "6.4.8",
     "ut-front-react": "^8.19.13",
