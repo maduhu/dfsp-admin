@@ -3,28 +3,27 @@ import {connect} from 'react-redux'
 import Pagination from '../../../components/Pagination'
 import {updatePagination as update} from '../Grid/actions'
 
-class BulkPaymentPagination extends Component {
+class BulkBatchPagination extends Component {
   render () {
-    debugger
+    debugger;
     return (
       <div>
-        <Pagination pagination={this.props.pagination.concat(this.props.params)} onUpdate={this.props.update} />
+        <Pagination pagination={this.props.pagination} onUpdate={this.props.update} />
       </div>
     )
   }
 }
 
-BulkPaymentPagination.propTypes = {
+BulkBatchPagination.propTypes = {
   pagination: PropTypes.object,
-  update: PropTypes.func,
-  params: PropTypes.object
+  update: PropTypes.func
 }
 
 export default connect(
   (state, ownProps) => {
     return {
-      pagination: state.bulkPaymentGrid.get('pagination')
+      pagination: state.bulkBatchGrid.get('pagination')
     }
   },
   {update}
-)(BulkPaymentPagination)
+)(BulkBatchPagination)

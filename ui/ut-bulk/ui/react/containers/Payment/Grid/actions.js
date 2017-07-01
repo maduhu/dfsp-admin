@@ -15,6 +15,7 @@ export function updatePagination (params) {
     params: params.toJS() || {}
   }
 }
+
 export function getBatch (params) {
   return {
     type: actionTypes.GET_BATCH,

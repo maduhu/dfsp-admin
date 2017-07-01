@@ -8,6 +8,15 @@ export function fetchBatches (params) {
   }
 }
 
+export function updatePagination (params) {
+  debugger
+  return {
+    type: actionTypes.BATCH_UPDATE_PAGINATION,
+    method: 'bulk.batch.fetch',
+    params: params.toJS() || {}
+  }
+}
+
 export function checkRow (row) {
   return {
     type: actionTypes.CHECK_ROW,

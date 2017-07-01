@@ -30,6 +30,14 @@ export const bulkBatchGrid = (state = defaultState, action) => {
       return action.params.row.batchId === state.getIn(['checkedRow', 'batchId']) ? state.set('checkedRow', Map({})) : state.set('checkedRow', Map(action.params.row))
     case TOGGLE_PRELOAD:
       return state.set('checkedRow', Map({}))
+    case actionTypes.BATCH_UPDATE_PAGINATION:
+      if (action.methodRequestState === 'finished') {
+        return state
+          .set('fetchBatches', List(action.result.data))
+          .set('checkedRow', defaultState.get('checkedRow'))
+          .set('pagination', Map(action.result.pagination))
+      }
+      return state
     default:
       break
   }

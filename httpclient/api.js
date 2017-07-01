@@ -2,7 +2,7 @@ module.exports = {
   id: 'api',
   createPort: require('ut-port-jsonrpc'),
   url: 'http://localhost:8010',
-  namespace: ['identity', 'rule', 'bulk', 'ledger'],
+  namespace: ['identity', 'rule', 'bulk', 'ledger', 'notification'],
   method: 'post',
   send: function (msg, $meta) {
     if ($meta.auth && $meta.auth.actorId) {

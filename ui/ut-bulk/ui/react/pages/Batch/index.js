@@ -9,6 +9,7 @@ import Header from 'ut-front-react/components/PageLayout/Header'
 
 import Grid from '../../containers/Batch/Grid'
 import DetailEdit from '../../containers/Batch/Popups/Details'
+import Pagination from '../../containers/Batch/Pagination'
 
 import mainStyle from 'ut-front-react/assets/index.css'
 import style from '../style.css'
@@ -59,6 +60,9 @@ class BulkBatch extends Component {
         <div className={classnames(mainStyle.tableWrap, style.tableWrap)}>
             <div className={style.grid}>
               <Grid />
+            </div>
+            <div className={style.paginationWrapper}>
+              <Pagination />
             </div>
         </div>
         {this.state.uploadPopup &&
