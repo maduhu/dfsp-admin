@@ -5,21 +5,19 @@ import * as actionTypes from './actionTypes'
 
 const defaultState = Map({
   fields: List([
-    {title: 'Name', name: 'name', visible: true},
-    {title: 'Channel', name: 'channelId', visible: true},
-    {title: 'Operation', name: 'operationId', visible: true},
-    {title: 'Target', name: 'targetId', visible: true},
-    {title: 'Content', name: 'content', visible: true}
+    {title: 'Destination', name: 'destination', visible: true},
+    {title: 'Content', name: 'content', visible: true},
+    {title: 'Status', name: 'status', visible: true},
+    {title: 'Created On', name: 'createdOn', visible: true},
+    {title: 'Updated On', name: 'updatedOn', visible: true}
   ]),
   data: List([]),
-  channels: List([]),
-  operations: List([]),
-  targets: List([]),
   rowsChecked: List([]),
+  templates: List([]),
   pagination: Map()
 })
 
-export const smsTemplatesGrid = (state = defaultState, action) => {
+export const smsReportsGrid = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.CHANGE_FIELD_VISIBILITY:
       return state.update('fields', fields =>
@@ -31,39 +29,13 @@ export const smsTemplatesGrid = (state = defaultState, action) => {
           return field
         })
       )
-    case actionTypes.FETCH_TEMPLATES:
+    case actionTypes.FETCH_REPORTS:
       if (action.methodRequestState === methodRequestState.FINISHED) {
         return state.set('data', List(action.result.data)).set('pagination', Map(action.result.pagination))
       }
       return state
-    case actionTypes.FETCH_CHANNELS:
-      if (action.methodRequestState === methodRequestState.FINISHED) {
-        let channels = action.result.map(channel => ({
-          key: channel.channelId,
-          name: channel.name
-        }))
-        return state.set('channels', List(channels))
-      }
+    case actionTypes.GET_STATUS:
       return state
-    case actionTypes.FETCH_OPERATIONS:
-      if (action.methodRequestState === methodRequestState.FINISHED) {
-        let operations = action.result.map(operation => ({
-          key: operation.operationId,
-          name: operation.name
-        }))
-        return state.set('operations', List(operations))
-      }
-      return state
-    case actionTypes.FETCH_TARGETS:
-      if (action.methodRequestState === methodRequestState.FINISHED) {
-        let targets = action.result.map(target => ({
-          key: target.targetId,
-          name: target.name
-        }))
-        return state.set('targets', List(targets))
-      }
-      return state
-
     case actionTypes.TOGGLE_ROW_CHECK:
       return state.set('rowsChecked', List([action.params.row]))
     case actionTypes.TOGGLE_HEADER_CHECK_ALL:

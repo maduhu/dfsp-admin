@@ -12,7 +12,8 @@ const contextTypes = {
 }
 
 const propTypes = {
-  actions: PropTypes.object
+  canClickDetails: PropTypes.bool.isRequired,
+  handleDetailClick: PropTypes.func
 }
 
 class SMSTemplatesGridToolbox extends Component {
@@ -23,31 +24,24 @@ class SMSTemplatesGridToolbox extends Component {
     }
   }
 
-  handleDetailClick () {
-
-  }
-
-  handleDeleteClick () {
-
-  }
-
   getToolboxButtons () {
     let className = 'button btn btn-primary'
     let buttons = [
       <button
-        onClick={this.handleDetailClick}
+        onClick={this.props.handleDetailClick}
         className={className}
         key='details'
+        disabled={this.props.canClickDetails}
       >
         Details
-      </button>,
-      <button
-        onClick={this.handleDeleteClick}
-        className={className}
-        key='delete'
-      >
-        Delete
       </button>
+      // <button
+      //   onClick={this.handleDeleteClick}
+      //   className={className}
+      //   key='delete'
+      // >
+      //   Delete
+      // </button>
     ]
     return buttons
   }
@@ -75,7 +69,7 @@ SMSTemplatesGridToolbox.contextTypes = contextTypes
 SMSTemplatesGridToolbox.propTypes = propTypes
 
 const mapStateToProps = (state, ownProps) => ({
-
+  canClickDetails: state.smsTemplatesGrid.get('rowsChecked').size === 1
 })
 
 const mapDispatchToProps = {

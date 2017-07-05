@@ -19,6 +19,10 @@
   justify-content: flex-end;
 }
 
+.fullWidth {
+  width: 100%
+}
+
 .footer button {
   margin-right: 10px;
 }
@@ -83,6 +87,16 @@
     width: 328px;
     display: inline-block;
     vertical-align: top;
+}
+
+.inputWrapper {
+    width: 480px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.inputWrapper input {
+    color: #595959 !important;
 }
 
 .label {

@@ -21,22 +21,14 @@ export const toggleRowCheckboxCheck = (isChecked, row, a1) => ({
 })
 
 // fetch needed data
-export const fetchTemplates = (params) => ({
-  type: actionTypes.FETCH_TEMPLATES,
-  method: 'notification.template.fetch'
+export const getStatus = (params) => ({
+  type: actionTypes.GET_STATUS,
+  method: 'notification.status.get',
+  params
 })
 
-export const fetchChannels = (params) => ({
-  type: actionTypes.FETCH_CHANNELS,
-  method: 'notification.channel.fetch'
-})
-
-export const fetchOperations = (params) => ({
-  type: actionTypes.FETCH_OPERATIONS,
-  method: 'notification.operation.fetch'
-})
-
-export const fetchTargets = (params) => ({
-  type: actionTypes.FETCH_TARGETS,
-  method: 'notification.target.fetch'
+export const fetchReports = (params) => ({
+  type: actionTypes.FETCH_REPORTS,
+  method: 'notification.notification.fetch',
+  params: params || {}
 })
