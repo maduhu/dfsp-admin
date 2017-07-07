@@ -10,7 +10,7 @@ import Popup from 'ut-front-react/components/Popup'
 import style from './style.css'
 
 const propTypes = {
-  purpose: PropTypes.oneOf(['create', 'edit']),
+  purpose: PropTypes.oneOf(['create', 'edit']).isRequired,
   editItemRow: PropTypes.shape({
     templateId: PropTypes.number,
     name: PropTypes.string,
@@ -88,7 +88,7 @@ export class SMSDetailsPopup extends Component {
   }
 
   componentWillReceiveProps (newProps) {
-    if (newProps.purpose === 'edit') {
+    if (newProps.purpose === 'edit' && this.props.purpose === 'create') {
       this.props.actions.mergeEditFields(this.props.editItemRow)
     } else if (newProps.purpose === 'create' && this.props.purpose === 'edit') {
       this.props.actions.resetFields()
@@ -218,6 +218,7 @@ SMSDetailsPopup.contextTypes = contextTypes
 const mapStateToProps = (state, ownprops) => ({
   fields: state.smsTemplatesDialog.get('fields').toJS(),
   isOpen: state.smsTemplatesDialog.get('isOpen'),
+  purpose: state.smsTemplatesDialog.get('purpose'),
   channels: state.smsTemplatesGrid.get('channels').toJS(),
   operations: state.smsTemplatesGrid.get('operations').toJS(),
   targets: state.smsTemplatesGrid.get('targets').toJS(),

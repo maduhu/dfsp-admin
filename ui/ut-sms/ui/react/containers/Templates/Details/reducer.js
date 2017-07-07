@@ -5,6 +5,7 @@ import * as actionTypes from './actionTypes'
 
 const defaultState = Map({
   isOpen: false,
+  purpose: 'create',
   fields: Map({
     name: '',
     channel: null,
@@ -30,6 +31,8 @@ export const smsTemplatesDialog = (state = defaultState, action) => {
       return defaultState
     case actionTypes.RESET_FIELDS:
       return state.set('fields', defaultState.get('fields'))
+    case actionTypes.SET_PURPOSE:
+      return state.set('purpose', action.params.purpose)
     case actionTypes.MERGE_EDIT_FIELDS:
       return state
         .setIn(['fields', 'name'], action.params.editItemRow.name)

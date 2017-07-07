@@ -2,7 +2,7 @@ import {Map, List} from 'immutable'
 import { methodRequestState } from 'ut-front-react/constants'
 
 import * as actionTypes from './actionTypes'
-// import * as clearFilterActions from '../ClearFilter/actionTypes'
+import { CLEAR_SMS_REPORT_FILTER } from '../ClearFilter/actionTypes'
 
 const defaultState = Map({
   statusId: null,
@@ -22,8 +22,8 @@ export const smsReportsFilterByStatus = (state = defaultState, action) => {
         return state.set('statuses', List(action.result.map(status => ({key: status.statusId, name: status.name}))))
       }
       return state
-    // case clearFilterActions.CLEAR_BATCH_FILTER:
-    //   return defaultState
+    case CLEAR_SMS_REPORT_FILTER:
+      return state.set('statusId', null)
   }
   return state
 }

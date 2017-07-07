@@ -17,6 +17,11 @@ export const resetFields = () => ({
   type: actionTypes.RESET_FIELDS
 })
 
+export const setPurpose = (purpose) => ({
+  type: actionTypes.SET_PURPOSE,
+  params: { purpose }
+})
+
 export const mergeEditFields = (editItemRow) => ({
   type: actionTypes.MERGE_EDIT_FIELDS,
   params: { editItemRow }

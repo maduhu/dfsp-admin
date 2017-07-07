@@ -13,10 +13,12 @@ import Toolbox from '../../containers/Templates/GridToolbox'
 import Grid from '../../containers/Templates/Grid'
 import Details from '../../containers/Templates/Details'
 
-import { toggleDialogVisibility } from '../../containers/Templates/Details/actions'
+import { setPurpose, toggleDialogVisibility } from '../../containers/Templates/Details/actions'
 
 const propTypes = {
-  toggleDialogVisibility: PropTypes.func.isRequired
+  toggleDialogVisibility: PropTypes.func.isRequired,
+  isDialogOpen: PropTypes.bool.isRequired,
+  setPurpose: PropTypes.func.isRequired
 }
 
 const contextTypes = {
@@ -27,29 +29,19 @@ class SMSTemplates extends Component {
   constructor (props, context) {
     super(props, context)
     this.getHeaderButtons = this.getHeaderButtons.bind(this)
-    this.handleDetailClick = this.handleDetailClick.bind(this)
     this.handleCreateClick = this.handleCreateClick.bind(this)
-    this.state = {
-      detailPurpose: 'create'
-    }
-  }
-
-  handleDetailClick () {
-    this.setState({detailPurpose: 'edit'}, () => {
-      this.props.toggleDialogVisibility()
-    })
-  }
-
-  handleCreateClick () {
-    this.setState({detailPurpose: 'create'}, () => {
-      this.props.toggleDialogVisibility()
-    })
   }
 
   getHeaderButtons () {
     let buttons = []
     buttons.push({text: 'Create', onClick: this.handleCreateClick})
     return buttons
+  }
+
+  handleCreateClick () {
+    const { setPurpose, toggleDialogVisibility } = this.props
+    setPurpose('create')
+    toggleDialogVisibility()
   }
 
   renderHeader () {
@@ -63,7 +55,7 @@ class SMSTemplates extends Component {
   renderGridToolbox () {
     return (
       <div className={classnames(mainStyle.actionBarWrap, style.actionBarWrap)}>
-        <Toolbox handleDetailClick={this.handleDetailClick} />
+        <Toolbox />
       </div>
     )
   }
@@ -79,16 +71,14 @@ class SMSTemplates extends Component {
   }
 
   render () {
+    const { isDialogOpen } = this.props
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
         <AddTab pathname={getLink('ut-sms:templates')} title='SMS Templates' />
         {this.renderHeader()}
         {this.renderGridToolbox()}
         {this.renderGrid()}
-        <Details
-          purpose={this.state.detailPurpose}
-          row={this.props.editItemRow}
-        />
+        <Details />
     </div>
     )
   }
@@ -99,14 +89,13 @@ SMSTemplates.contextTypes = contextTypes
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    editItemRow: state.smsTemplatesGrid.getIn(['rowsChecked']).size > 0
-    ? state.smsTemplatesGrid.getIn(['rowsChecked']).first()
-    : {}
+    isDialogOpen: state.smsTemplatesDialog.get('isOpen')
   }
 }
 
 const mapDispatchToProps = {
-  toggleDialogVisibility
+  toggleDialogVisibility,
+  setPurpose
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SMSTemplates)

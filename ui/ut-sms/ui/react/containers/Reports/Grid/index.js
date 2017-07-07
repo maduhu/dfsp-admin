@@ -96,21 +96,16 @@ class SMSReportsGrid extends Component {
 
     const {
       toggleRowCheck,
-      toggleHeaderCheckAll,
-      changeFieldVisibility,
-      toggleRowCheckboxCheck
+      changeFieldVisibility
     } = this.props.actions
 
     return (
       <SimpleGrid
         transformCellValue={this.handleTransformCellValue}
         handleCellClick={toggleRowCheck}
-        handleCheckboxSelect={toggleRowCheckboxCheck}
-        handleHeaderCheckboxSelect={toggleHeaderCheckAll}
         toggleColumnVisibility={changeFieldVisibility}
         rowsChecked={rowsChecked}
         emptyRowsMsg={<Text>No result</Text>}
-        multiSelect
         globalMenu
         fields={fields}
         data={data}
@@ -123,24 +118,26 @@ SMSReportsGrid.propTypes = propTypes
 
 SMSReportsGrid.contextTypes = contextTypes
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    changeId: state.smsReportsFilterByStatus.get('changeId'),
-    fields: state.smsReportsGrid.get('fields').toJS(),
-    data: state.smsReportsGrid.get('data').toJS(),
-    rowsChecked: state.smsReportsGrid.get('rowsChecked').toJS(),
-    filters: {
-      notificationId: null,
-      templateId: null,
-      statusId: state.smsReportsFilterByStatus.get('statusId'),
-      destination: null,
-      from: null,
-      to: null,
-      pageSize: null,
-      pageNumber: null
-    }
+const mapStateToProps = (state, ownProps) => ({
+  changeId:
+    state.smsReportsFilterByStatus.get('changeId') +
+    state.smsReportsFilterByTemplate.get('changeId') +
+    state.smsReportsFilterByDestination.get('changeId') +
+    state.smsReportsFilterByDate.get('changeId'),
+  fields: state.smsReportsGrid.get('fields').toJS(),
+  data: state.smsReportsGrid.get('data').toJS(),
+  rowsChecked: state.smsReportsGrid.get('rowsChecked').toJS(),
+  filters: {
+    notificationId: null,
+    templateId: state.smsReportsFilterByTemplate.get('templateId'),
+    statusId: state.smsReportsFilterByStatus.get('statusId'),
+    destination: state.smsReportsFilterByDestination.get('destination'),
+    from: state.smsReportsFilterByDate.get('startDate'),
+    to: state.smsReportsFilterByDate.get('endDate'),
+    pageSize: null,
+    pageNumber: null
   }
-}
+})
 
 const mapDispatchToProps = dispatch => {
   return {

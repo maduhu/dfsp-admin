@@ -31,7 +31,9 @@ export const smsReportsGrid = (state = defaultState, action) => {
       )
     case actionTypes.FETCH_REPORTS:
       if (action.methodRequestState === methodRequestState.FINISHED) {
-        return state.set('data', List(action.result.data)).set('pagination', Map(action.result.pagination))
+        return state.set('data', List(action.result.data))
+                    .set('pagination', Map(action.result.pagination))
+                    .set('rowsChecked', List([]))
       }
       return state
     case actionTypes.GET_STATUS:

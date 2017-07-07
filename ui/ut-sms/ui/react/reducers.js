@@ -3,7 +3,9 @@ import { smsTemplatesGrid } from './containers/Templates/Grid/reducer'
 import { smsTemplatesDialog } from './containers/Templates/Details/reducer'
 import { smsReportsGrid } from './containers/Reports/Grid/reducer'
 import { smsReportsFilterByStatus } from './containers/Reports/Filters/ByStatus/reducer'
-import { smsReportsToolbox } from './containers/Reports/GridToolbox/reducer'
+import { smsReportsFilterByTemplate } from './containers/Reports/Filters/ByTemplate/reducer'
+import { smsReportsFilterByDestination } from './containers/Reports/Filters/ByDestination/reducer'
+import { smsReportsFilterByDate } from './containers/Reports/Filters/ByDate/reducer'
 
 export default {
   // smsReportFilterDate,
@@ -11,5 +13,7 @@ export default {
   smsTemplatesDialog,
   smsReportsGrid,
   smsReportsFilterByStatus,
-  smsReportsToolbox
+  smsReportsFilterByTemplate,
+  smsReportsFilterByDestination,
+  smsReportsFilterByDate
 }

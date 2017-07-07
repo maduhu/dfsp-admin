@@ -1,38 +1,23 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
 
 import SimpleGridToolbox from 'ut-front-react/components/SimpleGridToolbox'
 
-import * as actions from './actions'
-
 import ByStatus from '../Filters/ByStatus'
+import ByTemplate from '../Filters/ByTemplate'
+import ByDestination from '../Filters/ByDestination'
+import ByDate from '../Filters/ByDate'
+import ClearFilter from '../Filters/ClearFilter'
 import style from './style.css'
 
 const contextTypes = {
-  router: PropTypes.object,
-  checkPermission: PropTypes.func
+  router: PropTypes.shape({}).isRequired,
+  checkPermission: PropTypes.func.isRequired
 }
 
 const propTypes = {
-  // mapDispatchToProps
-  actions: PropTypes.object,
   // mapStateToProps
-  filtersOpened: PropTypes.bool.isRequired,
-  buttonsOpened: PropTypes.bool.isRequired,
-  showClearFilter: PropTypes.bool.isRequired,
-  checkedRow: PropTypes.shape({
-    content: PropTypes.string,
-    createdOn: PropTypes.string,
-    destination: PropTypes.string,
-    notificationId: PropTypes.number,
-    statusId: PropTypes.number,
-    statusName: PropTypes.string,
-    templateId: PropTypes.number,
-    updatedOn: PropTypes.string
-  }),
-  setDatailItem: PropTypes.func,
-  isTitleLink: PropTypes.bool
+  showClearFilter: PropTypes.number.isRequired
 }
 
 const defaultProps = {
@@ -40,60 +25,24 @@ const defaultProps = {
 }
 
 class GridToolbox extends Component {
-  constructor (props) {
-    super(props)
-    this.handleDetailClick = this.handleDetailClick.bind(this)
-    this.state = {
-      replacePopup: false
-    }
-  }
-
-  handleDetailClick () {
-    console.log('Clicked', this.props.checkedRow)
-  }
-
-  getToolboxButtons () {
-    let className = 'button btn btn-primary'
-    let buttons = [
-      <button
-        onClick={this.handleDetailClick}
-        disabled={!this.props.checkedRow}
-        className={className}
-        key='details'
-      >
-        Details
-      </button>
-    ]
-    return buttons
-  }
-
-  renderToolboxButtons () {
-    return (
-      <div className={style.filterWrap}>
-        <div className={style.buttonWrap}>
-          {this.getToolboxButtons()}
-        </div>
-      </div>
-    )
-  }
 
   renderToolboxFilters () {
     return (
       <div className={style.filterWrap}>
+        <ByDestination className={style.standardFilter} />
         <ByStatus className={style.standardFilter} />
+        <ByTemplate className={style.standardFilter} />
+        <ByDate className={style.doubleDateInput} />
+        {this.props.showClearFilter && <ClearFilter />}
       </div>
     )
   }
 
   render () {
-    let toggle = this.props.isTitleLink ? this.props.actions.toggle : null
     return (
       <span>
-        <SimpleGridToolbox opened={this.props.filtersOpened} title='Filter By' isTitleLink={this.props.isTitleLink} toggle={toggle}>
+        <SimpleGridToolbox opened title='Filter By'>
           {this.renderToolboxFilters()}
-        </SimpleGridToolbox>
-        <SimpleGridToolbox opened={this.props.buttonsOpened} title='Show Filters' isTitleLink toggle={this.props.actions.toggle}>
-          {this.renderToolboxButtons()}
         </SimpleGridToolbox>
       </span>
     )
@@ -107,17 +56,12 @@ GridToolbox.contextTypes = contextTypes
 export default connect(
     (state, ownProps) => {
       return {
-        filtersOpened: state.smsReportsToolbox.getIn(['filters', 'opened']),
-        buttonsOpened: state.smsReportsToolbox.getIn(['buttons', 'opened']),
-        showClearFilter: state.smsReportsFilterByStatus.get('changeId'),
-        checkedRow: state.smsReportsGrid.get('rowsChecked').first(),
-        isTitleLink: state.smsReportsGrid.get('rowsChecked').size > 0,
-        canViewDetails: state.smsReportsGrid.get('rowsChecked').size === 1
-      }
-    },
-    (dispatch) => {
-      return {
-        actions: bindActionCreators(actions, dispatch)
+        showClearFilter:
+          state.smsReportsFilterByDate.get('startDate') ||
+          state.smsReportsFilterByDate.get('endDate') ||
+          state.smsReportsFilterByDestination.get('destination') ||
+          state.smsReportsFilterByStatus.get('statusId') ||
+          state.smsReportsFilterByTemplate.get('templateId')
       }
     }
 )(GridToolbox)

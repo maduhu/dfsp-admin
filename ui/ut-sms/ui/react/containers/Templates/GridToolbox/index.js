@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 // import {bindActionCreators} from 'redux'
 
 import SimpleGridToolbox from 'ut-front-react/components/SimpleGridToolbox'
+import { setPurpose, toggleDialogVisibility } from '../Details/actions'
 
 import style from './style.css'
 
@@ -13,35 +14,33 @@ const contextTypes = {
 
 const propTypes = {
   canClickDetails: PropTypes.bool.isRequired,
-  handleDetailClick: PropTypes.func
+  setPurpose: PropTypes.func.isRequired,
+  toggleDialogVisibility: PropTypes.func.isRequired
 }
 
 class SMSTemplatesGridToolbox extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      replacePopup: false
-    }
+    this.handleDetailClick = this.handleDetailClick.bind(this)
+  }
+
+  handleDetailClick () {
+    const { setPurpose, toggleDialogVisibility } = this.props
+    setPurpose('edit')
+    toggleDialogVisibility()
   }
 
   getToolboxButtons () {
     let className = 'button btn btn-primary'
     let buttons = [
       <button
-        onClick={this.props.handleDetailClick}
+        onClick={this.handleDetailClick}
         className={className}
         key='details'
-        disabled={this.props.canClickDetails}
+        disabled={!this.props.canClickDetails}
       >
         Details
       </button>
-      // <button
-      //   onClick={this.handleDeleteClick}
-      //   className={className}
-      //   key='delete'
-      // >
-      //   Delete
-      // </button>
     ]
     return buttons
   }
@@ -73,7 +72,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = {
-
+  setPurpose, toggleDialogVisibility
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SMSTemplatesGridToolbox)

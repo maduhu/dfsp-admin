@@ -37,6 +37,27 @@ const propTypes = {
       content: PropTypes.string
     })
   ).isRequired,
+  channels: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    name: PropTypes.string
+  })).isRequired,
+  operations: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    name: PropTypes.string
+  })).isRequired,
+  targets: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    name: PropTypes.string
+  })).isRequired,
   // mapDispathToProps
   actions: PropTypes.shape({
     changeFieldVisibility: PropTypes.func.isRequired,
@@ -55,16 +76,45 @@ const contextTypes = {}
 class SMSTemplatesGrid extends Component {
   constructor (props) {
     super(props)
-    props.actions.fetchTemplates()
-    props.actions.fetchChannels()
-    props.actions.fetchOperations()
-    props.actions.fetchTargets()
+    this.handleTransformCellValue = this.handleTransformCellValue.bind(this)
+  }
+
+  handleTransformCellValue (value, field, data, isHeader) {
+    if (isHeader) {
+      return <Text>{value}</Text>
+    } else if (field.name === 'channelId') {
+      return (
+        this.props.channels.filter(
+          channel => channel.key === data.channelId
+        )[0].name
+      )
+    } else if (field.name === 'operationId') {
+      return (
+        this.props.operations.filter(
+          operation => operation.key === data.operationId
+        )[0].name
+      )
+    } else if (field.name === 'targetId') {
+      return (
+        this.props.targets.filter(
+          target => target.key === data.channelId
+        )[0].name
+      )
+    }
+    return value
   }
 
   componentWillReceiveProps (newProps) {
     if (this.props.changeId !== newProps.changeId) {
       this.props.actions.fetchTemplates()
     }
+  }
+
+  componentDidMount () {
+    this.props.actions.fetchTemplates()
+    this.props.actions.fetchChannels()
+    this.props.actions.fetchOperations()
+    this.props.actions.fetchTargets()
   }
 
   render () {
@@ -83,6 +133,7 @@ class SMSTemplatesGrid extends Component {
 
     return (
       <SimpleGrid
+        transformCellValue={this.handleTransformCellValue}
         handleCellClick={toggleRowCheck}
         handleCheckboxSelect={toggleRowCheckboxCheck}
         handleHeaderCheckboxSelect={toggleHeaderCheckAll}
@@ -96,7 +147,7 @@ class SMSTemplatesGrid extends Component {
       />
     )
   }
-};
+}
 
 SMSTemplatesGrid.propTypes = propTypes
 
@@ -106,13 +157,14 @@ const mapStateToProps = (state, ownProps) => ({
   fields: state.smsTemplatesGrid.get('fields').toJS(),
   data: state.smsTemplatesGrid.get('data').toJS(),
   rowsChecked: state.smsTemplatesGrid.get('rowsChecked').toJS(),
-  changeId: state.smsTemplatesDialog.get('changeId')
+  changeId: state.smsTemplatesDialog.get('changeId'),
+  channels: state.smsTemplatesGrid.get('channels').toJS(),
+  operations: state.smsTemplatesGrid.get('operations').toJS(),
+  targets: state.smsTemplatesGrid.get('targets').toJS()
 })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch)
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(SMSTemplatesGrid)
