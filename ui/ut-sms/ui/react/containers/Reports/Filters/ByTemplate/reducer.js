@@ -27,7 +27,7 @@ export const smsReportsFilterByTemplate = (state = defaultState, action) => {
       }
       return state
     case CLEAR_SMS_REPORT_FILTER:
-      return state.set('templateId', null)
+      return state.set('templateId', null).update('changeId', (v) => ++v)
   }
   return state
 }

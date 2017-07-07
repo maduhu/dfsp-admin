@@ -97,7 +97,7 @@ class SMSTemplatesGrid extends Component {
     } else if (field.name === 'targetId') {
       return (
         this.props.targets.filter(
-          target => target.key === data.channelId
+          target => target.key === data.targetId
         )[0].name
       )
     }

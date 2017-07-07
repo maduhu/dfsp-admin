@@ -16,7 +16,7 @@ export const smsReportsFilterByDestination = (state = defaultState, action) => {
         .set('destination', destination)
         .update('changeId', (v) => ++v)
     case CLEAR_SMS_REPORT_FILTER:
-      return state.set('destination', null)
+      return state.set('destination', null).update('changeId', (v) => ++v)
   }
   return state
 }
