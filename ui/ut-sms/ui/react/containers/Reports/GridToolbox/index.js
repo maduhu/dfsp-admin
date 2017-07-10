@@ -17,10 +17,11 @@ const contextTypes = {
 
 const propTypes = {
   // mapStateToProps
-  showClearFilter: PropTypes.number.isRequired
+  showClearFilter: PropTypes.bool
 }
 
 const defaultProps = {
+  showClearFilter: false,
   checkedRow: null
 }
 
@@ -57,11 +58,11 @@ export default connect(
     (state, ownProps) => {
       return {
         showClearFilter:
-          state.smsReportsFilterByDate.get('startDate') ||
-          state.smsReportsFilterByDate.get('endDate') ||
-          state.smsReportsFilterByDestination.get('destination') ||
-          state.smsReportsFilterByStatus.get('statusId') ||
-          state.smsReportsFilterByTemplate.get('templateId')
+          !!state.smsReportsFilterByDate.get('startDate') ||
+          !!state.smsReportsFilterByDate.get('endDate') ||
+          !!state.smsReportsFilterByDestination.get('destination') ||
+          !!state.smsReportsFilterByStatus.get('statusId') ||
+          !!state.smsReportsFilterByTemplate.get('templateId')
       }
     }
 )(GridToolbox)

@@ -64,7 +64,7 @@ class SMSReportsGrid extends Component {
   removeEmpty (obj) {
     Object.entries(obj).forEach(([key, val]) => {
       if (val && typeof val === 'object') this.removeEmpty(val)
-      else if (val === null) delete obj[key]
+      else if (val === null || val === '') delete obj[key]
     })
     return obj
   };

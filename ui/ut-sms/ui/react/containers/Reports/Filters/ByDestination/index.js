@@ -10,7 +10,7 @@ const propTypes = {
   className: PropTypes.string,
   style: PropTypes.shape({}),
   // mapStateToProps
-  destination: PropTypes.string,
+  destination: PropTypes.string.isRequired,
   // mapDispatchToProps
   actions: PropTypes.shape({
     changeFilterDestination: PropTypes.func
