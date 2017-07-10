@@ -1,3 +1,16 @@
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.12...v0.16.0) (2017-07-10)
+
+
+### Features
+
+* add sms reports page and tollbox ([4052d2e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4052d2e))
+* add some of templates functionality ([86800ce](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/86800ce))
+* finalizing reports, making mention for the templates not ready ([c018e5a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c018e5a))
+* handle reports filter change and templates target ([96d3fed](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/96d3fed))
+
+
+
 <a name="0.15.12"></a>
 ## [0.15.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.11...v0.15.12) (2017-06-28)
 
