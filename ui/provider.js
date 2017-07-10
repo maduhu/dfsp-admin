@@ -40,6 +40,29 @@ export default class Provider extends Component {
           props: {
             activeClassName: 'active'
           }
+        },
+        {
+          routeName: 'ut-sms:reports',
+          title: 'SMS',
+          props: {
+            activeClassName: 'active'
+          },
+          multi: [
+            {
+              routeName: 'ut-sms:templates',
+              title: 'Templates',
+              props: {
+                activeClassName: 'active'
+              }
+            },
+            {
+              routeName: 'ut-sms:reports',
+              title: 'Reports',
+              props: {
+                activeClassName: 'active'
+              }
+            }
+          ]
         }
       ],
       initialLoginFields: {
