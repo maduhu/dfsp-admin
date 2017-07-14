@@ -8,7 +8,7 @@ import MaterialUILayout from 'ut-front-react/components/MaterialUILayout'
 import { LOGOUT } from 'ut-front-react/containers/LoginForm/actionTypes'
 import UtRuleReducers from 'ut-rule/ui/react/reducers'
 import UtBulkReducers from './ut-bulk/ui/react/reducers'
-import UtSMSReducers from './ut-sms/ui/react/reducers'
+import UtNotificationsReducers from './ut-notifications/ui/react/reducers'
 import logo from './administration/assets/images/logo.png'
 import {
   UtRuleRoutes
@@ -24,7 +24,7 @@ import { getRoute } from 'ut-front/react/routerHelper'
 import Dashboard from './Pages/DashboardWrapper'
 import {AppContainer} from 'react-hot-loader'
 import {UtBulkRoutes} from './ut-bulk/ui/react'
-import {UtSMSRoutes} from './ut-sms/ui/react'
+import {UtNotificationsRoutes} from './ut-notifications/ui/react'
 
 module.exports = {
   init: function (bus) {
@@ -40,7 +40,7 @@ module.exports = {
         <Route path={getRoute('dfsp-admin:dashboard')} component={Dashboard} />
         {UtRuleRoutes(this.bus.config['ut-rule'])}
         {UtBulkRoutes()}
-        {UtSMSRoutes()}
+        {UtNotificationsRoutes()}
       </Route>
     )
     var render = (app) => ReactDOM.render(
@@ -53,7 +53,7 @@ module.exports = {
                 ...UtRuleReducers,
                 ...tabRecuders,
                 ...UtBulkReducers,
-                ...UtSMSReducers
+                ...UtNotificationsReducers
               }}
               utBus={this.bus}
               resetAction={LOGOUT}

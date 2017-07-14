@@ -5,7 +5,6 @@ import {updatePagination as update} from '../Grid/actions'
 
 class BulkPaymentPagination extends Component {
   render () {
-    debugger
     return (
       <div>
         <Pagination pagination={this.props.pagination.concat(this.props.params)} onUpdate={this.props.update} />
