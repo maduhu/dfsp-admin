@@ -42,21 +42,21 @@ export default class Provider extends Component {
           }
         },
         {
-          routeName: 'ut-sms:reports',
-          title: 'SMS',
+          routeName: 'ut-notifications:reports',
+          title: 'Notifications',
           props: {
             activeClassName: 'active'
           },
           multi: [
             {
-              routeName: 'ut-sms:templates',
+              routeName: 'ut-notifications:templates',
               title: 'Templates',
               props: {
                 activeClassName: 'active'
               }
             },
             {
-              routeName: 'ut-sms:reports',
+              routeName: 'ut-notifications:reports',
               title: 'Reports',
               props: {
                 activeClassName: 'active'

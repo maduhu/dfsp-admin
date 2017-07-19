@@ -1,1 +1,0 @@
-export const CLEAR_SMS_REPORT_FILTER = Symbol('CLEAR_SMS_REPORT_FILTER')
