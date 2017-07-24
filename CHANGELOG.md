@@ -1,3 +1,13 @@
+<a name="0.16.2"></a>
+## [0.16.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.1...v0.16.2) (2017-07-24)
+
+
+### Bug Fixes
+
+* add readme file ([e3b4db2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e3b4db2))
+
+
+
 <a name="0.16.1"></a>
 ## [0.16.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.0...v0.16.1) (2017-07-19)
 
