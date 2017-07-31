@@ -32,3 +32,11 @@ export const fetchReports = (params) => ({
   method: 'notification.notification.fetch',
   params: params || {}
 })
+
+export function updatePagination (params) {
+  return {
+    type: actionTypes.NOTIFICATIONS_UPDATE_PAGINATION,
+    method: 'notification.notification.fetch',
+    params: params.toJS() || {}
+  }
+}

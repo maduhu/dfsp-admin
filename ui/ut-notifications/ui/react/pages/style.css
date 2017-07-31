@@ -76,7 +76,7 @@
 .paginationWrapper {
   background-color: #f2f2f2;
   padding: 5px 40px 5px 20px;
-  position: absolute;
+  position: relative;
   width: 100%;
   bottom: 0;
   height: 34px;

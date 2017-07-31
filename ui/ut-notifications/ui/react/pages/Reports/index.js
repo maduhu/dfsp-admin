@@ -9,6 +9,7 @@ import mainStyle from 'ut-front-react/assets/index.css'
 
 import Grid from '../../containers/Reports/Grid'
 import Toolbox from '../../containers/Reports/GridToolbox'
+import NotificationsPagination from '../../containers/Reports/Pagination'
 
 import style from '../style.css'
 
@@ -43,6 +44,14 @@ class NotificationsReports extends Component {
     )
   }
 
+  renderPagination () {
+    return (
+      <div className={style.paginationWrapper}>
+        <NotificationsPagination />
+      </div>
+    )
+  }
+
   render () {
     return (
     <div className={mainStyle.contentTableWrap} style={{minWidth: '925px'}}>
@@ -50,6 +59,7 @@ class NotificationsReports extends Component {
         {this.renderHeader()}
         {this.renderGridToolbox()}
         {this.renderGrid()}
+        {this.renderPagination()}
     </div>
     )
   }
