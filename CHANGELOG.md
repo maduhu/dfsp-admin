@@ -1,3 +1,13 @@
+<a name="0.16.3"></a>
+## [0.16.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.2...v0.16.3) (2017-07-31)
+
+
+### Bug Fixes
+
+* Add pagination for notification report ([39a0f8d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/39a0f8d))
+
+
+
 <a name="0.16.2"></a>
 ## [0.16.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.1...v0.16.2) (2017-07-24)
 
