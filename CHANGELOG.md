@@ -1,3 +1,13 @@
+<a name="0.16.4"></a>
+## [0.16.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.3...v0.16.4) (2017-08-03)
+
+
+### Bug Fixes
+
+* add alter look and feel ([8c4b8c2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8c4b8c2))
+
+
+
 <a name="0.16.3"></a>
 ## [0.16.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.2...v0.16.3) (2017-07-31)
 
