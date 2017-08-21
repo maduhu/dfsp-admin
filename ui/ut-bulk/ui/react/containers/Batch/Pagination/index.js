@@ -5,7 +5,6 @@ import {updatePagination as update} from '../Grid/actions'
 
 class BulkBatchPagination extends Component {
   render () {
-    debugger;
     return (
       <div>
         <Pagination pagination={this.props.pagination} onUpdate={this.props.update} />

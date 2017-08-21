@@ -1,3 +1,51 @@
+<a name="0.16.4"></a>
+## [0.16.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.3...v0.16.4) (2017-08-03)
+
+
+### Bug Fixes
+
+* add alter look and feel ([8c4b8c2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8c4b8c2))
+
+
+
+<a name="0.16.3"></a>
+## [0.16.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.2...v0.16.3) (2017-07-31)
+
+
+### Bug Fixes
+
+* Add pagination for notification report ([39a0f8d](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/39a0f8d))
+
+
+
+<a name="0.16.2"></a>
+## [0.16.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.1...v0.16.2) (2017-07-24)
+
+
+### Bug Fixes
+
+* add readme file ([e3b4db2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e3b4db2))
+
+
+
+<a name="0.16.1"></a>
+## [0.16.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.0...v0.16.1) (2017-07-19)
+
+
+
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.12...v0.16.0) (2017-07-10)
+
+
+### Features
+
+* add sms reports page and tollbox ([4052d2e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4052d2e))
+* add some of templates functionality ([86800ce](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/86800ce))
+* finalizing reports, making mention for the templates not ready ([c018e5a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c018e5a))
+* handle reports filter change and templates target ([96d3fed](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/96d3fed))
+
+
+
 <a name="0.15.12"></a>
 ## [0.15.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.15.11...v0.15.12) (2017-06-28)
 

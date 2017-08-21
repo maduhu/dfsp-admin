@@ -37,6 +37,5 @@
   },
   "workerBus": {
     "logLevel": "debug"
-  },
-  "debug": true
+  }
 }
