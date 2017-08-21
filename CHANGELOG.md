@@ -1,3 +1,13 @@
+<a name="0.16.5"></a>
+## [0.16.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.4...v0.16.5) (2017-08-21)
+
+
+### Bug Fixes
+
+* lint ([5cea488](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5cea488))
+
+
+
 <a name="0.16.4"></a>
 ## [0.16.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.3...v0.16.4) (2017-08-03)
 
