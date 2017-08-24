@@ -93,7 +93,7 @@
     "tap-spec": "^4.1.1",
     "tap-xunit": "1.4.0",
     "ut-po-loader": "^5.5.3",
-    "ut-tools": "^5.17.19",
+    "ut-tools": "^5.19.0",
     "ut-translate-loader": "^5.5.3"
   },
   "peerDependencies": {
@@ -143,7 +143,8 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
-    }
+    },
+    "coverageReporters": ["lcov", "cobertura", "text"]
   },
   "author": "Stamen Peev <stamen.peev@softwaregroup-bg.com>",
   "license": "SEE LICENSE IN LICENSE"
