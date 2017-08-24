@@ -47,7 +47,7 @@
     "ut-front": "6.4.8",
     "ut-front-react": "8.19.14",
     "ut-port-console": "~6.2.13",
-    "ut-port-httpserver": "~8.11.4",
+    "ut-port-httpserver": "8.11.4",
     "ut-port-jsonrpc": "5.6.4",
     "ut-port-http": "6.4.1",
     "ut-port-performance": "5.4.7",
