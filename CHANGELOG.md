@@ -1,3 +1,28 @@
+<a name="0.17.0"></a>
+# [0.17.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.5...v0.17.0) (2017-08-25)
+
+
+### Bug Fixes
+
+* add missing .babelrc ([6b6f72a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/6b6f72a))
+* add missing dependency ([168a091](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/168a091))
+* bump ut-error ([8b00e82](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8b00e82))
+* console errors in toolbox and destination filter ([e3845b1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/e3845b1))
+* fetch order and dependencies ([cb0b319](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/cb0b319))
+* httpserver version ([c8436de](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c8436de))
+* lint and bump ut-tools ([ee98024](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ee98024))
+* update dependencies to webpack 3 ([3fbb23b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/3fbb23b))
+* use exact versions ([a79464f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/a79464f))
+* versions ([3551f0c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/3551f0c))
+
+
+### Features
+
+* add necessary dependencies to run enzyme ([ae05212](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ae05212))
+* replace karma with jest(much easier component unit testing) ([be2a0dc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/be2a0dc))
+
+
+
 <a name="0.16.5"></a>
 ## [0.16.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.4...v0.16.5) (2017-08-21)
 
