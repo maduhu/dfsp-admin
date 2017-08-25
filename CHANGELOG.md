@@ -1,3 +1,13 @@
+<a name="0.17.1"></a>
+## [0.17.1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.0...v0.17.1) (2017-08-25)
+
+
+### Bug Fixes
+
+* bump ut-log version ([53a8e08](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/53a8e08))
+
+
+
 <a name="0.17.0"></a>
 # [0.17.0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.16.5...v0.17.0) (2017-08-25)
 
