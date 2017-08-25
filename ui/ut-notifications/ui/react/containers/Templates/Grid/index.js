@@ -110,11 +110,11 @@ class NotificationsTemplatesGrid extends Component {
     }
   }
 
-  componentDidMount () {
-    this.props.actions.fetchTemplates()
-    this.props.actions.fetchChannels()
-    this.props.actions.fetchOperations()
-    this.props.actions.fetchTargets()
+  componentWillMount () {
+    Promise.all([this.props.actions.fetchChannels(), this.props.actions.fetchOperations(), this.props.actions.fetchTargets()])
+    .then(() => {
+      this.props.actions.fetchTemplates()
+    })
   }
 
   render () {

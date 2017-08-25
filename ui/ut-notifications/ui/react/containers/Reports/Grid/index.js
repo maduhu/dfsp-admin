@@ -57,17 +57,20 @@ const contextTypes = {}
 class NotificationsReportsGrid extends Component {
   constructor (props) {
     super(props)
-    props.actions.fetchReports()
     this.handleTransformCellValue = this.handleTransformCellValue.bind(this)
   }
 
   removeEmpty (obj) {
     Object.entries(obj).forEach(([key, val]) => {
       if (val && typeof val === 'object') this.removeEmpty(val)
-      else if (val === null) delete obj[key]
+      else if (val === null || val === '') delete obj[key]
     })
     return obj
-  };
+  }
+
+  componentWillMount() {
+    this.props.actions.fetchReports()
+  }
 
   componentWillReceiveProps (newProps) {
     if (this.props.changeId !== newProps.changeId) {

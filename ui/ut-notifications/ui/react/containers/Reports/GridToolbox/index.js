@@ -17,10 +17,11 @@ const contextTypes = {
 
 const propTypes = {
   // mapStateToProps
-  showClearFilter: PropTypes.number.isRequired
+  showClearFilter: PropTypes.bool
 }
 
 const defaultProps = {
+  showClearFilter: false,
   checkedRow: null
 }
 
