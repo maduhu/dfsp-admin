@@ -1,3 +1,13 @@
+<a name="0.17.4"></a>
+## [0.17.4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.3...v0.17.4) (2017-08-28)
+
+
+### Bug Fixes
+
+* remove unused props ([ff46b3c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ff46b3c))
+
+
+
 <a name="0.17.3"></a>
 ## [0.17.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.2...v0.17.3) (2017-08-28)
 
