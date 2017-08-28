@@ -114,7 +114,7 @@ module.exports = {
                           records.push([data])
                         }
                       })
-                      .on('end', (data) => {
+                      .on('end', () => {
                         let promise = Promise.resolve({insertedRows: 0})
                         records.forEach((chunk) => {
                           promise = promise.then((data) => {
@@ -134,7 +134,7 @@ module.exports = {
                               actorId: batch.actorId,
                               async: true
                             })
-                            .then(function (result) {
+                            .then(function () {
                               return resolve(reply(data))
                             })
                           }
@@ -227,7 +227,7 @@ module.exports = {
               actorId: request.auth.credentials.actorId
             })
             .then((batch) => {
-              return new Promise((resolve, reject) => {
+              return new Promise((resolve) => {
                 let fail = (err) => {
                   return alreadyReplied ? resolve() : dispatch('bulk.batch.edit', {
                     batchId: batch.batchId,
@@ -269,7 +269,7 @@ module.exports = {
                           records.push([data])
                         }
                       })
-                      .on('end', (data) => {
+                      .on('end', () => {
                         let promise = Promise.resolve({insertedRows: 0})
                         records.forEach((chunk) => {
                           promise = promise.then((data) => {
@@ -289,7 +289,7 @@ module.exports = {
                               actorId: batch.actorId,
                               async: true
                             })
-                            .then(function (result) {
+                            .then(function () {
                               return resolve(reply(data))
                             })
                           }
