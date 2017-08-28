@@ -68,7 +68,7 @@ class NotificationsReportsGrid extends Component {
     return obj
   }
 
-  componentWillMount() {
+  componentWillMount () {
     this.props.actions.fetchReports()
   }
 

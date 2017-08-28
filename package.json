@@ -40,6 +40,7 @@
     "source-map": "^0.5.7",
     "stream-browserify": "2.0.1",
     "strict-uri-encode": "1.1.0",
+    "supertest": "^3.0.0",
     "ut-bus": "^5.12.1",
     "ut-error": "5.4.9",
     "ut-front": "7.1.3",
@@ -55,6 +56,15 @@
     "ut-run": "8.1.0"
   },
   "devDependencies": {
+    "@leveloneproject/dfsp-account": "0.x",
+    "@leveloneproject/dfsp-api": ">=1.0.0-quotes.61 <1.0.0",
+    "@leveloneproject/dfsp-directory": "0.x",
+    "@leveloneproject/dfsp-identity": "0.x",
+    "@leveloneproject/dfsp-ledger": ">=2.0.0-quotes.21 <2.0.0",
+    "@leveloneproject/dfsp-mock": ">=1.0.0-quotes.18 <1.0.0",
+    "@leveloneproject/dfsp-rule": "0.x",
+    "@leveloneproject/dfsp-subscription": "0.x",
+    "@leveloneproject/dfsp-transfer": "0.x",
     "babel-core": "6.25.0",
     "babel-6-istanbul-instrumenter-loader": "^1.0.0",
     "babel-helpers": "6.24.1",
