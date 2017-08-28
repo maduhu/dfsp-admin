@@ -1,3 +1,14 @@
+<a name="0.17.3"></a>
+## [0.17.3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.2...v0.17.3) (2017-08-28)
+
+
+### Bug Fixes
+
+* add integration tests on bulk backend ([ece1900](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ece1900))
+* circleci configuration ([7fb78e3](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7fb78e3))
+
+
+
 <a name="0.17.2"></a>
 ## [0.17.2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.1...v0.17.2) (2017-08-28)
 
