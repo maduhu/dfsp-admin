@@ -1,3 +1,13 @@
+<a name="0.17.12"></a>
+## [0.17.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.11...v0.17.12) (2017-08-29)
+
+
+### Bug Fixes
+
+* refactor notification reports test ([0f00722](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0f00722))
+
+
+
 <a name="0.17.11"></a>
 ## [0.17.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.10...v0.17.11) (2017-08-29)
 
