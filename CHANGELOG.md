@@ -1,3 +1,13 @@
+<a name="0.17.6"></a>
+## [0.17.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.5...v0.17.6) (2017-08-29)
+
+
+### Bug Fixes
+
+* add batch page test ([f7cadc5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/f7cadc5))
+
+
+
 <a name="0.17.5"></a>
 ## [0.17.5](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.4...v0.17.5) (2017-08-29)
 
