@@ -3,7 +3,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import Pagination from '../index'
-import style from '../style.css'
 
 describe('A suite for <Pagination /> Component', function () {
   let props = {
