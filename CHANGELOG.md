@@ -1,3 +1,13 @@
+<a name="0.17.9"></a>
+## [0.17.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.8...v0.17.9) (2017-08-29)
+
+
+### Bug Fixes
+
+* mount component instead of shallow render it ([58bbb90](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/58bbb90))
+
+
+
 <a name="0.17.8"></a>
 ## [0.17.8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.7...v0.17.8) (2017-08-29)
 
