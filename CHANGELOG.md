@@ -1,3 +1,13 @@
+<a name="0.17.7"></a>
+## [0.17.7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.6...v0.17.7) (2017-08-29)
+
+
+### Bug Fixes
+
+* add payment page test ([4eb08bc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4eb08bc))
+
+
+
 <a name="0.17.6"></a>
 ## [0.17.6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.5...v0.17.6) (2017-08-29)
 
