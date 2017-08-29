@@ -1,3 +1,13 @@
+<a name="0.17.10"></a>
+## [0.17.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.9...v0.17.10) (2017-08-29)
+
+
+### Bug Fixes
+
+* replace shallow with mount ([dfdf4b4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/dfdf4b4))
+
+
+
 <a name="0.17.9"></a>
 ## [0.17.9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.8...v0.17.9) (2017-08-29)
 
