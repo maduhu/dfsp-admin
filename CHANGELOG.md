@@ -1,3 +1,13 @@
+<a name="0.17.11"></a>
+## [0.17.11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.10...v0.17.11) (2017-08-29)
+
+
+### Bug Fixes
+
+* mount component instead of shallow render it ([30aef7e](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/30aef7e))
+
+
+
 <a name="0.17.10"></a>
 ## [0.17.10](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.9...v0.17.10) (2017-08-29)
 
