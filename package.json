@@ -152,6 +152,12 @@
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
     },
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(!ut-front-react)"
+    ],
     "coverageReporters": [
       "lcov",
       "cobertura",
