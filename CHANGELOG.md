@@ -1,3 +1,13 @@
+<a name="0.17.13"></a>
+## [0.17.13](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.12...v0.17.13) (2017-08-30)
+
+
+### Bug Fixes
+
+* add reducer tests ([70d7087](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/70d7087))
+
+
+
 <a name="0.17.12"></a>
 ## [0.17.12](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.11...v0.17.12) (2017-08-29)
 
