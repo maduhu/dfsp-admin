@@ -1,6 +1,5 @@
-/* global it, describe, expect,beforeEach */
-import React from 'react'
-import { Map, List } from 'immutable'
+/* global it, describe, expect */
+import { Map } from 'immutable'
 
 import { bulkPaymentDetailEditPopup } from '../reducer'
 import * as actionTypes from '../actionTypes'
@@ -34,15 +33,15 @@ describe('A suite for <Details /> Popup', function () {
         item: Map({ a: 'b' }),
         changeId: 0
       }), {
-          type: actionTypes.CHANGE_DETAIL_VALUE,
-          params: {
-            key: 'a',
-            value: 'c'
-          }
-        })).toEqual(Map({
-          item: Map({ a: 'c' }),
-          changeId: 0
-        }))
+        type: actionTypes.CHANGE_DETAIL_VALUE,
+        params: {
+          key: 'a',
+          value: 'c'
+        }
+      })).toEqual(Map({
+        item: Map({ a: 'c' }),
+        changeId: 0
+      }))
   })
 
   it('should handle actionTypes.REMOVE_DETAIL_ITEM', function () {
@@ -51,11 +50,11 @@ describe('A suite for <Details /> Popup', function () {
         item: Map({ a: 'b' }),
         changeId: 0
       }), {
-          type: actionTypes.REMOVE_DETAIL_ITEM
-        })).toEqual(Map({
-          item: Map({}),
-          changeId: 0
-        }))
+        type: actionTypes.REMOVE_DETAIL_ITEM
+      })).toEqual(Map({
+        item: Map({}),
+        changeId: 0
+      }))
   })
 
   it('should handle actionTypes.SAVE_EDIT_ITEM', function () {
@@ -64,10 +63,10 @@ describe('A suite for <Details /> Popup', function () {
         item: Map({ a: 'b' }),
         changeId: 0
       }), {
-          type: actionTypes.SAVE_EDIT_ITEM
-        })).toEqual(Map({
-          item: Map({}),
-          changeId: 1
-        }))
+        type: actionTypes.SAVE_EDIT_ITEM
+      })).toEqual(Map({
+        item: Map({}),
+        changeId: 1
+      }))
   })
 })

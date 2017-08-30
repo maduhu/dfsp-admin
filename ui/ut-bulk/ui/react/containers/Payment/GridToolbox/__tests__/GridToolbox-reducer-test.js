@@ -1,6 +1,5 @@
-/* global it, describe, expect,beforeEach */
-import React from 'react'
-import { Map, List } from 'immutable'
+/* global it, describe, expect */
+import { Map } from 'immutable'
 
 import { bulkPaymentToolbox } from '../reducer'
 import actionTypes from '../actionTypes'
@@ -41,11 +40,11 @@ describe('A suite for <GridToolbox /> payment container', function () {
   it('should handle actionTypes.SHOW_FILTERS', function () {
     expect(
       bulkPaymentToolbox(undefined, {
-          type: actionTypes.SHOW_FILTERS
-        })).toEqual(Map({
-          changeId: 0,
-          filters: Map({ opened: true }),
-          buttons: Map({ opened: false })
-        }))
+        type: actionTypes.SHOW_FILTERS
+      })).toEqual(Map({
+        changeId: 0,
+        filters: Map({ opened: true }),
+        buttons: Map({ opened: false })
+      }))
   })
 })
