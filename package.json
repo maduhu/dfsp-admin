@@ -103,7 +103,7 @@
     "tap-spec": "4.1.1",
     "tap-xunit": "1.4.0",
     "ut-po-loader": "5.5.3",
-    "ut-tools": "^5.19.1",
+    "ut-tools": "^5.19.2",
     "ut-translate-loader": "5.5.3"
   },
   "peerDependencies": {
