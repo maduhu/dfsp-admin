@@ -1,3 +1,13 @@
+<a name="0.17.17"></a>
+## [0.17.17](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.16...v0.17.17) (2017-08-30)
+
+
+### Bug Fixes
+
+* add actions tests ([b024b43](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/b024b43))
+
+
+
 <a name="0.17.16"></a>
 ## [0.17.16](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.15...v0.17.16) (2017-08-30)
 
