@@ -1,3 +1,16 @@
+<a name="0.17.15"></a>
+## [0.17.15](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.14...v0.17.15) (2017-08-30)
+
+
+### Bug Fixes
+
+* add batch reducers tests ([986be67](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/986be67))
+* add containers test ([3756c1b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/3756c1b))
+* bump ut-tools version ([4f4ee74](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/4f4ee74))
+* fix linting and add new filter reducer test ([cb8f4e8](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/cb8f4e8))
+
+
+
 <a name="0.17.14"></a>
 ## [0.17.14](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.13...v0.17.14) (2017-08-30)
 
