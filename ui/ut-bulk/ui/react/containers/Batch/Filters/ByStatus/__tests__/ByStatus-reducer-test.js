@@ -4,6 +4,7 @@ import { Map, List } from 'immutable'
 import { bulkBatchFilterStatus } from '../reducer'
 import * as actionTypes from '../actionTypes'
 import * as clearFilterActions from '../../ClearFilter/actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <ByStatus /> batch filter', function () {
   const initialState = Map({
@@ -53,5 +54,28 @@ describe('A suite for <ByStatus /> batch filter', function () {
         changeId: 0,
         batchStatuses: List([1, 2])
       }))
+  })
+
+  it('should create an action changeFilterStatus', function () {
+    expect(actions.changeFilterStatus('test')).toEqual({
+      type: actionTypes.CHANGE_FILTER_STATUS,
+      params: 'test'
+    })
+  })
+
+  it('should create an action fetchBatchStatuses', function () {
+    expect(actions.fetchBatchStatuses('test')).toEqual({
+      type: actionTypes.FETCH_BATCH_STATUSES,
+      method: 'bulk.batchStatus.fetch',
+      params: 'test'
+    })
+  })
+
+  it('should create an action fetchBatchStatuses with no params', function () {
+    expect(actions.fetchBatchStatuses()).toEqual({
+      type: actionTypes.FETCH_BATCH_STATUSES,
+      method: 'bulk.batchStatus.fetch',
+      params: {}
+    })
   })
 })

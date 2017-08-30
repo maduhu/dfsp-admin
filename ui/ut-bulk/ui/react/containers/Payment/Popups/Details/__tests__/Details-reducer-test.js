@@ -3,6 +3,7 @@ import { Map } from 'immutable'
 
 import { bulkPaymentDetailEditPopup } from '../reducer'
 import * as actionTypes from '../actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <Details /> Popup', function () {
   const initialState = Map({
@@ -68,5 +69,39 @@ describe('A suite for <Details /> Popup', function () {
         item: Map({}),
         changeId: 1
       }))
+  })
+
+  it('should create an action setDatailItem', function () {
+    expect(actions.setDatailItem('test')).toEqual({
+      type: actionTypes.SET_DETAIL_ITEM,
+      params: { item: 'test' }
+    })
+  })
+
+  it('should create an action changeDetailValue', function () {
+    expect(actions.changeDetailValue('key', 'value')).toEqual({
+      type: actionTypes.CHANGE_DETAIL_VALUE,
+      params: {
+        key: 'key',
+        value: 'value'
+      }
+    })
+  })
+
+  it('should create an action removeDetailItem', function () {
+    expect(actions.removeDetailItem()).toEqual({
+      type: actionTypes.REMOVE_DETAIL_ITEM
+    })
+  })
+
+  it('should create an action saveEditItem', function () {
+    expect(actions.saveEditItem({a: 'b'}, 1)).toEqual({
+      type: actionTypes.SAVE_EDIT_ITEM,
+      method: 'bulk.payment.edit',
+      params: {
+        actorId: 1,
+        payments: '[{"a":"b"}]'
+      }    
+    })
   })
 })

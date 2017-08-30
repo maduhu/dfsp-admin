@@ -3,6 +3,7 @@ import { Map } from 'immutable'
 
 import { bulkPaymentToolbox } from '../reducer'
 import actionTypes from '../actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <GridToolbox /> payment container', function () {
   const initialState = Map({
@@ -46,5 +47,42 @@ describe('A suite for <GridToolbox /> payment container', function () {
         filters: Map({ opened: true }),
         buttons: Map({ opened: false })
       }))
+  })
+
+  it('should create an action toggle', function () {
+    expect(actions.toggle()).toEqual({
+      type: actionTypes.TOGGLE
+    })
+  })
+
+  it('should create an action show buttons', function () {
+    expect(actions.show('button')).toEqual({
+      type: actionTypes.SHOW_BUTTONS
+    })
+  })
+
+  it('should create an action show filters', function () {
+    expect(actions.show()).toEqual({
+      type: actionTypes.SHOW_FILTERS
+    })
+  })
+
+  it('should create an action disable', function () {
+    expect(actions.disable(1, 2)).toEqual({
+      type: actionTypes.PAYMENT_DISABLE,
+      method: 'bulk.payment.edit',
+      params: {
+        payments: 1,
+        actorId: 2
+      }
+    })
+  })
+
+  it('should create an action checkPayments', function () {
+    expect(actions.checkPayments('test')).toEqual({
+      type: actionTypes.CHECK_PAYMENTS,
+      method: 'bulk.batch.check',
+      params: 'test'
+    })
   })
 })

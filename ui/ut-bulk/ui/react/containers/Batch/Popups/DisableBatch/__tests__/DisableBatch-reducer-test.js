@@ -3,6 +3,7 @@ import { Map, List } from 'immutable'
 
 import { bulkBatchDisablePopup } from '../reducer'
 import * as actionTypes from '../actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <DisableBatch /> popup', function () {
   const initialState = Map({
@@ -92,5 +93,55 @@ describe('A suite for <DisableBatch /> popup', function () {
         batchStatuses: List([1, 2, 3]),
         changeId: 0
       }))
+  })
+
+  it('should create an action disableBatch', function () {
+    expect(actions.disableBatch(1, 2, 3, 4)).toEqual({
+      type: actionTypes.DISABLE_BATCH,
+      method: 'bulk.batch.edit',
+      params: {
+        batchId: 1,
+        actorId: 2,
+        batchStatusId: 3,
+        batchInfo: 4
+      }
+    })
+  })
+
+  it('should create an action openDisablePopup', function () {
+    expect(actions.openDisablePopup(1)).toEqual({
+      type: actionTypes.OPEN_DISABLE_BATCH_POPUP,
+      params: { batchId: 1 }
+    })
+  })
+
+  it('should create an action closeDisablePopup', function () {
+    expect(actions.closeDisablePopup()).toEqual({
+      type: actionTypes.CLOSE_DISABLE_BATCH_POPUP,
+      params: {}
+    })
+  })
+  
+  it('should create an action addComment', function () {
+    expect(actions.addComment('test')).toEqual({
+      type: actionTypes.ADD_COMMENT,
+      params: { comment: 'test' }
+    })
+  })
+
+  it('should create an action loadBatchStatuses', function () {
+    expect(actions.loadBatchStatuses('test')).toEqual({
+      type: actionTypes.LOAD_BATCH_STATUSES,
+      method: 'bulk.batchStatus.fetch',
+      params: 'test'
+    })
+  })
+
+  it('should create an action loadBatchStatuses no params', function () {
+    expect(actions.loadBatchStatuses()).toEqual({
+      type: actionTypes.LOAD_BATCH_STATUSES,
+      method: 'bulk.batchStatus.fetch',
+      params: {}
+    })
   })
 })

@@ -4,6 +4,7 @@ import { Map } from 'immutable'
 import { bulkPaymentFilterCustom } from '../reducer'
 import * as actionTypes from '../actionTypes'
 import * as clearFilterActions from '../../ClearFilter/actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <ByCustom /> filter', function () {
   const initialState = Map({
@@ -49,5 +50,19 @@ describe('A suite for <ByCustom /> filter', function () {
       }), {
         type: clearFilterActions.CLEAR_PAYMENT_FILTER
       })).toEqual(initialState)
+  })
+
+  it('should create an action changeFilterCustomField', function () {
+    expect(actions.changeFilterCustomField('test')).toEqual({
+      type: actionTypes.CHANGE_FILTER_CUSTOM_FIELD,
+      params: { value: 'test' }
+    })
+  })
+
+  it('should create an action changeFilterCustomValue', function () {
+    expect(actions.changeFilterCustomValue('test')).toEqual({
+      type: actionTypes.CHANGE_FILTER_CUSTOM_VALUE,
+      params: { value: 'test' }
+    })
   })
 })

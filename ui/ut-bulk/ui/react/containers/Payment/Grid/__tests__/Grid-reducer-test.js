@@ -3,6 +3,7 @@ import { Map, List } from 'immutable'
 
 import { bulkPaymentGrid } from '../reducer'
 import * as actionTypes from '../actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <Grid /> payment container', function () {
   const initialState = Map({
@@ -284,5 +285,109 @@ describe('A suite for <Grid /> payment container', function () {
         batch: Map(),
         changeId: 0
       }))
+  })
+
+  it('should create an action fetchBatchPayments', function () {
+    expect(actions.fetchBatchPayments('test')).toEqual({
+      type: actionTypes.FETCH_BATCH_PAYMENTS,
+      method: 'bulk.payment.fetch',
+      params: 'test'
+    })
+  })
+
+  it('should create an action fetchBatchPayments no params', function () {
+    expect(actions.fetchBatchPayments()).toEqual({
+      type: actionTypes.FETCH_BATCH_PAYMENTS,
+      method: 'bulk.payment.fetch',
+      params: {}
+    })
+  })
+
+  it('should create an action updatePagination', function () {
+    expect(actions.updatePagination(Map({}))).toEqual({
+      type: actionTypes.PAYMENT_UPDATE_PAGINATION,
+      method: 'bulk.payment.fetch',
+      params: {}
+    })
+  })
+
+  it('should create an action updatePagination no params', function () {
+    expect(actions.updatePagination()).toEqual({
+      type: actionTypes.PAYMENT_UPDATE_PAGINATION,
+      method: 'bulk.payment.fetch',
+      params: {}
+    })
+  })
+
+  it('should create an action getBatch', function () {
+    expect(actions.getBatch('test')).toEqual({
+      type: actionTypes.GET_BATCH,
+      method: 'bulk.batch.get',
+      params: 'test'
+    })
+  })
+
+  it('should create an action getBatch no params', function () {
+    expect(actions.getBatch()).toEqual({
+      type: actionTypes.GET_BATCH,
+      method: 'bulk.batch.get',
+      params: {}
+    })
+  })
+
+  it('should create an action checkRow', function () {
+    expect(actions.checkRow('test')).toEqual({
+      type: actionTypes.PAYMENT_ROW_ADD_CHECK,
+      params: { row: 'test'}
+    })
+  })
+
+  it('should create an action checkRow no params', function () {
+    expect(actions.checkRow()).toEqual({
+      type: actionTypes.PAYMENT_ROW_ADD_CHECK,
+      params: {}
+    })
+  })
+
+  it('should create an action uncheckRow', function () {
+    expect(actions.uncheckRow('test')).toEqual({
+      type: actionTypes.PAYMENT_ROW_REMOVE_CHECK,
+      params: { row: 'test'}
+    })
+  })
+
+  it('should create an action uncheckRow no params', function () {
+    expect(actions.uncheckRow()).toEqual({
+      type: actionTypes.PAYMENT_ROW_REMOVE_CHECK,
+      params: {}
+    })
+  })
+
+  it('should create an action selectRow', function () {
+    expect(actions.selectRow('test')).toEqual({
+      type: actionTypes.PAYMENT_ROW_SELECT,
+      params: { row: 'test'}
+    })
+  })
+
+  it('should create an action selectRow no params', function () {
+    expect(actions.selectRow()).toEqual({
+      type: actionTypes.PAYMENT_ROW_SELECT,
+      params: {}
+    })
+  })
+
+  it('should create an action checkAll', function () {
+    expect(actions.checkAll('test')).toEqual({
+      type: actionTypes.PAYMENT_CHECK_ALL,
+      params: { rows: 'test'}
+    })
+  })
+
+  it('should create an action checkAll no params', function () {
+    expect(actions.checkAll()).toEqual({
+      type: actionTypes.PAYMENT_CHECK_ALL,
+      params: {}
+    })
   })
 })

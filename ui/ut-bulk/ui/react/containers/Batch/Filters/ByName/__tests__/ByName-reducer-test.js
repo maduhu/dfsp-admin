@@ -4,6 +4,7 @@ import { Map } from 'immutable'
 import { bulkBatchFilterName } from '../reducer'
 import * as actionTypes from '../actionTypes'
 import * as clearFilterActions from '../../ClearFilter/actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <ByName /> batch filter', function () {
   const initialState = Map({
@@ -34,5 +35,12 @@ describe('A suite for <ByName /> batch filter', function () {
       }), {
         type: clearFilterActions.CLEAR_BATCH_FILTER
       })).toEqual(initialState)
+  })
+
+  it('should create an action changeNameFilter', function () {
+    expect(actions.changeNameFilter('test')).toEqual({
+      type: actionTypes.CHANGE_NAME_FILTER,
+      params: 'test'
+    })
   })
 })

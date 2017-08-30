@@ -4,6 +4,7 @@ import { Map } from 'immutable'
 import { bulkPaymentFilterDate } from '../reducer'
 import * as actionTypes from '../actionTypes'
 import * as clearFilterActions from '../../ClearFilter/actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <ByDate /> filter', function () {
   const initialState = Map({
@@ -34,5 +35,12 @@ describe('A suite for <ByDate /> filter', function () {
       }), {
         type: clearFilterActions.CLEAR_PAYMENT_FILTER
       })).toEqual(initialState)
+  })
+
+  it('should create an action changeFilterDate', function () {
+    expect(actions.changeFilterDate('2017-01-01')).toEqual({
+      type: actionTypes.CHANGE_FILTER_DATE,
+      params: { newDate: '2017-01-01'}
+    })
   })
 })

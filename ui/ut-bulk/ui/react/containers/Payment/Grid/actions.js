@@ -12,7 +12,7 @@ export function updatePagination (params) {
   return {
     type: actionTypes.PAYMENT_UPDATE_PAGINATION,
     method: 'bulk.payment.fetch',
-    params: params.toJS() || {}
+    params: params ? params.toJS() : {}
   }
 }
 

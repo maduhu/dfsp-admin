@@ -12,7 +12,7 @@ export function updatePagination (params) {
   return {
     type: actionTypes.BATCH_UPDATE_PAGINATION,
     method: 'bulk.batch.fetch',
-    params: params.toJS() || {}
+    params: params ? params.toJS() : {}
   }
 }
 

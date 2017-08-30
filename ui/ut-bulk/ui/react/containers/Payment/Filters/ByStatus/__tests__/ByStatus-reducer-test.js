@@ -4,6 +4,7 @@ import { Map, List } from 'immutable'
 import { bulkPaymentFilterStatus } from '../reducer'
 import * as actionTypes from '../actionTypes'
 import * as clearFilterActions from '../../ClearFilter/actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <ByStatus /> filter', function () {
   const initialState = Map({
@@ -53,5 +54,28 @@ describe('A suite for <ByStatus /> filter', function () {
         changeId: 0,
         paymentStatus: List(['paid'])
       }))
+  })
+
+  it('should create an action changeFilterStatus', function () {
+    expect(actions.changeFilterStatus('pending')).toEqual({
+      type: actionTypes.CHANGE_FILTER_STATUS,
+      params: 'pending'
+    })
+  })
+
+  it('should create an action fetchBatchPaymentStatus', function () {
+    expect(actions.fetchBatchPaymentStatus('test')).toEqual({
+      type: actionTypes.FETCH_BATCH_PAYMENT_STATUS,
+      method: 'bulk.paymentStatus.fetch',
+      params: 'test'
+    })
+  })
+
+  it('should create an action fetchBatchPaymentStatus no params', function () {
+    expect(actions.fetchBatchPaymentStatus()).toEqual({
+      type: actionTypes.FETCH_BATCH_PAYMENT_STATUS,
+      method: 'bulk.paymentStatus.fetch',
+      params: {}
+    })
   })
 })

@@ -4,6 +4,7 @@ import { Map } from 'immutable'
 import { bulkBatchFilterDate } from '../reducer'
 import * as actionTypes from '../actionTypes'
 import * as clearFilterActions from '../../ClearFilter/actionTypes'
+import * as actions from '../actions'
 
 describe('A suite for <ByDate /> batch filter', function () {
   const initialState = Map({
@@ -40,5 +41,12 @@ describe('A suite for <ByDate /> batch filter', function () {
       }), {
         type: clearFilterActions.CLEAR_BATCH_FILTER
       })).toEqual(initialState)
+  })
+
+  it('should create an action changeFilterDate', function () {
+    expect(actions.changeFilterDate('startDate', '2017-01-01')).toEqual({
+      type: actionTypes.CHANGE_FILTER_DATE,
+      params: {field: 'startDate', newDate: '2017-01-01'}
+    })
   })
 })
