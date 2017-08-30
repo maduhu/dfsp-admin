@@ -1,3 +1,14 @@
+<a name="0.17.14"></a>
+## [0.17.14](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.13...v0.17.14) (2017-08-30)
+
+
+### Bug Fixes
+
+* add filter reducer tests ([83d900a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/83d900a))
+* add grid reducer tests ([5fcc9b4](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5fcc9b4))
+
+
+
 <a name="0.17.13"></a>
 ## [0.17.13](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.12...v0.17.13) (2017-08-30)
 
