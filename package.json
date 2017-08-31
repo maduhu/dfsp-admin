@@ -151,6 +151,7 @@
     "request": "browser-request"
   },
   "jest": {
+    "cache": false,
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
     },
