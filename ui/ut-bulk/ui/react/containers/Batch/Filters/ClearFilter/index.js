@@ -5,7 +5,7 @@ import * as actionCreators from './actions'
 import classnames from 'classnames'
 import style from './style.css'
 
-export class ByStatus extends Component {
+export class ClearFilters extends Component {
   render () {
     if (!this.props.show) {
       return null
@@ -16,7 +16,7 @@ export class ByStatus extends Component {
   }
 }
 
-ByStatus.propTypes = {
+ClearFilters.propTypes = {
   show: PropTypes.bool,
   actions: PropTypes.object
 }
@@ -31,4 +31,4 @@ export default connect(
       actions: bindActionCreators(actionCreators, dispatch)
     }
   }
-)(ByStatus)
+)(ClearFilters)
