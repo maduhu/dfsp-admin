@@ -1,3 +1,13 @@
+<a name="0.17.25"></a>
+## [0.17.25](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.24...v0.17.25) (2017-08-31)
+
+
+### Bug Fixes
+
+* rename pagination test ([083a855](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/083a855))
+
+
+
 <a name="0.17.24"></a>
 ## [0.17.24](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.23...v0.17.24) (2017-08-31)
 
