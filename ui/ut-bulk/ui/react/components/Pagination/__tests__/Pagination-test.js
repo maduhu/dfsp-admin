@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 
 import Pagination from '../index'
 
-describe('A suite for <Pagination /> Component', function () {
+describe('A suite for <Pagination /> bulk Component', function () {
   const initialState = {}
   const mockStore = configureStore()
   let store
