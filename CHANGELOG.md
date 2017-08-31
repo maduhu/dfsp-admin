@@ -1,3 +1,13 @@
+<a name="0.17.23"></a>
+## [0.17.23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.22...v0.17.23) (2017-08-31)
+
+
+### Bug Fixes
+
+* fix action type imports ([daacae7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/daacae7))
+
+
+
 <a name="0.17.22"></a>
 ## [0.17.22](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.21...v0.17.22) (2017-08-31)
 
