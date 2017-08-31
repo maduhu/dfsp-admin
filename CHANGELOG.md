@@ -1,3 +1,13 @@
+<a name="0.17.18"></a>
+## [0.17.18](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.17...v0.17.18) (2017-08-31)
+
+
+### Bug Fixes
+
+* import the reducer through the reducers file to increase coverage ([34c0288](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/34c0288))
+
+
+
 <a name="0.17.17"></a>
 ## [0.17.17](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.16...v0.17.17) (2017-08-30)
 
