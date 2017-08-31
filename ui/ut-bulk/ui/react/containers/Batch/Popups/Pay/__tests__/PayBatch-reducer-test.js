@@ -223,7 +223,7 @@ describe('A suite for <PayBatch /> popup', function () {
     expect(actions.getBatchTotalAmount(1)).toEqual({
       type: actionTypes.GET_BATCH_TOTAL_AMOUNT,
       method: 'bulk.batch.getTotalAmount',
-      params: { batchId: 1}
+      params: { batchId: 1 }
     })
   })
 })

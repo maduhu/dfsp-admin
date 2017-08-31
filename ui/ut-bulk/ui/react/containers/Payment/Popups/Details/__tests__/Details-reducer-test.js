@@ -101,7 +101,7 @@ describe('A suite for <Details /> Popup', function () {
       params: {
         actorId: 1,
         payments: '[{"a":"b"}]'
-      }    
+      }
     })
   })
 })

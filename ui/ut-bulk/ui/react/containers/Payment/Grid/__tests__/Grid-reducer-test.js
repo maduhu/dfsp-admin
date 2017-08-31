@@ -338,7 +338,7 @@ describe('A suite for <Grid /> payment container', function () {
   it('should create an action checkRow', function () {
     expect(actions.checkRow('test')).toEqual({
       type: actionTypes.PAYMENT_ROW_ADD_CHECK,
-      params: { row: 'test'}
+      params: { row: 'test' }
     })
   })
 
@@ -352,7 +352,7 @@ describe('A suite for <Grid /> payment container', function () {
   it('should create an action uncheckRow', function () {
     expect(actions.uncheckRow('test')).toEqual({
       type: actionTypes.PAYMENT_ROW_REMOVE_CHECK,
-      params: { row: 'test'}
+      params: { row: 'test' }
     })
   })
 
@@ -366,7 +366,7 @@ describe('A suite for <Grid /> payment container', function () {
   it('should create an action selectRow', function () {
     expect(actions.selectRow('test')).toEqual({
       type: actionTypes.PAYMENT_ROW_SELECT,
-      params: { row: 'test'}
+      params: { row: 'test' }
     })
   })
 
@@ -380,7 +380,7 @@ describe('A suite for <Grid /> payment container', function () {
   it('should create an action checkAll', function () {
     expect(actions.checkAll('test')).toEqual({
       type: actionTypes.PAYMENT_CHECK_ALL,
-      params: { rows: 'test'}
+      params: { rows: 'test' }
     })
   })
 

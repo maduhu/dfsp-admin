@@ -40,7 +40,7 @@ describe('A suite for <ByDate /> filter', function () {
   it('should create an action changeFilterDate', function () {
     expect(actions.changeFilterDate('2017-01-01')).toEqual({
       type: actionTypes.CHANGE_FILTER_DATE,
-      params: { newDate: '2017-01-01'}
+      params: { newDate: '2017-01-01' }
     })
   })
 })

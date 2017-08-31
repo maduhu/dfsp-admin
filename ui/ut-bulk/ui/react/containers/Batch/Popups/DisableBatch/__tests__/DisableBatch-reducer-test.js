@@ -121,7 +121,7 @@ describe('A suite for <DisableBatch /> popup', function () {
       params: {}
     })
   })
-  
+
   it('should create an action addComment', function () {
     expect(actions.addComment('test')).toEqual({
       type: actionTypes.ADD_COMMENT,

@@ -55,16 +55,16 @@ describe('A suite for <DeleteBatch /> popup', function () {
         batchStatuses: List(),
         changeId: 0
       }), {
-          type: actionTypes.CLOSE_DELETE_BATCH_POPUP,
-          params: {
-            batchId: '1'
-          }
-        })).toEqual(Map({
-          batchId: null,
-          comment: null,
-          batchStatuses: List(),
-          changeId: 0
-        }))
+        type: actionTypes.CLOSE_DELETE_BATCH_POPUP,
+        params: {
+          batchId: '1'
+        }
+      })).toEqual(Map({
+        batchId: null,
+        comment: null,
+        batchStatuses: List(),
+        changeId: 0
+      }))
   })
 
   it('should handle actionTypes.ADD_COMMENT', function () {
