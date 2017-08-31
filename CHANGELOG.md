@@ -1,3 +1,13 @@
+<a name="0.17.26"></a>
+## [0.17.26](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.25...v0.17.26) (2017-08-31)
+
+
+### Bug Fixes
+
+* update ut-run ([a2f0769](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/a2f0769))
+
+
+
 <a name="0.17.25"></a>
 ## [0.17.25](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.24...v0.17.25) (2017-08-31)
 
