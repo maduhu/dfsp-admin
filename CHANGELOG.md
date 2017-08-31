@@ -1,3 +1,13 @@
+<a name="0.17.27"></a>
+## [0.17.27](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.26...v0.17.27) (2017-08-31)
+
+
+### Bug Fixes
+
+* disable jest cache ([5a67a00](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5a67a00))
+
+
+
 <a name="0.17.26"></a>
 ## [0.17.26](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.25...v0.17.26) (2017-08-31)
 
