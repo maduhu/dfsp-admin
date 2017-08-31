@@ -1,9 +1,11 @@
 /* global it, describe, expect */
 import { Map, List } from 'immutable'
-import { notificationsReportsFilterByTemplate } from '../reducer'
+import reducers from '../../../../../reducers'
 import * as actionTypes from '../actionTypes'
+import { CLEAR_NOTIFICATIONS_REPORT_FILTER } from '../../ClearFilter/actionTypes'
 
 describe('A suite for <ByTemplate /> Container', function () {
+  let notificationsReportsFilterByTemplate = reducers['notificationsReportsFilterByTemplate']
   const initialState = Map({
     templateId: null,
     changeId: 0,
@@ -79,11 +81,11 @@ describe('A suite for <ByTemplate /> Container', function () {
   it('should handle actionTypes.CLEAR_NOTIFICATIONS_REPORT_FILTER', function () {
     expect(
       notificationsReportsFilterByTemplate(undefined, {
-        type: actionTypes.CLEAR_NOTIFICATIONS_REPORT_FILTER,
+        type: CLEAR_NOTIFICATIONS_REPORT_FILTER,
         params: {}
       })).toEqual(Map({
         templateId: null,
-        changeId: 0,
+        changeId: 1,
         templates: List()
       }))
   })

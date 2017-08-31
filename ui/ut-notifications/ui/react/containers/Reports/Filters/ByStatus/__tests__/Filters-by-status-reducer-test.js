@@ -2,6 +2,7 @@
 import { Map, List } from 'immutable'
 import { notificationsReportsFilterByStatus } from '../reducer'
 import * as actionTypes from '../actionTypes'
+import { CLEAR_NOTIFICATIONS_REPORT_FILTER } from '../../ClearFilter/actionTypes'
 
 describe('A suite for <ByStatus /> Container', function () {
   const initialState = Map({
@@ -74,14 +75,37 @@ describe('A suite for <ByStatus /> Container', function () {
       }))
   })
 
-  it('should handle actionTypes.CLEAR_NOTIFICATIONS_REPORT_FILTER', function () {
+  it('should handle actionTypes.FETCH_STATUSES', function () {
     expect(
       notificationsReportsFilterByStatus(undefined, {
-        type: actionTypes.CLEAR_NOTIFICATIONS_REPORT_FILTER,
-        params: {}
+        type: actionTypes.FETCH_STATUSES,
+        params: {},
+        methodRequestState: 'pending',
+        result: [
+          {
+            statusId: '1',
+            name: 'pending'
+          },
+          {
+            statusId: '2',
+            name: 'ready'
+          }
+        ]
       })).toEqual(Map({
         statusId: null,
         changeId: 0,
+        statuses: List()
+      }))
+  })
+
+  it('should handle actionTypes.CLEAR_NOTIFICATIONS_REPORT_FILTER', function () {
+    expect(
+      notificationsReportsFilterByStatus(undefined, {
+        type: CLEAR_NOTIFICATIONS_REPORT_FILTER,
+        params: {}
+      })).toEqual(Map({
+        statusId: null,
+        changeId: 1,
         statuses: List()
       }))
   })
