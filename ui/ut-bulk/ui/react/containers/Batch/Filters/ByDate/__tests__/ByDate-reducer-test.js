@@ -1,12 +1,13 @@
 /* global it, describe, expect */
 import { Map } from 'immutable'
 
-import { bulkBatchFilterDate } from '../reducer'
+import reducers from '../../../../../reducers'
 import * as actionTypes from '../actionTypes'
 import * as clearFilterActions from '../../ClearFilter/actionTypes'
 import * as actions from '../actions'
 
 describe('A suite for <ByDate /> batch filter', function () {
+  let bulkBatchFilterDate = reducers['bulkBatchFilterDate']
   const initialState = Map({
     startDate: null,
     endDate: null,
