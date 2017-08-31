@@ -1,3 +1,13 @@
+<a name="0.17.22"></a>
+## [0.17.22](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.21...v0.17.22) (2017-08-31)
+
+
+### Bug Fixes
+
+* add provider test ([3f45cd0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/3f45cd0))
+
+
+
 <a name="0.17.21"></a>
 ## [0.17.21](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.20...v0.17.21) (2017-08-31)
 
