@@ -1,3 +1,13 @@
+<a name="0.17.28"></a>
+## [0.17.28](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.27...v0.17.28) (2017-08-31)
+
+
+### Bug Fixes
+
+* test ui/index ([15c9d0c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/15c9d0c))
+
+
+
 <a name="0.17.27"></a>
 ## [0.17.27](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.26...v0.17.27) (2017-08-31)
 
