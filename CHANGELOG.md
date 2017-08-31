@@ -1,3 +1,13 @@
+<a name="0.17.24"></a>
+## [0.17.24](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.23...v0.17.24) (2017-08-31)
+
+
+### Bug Fixes
+
+* change non-unique test suite name ([580fec6](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/580fec6))
+
+
+
 <a name="0.17.23"></a>
 ## [0.17.23](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.22...v0.17.23) (2017-08-31)
 
