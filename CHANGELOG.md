@@ -1,3 +1,13 @@
+<a name="0.17.19"></a>
+## [0.17.19](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.18...v0.17.19) (2017-08-31)
+
+
+### Bug Fixes
+
+* fix linting and add more tests ([5eb272b](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5eb272b))
+
+
+
 <a name="0.17.18"></a>
 ## [0.17.18](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.17...v0.17.18) (2017-08-31)
 
