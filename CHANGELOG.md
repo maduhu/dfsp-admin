@@ -1,3 +1,13 @@
+<a name="0.17.20"></a>
+## [0.17.20](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.19...v0.17.20) (2017-08-31)
+
+
+### Bug Fixes
+
+* add component tests ([08a81a1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/08a81a1))
+
+
+
 <a name="0.17.19"></a>
 ## [0.17.19](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.18...v0.17.19) (2017-08-31)
 
