@@ -1,3 +1,13 @@
+<a name="0.17.21"></a>
+## [0.17.21](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.20...v0.17.21) (2017-08-31)
+
+
+### Bug Fixes
+
+* add dashboard tests ([36810aa](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/36810aa))
+
+
+
 <a name="0.17.20"></a>
 ## [0.17.20](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.19...v0.17.20) (2017-08-31)
 
