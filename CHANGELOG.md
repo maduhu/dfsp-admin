@@ -1,3 +1,13 @@
+<a name="0.17.29"></a>
+## [0.17.29](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.28...v0.17.29) (2017-09-01)
+
+
+### Bug Fixes
+
+* increase code coverage ([cfde9d2](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/cfde9d2))
+
+
+
 <a name="0.17.28"></a>
 ## [0.17.28](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.27...v0.17.28) (2017-08-31)
 
