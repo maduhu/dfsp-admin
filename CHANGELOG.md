@@ -1,3 +1,16 @@
+<a name="0.17.34"></a>
+## [0.17.34](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.33...v0.17.34) (2017-09-01)
+
+
+### Bug Fixes
+
+* add method tests on payment grid toolbox ([75b9b62](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/75b9b62))
+* add more tests ([1d9bbbc](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/1d9bbbc))
+* object.entries is not a function error ([5565ed7](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5565ed7))
+* object.entries is not a function error ([0b2d350](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/0b2d350))
+
+
+
 <a name="0.17.33"></a>
 ## [0.17.33](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.32...v0.17.33) (2017-09-01)
 
