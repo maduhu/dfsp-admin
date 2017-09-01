@@ -1,3 +1,13 @@
+<a name="0.17.32"></a>
+## [0.17.32](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.31...v0.17.32) (2017-09-01)
+
+
+### Bug Fixes
+
+* add method test for batch grid component ([03a4891](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/03a4891))
+
+
+
 <a name="0.17.31"></a>
 ## [0.17.31](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.30...v0.17.31) (2017-09-01)
 
