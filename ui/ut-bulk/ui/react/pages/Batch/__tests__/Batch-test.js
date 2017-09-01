@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store'
 import {Map, List} from 'immutable'
 import {Provider} from 'react-redux'
 
-import Batch from '../index'
+import {Main} from '../../index'
 
 describe('A suite for <Batch /> Page', function () {
   const initialState = {
@@ -113,7 +113,7 @@ describe('A suite for <Batch /> Page', function () {
   })
 
   it('should contain elements', function () {
-    const wrapper = mount(<Provider store={store}><Batch /></Provider>, {context, childContextTypes})
+    const wrapper = mount(<Provider store={store}><Main /></Provider>, {context, childContextTypes})
     expect(wrapper.length).toBe(1)
     expect(wrapper.find('div').at(0).length).toBe(1)
   })
