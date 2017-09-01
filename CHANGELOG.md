@@ -1,3 +1,13 @@
+<a name="0.17.31"></a>
+## [0.17.31](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.30...v0.17.31) (2017-09-01)
+
+
+### Bug Fixes
+
+* test method in payment grid component ([7d7146a](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/7d7146a))
+
+
+
 <a name="0.17.30"></a>
 ## [0.17.30](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.29...v0.17.30) (2017-09-01)
 
