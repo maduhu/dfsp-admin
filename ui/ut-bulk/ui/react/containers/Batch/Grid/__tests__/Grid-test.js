@@ -1,6 +1,6 @@
 /* global it, describe, expect,beforeEach */
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import {Map, List} from 'immutable'
 import {Provider} from 'react-redux'
@@ -89,6 +89,41 @@ describe('A suite for <Grid /> batch container', function () {
 
   it('should contain elements', function () {
     const wrapper = mount(<Provider store={store}><Grid /></Provider>, {context, childContextTypes})
+    const wrapperComponent = shallow(React.createElement(
+      Grid.WrappedComponent,
+      {
+        actions: {
+          fetchBatches: () => {},
+          checkRow: () => {}
+        },
+        checkedRow: {
+          batchId: 1
+        },
+        filterBy: {
+          batchId: 1
+        },
+        showToolbox: () => {}
+      }), {context, childContextTypes})
+    // increase code coverage
+    var testObj = {
+      1: '',
+      2: '__placeholder__',
+      3: undefined,
+      4: null,
+      5: 0,
+      6: 'test'
+    }
+    wrapperComponent.instance().removeNullPropertiesFromObject(testObj)
+    expect(testObj).toEqual({6: 'test'})
+    wrapperComponent.instance().componentWillReceiveProps({
+      changeId: 2,
+      filterBy: {}
+    })
+    wrapperComponent.instance().handleCellClick({batchId: 1})
+    wrapperComponent.instance().handleTransformCellValue('tset', {name: 'name'}, {batchId: 1}, false)
+    wrapperComponent.instance().handleTransformCellValue('tset', {name: 'name'}, {batchId: 1}, true)
+    wrapperComponent.instance().handleTransformCellValue('tset', {name: 'createdAt'}, {batchId: 1}, true)
+    wrapperComponent.instance().handleReload()
     expect(wrapper.length).toBe(1)
   })
 })
