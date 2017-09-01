@@ -47,7 +47,7 @@ class GridToolbox extends Component {
       }
     })
   }
-;
+
   handleDetailClick () {
     this.props.setDatailItem(this.props.selectedPayments[0])
   }
