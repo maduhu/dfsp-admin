@@ -1,3 +1,13 @@
+<a name="0.17.30"></a>
+## [0.17.30](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.29...v0.17.30) (2017-09-01)
+
+
+### Bug Fixes
+
+* test onSubmit method on uploadForm ([5280a11](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/5280a11))
+
+
+
 <a name="0.17.29"></a>
 ## [0.17.29](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.28...v0.17.29) (2017-09-01)
 
