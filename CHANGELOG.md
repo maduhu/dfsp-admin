@@ -1,3 +1,13 @@
+<a name="0.17.33"></a>
+## [0.17.33](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.32...v0.17.33) (2017-09-01)
+
+
+### Bug Fixes
+
+* add some more tests ([ca7ee1f](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ca7ee1f))
+
+
+
 <a name="0.17.32"></a>
 ## [0.17.32](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.31...v0.17.32) (2017-09-01)
 
