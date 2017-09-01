@@ -61,7 +61,8 @@ class NotificationsReportsGrid extends Component {
   }
 
   removeEmpty (obj) {
-    Object.keys(obj).forEach(([key, val]) => {
+    Object.keys(obj).forEach((key) => {
+      let val = obj[key]
       if (val && typeof val === 'object') this.removeEmpty(val)
       else if (val === null || val === '') delete obj[key]
     })

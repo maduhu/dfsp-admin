@@ -98,7 +98,11 @@ describe('A suite for <NotificationsReportsGrid /> grid', function () {
       })
     )
     // increase code coverage
-    wrapperComponent.instance().removeEmpty({})
+    expect(wrapperComponent.instance().removeEmpty({
+      1: null,
+      2: '',
+      3: 'test'
+    })).toEqual({3: 'test'})
     wrapperComponent.instance().componentWillReceiveProps({})
     wrapperComponent.instance().componentWillMount({})
     expect(wrapper.length).toBe(1)
