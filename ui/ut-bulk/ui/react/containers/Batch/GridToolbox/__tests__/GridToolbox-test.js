@@ -120,17 +120,7 @@ describe('A suite for <GridToolbox /> batch container', function () {
           batchId: '1'
         },
         openDeletePopup: () => {},
-        fetchBatches: () => {},
-        openDeletePopup: () => {}
-        // actorId: '1',
-        // paymentStatuses: List([
-        //   {name: 'disabled', key: 1}
-        // ]),
-        // selectedPayments: [
-        //   {paymentStatusId: 1}
-        // ],
-        // fetchBatchPayments: () => {},
-        // setDatailItem: () => {}
+        fetchBatches: () => {}
       }), {context, childContextTypes})
     // increase code coverage
     wrapperComponent.instance().handleDetailClick()
