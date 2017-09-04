@@ -41,6 +41,12 @@ describe('A suite for <UploadForm /> popup', function () {
     }
     // increase code coverage
     wrapperComponent.instance().onSubmit({preventDefault: () => {}})
+    wrapperComponent.instance().refs = {
+      batch: {
+        files: []
+      }
+    }
+    wrapperComponent.instance().onSubmit({preventDefault: () => {}})
     wrapperComponent.instance().onClose()
     expect(wrapper.length).toBe(1)
   })

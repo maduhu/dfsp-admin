@@ -1,6 +1,6 @@
 /* global it, describe, expect,beforeEach */
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { Map, List } from 'immutable'
 import { Provider } from 'react-redux'
@@ -119,5 +119,37 @@ describe('A suite for <NotificationsDetailsPopup /> Page', function () {
   it('should contain elements', function () {
     const wrapper = mount(<Provider store={store}><NotificationsDetailsPopup /></Provider>, { context, childContextTypes })
     expect(wrapper.length).toBe(1)
+    const wrapperComponent = shallow(React.createElement(
+      NotificationsDetailsPopup.WrappedComponent, {
+        actions: {
+          mergeEditFields: () => {},
+          resetFields: () => {},
+          createTemplate: () => {},
+          clearDetail: () => {}
+        },
+        purpose: 'create',
+        fields: {
+          name: ''
+        }
+      }), {context, childContextTypes})
+    const wrapperComponent2 = shallow(React.createElement(
+      NotificationsDetailsPopup.WrappedComponent, {
+        actions: {
+          mergeEditFields: () => {},
+          resetFields: () => {},
+          editTemplate: () => {},
+          clearDetail: () => {}
+        },
+        purpose: 'edit',
+        fields: {
+          name: ''
+        }
+      }), {context, childContextTypes})
+    // increase code coverage
+    wrapperComponent.instance().componentWillReceiveProps({purpose: 'edit'})
+    wrapperComponent2.instance().componentWillReceiveProps({purpose: 'create'})
+    wrapperComponent.instance().onSave()
+    wrapperComponent2.instance().onSave()
+    wrapperComponent2.instance().onClose()
   })
 })
