@@ -1,6 +1,6 @@
 {
   "name": "@leveloneproject/dfsp-admin",
-  "version": "0.17.39",
+  "version": "0.17.40",
   "description": "DFSP Admin",
   "main": "index.js",
   "scripts": {

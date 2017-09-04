@@ -1,3 +1,14 @@
+<a name="0.17.40"></a>
+## [0.17.40](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.39...v0.17.40) (2017-09-04)
+
+
+### Bug Fixes
+
+* add batch and payment pages methods tests ([2878476](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/2878476))
+* add more tests ([ccfbf1c](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/ccfbf1c))
+
+
+
 <a name="0.17.39"></a>
 ## [0.17.39](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.38...v0.17.39) (2017-09-04)
 
