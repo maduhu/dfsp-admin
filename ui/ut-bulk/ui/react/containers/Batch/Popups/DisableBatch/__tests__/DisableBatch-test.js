@@ -52,7 +52,8 @@ describe('A suite for <DisableBatchPopup /> popup', function () {
         batchStatuses: List([
           { batchStatusId: 1, name: 'pending' },
           { batchStatusId: 2, name: 'rejected' },
-          { batchStatusId: 3, name: 'disabled' }
+          { batchStatusId: 3, name: 'disabled' },
+          { batchStatusId: 4, name: 'approved' }
         ])
       }),
       { context, childContextTypes }
