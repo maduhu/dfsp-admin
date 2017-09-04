@@ -1,6 +1,6 @@
 /* global it, describe, expect,beforeEach */
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import {Map, List} from 'immutable'
 import {Provider} from 'react-redux'
@@ -116,5 +116,16 @@ describe('A suite for <Batch /> Page', function () {
     const wrapper = mount(<Provider store={store}><Main /></Provider>, {context, childContextTypes})
     expect(wrapper.length).toBe(1)
     expect(wrapper.find('div').at(0).length).toBe(1)
+    const wrapperComponent = shallow(React.createElement(
+      Main.WrappedComponent,
+      {
+        fetchBatches: () => {},
+        checkedRow: {
+          batchId: 1
+        }
+      }),
+      {context, childContextTypes}
+    )
+    wrapperComponent.instance().toggleUploadPopup(true)
   })
 })

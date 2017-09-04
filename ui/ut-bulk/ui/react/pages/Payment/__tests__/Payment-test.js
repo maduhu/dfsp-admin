@@ -1,6 +1,6 @@
 /* global it, describe, expect,beforeEach */
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import {Map, List} from 'immutable'
 import {Provider} from 'react-redux'
@@ -123,5 +123,26 @@ describe('A suite for <Payment /> Page', function () {
     const wrapper = mount(<Provider store={store}><Payment {...props} /></Provider>, {context, childContextTypes})
     expect(wrapper.length).toBe(1)
     expect(wrapper.find('div').at(0).length).toBe(1)
+    const wrapperComponent = shallow(React.createElement(
+      Payment.WrappedComponent,
+      {
+        updateTabTitle: () => {},
+        batch: {
+          name: 'test'
+        },
+        params: {
+          batchId: 1
+        },
+        readyBatch: () => { return Promise.resolve() },
+        getBatch: () => {},
+        openPayPopup: () => {},
+        openRejectBatchPopup: () => {}
+      }),
+      {context, childContextTypes}
+    )
+    wrapperComponent.instance().componentWillReceiveProps({batch: {name: 'test'}})
+    wrapperComponent.instance().handleBatchReady()
+    wrapperComponent.instance().togglePayPopup()
+    wrapperComponent.instance().toggleRejectBatchPopup()
   })
 })
