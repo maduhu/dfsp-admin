@@ -1,3 +1,14 @@
+<a name="0.17.35"></a>
+## [0.17.35](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.34...v0.17.35) (2017-09-04)
+
+
+### Bug Fixes
+
+* remove commented code ([c64b878](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c64b878))
+* test methods in batch gridtoolbox ([a024c49](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/a024c49))
+
+
+
 <a name="0.17.34"></a>
 ## [0.17.34](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.33...v0.17.34) (2017-09-01)
 
