@@ -1,3 +1,13 @@
+<a name="0.17.41"></a>
+## [0.17.41](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.40...v0.17.41) (2017-09-04)
+
+
+### Bug Fixes
+
+* add one more status to disable batch test ([8171abb](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/8171abb))
+
+
+
 <a name="0.17.40"></a>
 ## [0.17.40](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.39...v0.17.40) (2017-09-04)
 
