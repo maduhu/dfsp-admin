@@ -1,3 +1,14 @@
+<a name="0.17.38"></a>
+## [0.17.38](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.37...v0.17.38) (2017-09-04)
+
+
+### Bug Fixes
+
+* add component methods tests ([c8a2179](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/c8a2179))
+* remove empty line ([9dcaaa9](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/9dcaaa9))
+
+
+
 <a name="0.17.37"></a>
 ## [0.17.37](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.36...v0.17.37) (2017-09-04)
 
