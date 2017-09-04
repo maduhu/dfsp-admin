@@ -1,3 +1,13 @@
+<a name="0.17.37"></a>
+## [0.17.37](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.36...v0.17.37) (2017-09-04)
+
+
+### Bug Fixes
+
+* add test for reject batch ([a3630a1](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/a3630a1))
+
+
+
 <a name="0.17.36"></a>
 ## [0.17.36](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.35...v0.17.36) (2017-09-04)
 
