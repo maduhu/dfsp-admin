@@ -36,7 +36,6 @@ describe('A suite for <RejectBatchPopup /> popup', function () {
     expect(wrapper.length).toBe(1)
   })
 
-
   it('should contain elements', function () {
     const wrapper = mount(<Provider store={store}><RejectBatchPopup /></Provider>, { context, childContextTypes })
     const wrapperComponent = shallow(React.createElement(
