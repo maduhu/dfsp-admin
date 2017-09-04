@@ -25,6 +25,9 @@ describe('A suite for <UploadForm /> popup', function () {
         actions: {
           showPreload: () => {}
         },
+        batch: {
+          batchId: 1
+        },
         show: () => {},
         onClose: () => {}
       })
@@ -46,6 +49,8 @@ describe('A suite for <UploadForm /> popup', function () {
         files: []
       }
     }
+    wrapperComponent.instance().onSubmit({preventDefault: () => {}})
+    wrapperComponent.instance().state.batchName = null
     wrapperComponent.instance().onSubmit({preventDefault: () => {}})
     wrapperComponent.instance().onClose()
     expect(wrapper.length).toBe(1)

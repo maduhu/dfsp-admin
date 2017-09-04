@@ -91,6 +91,7 @@ describe('A suite for <NotificationsReportsGrid /> grid', function () {
           fetchReports: () => { },
           toggleRowCheck: () => { }
         },
+        changeId: 1,
         removeEmpty: () => { },
         componentWillReceiveProps: () => { },
         handleTransformCellValue: () => { },
@@ -103,8 +104,12 @@ describe('A suite for <NotificationsReportsGrid /> grid', function () {
       2: '',
       3: 'test'
     })).toEqual({3: 'test'})
-    wrapperComponent.instance().componentWillReceiveProps({})
+    wrapperComponent.instance().componentWillReceiveProps({changeId: 2, filters: {}})
     wrapperComponent.instance().componentWillMount({})
+    wrapperComponent.instance().handleTransformCellValue('', {}, {}, true)
+    wrapperComponent.instance().handleTransformCellValue('', {name: 'status'}, {}, false)
+    wrapperComponent.instance().handleTransformCellValue('', {name: 'createdOn'}, {}, false)
+    wrapperComponent.instance().handleTransformCellValue('', {name: 'test'}, {}, false)
     expect(wrapper.length).toBe(1)
   })
 })
