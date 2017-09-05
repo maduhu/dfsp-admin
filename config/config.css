@@ -1,18 +1,7 @@
-:root {
-    --ut-front-react-standardMainLogoWidth: 100px;
-    --ut-front-react-standardTabMenuColor: #AC2641;
-    --ut-front-react-standardSearchBoxColor: #AC2641;
-    --ut-front-react-standardDatePickerBackgroundColor: #AC2641;
-    --ut-front-react-standardDropdownIconColor: #AC2641;
-    --ut-front-react-standardDropdownSelectedColor: #AC2641;
-    --ut-front-react-standardToolboxLinkColor: #AC2641;
-    --ut-front-react-standardDataGridTableColor: #AC2641;
-}
-
 .headerLogo {
-  height: 60px !important;
-  width: 160px !important;
-  background: inline('ui/administration/assets/images/logo.jpg') no-repeat center center !important;
+    height: 60px !important;
+    width: 160px !important;
+    background: inline('ui/administration/assets/images/logo_blue.jpg') no-repeat center center !important;
 }
 
 .tabMenuItemContent {
