@@ -1,3 +1,13 @@
+<a name="0.17.42"></a>
+## [0.17.42](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.41...v0.17.42) (2017-09-07)
+
+
+### Bug Fixes
+
+* logo position ([d3f41b0](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/commit/d3f41b0))
+
+
+
 <a name="0.17.41"></a>
 ## [0.17.41](https://github.com/softwaregroup-bg/@leveloneproject/dfsp-admin/compare/v0.17.40...v0.17.41) (2017-09-04)
 
