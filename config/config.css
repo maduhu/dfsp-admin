@@ -1,6 +1,10 @@
+:root {
+    --ut-front-react-standardMainLogoWidth: 160px;
+    --ut-front-react-standardMainLogoHeight: 58px;
+    --ut-front-react-standardHeaderLogoContainerMargin: 0;
+}
+
 .headerLogo {
-    height: 60px !important;
-    width: 160px !important;
     background: inline('ui/administration/assets/images/logo_blue.jpg') no-repeat center center !important;
 }
 
