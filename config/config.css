@@ -1,5 +1,7 @@
 :root {
-    --ut-front-react-standardMainLogoWidth: 100px;
+    --ut-front-react-standardMainLogoWidth: 160px;
+    --ut-front-react-standardMainLogoHeight: 58px;
+    --ut-front-react-standardHeaderLogoContainerMargin: 0;
     --ut-front-react-standardTabMenuColor: #AC2641;
     --ut-front-react-standardSearchBoxColor: #AC2641;
     --ut-front-react-standardDatePickerBackgroundColor: #AC2641;
@@ -10,9 +12,7 @@
 }
 
 .headerLogo {
-  height: 60px !important;
-  width: 160px !important;
-  background: inline('ui/administration/assets/images/logo.jpg') no-repeat center center !important;
+    background: inline('ui/administration/assets/images/logo.jpg') no-repeat center center !important;
 }
 
 .tabMenuItemContent {
